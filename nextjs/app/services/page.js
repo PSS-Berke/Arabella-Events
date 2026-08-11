@@ -3,7 +3,15 @@ export const metadata = { title: "PACKAGES | Arabella's Weddings & Events | AWE"
 export default function Packages() {
   return (
     <main className="mx-auto max-w-[1000px] px-6 pb-8 pt-12 md:px-10 md:pb-10 md:pt-[70px]">
-      <section className="border-b border-rule pb-[78px] text-center">
+      <section className="border-b border-rule pb-[70px] text-center">
+        <div className="font-script text-[40px] leading-none text-script sm:text-[48px] md:text-[64px]">Our</div>
+        <h1 className="mb-7 mt-1 font-display text-[26px] font-light tracking-[0.15em] sm:text-[32px] md:text-[46px] md:tracking-[0.2em]">SERVICES &amp; PACKAGES</h1>
+        <p className="mx-auto max-w-[720px] text-[13px] font-light uppercase leading-[2.1] tracking-[0.08em] text-cocoa text-pretty md:tracking-[0.14em]">
+          Thoughtfully tailored planning, design, and coordination for every celebration. Explore the ways we can bring your day to life below.
+        </p>
+      </section>
+
+      <section className="border-b border-rule py-[78px] text-center">
         <div className="font-script text-[38px] leading-none text-script sm:text-[44px] md:text-[62px]">Full</div>
         <h2 className="mb-[34px] mt-1.5 font-display text-[22px] font-light tracking-[0.13em] sm:text-[27px] md:text-[38px] md:tracking-[0.19em]">PLANNING + DESIGN</h2>
         <p className="mx-auto max-w-[760px] text-[13px] font-light uppercase leading-[2.1] tracking-[0.08em] text-cocoa text-pretty md:tracking-[0.14em]">
@@ -51,6 +59,16 @@ export default function Packages() {
           </div>
           <p className="m-0 text-center font-display text-[15px] tracking-[0.14em] text-taupe md:text-[18px]">PLEASE INQUIRE FOR A COMPLETE PROPOSAL AND FULL LIST OF INCLUSIONS.</p>
         </div>
+      </section>
+
+      <section className="border-t border-rule pt-[70px] text-center">
+        <div className="font-script text-[38px] leading-none text-script sm:text-[44px] md:text-[58px]">Let&apos;s begin</div>
+        <p className="mx-auto mb-9 mt-3 max-w-[620px] text-[13px] font-light uppercase leading-[2] tracking-[0.09em] text-cocoa text-pretty md:tracking-[0.13em]">
+          Tell us about your celebration and we&apos;ll craft a proposal tailored to you.
+        </p>
+        <a href="mailto:arabella@arabellasweddings.com" className="inline-block border-b border-brass pb-1.5 text-[11.5px] font-light tracking-[0.26em] text-espresso">
+          INQUIRE NOW
+        </a>
       </section>
     </main>
   );
