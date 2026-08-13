@@ -1,53 +1,131 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import Testimonials from '@/components/Testimonials';
+import HeroSlideshow from '@/components/HeroSlideshow';
 import { IMG, ABOUT_PARAS } from '@/lib/content';
+
+export const metadata = {
+  title: "WELCOME | Arabella's Weddings & Events | AWE",
+  alternates: { canonical: '/' },
+  openGraph: { url: '/', siteName: "Arabella's Weddings & Events | AWE ", type: 'website' },
+};
+
+const CANVAS_ALT =
+  'PUBLISHED IN STYLE ME PRETTY | #2 BEST FALL WEDDINGS IN ARIZONA, 2025 — A FEW FAVORITES — EVERY DETAIL tells your story';
+
+// The three "A Few Favorites" portraits, overlaid on the canvas graphic exactly
+// as on live (Wix mesh: canvas 1066x895 at x -71 of the 980 grid; photos at
+// x 64/362/663, tops 833/827/827, all bottoms aligned at y 1177).
+const FAVORITES = [
+  {
+    src: IMG.trio1,
+    w: 260,
+    h: 344,
+    alt: 'Bride in a lace mantilla veil and beaded champagne gown on the stairs at Tlaquepaque, Sedona',
+    desktop: 'absolute left-[64px] top-[833px] h-[344px] w-[260px] max-w-none',
+    fluid: 'absolute left-[12.66%] top-[70.77%] h-auto w-[24.39%]',
+  },
+  {
+    src: IMG.trio2,
+    w: 252,
+    h: 350,
+    alt: 'Couple embracing before the red rocks of Sedona',
+    desktop: 'absolute left-[362px] top-[827px] h-[350px] w-[252px] max-w-none',
+    fluid: 'absolute left-[40.62%] top-[70.26%] h-auto w-[23.64%]',
+  },
+  {
+    src: IMG.trio3,
+    w: 252,
+    h: 350,
+    alt: 'Bride in a lace gown holding an orange and white bouquet beside a canal bridge',
+    desktop: 'absolute left-[663px] top-[827px] h-[350px] w-[252px] max-w-none',
+    fluid: 'absolute left-[68.86%] top-[70.26%] h-auto w-[23.64%]',
+  },
+];
 
 export default function Home() {
   return (
     <main>
-      <section className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-9 px-6 pb-8 pt-11 md:grid-cols-[1.15fr_0.85fr] md:gap-14 md:px-10 md:pb-10 md:pt-16">
-        <div>
-          <p className="m-0 font-display text-[21px] font-light leading-[1.62] tracking-[0.055em] text-pretty sm:text-2xl md:text-[30px]">
-            Arabella&apos;s Weddings &amp; Events offers luxury wedding planning, design, and coordination throughout Arizona, Chicago, and beyond.
-          </p>
-          <Link href="/services" className="mt-9 inline-block border-b border-[#c8b5a4] pb-1.5 text-[11.5px] font-light tracking-[0.26em]">
-            VIEW PACKAGES
-          </Link>
-        </div>
-        <Image src={IMG.hero} alt="Bride and groom portrait, Tlaquepaque, Sedona" width={640} height={976} priority className="block h-auto max-h-[52vh] w-full object-cover object-center md:max-h-[62vh]" />
+      {/* Intro line — baked PNG strip, centered */}
+      <section className="px-5 pt-[34px]">
+        <Image
+          src={IMG.introLine}
+          alt="Arabella's Weddings & Events offers luxury wedding planning, design, and coordination throughout Arizona, Chicago, and beyond."
+          width={840}
+          height={57}
+          priority
+          className="mx-auto block h-auto w-full max-w-[665px]"
+        />
       </section>
 
-      <section className="mx-auto grid max-w-[1180px] grid-cols-1 items-start gap-9 px-6 pb-16 pt-14 md:grid-cols-[0.92fr_1.08fr] md:gap-[70px] md:px-10 md:pb-[90px] md:pt-20">
-        <Image src={IMG.about} alt="Arabella's Weddings &amp; Events" width={1066} height={895} className="block h-auto w-full" />
-        <div>
-          <h2 className="m-0 mb-[30px] font-display text-[30px] font-light leading-[1.2] tracking-[0.075em] md:text-[40px]">AN EYE FOR WHAT COULD BE</h2>
-          <div className="flex flex-col gap-[18px] text-[14.5px] font-light leading-[1.95] tracking-[0.055em] text-cocoa text-pretty">
-            {ABOUT_PARAS.map((p, n) => (
-              <p key={n} className="m-0">{p}</p>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Hero — 986x404 twelve-slide slideshow with the glowing AWE banner overlaid (live comp-mbcserd2) */}
+      <HeroSlideshow />
 
-      <section className="px-6 pb-20 md:px-10 md:pb-24">
-        <p className="mx-auto max-w-[940px] text-center font-display text-[20px] font-light leading-[1.5] tracking-[0.1em] sm:text-[23px] md:text-[32px] md:tracking-[0.13em]">
-          SHARE THE VISION. TRUST THE PROCESS. AND ALLOW YOURSELF TO BE SURPRISED BY WHAT WE{' '}
-          <em className="font-script text-[30px] not-italic tracking-[0.01em] text-script md:text-[40px]">create</em>
-        </p>
-      </section>
-
-      <section className="mx-auto max-w-[1180px] px-6 pb-24 md:px-10 md:pb-[100px]">
-        <div className="mb-[52px] text-center">
-          <div className="font-display text-[19px] tracking-[0.34em] text-taupe">THE</div>
-          <div className="mt-0.5 font-display text-[42px] font-light leading-[1.05] tracking-[0.1em] sm:text-[52px] md:text-[74px]">AWE</div>
-          <div className="-mt-1.5 font-script text-[38px] text-script">experience</div>
-        </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-[26px]">
-          {[IMG.trio1, IMG.trio2, IMG.trio3].map((src, n) => (
-            <Image key={n} src={src} alt="Wedding detail" width={520} height={688} className="block aspect-[3/4] w-full object-cover md:aspect-auto md:h-[430px]" />
+      {/* "A Few Favorites" collage — canvas graphic with the photo trio overlapping its bottom band */}
+      <section className="mt-[9px] overflow-x-clip">
+        {/* >= lg: exact live geometry on the 980px content grid */}
+        <div className="relative mx-auto hidden aspect-[980/1177] w-[980px] lg:block">
+          <Image
+            src={IMG.about}
+            alt={CANVAS_ALT}
+            width={2132}
+            height={1790}
+            sizes="1066px"
+            className="absolute -left-[71px] top-0 h-[895px] w-[1066px] max-w-none"
+          />
+          {FAVORITES.map((p) => (
+            <Image key={p.src} src={p.src} alt={p.alt} width={p.w * 2} height={p.h * 2} sizes={p.w + 'px'} className={p.desktop} />
           ))}
         </div>
+        {/* < lg: same composition, scaled proportionally to the canvas */}
+        <div className="relative mx-auto aspect-[1066/1177] w-full max-w-[1066px] lg:hidden">
+          <Image
+            src={IMG.about}
+            alt={CANVAS_ALT}
+            width={2132}
+            height={1790}
+            sizes="100vw"
+            className="absolute left-0 top-0 h-auto w-full"
+          />
+          {FAVORITES.map((p) => (
+            <Image key={p.src} src={p.src} alt={p.alt} width={p.w * 2} height={p.h * 2} sizes="25vw" className={p.fluid} />
+          ))}
+        </div>
+      </section>
+
+      {/* "AN EYE FOR WHAT COULD BE" — heading strip PNG + bio paragraphs as real text + vision tagline strip */}
+      <section className="px-6">
+        <Image
+          src={IMG.eyeHeading}
+          alt="AN EYE FOR WHAT COULD BE"
+          width={626}
+          height={46}
+          className="mx-auto mt-[71px] block h-auto w-full max-w-[447px]"
+        />
+        <div className="mx-auto mt-[28px] w-full max-w-[668px] text-[14.5px] font-light leading-[21.5px] tracking-[0.09em] text-brown">
+          {ABOUT_PARAS.map((p, n) => (
+            <p key={n} className="m-0">
+              {p}
+            </p>
+          ))}
+        </div>
+        <Image
+          src={IMG.visionTagline}
+          alt="SHARE THE VISION. TRUST THE PROCESS. AND ALLOW YOURSELF TO BE SURPRISED BY WHAT WE create"
+          width={840}
+          height={70}
+          className="mx-auto mt-[23px] block h-auto w-full max-w-[600px]"
+        />
+      </section>
+
+      {/* "THE AWE experience" graphic — heads the testimonial carousel; offset left of center on live */}
+      <section className="mx-auto mt-[77px] w-full max-w-[980px] px-6 lg:px-0">
+        <Image
+          src={IMG.aweExperience}
+          alt="THE AWE experience"
+          width={465}
+          height={238}
+          className="mx-auto block h-auto w-[332px] max-w-full lg:mx-0 lg:ml-[80px]"
+        />
       </section>
 
       <Testimonials />

@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body { margin: 0; padding: 0; background: #fdfbf7; }
+html, body { margin: 0; padding: 0; background: #ffffff; }
 * { box-sizing: border-box; }
-::selection { background: #e8ddd2; }
-a { color: #3b2a21; text-decoration: none; }
-a:hover { color: #8a6a54; }
+::selection { background: #f7efe9; }
+a { color: #414141; text-decoration: none; transition: color 0.4s ease; }
+a:hover { color: #dea27a; }

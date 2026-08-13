@@ -1,28 +1,72 @@
 'use client';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { NAV, IMG } from '@/lib/content';
+import { NAV, NAV_PRIMARY, NAV_SECONDARY, IMG } from '@/lib/content';
+
+// Live desktop header (QA-verified against the Wix mesh): ONE band — the
+// 3-item nav left of the centered 259px logo, the 4-item nav right of it,
+// both vertically centered against the logo. Nav in Aboreto 17px/16px,
+// #414141, hover+active #DEA27A (0.4s transition, no underline). Mobile
+// gets a hamburger panel.
+function NavLinks({ items, size, pathname, className = '' }) {
+  return (
+    <ul className={`m-0 flex list-none flex-nowrap items-center gap-x-6 whitespace-nowrap p-0 font-nav ${size} tracking-[0.02em] ${className}`}>
+      {items.map((item) => (
+        <li key={item.href}>
+          <Link
+            href={item.href}
+            className={`transition-colors duration-[400ms] ease-in-out hover:text-tan ${pathname === item.href ? 'text-tan' : 'text-charcoal'}`}
+          >
+            {item.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function Header() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
   return (
-    <header className="flex flex-col items-center px-6 pt-[34px]">
-      <Link href="/">
-        <Image src={IMG.logo} alt="Arabella's Weddings &amp; Events" width={648} height={242} priority className="w-[246px] h-auto" />
-      </Link>
-      <nav className="mt-[26px] flex flex-col items-center gap-[11px] text-[10.5px] font-light tracking-[0.1em] sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 min-[1061px]:gap-[34px] min-[1061px]:text-[12.5px] min-[1061px]:tracking-[0.19em]">
-        {NAV.map((item) => {
-          const active = pathname === item.href;
-          const cls = ['pb-1 border-b', active ? 'text-espresso border-brass' : 'text-taupe border-transparent'].join(' ');
-          return (
-            <Link key={item.href} href={item.href} className={cls}>
-              {item.label}
-            </Link>
-          );
-        })}
-      </nav>
-      <div className="mt-6 font-display text-[15px] tracking-[0.4em] text-taupe">ARIZONA &ndash; WORLDWIDE</div>
+    <header className="sticky top-0 z-50 bg-white">
+      <div className="mx-auto flex max-w-[1240px] flex-col items-center px-6 pb-2 pt-3 xl:pb-4 xl:pt-[30px]">
+        <div className="flex w-full items-center justify-between xl:grid xl:grid-cols-[1fr_auto_1fr] xl:gap-x-8">
+          <NavLinks items={NAV_PRIMARY} size="text-[17px]" pathname={pathname} className="hidden justify-self-end xl:flex" />
+          {/* Live-site logo is not a hyperlink */}
+          <Image src={IMG.logo} alt="Arabella's Weddings &amp; Events" width={648} height={242} priority className="h-auto w-[259px]" />
+          <NavLinks items={NAV_SECONDARY} size="text-[16px]" pathname={pathname} className="hidden justify-self-start xl:flex" />
+          <button
+            type="button"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-10 w-10 flex-col items-center justify-center gap-[6px] border-0 bg-transparent p-0 xl:hidden"
+          >
+            <span className={`block h-px w-6 bg-charcoal transition-transform ${open ? 'translate-y-[7px] rotate-45' : ''}`} />
+            <span className={`block h-px w-6 bg-charcoal ${open ? 'opacity-0' : ''}`} />
+            <span className={`block h-px w-6 bg-charcoal transition-transform ${open ? '-translate-y-[7px] -rotate-45' : ''}`} />
+          </button>
+        </div>
+
+        {/* Mobile hamburger panel (live Wix serves a separate mobile layout) */}
+        {open && (
+          <nav className="mt-4 flex w-full flex-col gap-[14px] xl:hidden">
+            {NAV.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className={`font-nav text-[15px] transition-colors duration-[400ms] hover:text-tan ${pathname === item.href ? 'text-tan' : 'text-charcoal'}`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        )}
+      </div>
     </header>
   );
 }

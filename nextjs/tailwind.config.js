@@ -4,18 +4,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        cream: '#fdfbf7',
-        creamdeep: '#f6f1ea',
-        espresso: '#3b2a21',
-        cocoa: '#4a382e',
-        taupe: '#6b5142',
-        brass: '#a98c74',
-        script: '#6b4b3a',
-        rule: '#e6dcd1',
+        // Live-site palette (Wix theme colors)
+        charcoal: '#414141',
+        tan: '#dea27a',
+        wixcream: '#f7efe9',
+        brown: '#80695a',
+        darkbrown: '#40352d',
       },
       fontFamily: {
-        display: ['var(--font-cormorant)', 'Georgia', 'serif'],
-        body: ['var(--font-jost)', 'Helvetica', 'sans-serif'],
+        display: ['var(--font-playfair)', 'Didot', 'Bodoni MT', 'Georgia', 'serif'],
+        body: ['var(--font-barlow)', 'Helvetica', 'Arial', 'sans-serif'],
+        nav: ['var(--font-aboreto)', 'Georgia', 'serif'],
         script: ['var(--font-pinyon)', 'cursive'],
       },
     },
