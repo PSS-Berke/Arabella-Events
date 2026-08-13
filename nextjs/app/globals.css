@@ -7,3 +7,109 @@ html, body { margin: 0; padding: 0; background: #ffffff; }
 ::selection { background: #f7efe9; }
 a { color: #414141; text-decoration: none; transition: color 0.4s ease; }
 a:hover { color: #dea27a; }
+
+/* ---------------------------------------------------------------------------
+   Live-text lettering — replaces the baked Wix display-text PNGs.
+   The originals were flat images, so the copy was invisible to search engines
+   and several pages carried no headings at all. These classes rebuild the same
+   lettering as real text.
+
+   Type match (measured against the original artwork, not eyeballed):
+     caps   → Playfair Display 400  — closest of 11 Didone candidates tested
+     script → Pinyon Script         — closest of 9 formal scripts tested
+     ink    → #524232, sampled from the stroke cores of the source PNGs
+
+   Sizes are in cqw against a declared container so the text scales with its
+   box exactly as the replaced images did. `.awe-fit` declares that container.
+--------------------------------------------------------------------------- */
+.awe-fit { container-type: inline-size; }
+
+.awe-caps {
+  font-family: var(--font-playfair), Didot, 'Bodoni MT', Georgia, serif;
+  font-weight: 400;
+  color: #524232;
+  text-wrap: balance;
+}
+/* Tracking adds a trailing space after the last glyph; the matching text-indent
+   pushes the line back so it stays optically centred. */
+.awe-script {
+  font-family: var(--font-pinyon), cursive;
+  letter-spacing: normal;
+  text-indent: 0;
+}
+
+/* Homepage — "AN EYE FOR WHAT COULD BE" (container 447px, 25.4px) */
+.awe-eyebrow-h { font-size: max(13px, 5.68cqw); letter-spacing: .136em; text-indent: .136em; line-height: 1.16; }
+
+/* Homepage — vision tagline (container 600px, 18.2px) */
+.awe-vision { font-size: max(11px, 3.03cqw); letter-spacing: .132em; text-indent: .132em; line-height: 1.42; }
+
+/* About — "BEAUTIFULLY DESIGNED…" tagline (container 600px, 19.2px) */
+.awe-tagline { font-size: max(11px, 3.2cqw); letter-spacing: .128em; text-indent: .128em; line-height: 1.45; }
+
+/* The script word that closes both taglines sits ~1.62x the cap size. */
+.awe-vision .awe-script,
+.awe-tagline .awe-script { font-size: 1.62em; line-height: 0; position: relative; top: .07em; }
+
+/* About — "THE heart / trajectory / core" badges (container 235px) */
+.awe-badge-the  { font-size: max(11px, 11.49cqw); letter-spacing: .19em; text-indent: .19em; display: block; line-height: 1; }
+.awe-badge-word { font-size: max(20px, 21.28cqw); display: block; line-height: 1.05; margin-top: -.04em; }
+
+/* Footer — email address. Was a baked PNG on live, and not a link at all.
+   4.55cqw sets the address to exactly the container width at .10em tracking
+   (measured, not guessed); 4.42 leaves margin so it never collides with the
+   Instagram icon beside it. */
+.awe-email { font-size: max(11px, 4.42cqw); letter-spacing: .10em; text-indent: .10em; line-height: 1.2; white-space: nowrap; }
+
+/* Header — "ARIZONA – WORLDWIDE" strip. Fixed size: it only renders at xl+,
+   where its container is always 209px. */
+.awe-strip { font-size: 13.6px; letter-spacing: .125em; text-indent: .125em; line-height: 1.2; }
+
+/* /love-notes — couple names, one per testimonial.
+   The twelve source images were each set independently: measured tracking
+   ranged from .100em to .194em and font sizes from 32.9px to 34.9px. One
+   consistent treatment is better typography than reproducing that drift. */
+.awe-name { font-size: clamp(19px, 6.4vw, 34px); letter-spacing: .13em; text-indent: .13em; line-height: 1.15; }
+
+/* /custom-design — "CUSTOM design" page title (container 572px) */
+.awe-cd-caps   { display: block; font-size: 10.1cqw; letter-spacing: .14em; text-indent: .14em; line-height: 1; }
+.awe-cd-script { display: block; font-size: 15cqw; line-height: .92; }
+
+/* /custom-design — "inquire now" offerings list (container 564px).
+   This was a flat image on live, so the entire service list — menus, place
+   cards, seating charts, table numbers, mirrors — was invisible to search. */
+.awe-inq-script { display: block; font-size: 13cqw; line-height: 1; }
+.awe-inq-list   { font-size: 4.3cqw; letter-spacing: .06em; line-height: 1.62; }
+
+/* Homepage — intro line, DIN Next Light on live (Barlow 300 stand-in).
+   DIN is more letterspaced than Barlow, so tracking is opened to compensate. */
+.awe-intro {
+  font-family: var(--font-barlow), Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  color: #5a4a3c;
+  font-size: max(11.5px, 2.17cqw);
+  letter-spacing: .095em;
+  line-height: 1.52;
+}
+
+/* /gallery — masonry columns.
+   Replaces the live freeform mesh collage (overlapping boxes bleeding ±415px
+   past the 980px column, uneven 4-16px gutters). Columns keep every photo at
+   its true aspect ratio — the live boxes crop nothing, so framing is unchanged
+   — while the browser balances column heights. One `--gap` drives both the
+   column gap and the item margin, so horizontal and vertical gutters match. */
+.awe-masonry {
+  --gap: 8px;
+  columns: 2;
+  column-gap: var(--gap);
+}
+@media (min-width: 768px)  { .awe-masonry { --gap: 12px; columns: 3; } }
+@media (min-width: 1024px) { .awe-masonry { --gap: 14px; columns: 4; } }
+
+.awe-masonry > * {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: var(--gap);
+  break-inside: avoid;
+}

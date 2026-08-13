@@ -15,6 +15,7 @@ const FIELDS = [
   { key: 'guestCount', label: 'Guest Count?', max: 100 },
   { key: 'budget', label: 'Budget?', max: 100 },
   { key: 'packages', label: 'Which packages are you most interested in?', max: 100 },
+  { key: 'referral', label: 'How did you hear about us?', max: 150 },
 ];
 
 const SEND_FAILURE =

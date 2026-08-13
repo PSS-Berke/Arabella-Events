@@ -167,6 +167,13 @@
    "love-notes"
   ]
  },
+ "https://static.wixstatic.com/media/49b5c3_27a7a44aa2bf4bb9a0559243e72be06df000.jpg": {
+  "bytes": 55548,
+  "file": "/media/49b5c3_27a7a44aa2bf4bb9a0559243e72be06df000-dc5ae3c8.jpg",
+  "pages": [
+   "home"
+  ]
+ },
  "https://static.wixstatic.com/media/49b5c3_2a88b2d97adc4fe7bb0062f3d413f668~mv2.png": {
   "bytes": 6629,
   "file": "/media/49b5c3_2a88b2d97adc4fe7bb0062f3d413f668-31ca82ef.png",
@@ -521,6 +528,13 @@
   "file": "/media/S-PHighlights_AlyssaRyanPhotography-55-9c219eac.jpg",
   "pages": [
    "custom-design"
+  ]
+ },
+ "https://static.wixstatic.com/media/49b5c3_94afe07dea67468194477edb9160c29df000.jpg": {
+  "bytes": 866322,
+  "file": "/media/49b5c3_94afe07dea67468194477edb9160c29df000-f015404f.jpg",
+  "pages": [
+   "home"
   ]
  },
  "https://static.wixstatic.com/media/49b5c3_9874e4ab8f464864adf4adf4f591f72c~mv2.png/v1/fill/w_492,h_718,al_c,lg_1,q_85,enc_avif,quality_auto/49b5c3_9874e4ab8f464864adf4adf4f591f72c~mv2.png": {
@@ -957,11 +971,25 @@
    "home"
   ]
  },
+ "https://video.wixstatic.com/video/49b5c3_27a7a44aa2bf4bb9a0559243e72be06d/480p/mp4/file.mp4": {
+  "bytes": 1286426,
+  "file": "/media/49b5c3_27a7a44aa2bf4bb9a0559243e72be06d-480p-06038076.mp4",
+  "pages": [
+   "home"
+  ]
+ },
  "https://video.wixstatic.com/video/49b5c3_5152e84309dc4c99828f4a0596ee06ba/1080p/mp4/file.mp4": {
   "bytes": 6763495,
   "file": "/media/49b5c3_5152e84309dc4c99828f4a0596ee06ba-1080p-9941f299.mp4",
   "pages": [
    "gallery"
+  ]
+ },
+ "https://video.wixstatic.com/video/49b5c3_94afe07dea67468194477edb9160c29d/1080p/mp4/file.mp4": {
+  "bytes": 22667664,
+  "file": "/media/49b5c3_94afe07dea67468194477edb9160c29d-1080p-f179853e.mp4",
+  "pages": [
+   "home"
   ]
  },
  "https://video.wixstatic.com/video/49b5c3_d326db7690b1430d9fe14de2a6bb4b92/1080p/mp4/file.mp4": {

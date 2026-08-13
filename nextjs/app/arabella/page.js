@@ -1,17 +1,23 @@
 import Image from 'next/image';
+import { ScriptBadge, ScriptTagline } from '@/components/Lettering';
+import { PersonSchema } from '@/components/Schema';
 import { ABOUT_IMG, HEART_PARAS, TRAJECTORY_PARAS, CORE_PARAS } from '@/lib/about-content';
 
-export const metadata = {
-  title: "ABOUT AWE + TEAM | Arabella's Weddings & Events | AWE",
-  alternates: { canonical: '/arabella' },
-  openGraph: { url: '/arabella', siteName: "Arabella's Weddings & Events | AWE ", type: 'website' },
-};
+import { pageMeta } from '@/lib/seo';
+
+export const metadata = pageMeta({
+  title: 'About Arabella | Scottsdale & Sedona Wedding Planner',
+  description:
+    'Meet Arabella: 300+ celebrations since 2017, with a background at MGM Resorts, InterContinental, and Hilton. Wedding planning in Scottsdale and Sedona.',
+  path: '/arabella',
+});
 
 const PARA_STYLE = 'text-[13px] font-light leading-[20px] tracking-[0.18em] text-darkbrown';
 
 export default function AboutPage() {
   return (
     <main className="overflow-x-hidden">
+      <PersonSchema />
       {/* Three-photo candid row */}
       <section className="mx-auto max-w-[980px] px-6 pt-4 md:flex md:items-start md:px-0 md:pt-[14px]">
         <Image
@@ -37,44 +43,34 @@ export default function AboutPage() {
         />
       </section>
 
-      {/* Script label row: the heart / the trajectory / the core */}
-      <section className="mx-auto mt-9 flex max-w-[980px] items-start justify-center gap-4 px-6 md:mt-[47px] md:justify-start md:gap-0 md:px-0">
-        <Image
-          src={ABOUT_IMG.badgeHeart}
-          alt="the heart"
-          width={329}
-          height={151}
-          className="block h-auto w-[28%] max-w-[235px] md:ml-[36px] md:w-[235px]"
-        />
-        <Image
-          src={ABOUT_IMG.badgeTrajectory}
-          alt="the trajectory"
-          width={329}
-          height={151}
-          className="block h-auto w-[28%] max-w-[235px] md:ml-[101px] md:w-[235px]"
-        />
-        <Image
-          src={ABOUT_IMG.badgeCore}
-          alt="the core"
-          width={329}
-          height={151}
-          className="block h-auto w-[28%] max-w-[235px] md:ml-[120px] md:w-[235px]"
-        />
+      {/* Script label row: the heart / the trajectory / the core.
+          Decorative repeat of the three section headings below, so these are
+          spans rather than headings — the real h2s sit on the sections. */}
+      <section className="mx-auto mt-9 flex max-w-[980px] items-start justify-center gap-4 px-6 md:mt-[47px] md:justify-start md:gap-0 md:px-0" aria-hidden="true">
+        <ScriptBadge as="div" word="heart" className="w-[28%] max-w-[235px] md:ml-[36px] md:w-[235px]" />
+        <ScriptBadge as="div" word="trajectory" className="w-[28%] max-w-[235px] md:ml-[101px] md:w-[235px]" />
+        <ScriptBadge as="div" word="core" className="w-[28%] max-w-[235px] md:ml-[120px] md:w-[235px]" />
       </section>
 
       {/* Tagline strip */}
       <section className="mx-auto mt-14 max-w-[980px] px-6 md:mt-[100px] md:px-0">
-        <Image
-          src={ABOUT_IMG.tagline}
-          alt="Beautifully designed. Meticulously planned. Led by a heart that listens"
-          width={840}
-          height={76}
-          className="mx-auto block h-auto w-full max-w-[600px] md:ml-[33px] md:w-[600px]"
+        {/* The page's one h1. It is the existing visible display copy, so the
+            heading is real text rather than a hidden string bolted on. */}
+        <ScriptTagline
+          as="h1"
+          variant="awe-tagline"
+          caps="BEAUTIFULLY DESIGNED. METICULOUSLY PLANNED. LED BY A HEART THAT"
+          word="listens"
+          className="mx-auto w-full max-w-[600px] md:ml-[33px] md:w-[600px]"
         />
       </section>
 
-      {/* Section 1 — the heart: text left, portrait photo right */}
+      {/* Section 1 — the heart: text left, portrait photo right.
+          Unlike sections 2 and 3 this one carries no badge of its own on live —
+          the decorative label row above stands in for it — so the heading is
+          present but not shown, keeping the visual 1:1 and the outline complete. */}
       <section className="mx-auto mt-10 flex max-w-[980px] flex-col px-6 md:mt-9 md:flex-row md:justify-between md:px-0">
+        <h2 className="sr-only">The Heart</h2>
         <Image
           src={ABOUT_IMG.heartPhoto}
           alt="Arabella in a black dress standing at a candlelit forest tablescape"
@@ -91,13 +87,7 @@ export default function AboutPage() {
 
       {/* Section 2 — the trajectory: centered badge, text left, portrait photo right */}
       <section className="mx-auto mt-14 max-w-[980px] px-6 md:mt-6 md:px-0">
-        <Image
-          src={ABOUT_IMG.badgeTrajectory}
-          alt="the trajectory"
-          width={329}
-          height={151}
-          className="mx-auto block h-auto w-[46%] max-w-[235px] md:w-[235px]"
-        />
+        <ScriptBadge word="trajectory" className="mx-auto w-[46%] max-w-[235px] md:w-[235px]" />
         <div className="mt-5 flex flex-col md:mt-[12px] md:flex-row md:justify-between">
           <div className={`md:-ml-[5px] md:mt-[24px] md:w-[628px] ${PARA_STYLE}`}>
             {TRAJECTORY_PARAS.map((p, n) => (
@@ -117,13 +107,7 @@ export default function AboutPage() {
       {/* Section 3 — the core: badge beside large photo, centered text below */}
       <section className="mx-auto mt-14 max-w-[980px] px-6 pb-10 md:mt-[41px] md:px-0 md:pb-[34px]">
         <div className="flex flex-col md:flex-row md:items-start">
-          <Image
-            src={ABOUT_IMG.badgeCore}
-            alt="the core"
-            width={329}
-            height={151}
-            className="mx-auto block h-auto w-[46%] max-w-[235px] md:-ml-[5px] md:mx-0 md:mt-[11px] md:w-[235px]"
-          />
+          <ScriptBadge word="core" className="mx-auto w-[46%] max-w-[235px] md:-ml-[5px] md:mx-0 md:mt-[11px] md:w-[235px]" />
           <Image
             src={ABOUT_IMG.corePhoto}
             alt="Arabella smiling behind a fully set candlelit table in a forest backyard"

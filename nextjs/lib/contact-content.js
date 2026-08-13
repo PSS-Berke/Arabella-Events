@@ -32,6 +32,15 @@ export const CONTACT_FIELDS = [
     kind: 'text',
     maxLength: 100,
   },
+  // Not on the live Wix form. Added so enquiries can be attributed to a source —
+  // the only way to tell whether search work is actually producing bookings
+  // rather than just impressions. Optional, like every other field here.
+  {
+    name: 'referral',
+    label: 'How did you hear about us?',
+    kind: 'text',
+    maxLength: 150,
+  },
 ];
 
 export const SUBMIT_LABEL = 'Send';

@@ -2,7 +2,7 @@
 export const NAV_PRIMARY = [
   { label: 'WELCOME', href: '/' },
   { label: 'PACKAGES', href: '/services' },
-  { label: 'CUSTOM DESIGN | STATIONARY', href: '/custom-design-stationary-rentals' },
+  { label: 'CUSTOM DESIGN | STATIONARY', href: '/custom-design-stationery-rentals' },
 ];
 
 export const NAV_SECONDARY = [

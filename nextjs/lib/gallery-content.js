@@ -25,7 +25,7 @@ export const GALLERY_ITEMS = [
     type: 'video',
     src: '/media/49b5c3_5152e84309dc4c99828f4a0596ee06ba-1080p-9941f299.mp4',
     poster: '/media/49b5c3_5152e84309dc4c99828f4a0596ee06baf001-6fbb2e48.jpg',
-    loop: true,
+    label: 'Groom twirling the bride on a villa staircase, her gown fanning out',
     d: { x: -415, y: 40, w: 1815, h: 387 },
   },
   {
@@ -80,7 +80,7 @@ export const GALLERY_ITEMS = [
     type: 'video',
     src: '/media/49b5c3_ff293a45593944c0a480183eccc60df8-480p-ba23b20b.mp4',
     poster: '/media/49b5c3_ff293a45593944c0a480183eccc60df8f002-a7586541.jpg',
-    loop: false,
+    label: 'Couple exchanging vows between two tall citrus-and-greenery floral columns',
     d: { x: 28, y: 1443, w: 714, h: 402 },
   },
   {
@@ -250,5 +250,38 @@ export const GALLERY_ITEMS = [
     height: 518,
     alt: "Vintage rotary phone audio guestbook with a 'Hello!' welcome sign",
     d: { x: 928, y: 2068, w: 366, h: 301 },
+  },
+];
+
+// NOT from the live gallery — these three clips live on the home and services
+// pages, pulled in here so motion is spread through the collage instead of
+// sitting in two places. All are 16:9 natives (1920x1080 or 960x540), so the
+// masonry shows them uncropped. `slot` is the index in the post-hero flow to
+// insert before, chosen to land roughly one video per column at the 4-column
+// breakpoint; they are short loops, ~6-33s.
+export const GALLERY_EXTRA_VIDEOS = [
+  {
+    type: 'video',
+    src: '/media/49b5c3_d326db7690b1430d9fe14de2a6bb4b92-1080p.mp4',
+    poster: '/media/49b5c3_d326db7690b1430d9fe14de2a6bb4b92f000-cb0df2e4.jpg',
+    label: "Escort-card table of miniature suitcase favors beneath a 'Baggage Claim' sign",
+    ar: '16 / 9',
+    slot: 12,
+  },
+  {
+    type: 'video',
+    src: '/media/49b5c3_27a7a44aa2bf4bb9a0559243e72be06d-480p-06038076.mp4',
+    poster: '/media/49b5c3_27a7a44aa2bf4bb9a0559243e72be06df000-dc5ae3c8.jpg',
+    label: 'Newlyweds walking out through a shower of petals as their guests cheer',
+    ar: '16 / 9',
+    slot: 20,
+  },
+  {
+    type: 'video',
+    src: '/media/49b5c3_94afe07dea67468194477edb9160c29d-1080p-f179853e.mp4',
+    poster: '/media/49b5c3_94afe07dea67468194477edb9160c29df000-f015404f.jpg',
+    label: 'Newlyweds walking hand in hand past a flower-covered courtyard storefront',
+    ar: '16 / 9',
+    slot: 26,
   },
 ];

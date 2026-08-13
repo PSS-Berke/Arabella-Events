@@ -7,9 +7,10 @@ import { NAV, NAV_PRIMARY, NAV_SECONDARY, IMG } from '@/lib/content';
 
 // Live desktop header (QA-verified against the Wix mesh): ONE band — the
 // 3-item nav left of the centered 259px logo, the 4-item nav right of it,
-// both vertically centered against the logo. Nav in Aboreto 17px/16px,
-// #414141, hover+active #DEA27A (0.4s transition, no underline). Mobile
-// gets a hamburger panel.
+// both vertically centered against the logo; "ARIZONA – WORLDWIDE" strip
+// centered beneath (desktop only — dropped on mobile for tighter spacing).
+// Nav in Aboreto 17px/16px, #414141, hover+active #DEA27A (0.4s transition,
+// no underline). Mobile gets a hamburger panel.
 function NavLinks({ items, size, pathname, className = '' }) {
   return (
     <ul className={`m-0 flex list-none flex-nowrap items-center gap-x-6 whitespace-nowrap p-0 font-nav ${size} tracking-[0.02em] ${className}`}>
@@ -66,6 +67,13 @@ export default function Header() {
             ))}
           </nav>
         )}
+
+        {/* "ARIZONA – WORLDWIDE" — live text (was a baked image strip), centered
+            beneath the band. Desktop only, as on live. Naming the service area in
+            real text on every page is worth more than the image ever was. */}
+        <p className="awe-caps awe-strip mt-3 hidden w-[209px] text-center xl:block">
+          ARIZONA &ndash; WORLDWIDE
+        </p>
       </div>
     </header>
   );

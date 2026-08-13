@@ -1,11 +1,15 @@
 import Image from 'next/image';
 import { LOVE_NOTES, LN_TITLE, LN_PHOTOS, SOCIAL_BOOTH } from '@/lib/love-notes-content';
+import { ReviewsSchema } from '@/components/Schema';
 
-export const metadata = {
-  title: "KIND WORDS | Arabella's Weddings & Events | AWE",
-  alternates: { canonical: '/love-notes' },
-  openGraph: { url: '/love-notes', siteName: "Arabella's Weddings & Events | AWE ", type: 'website' },
-};
+import { pageMeta } from '@/lib/seo';
+
+export const metadata = pageMeta({
+  title: 'Client Reviews | Scottsdale & Sedona Wedding Planner',
+  description:
+    "Read what couples say about working with Arabella's Weddings & Events on their Scottsdale and Sedona weddings — in their own words.",
+  path: '/love-notes',
+});
 
 /*
  * 1:1 rebuild of https://www.arabellasweddings.com/love-notes.
@@ -21,15 +25,12 @@ export const metadata = {
 // #414141, letter-spacing 0, line-height 1.4em (font-body Barlow stands in).
 const QUOTE = 'm-0 whitespace-pre-line font-light leading-[1.4]';
 
+// Couple names — live text (each was a separate baked PNG on live, rendered at
+// 1x and therefore soft on retina). As a heading, each name also gives its
+// testimonial a proper anchor in the page outline.
 function NameImg({ review, className }) {
   return (
-    <Image
-      src={review.nameImg.src}
-      alt={review.name}
-      width={review.nameImg.w}
-      height={review.nameImg.h}
-      className={className}
-    />
+    <h2 className={`awe-caps awe-name m-0 uppercase ${className}`}>{review.name}</h2>
   );
 }
 
@@ -44,8 +45,10 @@ export default function LoveNotes() {
   const r = LOVE_NOTES;
   return (
     <main className="bg-white pb-16 text-charcoal lg:pb-20">
+      <ReviewsSchema reviews={LOVE_NOTES} />
       {/* "THE AWE experience" title graphic */}
       <section className="mx-auto flex w-full max-w-[980px] justify-center px-6 pt-6 lg:block lg:px-0 lg:pt-0">
+        <h1 className="m-0">
         <Image
           src={LN_TITLE.src}
           alt="The AWE Experience"
@@ -54,6 +57,7 @@ export default function LoveNotes() {
           priority
           className="h-auto w-[200px] lg:ml-[6px] lg:mt-[8px] lg:w-[234px]"
         />
+        </h1>
       </section>
 
       {/* Review 1 (Hannah & Hunter) + chapel photo right */}
