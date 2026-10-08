@@ -30,7 +30,7 @@ const PRESS = [
 
 export default function PressBar({ className = '' }) {
   return (
-    <section className={`border-y border-[#e6ddd2] px-6 py-10 text-center text-[#443221] ${className}`}>
+    <section className={`border-y border-[#e6ddd2] px-6 py-8 text-center text-[#443221] ${className}`}>
       <p className="m-0 text-[11px] font-light uppercase tracking-[0.24em] text-brown">As featured in</p>
       <ul className="m-0 mt-5 flex list-none flex-wrap items-start justify-center gap-x-16 gap-y-6 p-0">
         {PRESS.map((p) => {

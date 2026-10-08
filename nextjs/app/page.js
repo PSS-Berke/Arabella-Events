@@ -87,7 +87,7 @@ export default function Home() {
       <PressBar className="border-t-0" />
 
       {/* Welcome: a short intro only; the full story lives on /arabella */}
-      <section className="mx-auto grid max-w-[1120px] items-center gap-12 px-6 py-20 md:grid-cols-2 md:gap-20 md:px-10 md:py-28">
+      <section className="mx-auto grid max-w-[1120px] items-center gap-10 px-6 py-12 md:grid-cols-2 md:gap-16 md:px-10 md:py-16">
         <Image
           src="/media/tlaquepaque-veil-portrait-569b88f9.jpg"
           alt="Bride and groom forehead to forehead beneath a stone arch as her cathedral veil sweeps across the frame"
@@ -113,28 +113,28 @@ export default function Home() {
       </section>
 
       {/* A few favorites */}
-      <section className="border-y border-[#e6ddd2] bg-white px-6 py-20 md:py-28">
+      <section className="border-y border-[#e6ddd2] bg-white px-6 py-12 md:py-16">
         <div className="mx-auto max-w-[1000px] text-center">
           <div className={SCRIPT}>A few</div>
           <h2 className={`${H2} mt-2`}>Favorites</h2>
-          <div className="mt-12" />
+          <div className="mt-8" />
           <FavoritesVideo />
           <div className="mt-4 grid grid-cols-3 gap-2 md:mt-6 md:gap-6">
             {FAVORITES.map((p) => (
               <Image key={p.src} src={p.src} alt={p.alt} width={504} height={700} sizes="(min-width: 1000px) 316px, 32vw" className="aspect-[4/5] h-auto w-full object-cover" />
             ))}
           </div>
-          <div className="mt-12">
+          <div className="mt-8">
             <Link href="/gallery" className={LINK}>View the gallery</Link>
           </div>
         </div>
       </section>
 
       {/* Services */}
-      <section className="mx-auto max-w-[1120px] px-6 py-20 text-center md:px-10 md:py-28">
-        <div className={SCRIPT}>How we</div>
-        <h2 className={`${H2} mt-2`}>Work together</h2>
-        <div className="mt-14 grid gap-14 md:grid-cols-3 md:gap-8">
+      <section className="mx-auto max-w-[1120px] px-6 py-12 text-center md:px-10 md:py-16">
+        <div className={SCRIPT}>The</div>
+        <h2 className={`${H2} mt-2`}>Offerings</h2>
+        <div className="mt-10 grid gap-14 md:grid-cols-3 md:gap-8">
           {SERVICES.map((s) => (
             <Link key={s.name} href={s.href} className="group flex flex-col items-center no-underline text-inherit">
               <div className="w-full overflow-hidden">
@@ -155,8 +155,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Dana + Arabella collaboration (full details on /services) */}
+      <section className="border-t border-[#e6ddd2] px-6 py-12 md:py-16">
+        <div className="mx-auto grid max-w-[1000px] items-center gap-12 md:grid-cols-2 md:gap-16">
+          <Image
+            src="/media/dana-x-awe-photobooth-46ae5db1.png"
+            alt="Dana and Arabella laughing in a vintage photo-booth strip, captioned Dana Maruna Photo x AWE"
+            width={580}
+            height={657}
+            sizes="(min-width: 768px) 440px, 90vw"
+            className="mx-auto h-auto w-full max-w-[440px]"
+          />
+          <div className="text-center md:text-left">
+            <div className={SCRIPT}>Dana + Arabella</div>
+            <h2 className={`${H2} mt-2`}>Planning &amp; photography</h2>
+            <p className="m-0 mt-6 font-display text-[19px] italic leading-[1.6] text-[#5a4634] md:text-[21px]">
+              Full planning and film photography, together.
+            </p>
+            <p className="m-0 mt-4 font-display text-[18px] uppercase tracking-[0.12em]">Starting at $10,500</p>
+            <div className="mt-8">
+              <Link href="/services#dana-and-arabella" className={LINK}>See the package</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Reviews */}
-      <section className="border-y border-[#e6ddd2] bg-white px-6 pt-20 md:pt-24">
+      <section className="border-y border-[#e6ddd2] bg-white px-6 pt-12 md:pt-16">
         <h2 className="m-0">
           <Image src={IMG.aweExperience} alt="The AWE Experience" width={465} height={238} className="mx-auto block h-auto w-[260px] max-w-full md:w-[300px]" />
         </h2>
@@ -164,10 +189,10 @@ export default function Home() {
       </section>
 
       {/* Recent weddings */}
-      <section className="mx-auto max-w-[1120px] px-6 py-20 text-center md:px-10 md:py-28">
+      <section className="mx-auto max-w-[1120px] px-6 py-12 text-center md:px-10 md:py-16">
         <div className={SCRIPT}>Real</div>
         <h2 className={`${H2} mt-2`}>Weddings</h2>
-        <div className="mt-14 grid gap-14 md:grid-cols-3 md:gap-8">
+        <div className="mt-10 grid gap-14 md:grid-cols-3 md:gap-8">
           {recent.map((p) => (
             <Link key={p.slug} href={`/blog/${p.slug}`} className="group flex flex-col no-underline text-inherit">
               <div className="w-full overflow-hidden">
@@ -185,13 +210,13 @@ export default function Home() {
             </Link>
           ))}
         </div>
-        <div className="mt-14">
+        <div className="mt-10">
           <Link href="/blog" className={LINK}>Read the blog</Link>
         </div>
       </section>
 
       {/* Closing call to action */}
-      <section className="relative isolate flex min-h-[460px] items-center justify-center overflow-hidden px-6 py-24 text-center text-white">
+      <section className="relative isolate flex min-h-[380px] items-center justify-center overflow-hidden px-6 py-16 text-center text-white">
         <Image
           src="/media/hm-creekside-kiss-635bd27c.jpg"
           alt=""
@@ -214,7 +239,7 @@ export default function Home() {
 
       {/* Featured photographers (role "Photography" in lib/vendors-content.js),
           names linking out; every vendor is on /vendors */}
-      <section className="px-6 py-16 text-center md:py-20">
+      <section className="px-6 py-10 text-center md:py-12">
         <p className={EYEBROW}>Featured photographers</p>
         <ul className="mx-auto mb-0 mt-6 flex max-w-[960px] list-none flex-wrap items-center justify-center gap-x-12 gap-y-4 p-0">
           {VENDORS.filter((v) => v.role === 'Photography').map((v) => (

@@ -14,9 +14,9 @@ export default function Testimonials() {
     return () => clearInterval(t);
   }, []);
   return (
-    <section className="pb-20 pt-2 md:pb-24">
+    <section className="pb-12 pt-2 md:pb-16">
       <div className="mx-auto w-full max-w-[860px]">
-        <div className="grid pt-12">
+        <div className="grid pt-8">
           {REVIEW_QUOTES.map((r, n) => (
             <figure
               key={r.name}

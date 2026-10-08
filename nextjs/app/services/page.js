@@ -114,10 +114,10 @@ export default function Packages() {
       {/* Planning + photography collaboration with Dana Maruna Photo */}
       <section id="dana-and-arabella" className="flex scroll-mt-48 flex-col items-center gap-10 border-t border-[#e6ddd2] py-[78px] md:flex-row-reverse md:gap-12">
         <Image
-          src="/media/film-veil-stone-archway-0a2b8ea4.jpg"
-          alt="A bride in a cathedral veil beneath a stone archway, photographed on 35mm film by Dana Maruna"
-          width={1078}
-          height={1600}
+          src="/media/dana-x-awe-photobooth-46ae5db1.png"
+          alt="Dana and Arabella laughing in a vintage photo-booth strip, captioned Dana Maruna Photo x AWE"
+          width={580}
+          height={657}
           sizes="(min-width: 768px) 360px, 80vw"
           className="h-auto w-full max-w-[360px] md:shrink-0"
         />
