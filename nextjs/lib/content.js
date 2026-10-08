@@ -46,6 +46,34 @@ export const ABOUT_PARAS = [
   "When you entrust those details to someone who understands your vision, you give yourself the freedom to experience it.",
 ];
 
+// Homepage carousel: one short line from each review, quoted word for word
+// from REVIEWS below (same order), with the couple's name. `post` is the
+// couple's blog slug, if they have one. Full reviews live on /love-notes.
+export const REVIEW_QUOTES = [
+  {
+    quote: 'She took a vision I couldn’t quite put into words and brought it to life in a way that was better than I could have ever imagined.',
+    name: 'Hannah & Hunter',
+    post: 'seven-week-timeless-wedding-tlaquepaque-sedona',
+  },
+  {
+    quote: 'Arabella made it possible for us to fully immerse ourselves in the celebration, stress-free, and that alone made her worth her weight in gold.',
+    name: 'Jordan & Austin',
+    post: 'vintage-romance-wedding-tlaquepaque-sedona',
+  },
+  {
+    quote: 'Thanks to Arabella, my wedding day was completely stress-free and everything went perfectly.',
+    name: 'Jenna & Derek',
+  },
+  {
+    quote: 'If you’re looking for someone who will bring your vision to life and make your wedding day effortless, Arabella is the one!',
+    name: 'Alicia & Hawk',
+  },
+  {
+    quote: 'She was able to bring my fairy garden dream wedding to life and I couldn’t imagine our day being half as beautiful without her touch.',
+    name: 'Salem & Dylan',
+  },
+];
+
 // The 5 homepage-carousel testimonials (REVIEWS[0..4] match live slides 1-5).
 // The dedicated /love-notes page has 12 — see lib/love-notes-content.js.
 export const REVIEWS = [

@@ -3,7 +3,8 @@ import Link from 'next/link';
 import Testimonials from '@/components/Testimonials';
 import HomeHero from '@/components/HomeHero';
 import PressBar from '@/components/PressBar';
-import { IMG, ABOUT_PARAS } from '@/lib/content';
+import { VENDORS } from '@/lib/vendors-content';
+import { IMG } from '@/lib/content';
 import { POSTS, formatDate } from '@/lib/blog-content';
 import { pageMeta } from '@/lib/seo';
 
@@ -27,7 +28,6 @@ export const metadata = pageMeta({
 
 const H2 = 'm-0 font-display text-[24px] font-normal uppercase tracking-[0.16em] sm:text-[30px] md:text-[36px]';
 const SCRIPT = 'font-script text-[40px] leading-none md:text-[56px]';
-const BODY = 'text-[15.5px] font-light leading-[1.95] tracking-[0.02em] text-[#4a3a2c] text-pretty';
 const LINK =
   'inline-block border-b border-[#443221] pb-1 text-[12px] font-light uppercase tracking-[0.2em] text-[#443221] no-underline transition-colors hover:border-tan hover:text-tan';
 const EYEBROW = 'm-0 text-[11px] font-light uppercase tracking-[0.24em] text-brown';
@@ -42,21 +42,18 @@ const SERVICES = [
   {
     eyebrow: 'Signature',
     name: 'Full Planning + Design',
-    note: 'A completely custom celebration, from the first idea to the last dance.',
     href: '/services',
     img: { src: '/media/hh-long-table-tapers-menus-111372ff.jpg', alt: 'Long white table with taper candles in tall glass hurricanes and gradient menus', w: 1067, h: 1600 },
   },
   {
     eyebrow: 'All-inclusive',
     name: 'Micro Weddings at Tlaquepaque',
-    note: 'Intimate Sedona celebrations for 50 guests, starting at $15,000.',
     href: '/services#micro-weddings',
     img: { src: '/media/tlaquepaque-terracotta-tables-papel-picado-3a7c14f6.jpg', alt: 'Wooden tables with terracotta vessels beneath papel picado at Tlaquepaque', w: 1290, h: 1822 },
   },
   {
     eyebrow: 'Reserve online',
     name: 'Rentals',
-    note: 'Candelabras, glassware, linens, and the details that finish a table.',
     href: '/rentals',
     img: { src: '/media/gold-candelabra-hurricanes-b0a78a95.jpg', alt: 'Gold candelabra with taper candles in glass hurricanes on a reception table', w: 1333, h: 2000 },
   },
@@ -89,44 +86,38 @@ export default function Home() {
       {/* Press (Style Me Pretty was baked into a graphic on live) */}
       <PressBar className="border-t-0" />
 
-      {/* Intro + bio */}
-      <section className="mx-auto grid max-w-[1120px] items-start gap-12 px-6 py-20 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-16 md:px-10 md:py-28">
+      {/* Welcome: a short intro only; the full story lives on /arabella */}
+      <section className="mx-auto grid max-w-[1120px] items-center gap-12 px-6 py-20 md:grid-cols-2 md:gap-20 md:px-10 md:py-28">
         <Image
           src="/media/tlaquepaque-veil-portrait-569b88f9.jpg"
           alt="Bride and groom forehead to forehead beneath a stone arch as her cathedral veil sweeps across the frame"
           width={1333}
           height={2000}
-          sizes="(min-width: 1120px) 460px, (min-width: 768px) 42vw, 92vw"
-          className="mx-auto h-auto w-full max-w-[460px] md:sticky md:top-[200px]"
+          sizes="(min-width: 1120px) 480px, (min-width: 768px) 45vw, 92vw"
+          className="mx-auto h-auto w-full max-w-[480px]"
         />
-        <div>
+        <div className="text-center md:text-left">
           <div className={SCRIPT}>Welcome</div>
           <h2 className={`${H2} mt-2`}>An eye for what could be</h2>
-          <p className="m-0 mt-6 font-display text-[19px] italic leading-[1.6] text-[#5a4634] md:text-[21px]">
-            Arabella&rsquo;s Weddings &amp; Events offers full wedding planning, design, and coordination throughout
-            Arizona, Chicago, and beyond.
+          <p className="m-0 mt-8 font-display text-[20px] italic leading-[1.65] text-[#5a4634] md:text-[23px]">
+            Full wedding planning, design, and coordination throughout Arizona, Chicago, and beyond.
           </p>
-          <div className="mt-8 flex flex-col gap-5">
-            {ABOUT_PARAS.map((p, n) => (
-              <p key={n} className={`m-0 ${BODY}`}>{p}</p>
-            ))}
-          </div>
-          <p className="m-0 mt-8 font-display text-[18px] uppercase leading-[1.7] tracking-[0.12em]">
+          <p className="m-0 mt-8 font-display text-[16px] uppercase leading-[1.8] tracking-[0.14em]">
             Share the vision. Trust the process. And allow yourself to be surprised by what we{' '}
             <span className="font-script text-[30px] normal-case tracking-normal">create</span>
           </p>
-          <div className="mt-8">
+          <div className="mt-10">
             <Link href="/arabella" className={LINK}>Meet Arabella</Link>
           </div>
         </div>
       </section>
 
       {/* A few favorites */}
-      <section className="bg-[#f7f1ec] px-6 py-20 md:py-28">
+      <section className="border-y border-[#e6ddd2] bg-white px-6 py-20 md:py-28">
         <div className="mx-auto max-w-[1000px] text-center">
           <div className={SCRIPT}>A few</div>
           <h2 className={`${H2} mt-2`}>Favorites</h2>
-          <p className={`mx-auto mb-12 mt-5 max-w-[560px] ${BODY}`}>Every detail tells your story.</p>
+          <div className="mt-12" />
           <FavoritesVideo />
           <div className="mt-4 grid grid-cols-3 gap-2 md:mt-6 md:gap-6">
             {FAVORITES.map((p) => (
@@ -158,7 +149,6 @@ export default function Home() {
               </div>
               <p className={`${EYEBROW} mt-6`}>{s.eyebrow}</p>
               <h3 className="m-0 mt-2 font-display text-[19px] font-normal uppercase tracking-[0.12em] md:text-[21px]">{s.name}</h3>
-              <p className={`m-0 mt-3 max-w-[300px] ${BODY}`}>{s.note}</p>
               <span className={`${LINK} mt-5`}>Learn more</span>
             </Link>
           ))}
@@ -213,15 +203,38 @@ export default function Home() {
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-black/45" />
         <div>
           <div className="font-script text-[48px] leading-none md:text-[68px]">Let&rsquo;s begin</div>
-          <p className="mx-auto mb-0 mt-5 max-w-[520px] text-[15px] font-light leading-[1.9] tracking-[0.04em] text-white/90">
-            Tell us about the celebration you&rsquo;re imagining: the date, the place, and the feeling you want it to leave behind.
-          </p>
           <Link
             href="/contact"
             className="mt-9 inline-block border border-white bg-white px-8 py-3 text-[12px] font-light uppercase tracking-[0.2em] text-[#443221] no-underline transition-colors hover:bg-transparent hover:text-white"
           >
             Inquire now
           </Link>
+        </div>
+      </section>
+
+      {/* Featured vendors: names only, linking out; full page at /vendors */}
+      <section className="px-6 py-16 text-center md:py-20">
+        <p className={EYEBROW}>Featured vendors</p>
+        <ul className="mx-auto mb-0 mt-6 flex max-w-[960px] list-none flex-wrap items-center justify-center gap-x-10 gap-y-4 p-0">
+          {VENDORS.map((v) => (
+            <li key={v.name}>
+              {v.url ? (
+                <a
+                  href={v.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-display text-[15px] uppercase tracking-[0.16em] text-[#443221] no-underline transition-colors hover:text-tan md:text-[17px]"
+                >
+                  {v.name}
+                </a>
+              ) : (
+                <span className="font-display text-[15px] uppercase tracking-[0.16em] md:text-[17px]">{v.name}</span>
+              )}
+            </li>
+          ))}
+        </ul>
+        <div className="mt-8">
+          <Link href="/vendors" className={LINK}>Vendors &amp; venues</Link>
         </div>
       </section>
     </main>

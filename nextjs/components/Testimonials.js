@@ -1,61 +1,57 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { REVIEWS } from '@/lib/content';
+import { REVIEW_QUOTES } from '@/lib/content';
 
-// Homepage review carousel: 5 slides, autoplay every 5000ms with a 1500ms
-// cross-fade; the whole quote links to /love-notes. Restyled Oct 2026 (serif
-// italic quotes, visible dots) — live's near-invisible dots were dropped.
-// Reviews whose couple has a blog post, by REVIEWS index (see the couple
-// names in lib/love-notes-content.js): the slide gets a link to their story.
-const REVIEW_LINKS = {
-  0: { name: 'Hannah & Hunter', post: 'seven-week-timeless-wedding-tlaquepaque-sedona' },
-  1: { name: 'Jordan & Austin', post: 'vintage-romance-wedding-tlaquepaque-sedona' },
-};
-
+// Homepage review carousel: one short pull-quote per slide (REVIEW_QUOTES in
+// lib/content.js), autoplaying every 6000ms with a 1500ms cross-fade. The
+// couple's name sits under each quote; if they have a blog post, it links to
+// their story. Full reviews live on /love-notes.
 export default function Testimonials() {
   const [i, setI] = useState(0);
   useEffect(() => {
-    const t = setInterval(() => setI((n) => (n + 1) % REVIEWS.length), 5000);
+    const t = setInterval(() => setI((n) => (n + 1) % REVIEW_QUOTES.length), 6000);
     return () => clearInterval(t);
   }, []);
   return (
     <section className="pb-20 pt-2 md:pb-24">
-      <div className="mx-auto w-full max-w-[988px]">
-        <div className="grid pt-[53px]">
-          {REVIEWS.map((q, n) => (
-            <div
-              key={n}
+      <div className="mx-auto w-full max-w-[860px]">
+        <div className="grid pt-12">
+          {REVIEW_QUOTES.map((r, n) => (
+            <figure
+              key={r.name}
               aria-hidden={n !== i}
               className={
-                'col-start-1 row-start-1 transition-opacity duration-[1500ms] ease-in-out ' +
+                'col-start-1 row-start-1 m-0 flex flex-col items-center justify-center transition-opacity duration-[1500ms] ease-in-out ' +
                 (n === i ? 'opacity-100' : 'pointer-events-none opacity-0')
               }
             >
-              <Link href="/love-notes" tabIndex={n === i ? 0 : -1} className="mx-auto block w-full max-w-[760px] no-underline">
-                <p className="m-0 text-center font-display text-[18px] italic leading-[1.65] text-[#4a3a2c] md:text-[21px]">&ldquo;{q}&rdquo;</p>
-              </Link>
-              {REVIEW_LINKS[n] ? (
-                <p className="m-0 mt-6 text-center">
+              <blockquote className="m-0 text-center font-display text-[22px] italic leading-[1.55] text-[#443221] md:text-[28px]">
+                &ldquo;{r.quote}&rdquo;
+              </blockquote>
+              <figcaption className="mt-6 text-center text-[11px] font-light uppercase tracking-[0.22em] text-brown">
+                {r.post ? (
                   <Link
-                    href={`/blog/${REVIEW_LINKS[n].post}`}
+                    href={`/blog/${r.post}`}
                     tabIndex={n === i ? 0 : -1}
-                    className="text-[11px] font-light uppercase tracking-[0.18em] text-brown no-underline transition-colors hover:text-tan"
+                    className="text-inherit no-underline transition-colors hover:text-tan"
                   >
-                    {REVIEW_LINKS[n].name} &middot; Read their wedding story &rarr;
+                    {r.name} &middot; Read their story &rarr;
                   </Link>
-                </p>
-              ) : null}
-            </div>
+                ) : (
+                  r.name
+                )}
+              </figcaption>
+            </figure>
           ))}
         </div>
-        <div className="mt-[45px] flex items-center justify-center">
-          {REVIEWS.map((_, n) => (
+        <div className="mt-10 flex items-center justify-center">
+          {REVIEW_QUOTES.map((r, n) => (
             <button
-              key={n}
+              key={r.name}
               type="button"
               onClick={() => setI(n)}
-              aria-label={'Slide ' + (n + 1)}
+              aria-label={`Review from ${r.name}`}
               aria-current={n === i}
               className={
                 'mx-[7px] h-[7px] w-[7px] cursor-pointer rounded-full border-0 p-0 transition-colors ' +

@@ -6,7 +6,7 @@
 // `url`, and `photo` can be null until there's one to show.
 
 export const VENDORS = [
-  { name: 'Dana Maruna Photography', role: 'Photography', url: 'https://danamarunaphoto.com/' },
+  { name: 'Dana Maruna Photo', role: 'Photography', url: 'https://danamarunaphoto.com/' },
   { name: 'Maya Papaya Pictures', role: 'Photography', url: 'https://mayapapayapictures.com/' },
   { name: 'Film and Frame Booth', role: 'Vintage photo booth', url: 'https://www.instagram.com/filmandframebooth/' },
   { name: 'Sedona Catering Co.', role: 'Catering', note: 'with Tori Talkington', url: 'https://www.sedonacateringco.com/' },

@@ -783,7 +783,7 @@ Hannah and Hunter, thank you for trusting me with your vision, allowing me to be
 
 **Planning & Design:** Arabella's Weddings & Events
 **Venue:** Tlaquepaque Arts & Shopping Village
-**Photography:** Dana Maruna Photography
+**Photography:** Dana Maruna Photo
 **Catering:** Sedona Catering Co.
 **Rentals:** Verve Rentals
 **Signage & Printed Pieces:** Arabella's Weddings & Events
