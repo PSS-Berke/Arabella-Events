@@ -16,6 +16,192 @@
 
 export const POSTS = [
   {
+    slug: 'intimate-estate-wedding-hozho-alameda-ranch-scottsdale',
+    title: 'An Intimate Estate Wedding: A Romantic Weekend at Hozho Alameda Ranch',
+    couple: 'Sophia & Zachary',
+    date: '2026-10-03',
+    location: 'Scottsdale, Arizona',
+    excerpt:
+      'A whole wedding weekend at a ranch that had never hosted a wedding: a sequin-and-gold welcome reception, an intimate ceremony by the stables, and a candlelit dinner with 50 hand-arranged calla lilies.',
+    cover: {
+      src: '/media/sz-sunset-flare-portrait-4e58e2f3.jpg',
+      alt: 'Sophia and Zachary in golden sunset light at Hozho Alameda Ranch, her lace gown and veil glowing',
+      width: 1334,
+      height: 2000,
+    },
+    photos: [],
+    body: `When Sophia first reached out to me, she had a very specific idea of what she wanted her wedding weekend to look like.
+
+She didn't want a traditional wedding venue where everyone showed up for a few hours and went their separate ways. She wanted to spend an entire weekend surrounded by her closest family and friends, with everyone staying together in one beautiful place.
+
+And she had found the perfect property.
+
+**Hozho Alameda Ranch.**
+
+The only catch? The property had never hosted a wedding before.
+
+Naturally, I was intrigued.
+
+Sophia had rented out the property and its guest accommodations so her loved ones could stay together throughout the celebration. Rather than planning just a wedding day, we were creating an entire weekend experience.
+
+From the welcome reception to the ceremony and intimate dinner, everything would take place on the property.
+
+And we were going to figure out how to make it happen.
+
+![Sophia with her bridesmaids in soft yellow, champagne and sage on a white canopy bed](/media/sz-bridesmaids-canopy-bed-feaf1971.jpg 1333x2000)
+![Sophia looking down from a white balustrade staircase beneath dark wood beams](/media/sz-bride-staircase-8a288ab1.jpg 1326x2000)
+
+## A Wedding Venue That Wasn't Actually a Wedding Venue
+
+One thing I've learned throughout my career is that some of the most beautiful weddings happen in places that weren't necessarily designed to host them.
+
+But they also require a LOT more planning.
+
+Hozho Alameda Ranch is a beautiful property with stunning architecture, stables, open lawn spaces, and so much natural character. Sophia immediately saw the potential, and I did too.
+
+We had to get creative with how we would use the different areas of the property, where guests would gather, how the ceremony would flow, and how we could transform the spaces throughout the weekend.
+
+Sophia envisioned a romantic, intimate celebration with an almost European estate feeling.
+
+Her color palette was soft and timeless: whites, ivories, delicate lace embellishments, and touches of gold.
+
+Nothing overly trendy. Just something elegant, personal, and romantic.
+
+![A bridesmaid lifting Sophia's veil beside a towering saguaro, her bouquet of orchids, calla lilies and amaranthus in hand](/media/sz-veil-bridesmaid-saguaro-17493bc3.jpg 1326x2000)
+
+## A Welcome Reception Worth Celebrating
+
+Before the wedding day even began, we hosted a welcome reception for Sophia, Zachary, and their guests.
+
+And I absolutely loved the direction we went with this one.
+
+We incorporated sequins, ivory tones, and gold accents to create something celebratory while still feeling cohesive with the wedding design.
+
+The idea was to give their guests an opportunity to relax, spend time together, and enjoy the property before the big day.
+
+We also brought in **Pink Coyote** for a beautiful charcuterie spread, which was such a fun addition to the evening.
+
+It felt less like a formal wedding event and more like an intimate gathering of everyone they loved.
+
+Which was exactly what Sophia wanted.
+
+## An Intimate Ceremony at the Ranch
+
+For the ceremony, we chose a location right outside the property's beautiful gate, along the roundabout between the stables and the lawn.
+
+I loved this particular spot because it allowed us to embrace the architecture and character of the ranch rather than trying to cover it up with an elaborate ceremony installation.
+
+![Sophia and her father laughing beside the wrought-iron gate before the ceremony](/media/sz-father-gate-18ccf330.jpg 1333x2000)
+![Sophia's father giving her away as Zachary waits by urns of white florals](/media/sz-father-giving-away-e907baa8.jpg 1333x2000)
+
+We sourced beautiful bistro chairs from **Premium Party Rentals** to complement the estate-inspired design.
+
+And we brought in **Scott Stevenson of Officiant of the Desert** to lead the ceremony.
+
+With approximately 50 of their closest loved ones gathered together, the ceremony felt incredibly intimate.
+
+![Sophia and Zachary's first kiss before the open iron gates and terracotta roofline](/media/sz-ceremony-first-kiss-de534d5d.jpg 1500x2000)
+![A kiss beneath the mesquite branches as guests look on, her orchid and anthurium bouquet raised](/media/sz-ceremony-kiss-bouquet-ea498f85.jpg 1326x2000)
+
+Sometimes you don't need an enormous floral arch or a complicated installation to create something beautiful.
+
+Sometimes the setting itself is enough.
+
+## Fifty Calla Lilies and a Whole Lot of Candlelight
+
+One of my favorite design elements from Sophia's wedding was the dinner reception.
+
+We had approximately **one hour to completely transform the dinner space** before guests arrived.
+
+And I had a very specific vision for the tables.
+
+I wanted them to feel romantic, refined, and almost like a candlelit dinner in an old European estate.
+
+![Long ivory dinner tables lined with wrought-iron chairs, calla lilies and taper candles at dusk](/media/sz-dinner-tables-dusk-5a02f731.jpg 2000x1333)
+
+We incorporated taper candles in vintage glass holders, soft ivory details, and handmade floral centerpieces that I personally created.
+
+For the arrangements, I used **50 stems of calla lilies**, varying their heights to create movement and dimension throughout the tables.
+
+Calla lilies are one of my favorite flowers to work with because of how naturally sculptural they are. Rather than creating traditional round centerpieces, I wanted each arrangement to have its own shape and personality.
+
+We also incorporated amaranthus to bring a softer, cascading element into the design.
+
+The contrast between the structured calla lilies, delicate amaranthus, and flickering candlelight was so beautiful.
+
+And yes, I personally made every centerpiece.
+
+That's one thing about me. When I have a very specific design in my head, sometimes I just want to get my hands on it and create it myself.
+
+![Champagne flutes on an ivory satin table gathered into soft knots](/media/sz-champagne-table-7cc25e5f.jpg 1333x2000)
+![Sophia seated before dramatic ivory draping and urns of white florals](/media/sz-bride-ivory-draping-d87ccc9f.jpg 1333x2000)
+
+## A Bride After My Own Heart
+
+Something that made Sophia's wedding particularly personal was how involved she was in the creative details.
+
+Sophia handmade all of her own menus and signage, incorporating the lace-inspired, ivory aesthetic she had envisioned from the beginning.
+
+And I loved that.
+
+As someone who personally creates so much of the stationery and custom detailing for my own weddings, I have such an appreciation for brides who genuinely enjoy that part of the process.
+
+Not every couple wants to handmake things for their wedding, and that's completely fine. But when someone does, I love finding ways to incorporate their work into the overall design.
+
+It made the celebration feel even more personal.
+
+The handmade details, delicate textures, and soft color palette all worked together beautifully.
+
+## A Wedding Weekend, Not Just a Wedding Day
+
+What made Sophia and Zachary's wedding so different was that the entire experience was centered around spending time together.
+
+They weren't interested in having hundreds of guests or creating an enormous production.
+
+They wanted their closest loved ones in one place, sharing meals, celebrating, and making memories throughout the weekend.
+
+And I think there's something really special about that.
+
+![Sophia and Zachary in warm film light before the courtyard fountain and saguaros](/media/sz-fountain-portrait-film-79db550e.jpg 2000x1975)
+
+From the sequin-filled welcome reception to the intimate ceremony by the stables and the candlelit dinner we transformed in just an hour, every part of the celebration had its own personality while still feeling connected.
+
+It was also such a unique planning experience for me, taking a property that had never hosted a wedding and figuring out how to bring an entire celebration to life there.
+
+These are the kinds of projects that challenge me creatively and logistically, and I genuinely love that aspect of wedding planning.
+
+![Sophia leaning into Zachary, champagne in hand, during the toasts](/media/sz-toasts-night-37adcfef.jpg 1333x2000)
+![An embrace on the lawn in a haze of golden-hour light](/media/sz-golden-hour-embrace-af6ed940.jpg 1326x2000)
+
+## Made to Leave You in AWE
+
+Sophia and Zachary's wedding was a beautiful example of how a wedding doesn't have to follow a traditional format to feel special.
+
+Sometimes the most meaningful celebrations are the ones where everyone gets to slow down, stay together, and enjoy the experience beyond just a few hours.
+
+I'm so grateful Sophia trusted me to help bring her vision to life at a property where we were essentially creating the wedding experience from scratch.
+
+From sourcing the perfect chairs to arranging 50 calla lilies by hand, there were so many little pieces that went into making this weekend happen.
+
+And seeing all of those details come together is exactly why I love what I do.
+
+**With love,**
+Arabella
+
+---
+
+### The Creative Team
+
+**Full-Service Planning, Design & Floral Centerpieces:** Arabella's Weddings & Events
+**Venue:** Hozho Alameda Ranch | Scottsdale, Arizona
+**Officiant:** Scott Stevenson | Officiant of the Desert
+**Rentals:** Premium Party Rentals
+**Welcome Reception Charcuterie:** Pink Coyote
+**Custom Menus & Signage:** Handmade by Sophia
+
+*Arabella's Weddings & Events | Full-Service Wedding Planning & Design in Scottsdale, Arizona*`,
+  },
+  {
     slug: 'whimsical-wild-west-wedding-don-hoels-cabins-sedona',
     title: "Whimsical Wild West: An Enchanted Forest Wedding at Don Hoel's",
     couple: 'Jennifer & Hunter',
