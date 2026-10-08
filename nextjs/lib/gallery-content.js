@@ -25,6 +25,9 @@ export const GALLERY_CANVAS_HEIGHT = 4030; // total collage height, px
 // the bottom). The masonry fills each column top to bottom, so alternating in
 // the array spreads them down every column. `d` only carries the aspect ratio.
 const ADDED_ITEMS = [
+  ['kn-red-rock-dip-kiss-fe51d92f.jpg', 1333, 2000, 'A groom dipping his bride into a kiss on the red rocks of Sedona'],
+  ['kn-laughing-red-rocks-2a9294d5.jpg', 1333, 2000, 'A couple laughing together above the Sedona red rocks'],
+  ['kn-red-rock-portrait-a1bd985a.jpg', 1333, 2000, 'A bride resting her head on her groom’s shoulder before a red rock butte'],
   ['tlaquepaque-chapel-first-kiss-b76f0e25.jpg', 1333, 2000, "Bride and groom's first kiss at the candlelit altar of the Tlaquepaque chapel in Sedona"],
   ['cabin-tablescape-forest-table-a0e8e91e.jpg', 1334, 2000, 'Candlelit farm table set in front of a forest cabin, chiffon runner knotted around its turned legs'],
   ['kiva-fireplace-couple-standing-b4c4059f.jpg', 1333, 2000, 'Couple in a leather jacket and gold beaded gown beneath string lights before a candlelit kiva fireplace'],

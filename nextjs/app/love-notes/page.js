@@ -130,35 +130,47 @@ export default function LoveNotes() {
         <p className={`${QUOTE} mt-10 w-full max-w-[520px] text-center text-[17px] lg:mb-[10px] lg:ml-[515px] lg:mt-0 lg:w-[417px] lg:max-w-none lg:[grid-area:20/1/21/2]`}>{r[11].text}</p>
       </section>
 
-      {/* Newer reviews (not on live): a simple centered stack after the live layout */}
-      <section className="mx-auto mt-16 flex w-full max-w-[720px] flex-col items-center gap-14 px-6 lg:mt-24">
-        {MORE_LOVE_NOTES.map((note, i) => (
-          <article key={i} className="flex w-full flex-col items-center border-t border-[#e6ddd2] pt-14 text-center">
-            {note.label ? (
-              <p className="m-0 mb-3 text-[11px] font-light uppercase tracking-[0.18em] text-brown">{note.label}</p>
-            ) : null}
-            {note.name ? <NameImg review={note} className="mb-4 w-[300px] max-w-[80%]" /> : null}
-            {note.photo ? (
-              <Image
-                src={note.photo.src}
-                alt={note.photo.alt}
-                width={note.photo.w}
-                height={note.photo.h}
-                sizes="(min-width: 768px) 360px, 80vw"
-                className="mb-8 h-auto w-full max-w-[360px]"
-              />
-            ) : null}
-            <p className={`${QUOTE} text-[17px]`}>{note.text}</p>
-            {note.post ? (
-              <Link
-                href={`/blog/${note.post}`}
-                className="mt-6 text-[11px] font-light uppercase tracking-[0.18em] text-brown no-underline transition-colors hover:text-tan"
-              >
-                {note.postLabel || 'Read the wedding story'} &rarr;
-              </Link>
-            ) : null}
-          </article>
-        ))}
+      {/* Newer reviews (not on live), laid out like the originals above: the
+          couple name as a heading, the review beside a photo, and the photo
+          alternating sides. Reviews without a photo run full width. */}
+      <section className="mx-auto mt-16 flex w-full max-w-[980px] flex-col gap-16 px-6 lg:mt-24 lg:gap-20 lg:px-0">
+        {MORE_LOVE_NOTES.map((note, i) => {
+          const heading = note.name || note.label;
+          const sub = note.name ? note.label : null;
+          const flip = i % 2 === 1;
+          return (
+            <article
+              key={i}
+              className={`flex flex-col items-center gap-8 lg:items-start lg:gap-10 ${note.photo ? (flip ? 'lg:flex-row-reverse' : 'lg:flex-row') : ''}`}
+            >
+              {note.photo ? (
+                <Image
+                  src={note.photo.src}
+                  alt={note.photo.alt}
+                  width={note.photo.w}
+                  height={note.photo.h}
+                  sizes="(min-width: 1024px) 346px, 90vw"
+                  className="h-auto w-full max-w-[346px] lg:mt-[60px] lg:shrink-0"
+                />
+              ) : null}
+              <div className={`flex w-full flex-col items-center lg:items-start ${note.photo ? '' : 'lg:mx-auto lg:max-w-[760px] lg:items-center'}`}>
+                {heading ? <NameImg review={{ name: heading }} className="w-full text-center lg:text-left" /> : null}
+                {sub ? (
+                  <p className="m-0 mt-1 font-body text-[11px] font-light uppercase tracking-[0.18em] text-brown">{sub}</p>
+                ) : null}
+                {note.post ? (
+                  <Link
+                    href={`/blog/${note.post}`}
+                    className="mt-2 font-body text-[11px] font-light tracking-[0.16em] text-brown underline decoration-[#d9cfc3] underline-offset-4 transition-colors hover:text-tan"
+                  >
+                    {note.postLabel || 'Read their wedding story'} &rarr;
+                  </Link>
+                ) : null}
+                <p className={`${QUOTE} mt-4 text-[17px] ${note.photo ? 'text-left' : 'text-center'}`}>{note.text}</p>
+              </div>
+            </article>
+          );
+        })}
       </section>
     </main>
   );
