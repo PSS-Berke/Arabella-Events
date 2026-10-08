@@ -18,7 +18,7 @@ export const metadata = {
   metadataBase: new URL(SITE_URL),
   // Pages set their own full title via pageMeta(); this is the fallback.
   title: {
-    default: 'AWE | Full Design & Planning',
+    default: 'AWE | Wedding Planning and Design',
     template: '%s',
   },
   openGraph: { siteName: BRAND, type: 'website', locale: 'en_US' },

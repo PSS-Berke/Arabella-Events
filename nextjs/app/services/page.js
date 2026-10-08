@@ -3,9 +3,7 @@ import Link from 'next/link';
 import { pageMeta } from '@/lib/seo';
 
 export const metadata = pageMeta({
-  // Brand-first by Arabella's request, so no " | AWE" suffix.
-  title: 'AWE | Wedding Planning and Design',
-  brandSuffix: null,
+  title: 'Wedding Planning & Design Packages',
   description:
     'Full-service planning and design and partial planning for Scottsdale and Sedona weddings. Full service from a $60,000 investment; all-inclusive Sedona micro weddings from $15,000.',
   path: '/services',

@@ -9,7 +9,7 @@ import { pageMeta } from '@/lib/seo';
 
 export const metadata = pageMeta({
   // Brand-first by Arabella's request, so no " | AWE" suffix.
-  title: 'AWE | Full Design & Planning',
+  title: 'AWE | Wedding Planning and Design',
   brandSuffix: null,
   description:
     'Arizona luxury wedding planning, design, and coordination for Scottsdale and Sedona celebrations. 300+ events planned. Published in Style Me Pretty.',
