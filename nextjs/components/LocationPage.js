@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { BreadcrumbSchema, FaqSchema } from '@/components/Schema';
 import { LOCATIONS } from '@/lib/locations';
@@ -26,7 +27,7 @@ function SectionHeading({ script, children }) {
 }
 
 export default function LocationPage({ data }) {
-  const { city, region, slug, script, h1, intro, venuesHeading, venuesIntro, venues, practicalHeading, practical, faqs } = data;
+  const { city, region, slug, script, h1, intro, photos, venuesHeading, venuesIntro, venues, practicalHeading, practical, faqs } = data;
   // The other market, for a cross-link between the two landing pages.
   const sibling = LOCATIONS.find((l) => l.slug !== slug);
 
@@ -58,14 +59,30 @@ export default function LocationPage({ data }) {
         </div>
       </section>
 
+      {/* Optional photo strip — only pages with `photos` in lib/locations.js get one */}
+      {photos?.length ? (
+        <section className="grid grid-cols-2 gap-2 pb-[62px] md:grid-cols-4 md:gap-3">
+          {photos.map((p) => (
+            <Image
+              key={p.src}
+              src={p.src}
+              alt={p.alt}
+              width={1333}
+              height={2000}
+              sizes="(min-width: 1000px) 230px, (min-width: 768px) 24vw, 48vw"
+              className="aspect-[2/3] h-auto w-full object-cover"
+            />
+          ))}
+        </section>
+      ) : null}
+
       {/* Services — points at the canonical packages page rather than restating it */}
       <section className="border-t border-[#e6ddd2] py-[62px] text-center">
         <SectionHeading script="Our">HOW WE WORK TOGETHER</SectionHeading>
-        <div className="mx-auto grid max-w-[860px] gap-8 text-left md:grid-cols-3">
+        <div className="mx-auto grid max-w-[640px] gap-8 text-left md:grid-cols-2">
           {[
             ['Full Planning + Design', 'Our signature service, from venue and vendor sourcing through wedding-day execution.'],
-            ['Partial Planning', 'A set number of planning hours, vendor meetings, budget support, and month-of coordination.'],
-            ['Month-of Coordination', 'You have planned it. We learn it inside out, then lead the day so you do not have to.'],
+            ['Partial Planning', 'A set number of planning hours, vendor meetings, budget support, and wedding-day coordination.'],
           ].map(([name, note]) => (
             <div key={name} className="flex flex-col gap-2">
               <h3 className={`${H} m-0 text-[13px] md:text-[15px]`}>{name.toUpperCase()}</h3>
@@ -80,6 +97,20 @@ export default function LocationPage({ data }) {
           See full packages &amp; pricing
         </Link>
       </section>
+
+      {/* Optional package callout, e.g. Sedona's Tlaquepaque micro weddings */}
+      {data.callout ? (
+        <section className="border-t border-[#e6ddd2] py-[62px] text-center">
+          <SectionHeading script={data.callout.script}>{data.callout.heading}</SectionHeading>
+          <p className={`mx-auto mb-8 max-w-[640px] ${BODY}`}>{data.callout.text}</p>
+          <Link
+            href={data.callout.href}
+            className="inline-block border-b border-[#443221] pb-1 text-[12px] font-light uppercase tracking-[0.18em] transition-colors hover:border-tan"
+          >
+            {data.callout.cta}
+          </Link>
+        </section>
+      ) : null}
 
       {/* Venue guide */}
       <section className="border-t border-[#e6ddd2] py-[62px] text-center">

@@ -12,7 +12,7 @@ module.exports = {
         darkbrown: '#40352d',
       },
       fontFamily: {
-        display: ['var(--font-playfair)', 'Didot', 'Bodoni MT', 'Georgia', 'serif'],
+        display: ['var(--font-display)', 'Didot', 'Bodoni MT', 'Georgia', 'serif'],
         body: ['var(--font-barlow)', 'Helvetica', 'Arial', 'sans-serif'],
         nav: ['var(--font-aboreto)', 'Georgia', 'serif'],
         script: ['var(--font-pinyon)', 'cursive'],

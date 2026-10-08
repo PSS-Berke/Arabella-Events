@@ -20,22 +20,48 @@
 export const GALLERY_COLUMN = 980; // centered reference column width (Wix site width)
 export const GALLERY_CANVAS_HEIGHT = 4030; // total collage height, px
 
-export const GALLERY_ITEMS = [
+// NOT from the live gallery — photos added Oct 2026. Ordered so no one shoot
+// clusters, then woven one-for-one into the live items (see GALLERY_ITEMS at
+// the bottom). The masonry fills each column top to bottom, so alternating in
+// the array spreads them down every column. `d` only carries the aspect ratio.
+const ADDED_ITEMS = [
+  ['tlaquepaque-chapel-first-kiss-b76f0e25.jpg', 1333, 2000, "Bride and groom's first kiss at the candlelit altar of the Tlaquepaque chapel in Sedona"],
+  ['cabin-tablescape-forest-table-a0e8e91e.jpg', 1334, 2000, 'Candlelit farm table set in front of a forest cabin, chiffon runner knotted around its turned legs'],
+  ['kiva-fireplace-couple-standing-b4c4059f.jpg', 1333, 2000, 'Couple in a leather jacket and gold beaded gown beneath string lights before a candlelit kiva fireplace'],
+  ['red-anthurium-lion-fountain-593cfa54.jpg', 1333, 2000, 'Red anthurium, rose and hanging amaranth arrangement in a stone lion fountain'],
+  ['tlaquepaque-veil-portrait-569b88f9.jpg', 1333, 2000, 'Bride and groom forehead to forehead beneath a stone arch as her cathedral veil sweeps across the frame'],
+  ['cabin-tablescape-place-settings-13796f7a.jpg', 1334, 2000, 'Scalloped gold-rimmed plates, custom menus, champagne napkins and gold flatware in late-afternoon sun'],
+  ['sweetheart-table-couple-433bc681.jpg', 1333, 2000, 'Bride in a lace mantilla and groom in an ivory suit at a red sweetheart table'],
+  ['checkered-dance-floor-red-rocks-c3a80f8a.jpg', 1333, 2000, 'Checkered dance floor under string lights with the Sedona red rocks behind it at night'],
+  ['cabin-tablescape-candles-closeup-262bd28b.jpg', 1334, 2000, 'Mauve pillar and ivory taper candles with white roses in bud vases on a chiffon table runner'],
+  ['kiva-fireplace-couple-rugs-316749b1.jpg', 1333, 2000, 'Newlyweds lounging on layered vintage rugs in front of a kiva fireplace'],
+  ['vintage-piped-wedding-cake-564d76e7.jpg', 1333, 2000, 'Three-tier vintage piped buttercream wedding cake with red monogram and engraved cake server'],
+  ['cabin-shoot-lighting-tablescape-2ab0112a.jpg', 2000, 1334, 'Lighting the pillar candles on a long forest tablescape beneath autumn trees'],
+  ['red-anthurium-floral-table-d523165a.jpg', 1333, 2000, 'Tall red anthurium, orchid and amaranth arrangement beside a crushed-velvet sweetheart table'],
+  ['tlaquepaque-chapel-kiss-4e7e37b0.jpg', 1333, 2000, 'Bride in a long lace-trimmed veil kissing the groom before the painted altar of the Tlaquepaque chapel'],
+  ['cabin-tablescape-autumn-trees-8558bb08.jpg', 1334, 2000, 'Ivory and mauve candlelit table under towering autumn trees'],
+  ['sweetheart-table-toast-f7f72605.jpg', 2000, 1333, 'Bride kissing the groom on the cheek as a toast is read at their candlelit sweetheart table'],
+  ['cabin-shoot-lighting-candle-ad98da3d.jpg', 1334, 2000, 'Lighting a ribbed pillar candle among white roses and gold-rimmed coupes'],
+  ['string-lights-dusk-cce7149a.jpg', 1333, 2000, 'String lights over a checkered dance floor and candle-lined paths at dusk'],
+  ['cabin-shoot-placing-menus-8202a2db.jpg', 1334, 2000, 'Tucking custom menus onto gold-rimmed place settings'],
+  ['cabin-shoot-smiling-f3d0f913.jpg', 1334, 2000, 'Laughing behind a candlelit tablescape in an autumn garden'],
+  ['cabin-shoot-laughing-14ed8beb.jpg', 1334, 2000, 'A candid laugh behind the candles and white roses of a forest tablescape'],
+].map(([file, width, height, alt]) => ({
+  type: 'image',
+  src: `/media/${file}`,
+  width,
+  height,
+  alt,
+  d: { x: 0, y: 0, w: width, h: height },
+}));
+
+const LIVE_ITEMS = [
   {
     type: 'video',
     src: '/media/49b5c3_5152e84309dc4c99828f4a0596ee06ba-1080p-9941f299.mp4',
     poster: '/media/49b5c3_5152e84309dc4c99828f4a0596ee06baf001-6fbb2e48.jpg',
     label: 'Groom twirling the bride on a villa staircase, her gown fanning out',
     d: { x: -415, y: 40, w: 1815, h: 387 },
-  },
-  {
-    // NOT from the live gallery — added Oct 2026. Leads the masonry flow.
-    type: 'image',
-    src: '/media/tlaquepaque-chapel-first-kiss-b76f0e25.jpg',
-    width: 1333,
-    height: 2000,
-    alt: "Bride and groom's first kiss at the candlelit altar of the Tlaquepaque chapel in Sedona",
-    d: { x: 0, y: 0, w: 1333, h: 2000 },
   },
   {
     type: 'image',
@@ -262,6 +288,15 @@ export const GALLERY_ITEMS = [
   },
 ];
 
+// Hero stays first; the additions alternate with the live photos after it.
+export const GALLERY_ITEMS = [
+  LIVE_ITEMS[0],
+  ...Array.from({ length: Math.max(ADDED_ITEMS.length, LIVE_ITEMS.length - 1) }, (_, i) => [
+    ADDED_ITEMS[i],
+    LIVE_ITEMS[i + 1],
+  ]).flat().filter(Boolean),
+];
+
 // NOT from the live gallery — these three clips live on the home and services
 // pages, pulled in here so motion is spread through the collage instead of
 // sitting in two places. All are 16:9 natives (1920x1080 or 960x540), so the
@@ -275,7 +310,7 @@ export const GALLERY_EXTRA_VIDEOS = [
     poster: '/media/49b5c3_d326db7690b1430d9fe14de2a6bb4b92f000-cb0df2e4.jpg',
     label: "Escort-card table of miniature suitcase favors beneath a 'Baggage Claim' sign",
     ar: '16 / 9',
-    slot: 13,
+    slot: 10,
   },
   {
     type: 'video',
@@ -283,7 +318,7 @@ export const GALLERY_EXTRA_VIDEOS = [
     poster: '/media/49b5c3_27a7a44aa2bf4bb9a0559243e72be06df000-dc5ae3c8.jpg',
     label: 'Newlyweds walking out through a shower of petals as their guests cheer',
     ar: '16 / 9',
-    slot: 21,
+    slot: 26,
   },
   {
     type: 'video',
@@ -291,6 +326,6 @@ export const GALLERY_EXTRA_VIDEOS = [
     poster: '/media/49b5c3_94afe07dea67468194477edb9160c29df000-f015404f.jpg',
     label: 'Newlyweds walking hand in hand past a flower-covered courtyard storefront',
     ar: '16 / 9',
-    slot: 27,
+    slot: 42,
   },
 ];

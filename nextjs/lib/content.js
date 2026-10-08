@@ -3,12 +3,14 @@ export const NAV_PRIMARY = [
   { label: 'WELCOME', href: '/' },
   { label: 'PACKAGES', href: '/services' },
   { label: 'CUSTOM DESIGN | STATIONARY', href: '/custom-design-stationery-rentals' },
+  { label: 'RENTALS', href: '/rentals' },
 ];
 
 export const NAV_SECONDARY = [
   { label: 'ABOUT AWE + TEAM', href: '/arabella' },
   { label: 'KIND WORDS', href: '/love-notes' },
   { label: 'GALLERY', href: '/gallery' },
+  { label: 'BLOG', href: '/blog' },
   { label: 'CONTACT', href: '/contact' },
 ];
 
@@ -21,7 +23,6 @@ export const INSTAGRAM_URL = 'https://www.instagram.com/arabellasweddingsandeven
 export const IMG = {
   logo: '/media/Arabella-s-2--6f7587cd.png',            // wordmark, crop x_0,y_307,w_1391,h_552
   monogram: '/media/Arabella-s-2--033071cd.png',        // square AWE monogram crop
-  tagline: '/media/49b5c3_2a88b2d97adc4fe7bb0062f3d413f668-31ca82ef.png',   // "ARIZONA – WORLDWIDE" strip
   emailStrip: '/media/49b5c3_ceee96ab5a7343a7b166e2df13da99ee-16d5ebeb.png', // "ARABELLA@ARABELLASWEDDINGS.COM" strip
   instagramIcon: '/media/e1aa082f7c0747168d9cf43e77046142-9141c435.png',
   hero: '/media/49b5c3_2594b8f5133a4b30826bb1707628f8b4-7f045c26.jpg',      // red tablescape (full res)

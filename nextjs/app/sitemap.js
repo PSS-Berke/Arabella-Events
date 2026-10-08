@@ -1,4 +1,5 @@
 import { SITE_URL } from '@/lib/seo';
+import { POSTS } from '@/lib/blog-content';
 
 /*
  * `lastModified` is an explicit per-route date, not `new Date()`.
@@ -24,6 +25,10 @@ const ROUTES = [
   { path: '/gallery', priority: 0.7, changeFrequency: 'monthly', lastModified: '2026-08-12' },
   { path: '/love-notes', priority: 0.7, changeFrequency: 'monthly', lastModified: '2026-08-12' },
   { path: '/custom-design-stationery-rentals', priority: 0.6, changeFrequency: 'yearly', lastModified: '2026-08-12' },
+  { path: '/vendors', priority: 0.5, changeFrequency: 'monthly', lastModified: '2026-10-08' },
+  { path: '/blog', priority: 0.6, changeFrequency: 'weekly', lastModified: '2026-10-08' },
+  ...POSTS.map((p) => ({ path: `/blog/${p.slug}`, priority: 0.5, changeFrequency: 'yearly', lastModified: '2026-10-08' })),
+  { path: '/rentals', priority: 0.6, changeFrequency: 'monthly', lastModified: '2026-10-08' },
   { path: '/contact', priority: 0.8, changeFrequency: 'yearly', lastModified: '2026-08-12' },
 ];
 

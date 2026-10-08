@@ -76,11 +76,11 @@ export const SCOTTSDALE = {
   faqs: [
     {
       q: 'How much does a wedding planner cost in Scottsdale?',
-      a: 'Planning fees in the Scottsdale market typically run from around $2,000 for day-of coordination to $6,500 and up for full-service planning. Our full-service planning and design is built for celebrations with a wedding investment beginning around $50,000 and a minimum of 50 guests. Partial planning and month-of coordination are available for couples who have already done more of the work themselves.',
+      a: 'Full-service planning fees in the Scottsdale market typically run $6,500 and up. Our full planning + design fee is 15% of your overall wedding spend, with a $7,500 minimum. Full-service weddings with AWE typically begin at $60,000 in total wedding investment, with design-forward celebrations generally beginning around $750 per guest. Partial planning is available for couples who have already done more of the work themselves.',
     },
     {
       q: 'When should we book a Scottsdale wedding planner?',
-      a: 'For a peak-season date between October and May, twelve to eighteen months ahead is realistic — planners and the best venues book on similar timelines. For month-of coordination, six to nine months out is usually sufficient, though earlier is always better if your date falls in high season.',
+      a: 'For a peak-season date between October and May, twelve to eighteen months ahead is realistic — planners and the best venues book on similar timelines, so earlier is always better if your date falls in high season.',
     },
     {
       q: 'What is the best month to get married in Scottsdale?',
@@ -106,6 +106,20 @@ export const SEDONA = {
     'Sedona is not a smaller Scottsdale. It sits at about 4,500 feet, which makes it materially cooler than the Valley, and most of the land that makes it beautiful is not private — it belongs to the Coconino National Forest or to Arizona State Parks. That single fact reshapes the whole planning process: the ceremony site you fell in love with on a hike is probably a permit application, not a booking.',
     'It is also one of the most rewarding places in the country to marry. The rocks turn deep red in the last forty minutes of daylight, the creek runs cold under the sycamores, and a celebration here tends to become a weekend rather than an evening. We have planned and designed in Sedona — including at Tlaquepaque — and the work rewards a planner who has already learned where the constraints actually are.',
   ],
+  // Photo strip under the intro — Sedona celebrations from the portfolio.
+  photos: [
+    { src: '/media/tlaquepaque-veil-portrait-569b88f9.jpg', alt: 'Bride and groom beneath a stone arch at Tlaquepaque as her cathedral veil sweeps across the frame' },
+    { src: '/media/tlaquepaque-chapel-kiss-4e7e37b0.jpg', alt: 'First kiss before the painted altar of the Tlaquepaque chapel in Sedona' },
+    { src: '/media/kiva-fireplace-couple-standing-b4c4059f.jpg', alt: 'Newlyweds under string lights before a candlelit kiva fireplace' },
+    { src: '/media/checkered-dance-floor-red-rocks-c3a80f8a.jpg', alt: 'Checkered dance floor under string lights with the Sedona red rocks behind it at night' },
+  ],
+  callout: {
+    script: 'Micro',
+    heading: 'WEDDINGS AT TLAQUEPAQUE',
+    text: 'All-inclusive packages on weekdays from mid-November through March and throughout the summer months, starting at $15,000 for 50 guests — venue fee, catering, rentals, and an on-site coordinator included.',
+    href: '/services#micro-weddings',
+    cta: 'See micro wedding packages',
+  },
   venuesHeading: 'WHERE SEDONA WEDDINGS HAPPEN',
   venuesIntro:
     'The settings this market is known for, and the practical shape of a celebration at each.',

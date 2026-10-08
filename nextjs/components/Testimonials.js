@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { REVIEWS } from '@/lib/content';
 
-// Live Wix slideshow (comp-m5q4d698): 5 slides, autoplay every 5000ms with a
-// 1500ms cross-fade, no pause on hover, no heading; the whole quote links to
-// /love-notes; 6px dot indicators sit below (near-invisible on white, as live).
+// Homepage review carousel: 5 slides, autoplay every 5000ms with a 1500ms
+// cross-fade; the whole quote links to /love-notes. Restyled Oct 2026 (serif
+// italic quotes, visible dots) — live's near-invisible dots were dropped.
 export default function Testimonials() {
   const [i, setI] = useState(0);
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function Testimonials() {
     return () => clearInterval(t);
   }, []);
   return (
-    <section className="px-6 pb-[66px] pt-[17px]">
+    <section className="pb-20 pt-2 md:pb-24">
       <div className="mx-auto w-full max-w-[988px]">
         <div className="grid pt-[53px]">
           {REVIEWS.map((q, n) => (
@@ -25,8 +25,8 @@ export default function Testimonials() {
                 (n === i ? 'opacity-100' : 'pointer-events-none opacity-0')
               }
             >
-              <Link href="/love-notes" tabIndex={n === i ? 0 : -1} className="mx-auto block w-full max-w-[720px]">
-                <p className="m-0 text-center font-body text-[17px] leading-[1.4] text-charcoal md:text-[22px]">{q}</p>
+              <Link href="/love-notes" tabIndex={n === i ? 0 : -1} className="mx-auto block w-full max-w-[760px] no-underline">
+                <p className="m-0 text-center font-display text-[18px] italic leading-[1.65] text-[#4a3a2c] md:text-[21px]">&ldquo;{q}&rdquo;</p>
               </Link>
             </div>
           ))}
@@ -40,11 +40,19 @@ export default function Testimonials() {
               aria-label={'Slide ' + (n + 1)}
               aria-current={n === i}
               className={
-                'mx-[9.5px] h-[6px] w-[6px] cursor-pointer rounded-full border-0 p-0 ' +
-                (n === i ? 'bg-[rgba(212,212,210,0.36)]' : 'bg-[#fafafa]')
+                'mx-[7px] h-[7px] w-[7px] cursor-pointer rounded-full border-0 p-0 transition-colors ' +
+                (n === i ? 'bg-[#80695a]' : 'bg-[#d9cfc3] hover:bg-[#b8a898]')
               }
             />
           ))}
+        </div>
+        <div className="mt-10 text-center">
+          <Link
+            href="/love-notes"
+            className="inline-block border-b border-[#443221] pb-1 text-[12px] font-light uppercase tracking-[0.2em] text-[#443221] no-underline transition-colors hover:border-tan hover:text-tan"
+          >
+            Read more kind words
+          </Link>
         </div>
       </div>
     </section>

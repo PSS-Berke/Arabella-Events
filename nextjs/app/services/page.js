@@ -1,11 +1,35 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import { pageMeta } from '@/lib/seo';
 
 export const metadata = pageMeta({
-  title: 'Wedding Planning Packages | Full, Partial & Day-Of',
+  // Brand-first by Arabella's request, so no " | AWE" suffix.
+  title: 'AWE | Wedding Planning and Design',
+  brandSuffix: null,
   description:
-    'Full-service planning and design, partial planning, and month-of coordination for Scottsdale and Sedona weddings. Full service from a $50,000 investment.',
+    'Full-service planning and design and partial planning for Scottsdale and Sedona weddings. Full service from a $60,000 investment; all-inclusive Sedona micro weddings from $15,000.',
   path: '/services',
 });
+
+// Design tiers within Full Planning + Design: starting overall wedding
+// investment per guest. The planning fee itself is 15% of overall spend, $7,500 minimum.
+const EXPERIENCES = [
+  {
+    name: 'AWE Essential',
+    from: '$500+',
+    about: 'Beautiful, intentional, simpler design: selective floral accents, strong photography, a beautiful cake, and standard rentals.',
+  },
+  {
+    name: 'AWE Full Design',
+    from: '$750+',
+    about: 'A cohesive custom aesthetic: upgraded rentals and linens, substantial florals, stationery and signage, candlelight, and layered details.',
+  },
+  {
+    name: 'AWE Editorial',
+    from: '$1,000+',
+    about: 'Transformative floral and design, specialty rentals, installations, custom production, and an elevated guest experience.',
+  },
+];
 
 // Live pairs each video with a copy column: Full is text-left / video-right,
 // Partial is video-left / text-right. Raw markup keeps the `muted` attribute in
@@ -25,7 +49,7 @@ export default function Packages() {
           <div className="font-script text-[38px] leading-none sm:text-[44px] md:pl-[36px] md:text-left md:text-[62px]">Full</div>
           <h1 className="mb-[34px] mt-1.5 font-display text-[22px] font-light tracking-[0.13em] sm:text-[27px] md:pl-[36px] md:text-left md:text-[38px] md:tracking-[0.19em]">PLANNING + DESIGN</h1>
           <p className="mx-auto max-w-[760px] text-[13px] font-light uppercase leading-[2.1] tracking-[0.08em] text-pretty md:max-w-[536px] md:tracking-[0.14em]">
-            Every wedding is unique, which is why every proposal is thoughtfully tailored to the level of planning, design, and coordination your celebration requires. For couples seeking our signature full-service planning and design experience with a minimum of 50 guests, we recommend a wedding investment beginning around $50,000, allowing us to create a highly personalized celebration with thoughtful details, elevated design, and a seamless guest experience.
+            Every wedding is unique, which is why every proposal is thoughtfully tailored to the level of planning, design, and coordination your celebration requires. Full-service weddings with AWE typically begin at $60,000 in total wedding investment, with design-forward celebrations generally beginning around $750 per guest, allowing us to create a highly personalized celebration with thoughtful details, elevated design, and a seamless guest experience.
           </p>
         </div>
         <VideoBlock
@@ -35,6 +59,80 @@ export default function Packages() {
           loop={false}
           className="aspect-[404/311] w-full max-w-[404px] md:mt-[72px] md:w-[404px] md:shrink-0"
         />
+      </section>
+
+      {/* Design experiences — the per-guest tiers within full planning + design */}
+      <section className="border-t border-[#e6ddd2] py-[78px] text-center">
+        <div className="font-script text-[38px] leading-none sm:text-[44px] md:text-[62px]">The</div>
+        <h2 className="mb-[18px] mt-1.5 font-display text-[22px] font-light tracking-[0.13em] sm:text-[27px] md:text-[38px] md:tracking-[0.19em]">AWE EXPERIENCES</h2>
+        <p className="mx-auto mb-12 mt-0 max-w-[640px] text-[14.5px] font-light leading-[2] tracking-[0.05em] text-pretty">
+          Starting overall wedding investment, per guest. Our full planning + design fee is 15% of your overall wedding spend, with a $7,500 minimum.
+        </p>
+        <div className="mx-auto mb-14 grid max-w-[660px] grid-cols-2 gap-3">
+          <Image
+            src="/media/tlaquepaque-long-tables-candelabras-b3ab62f7.jpg"
+            alt="Long candlelit tables with gold candelabras and red roses in a Tlaquepaque courtyard at night"
+            width={1333}
+            height={2000}
+            sizes="(min-width: 768px) 325px, 45vw"
+            className="h-auto w-full"
+          />
+          <Image
+            src="/media/crystal-chandelier-amaranth-1b294729.jpg"
+            alt="Crystal chandelier draped with red amaranth beneath string lights at a candlelit night reception"
+            width={1333}
+            height={2000}
+            sizes="(min-width: 768px) 325px, 45vw"
+            className="h-auto w-full"
+          />
+        </div>
+        <div className="grid gap-10 text-center md:grid-cols-3 md:gap-8">
+          {EXPERIENCES.map((x) => (
+            <div key={x.name} className="flex flex-col items-center gap-3">
+              <h3 className="m-0 font-display text-[15px] font-light tracking-[0.16em] md:text-[17px]">{x.name.toUpperCase()}</h3>
+              <p className="m-0 font-display text-[22px] tracking-[0.06em]">
+                {x.from}
+                <span className="ml-1 text-[11px] font-light uppercase tracking-[0.18em] text-brown">per guest</span>
+              </p>
+              <p className="m-0 max-w-[300px] text-[14.5px] font-light leading-[2] tracking-[0.05em] text-pretty">{x.about}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Micro weddings — all-inclusive Tlaquepaque packages (Sedona, weekdays, off-peak) */}
+      <section id="micro-weddings" className="flex scroll-mt-48 flex-col items-center gap-10 border-t border-[#e6ddd2] py-[78px] md:flex-row md:gap-12">
+        <Image
+          src="/media/tlaquepaque-terracotta-tables-papel-picado-3a7c14f6.jpg"
+          alt="Wooden farm tables set with terracotta vessels and candles beneath papel picado along a Tlaquepaque wall at night"
+          width={1290}
+          height={1822}
+          sizes="(min-width: 768px) 360px, 80vw"
+          className="h-auto w-full max-w-[360px] md:shrink-0"
+        />
+        <div className="text-center">
+          <div className="font-script text-[38px] leading-none sm:text-[44px] md:text-[62px]">Micro</div>
+          <h2 className="mb-[18px] mt-1.5 font-display text-[22px] font-light tracking-[0.13em] sm:text-[27px] md:text-[38px] md:tracking-[0.19em]">WEDDINGS AT TLAQUEPAQUE</h2>
+          <p className="mx-auto mb-8 mt-0 max-w-[640px] text-[14.5px] font-light leading-[2] tracking-[0.05em] text-pretty">
+            All-inclusive packages at Tlaquepaque in Sedona, available on weekdays from mid-November through March and throughout the summer months.
+          </p>
+          <p className="m-0 font-display text-[22px] tracking-[0.06em] md:text-[26px]">
+            Starting at $15,000
+            <span className="ml-2 text-[11px] font-light uppercase tracking-[0.18em] text-brown">for 50 guests</span>
+          </p>
+          <ul className="mx-auto mb-10 mt-8 flex max-w-[640px] list-none flex-wrap justify-center gap-x-8 gap-y-3 p-0 text-[12px] font-light uppercase tracking-[0.18em]">
+            <li>Venue fee</li>
+            <li>Catering</li>
+            <li>Rentals</li>
+            <li>On-site coordinator</li>
+          </ul>
+          <Link
+            href="/contact"
+            className="inline-block border-b border-[#443221] pb-1 text-[12px] font-light uppercase tracking-[0.18em] transition-colors hover:border-tan"
+          >
+            Ask about dates
+          </Link>
+        </div>
       </section>
 
       {/* Partial: video left (390x355), copy right (578px column) */}
@@ -54,39 +152,8 @@ export default function Packages() {
             <li className="flex gap-[14px]"><span>&bull;</span><span>Planner attendance at select vendor meetings</span></li>
             <li className="flex gap-[14px]"><span>&bull;</span><span>Monthly or quarterly planning check-ins</span></li>
             <li className="flex gap-[14px]"><span>&bull;</span><span>Budget planning and management support</span></li>
-            <li className="flex gap-[14px]"><span>&bull;</span><span>Month-of coordination</span></li>
+            <li className="flex gap-[14px]"><span>&bull;</span><span>Wedding-day coordination</span></li>
             <li className="flex gap-[14px]"><span>&bull;</span><span>Regular reminders and guidance to keep planning on track</span></li>
-          </ul>
-        </div>
-      </section>
-
-      <section className="pb-5 pt-[78px] text-center">
-        <div className="font-script text-[38px] leading-none sm:text-[44px] md:text-[62px]">Month-of</div>
-        <h2 className="mb-[34px] mt-1.5 font-display text-[22px] font-light tracking-[0.13em] sm:text-[27px] md:text-[38px] md:tracking-[0.19em]">PLANNING</h2>
-        <p className="mx-auto mb-10 max-w-[740px] text-left text-[14.5px] font-light leading-[2] tracking-[0.05em] text-pretty">
-          Often referred to as <strong className="font-semibold">&ldquo;Day-of Coordination,&rdquo;</strong> our coordination services begin well before the wedding day. An experienced coordinator should never walk into your wedding without already knowing your plans, vendor team, venue, timeline, and the people most important to you. We take the time beforehand to understand every detail so that when your wedding day arrives, we can confidently step in, lead your vendor team, anticipate needs, and allow you to simply enjoy the celebration.
-        </p>
-        <div className="mx-auto max-w-[740px] text-left text-[14.5px] font-light tracking-[0.05em]">
-          <ul className="m-0 flex list-none flex-col gap-[13px] p-0">
-            <li className="flex gap-[14px]"><span>&bull;</span><span>For couples who have planned their wedding and are ready to hand over the details, we&apos;ll step in to bring everything together and ensure your celebration runs seamlessly.</span></li>
-            <li className="flex gap-[14px]"><span>&bull;</span><span>Review your plans, vendor details, and any remaining items</span></li>
-            <li className="flex gap-[14px]"><span>&bull;</span><span>Finalize outstanding details and logistics</span></li>
-            <li className="flex gap-[14px]"><span>&bull;</span><span>Create a comprehensive wedding-day timeline</span></li>
-            <li className="flex gap-[14px]"><span>&bull;</span><span>Coordinate directly with your vendor team</span></li>
-            <li className="flex gap-[14px]"><span>&bull;</span><span>Lead your wedding rehearsal</span></li>
-            <li className="flex gap-[14px]"><span>&bull;</span><span>Manage your wedding day from start to finish</span></li>
-            <li className="flex gap-[14px]"><span>&bull;</span><span>Investment</span></li>
-          </ul>
-
-          <p className="mb-[13px] mt-[26px] font-semibold">Month-of Coordination &mdash; $3,000</p>
-          <ul className="m-0 flex list-none flex-col gap-[13px] p-0">
-            <li className="flex gap-[14px]"><span>&bull;</span><span>We step in one month before your wedding to finalize details, coordinate vendors, create your timeline, and execute your wedding day.</span></li>
-          </ul>
-
-          <p className="mb-[13px] mt-[26px] font-semibold">Two-Month Coordination &mdash; $4,000</p>
-          <ul className="m-0 flex list-none flex-col gap-[13px] p-0">
-            <li className="flex gap-[14px]"><span>&bull;</span><span>We begin two months before your wedding, giving you additional support, guidance, and time to finalize outstanding details before transitioning into full wedding-day coordination.</span></li>
-            <li className="flex gap-[14px]"><span>&bull;</span><span>Please inquire for a complete proposal and full list of inclusions.</span></li>
           </ul>
         </div>
       </section>

@@ -31,12 +31,12 @@ const SERVICES = [
   {
     name: 'Partial Wedding Planning',
     description:
-      'A set number of planning hours, vendor meeting attendance, budget support, and month-of coordination.',
+      'A set number of planning hours, vendor meeting attendance, budget support, and wedding-day coordination.',
   },
   {
-    name: 'Month-of Coordination',
+    name: 'Micro Weddings at Tlaquepaque',
     description:
-      'Often called day-of coordination: timeline building, vendor leadership, rehearsal, and wedding-day management.',
+      'All-inclusive Sedona micro wedding packages on weekdays in off-peak months: venue fee, catering, rentals, and an on-site coordinator.',
   },
   {
     name: 'Custom Stationery, Signage & Rentals',
@@ -69,7 +69,6 @@ export function OrganizationSchema() {
     knowsAbout: [
       'Wedding planning',
       'Wedding design',
-      'Day-of coordination',
       'Destination weddings',
       'Wedding stationery',
     ],

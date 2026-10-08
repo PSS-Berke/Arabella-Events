@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { LOVE_NOTES, LN_TITLE, LN_PHOTOS, SOCIAL_BOOTH } from '@/lib/love-notes-content';
+import { LOVE_NOTES, MORE_LOVE_NOTES, LN_TITLE, LN_PHOTOS, SOCIAL_BOOTH } from '@/lib/love-notes-content';
 import { ReviewsSchema } from '@/components/Schema';
 
 import { pageMeta } from '@/lib/seo';
@@ -117,6 +117,19 @@ export default function LoveNotes() {
         </a>
         <Photo img={LN_PHOTOS.photoBooth} className="mt-10 h-auto w-[407px] max-w-full lg:mb-[63px] lg:ml-[81px] lg:mt-0 lg:max-w-none lg:[grid-area:20/1/21/2]" />
         <p className={`${QUOTE} mt-10 w-full max-w-[520px] text-center text-[17px] lg:mb-[10px] lg:ml-[515px] lg:mt-0 lg:w-[417px] lg:max-w-none lg:[grid-area:20/1/21/2]`}>{r[11].text}</p>
+      </section>
+
+      {/* Newer reviews (not on live): a simple centered stack after the live layout */}
+      <section className="mx-auto mt-16 flex w-full max-w-[720px] flex-col items-center gap-14 px-6 lg:mt-24">
+        {MORE_LOVE_NOTES.map((note, i) => (
+          <article key={i} className="flex w-full flex-col items-center border-t border-[#e6ddd2] pt-14 text-center">
+            {note.label ? (
+              <p className="m-0 mb-3 text-[11px] font-light uppercase tracking-[0.18em] text-brown">{note.label}</p>
+            ) : null}
+            {note.name ? <NameImg review={note} className="mb-4 w-[300px] max-w-[80%]" /> : null}
+            <p className={`${QUOTE} text-[17px]`}>{note.text}</p>
+          </article>
+        ))}
       </section>
     </main>
   );

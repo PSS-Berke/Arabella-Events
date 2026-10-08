@@ -44,6 +44,12 @@ export default function Footer() {
             {m.city} Wedding Planner
           </Link>
         ))}
+        <Link
+          href="/vendors"
+          className="text-[11px] font-light uppercase tracking-[0.18em] text-brown transition-colors hover:text-tan"
+        >
+          Featured Vendors &amp; Venues
+        </Link>
       </nav>
     </footer>
   );

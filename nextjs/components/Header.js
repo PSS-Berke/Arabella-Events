@@ -3,12 +3,12 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { NAV, NAV_PRIMARY, NAV_SECONDARY, IMG } from '@/lib/content';
+import { NAV, IMG } from '@/lib/content';
 
-// Live desktop header (QA-verified against the Wix mesh): ONE band — the
-// 3-item nav left of the centered 259px logo, the 4-item nav right of it,
-// both vertically centered against the logo; "ARIZONA – WORLDWIDE" strip
-// centered beneath (desktop only — dropped on mobile for tighter spacing).
+// Desktop header: the centered 259px logo with the full nav in one row
+// beneath it. Live split the nav either side of the logo; that stopped
+// fitting once Rentals made it eight links. Live's "ARIZONA – WORLDWIDE"
+// strip was removed at Arabella's request.
 // Nav in Aboreto 17px/16px, #414141, hover+active #DEA27A (0.4s transition,
 // no underline). Mobile gets a hamburger panel.
 function NavLinks({ items, size, pathname, className = '' }) {
@@ -34,11 +34,9 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white">
       <div className="mx-auto flex max-w-[1240px] flex-col items-center px-6 pb-2 pt-3 xl:pb-4 xl:pt-[30px]">
-        <div className="flex w-full items-center justify-between xl:grid xl:grid-cols-[1fr_auto_1fr] xl:gap-x-8">
-          <NavLinks items={NAV_PRIMARY} size="text-[17px]" pathname={pathname} className="hidden justify-self-end xl:flex" />
+        <div className="flex w-full items-center justify-between xl:justify-center">
           {/* Live-site logo is not a hyperlink */}
-          <Image src={IMG.logo} alt="Arabella's Weddings &amp; Events" width={648} height={242} priority className="h-auto w-[259px]" />
-          <NavLinks items={NAV_SECONDARY} size="text-[16px]" pathname={pathname} className="hidden justify-self-start xl:flex" />
+          <Image src={IMG.logo} alt="Arabella's Weddings &amp; Events" width={648} height={242} priority className="h-auto w-[259px] shrink-0" />
           <button
             type="button"
             aria-label={open ? 'Close menu' : 'Open menu'}
@@ -51,6 +49,11 @@ export default function Header() {
             <span className={`block h-px w-6 bg-charcoal transition-transform ${open ? '-translate-y-[7px] -rotate-45' : ''}`} />
           </button>
         </div>
+
+        {/* Desktop: every link in one row beneath the logo. Eight links and the
+            259px logo don't fit side by side in the 1240px band, and the old
+            split layout squeezed the logo to make room. */}
+        <NavLinks items={NAV} size="text-[16px]" pathname={pathname} className="mt-3 hidden xl:flex" />
 
         {/* Mobile hamburger panel (live Wix serves a separate mobile layout) */}
         {open && (
@@ -67,13 +70,6 @@ export default function Header() {
             ))}
           </nav>
         )}
-
-        {/* "ARIZONA – WORLDWIDE" — live text (was a baked image strip), centered
-            beneath the band. Desktop only, as on live. Naming the service area in
-            real text on every page is worth more than the image ever was. */}
-        <p className="awe-caps awe-strip mt-3 hidden w-[209px] text-center xl:block">
-          ARIZONA &ndash; WORLDWIDE
-        </p>
       </div>
     </header>
   );

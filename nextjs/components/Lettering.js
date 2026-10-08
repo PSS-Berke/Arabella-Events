@@ -4,7 +4,7 @@
  * The live Wix site renders its display lettering as flat images, which left
  * the homepage and /arabella with no headings at all and no crawlable copy.
  * These render the same lettering as real text using the two faces already
- * bundled in the layout — Playfair Display for the Didone caps, Pinyon Script
+ * bundled in the layout — Cormorant Garamond for the caps, Pinyon Script
  * for the script words. Sizing lives in globals.css (`.awe-*`).
  *
  * Sizes are expressed in `cqw` so the type scales with its box exactly as the
