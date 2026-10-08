@@ -596,6 +596,140 @@ Hannah and Hunter, thank you for trusting me with your vision, allowing me to be
 **Signage & Printed Pieces:** Arabella's Weddings & Events
 **DTB Pro – Flavafrae**`,
   },
+  {
+    slug: 'garden-estate-wedding-lauberge-de-sedona',
+    title: "A Garden Estate Along Oak Creek: A Romantic Wedding at L'Auberge de Sedona",
+    couple: 'Brynn & Megan',
+    date: '2026-06-27',
+    location: "L'Auberge de Sedona",
+    excerpt:
+      "A full-circle return to L'Auberge de Sedona: calla lilies, chiffon runners, and chandeliers above dinner along Oak Creek, a transformed ballroom, and a live tattoo artist, all planned in seven months.",
+    cover: {
+      src: '/media/bm-recessional-red-rocks-e77c86c6.jpg',
+      alt: 'Brynn and Megan raising their calla lily bouquets in celebration before the Sedona red rocks',
+      width: 1333,
+      height: 2000,
+    },
+    photos: [],
+    body: `L'Auberge de Sedona will always have a special place in my heart.
+
+Before starting Arabella's Weddings & Events, I actually worked at L'Auberge as a Senior Sales Manager, so I know the property incredibly well. When Brynn and Megan reached out about planning their wedding there, it felt like such a full-circle moment.
+
+We got on the phone, talked through their vision, and they immediately hired me for full planning and design.
+
+And I was SO excited.
+
+We had just seven months to plan their entire wedding from start to finish, and these two had no shortage of ideas.
+
+Especially Megan.
+
+Megan is a creative through and through. A thrifter, a crafter, and someone who genuinely appreciates all the little details that make a wedding personal. She already had such a specific vision in mind, and my job was to take all of those ideas, bring them together, and figure out how to make everything actually happen.
+
+Which, if you know me, is my favorite kind of challenge.
+
+![Getting ready by the window in a long-sleeved crepe gown, fastening an earring](/media/bm-getting-ready-earrings-f3bb6756.jpg 1333x2000)
+
+## Garden Estate Meets Sedona Red Rocks
+
+Brynn and Megan wanted their wedding to feel like a romantic garden estate, but we also wanted to embrace the natural beauty of Sedona.
+
+Think lush greenery, elegant calla lilies, soft ivory fabrics, and a beautiful contrast between refined garden-inspired details and the surrounding red rocks.
+
+![A tender moment during the vows on the deck before the red rocks](/media/bm-vows-red-rocks-4e66c530.jpg 1333x2000)
+![Reading vows from a small green book as the wedding party looks on](/media/bm-reading-vows-87c9b37f.jpg 1333x2000)
+
+I worked very closely with **Izra's Florals** to develop their tablescape designs. We focused on incorporating calla lilies, layered greenery, and arrangements that felt organic while still having that elevated, estate-inspired look.
+
+I love calla lilies because they're naturally sculptural. They can make such a statement without needing an overwhelming amount of flowers, and they were absolutely perfect for the direction we were going.
+
+We paired the florals with soft chiffon table runners that draped effortlessly across the tables, adding movement and texture without taking away from the arrangements themselves.
+
+The entire design was romantic, garden-inspired, and very intentionally curated.
+
+## Dinner Along Oak Creek
+
+One of the most beautiful parts of L'Auberge is the Cottage Side Lawn, tucked right alongside Oak Creek.
+
+For Brynn and Megan, we wanted dinner to feel like an intimate garden party, surrounded by the trees and the sound of the creek.
+
+We incorporated chandeliers to bring a little unexpected elegance into the outdoor setting. There's something I absolutely love about seeing a beautiful chandelier suspended in nature.
+
+It creates such an interesting contrast.
+
+Between the flowing chiffon runners, lush greenery, calla lilies, and chandeliers, the reception felt like a garden estate that just happened to be nestled into the red rocks of Sedona.
+
+And that was exactly what we were hoping to accomplish.
+
+## From a Hotel Ballroom to a Whole New Space
+
+One of the bigger design challenges was transforming the hotel's ballroom for the celebration.
+
+Ballrooms can be tricky because they're designed to accommodate so many different types of events. I never want my couples to feel like their wedding is just another event happening in a hotel meeting space.
+
+So we got creative.
+
+We incorporated plush lounge furnishings, intentional uplighting, and custom signage throughout the space to make it feel more like a continuation of their wedding design rather than a completely separate room.
+
+The lighting helped change the atmosphere, while the lounge pieces made everything feel more inviting and comfortable.
+
+And of course, I had to incorporate personalized signage.
+
+From the outdoor dinner to the indoor celebration, I wanted everything to feel cohesive, even though we were working with two very different environments.
+
+## A Tattoo Artist at the Wedding
+
+And because this wedding was so completely *them*, we brought in a live tattoo artist.
+
+Guests could leave with a little permanent memory of the night, and Brynn and Megan made sure to take a turn at the station themselves. It was playful, unexpected, and exactly the kind of personal touch I love seeing at a wedding.
+
+![Brynn and Megan sharing a kiss while sitting together at the tattoo station](/media/bm-tattoo-station-kiss-62961469.jpg 1333x2000)
+
+## Seven Months, So Many Ideas, and One Beautiful Wedding
+
+Planning an entire wedding in seven months is no small task, especially when you're working with a couple who has such a detailed creative vision.
+
+But that's also what made this wedding so much fun.
+
+Megan brought so many wonderful ideas to the table, and I loved being able to collaborate with someone who appreciated the design process as much as I do.
+
+There were a lot of moving pieces, a lot of decisions, and a whole lot of creativity involved in bringing everything together.
+
+![Laughing together during the ceremony with their officiant](/media/bm-ceremony-laughing-a33f21b8.jpg 1333x2000)
+
+My role wasn't to change what they wanted. It was to take their vision, refine the details, source the right partners, and make sure everything felt cohesive from beginning to end.
+
+I think that's one of the most important parts of full-service wedding planning. It's not always about starting with a blank canvas. Sometimes it's about helping someone who already knows exactly what they love turn all those ideas into something tangible.
+
+## A Full-Circle Moment
+
+Being back at L'Auberge, this time as the owner and lead designer of my own wedding planning company, made this celebration particularly special to me.
+
+I went from working at the property and helping couples book their weddings to returning with my own clients, my own creative direction, and a team of vendors bringing our designs to life.
+
+And getting to do that for two people as creative and trusting as Brynn and Megan made it even better.
+
+![Celebrating at the end of the ceremony, hands raised before the red rocks](/media/bm-ceremony-celebration-285d02dc.jpg 2000x1333)
+
+Their wedding was romantic, personal, a little playful, and full of thoughtful details.
+
+Exactly what a wedding should be.
+
+**With love,**
+Arabella
+
+---
+
+### The Creative Team
+
+**Planning, Design & Custom Details:** Arabella's Weddings & Events
+**Photography:** Andrea Neff Photography
+**DJ & Entertainment:** DTB Pro
+**Floral Design:** Izra's Florals
+**Rentals:** M&D Event Rentals
+**Venue:** L'Auberge de Sedona | Sedona, Arizona
+
+*Arabella's Weddings & Events | Full-Service Wedding Planning & Design in Sedona, Arizona*`,
+  },
 ];
 
 export const getPost = (slug) => POSTS.find((p) => p.slug === slug);
