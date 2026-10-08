@@ -194,6 +194,7 @@ Arabella
 
 **Full-Service Planning, Design & Floral Centerpieces:** Arabella's Weddings & Events
 **Venue:** Hozho Alameda Ranch | Scottsdale, Arizona
+**Photography:** Bella Wang Photo
 **Officiant:** Scott Stevenson | Officiant of the Desert
 **Rentals:** Premium Party Rentals
 **Welcome Reception Charcuterie:** Pink Coyote
