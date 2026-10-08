@@ -6,6 +6,13 @@ import { REVIEWS } from '@/lib/content';
 // Homepage review carousel: 5 slides, autoplay every 5000ms with a 1500ms
 // cross-fade; the whole quote links to /love-notes. Restyled Oct 2026 (serif
 // italic quotes, visible dots) — live's near-invisible dots were dropped.
+// Reviews whose couple has a blog post, by REVIEWS index (see the couple
+// names in lib/love-notes-content.js): the slide gets a link to their story.
+const REVIEW_LINKS = {
+  0: { name: 'Hannah & Hunter', post: 'seven-week-timeless-wedding-tlaquepaque-sedona' },
+  1: { name: 'Jordan & Austin', post: 'vintage-romance-wedding-tlaquepaque-sedona' },
+};
+
 export default function Testimonials() {
   const [i, setI] = useState(0);
   useEffect(() => {
@@ -28,6 +35,17 @@ export default function Testimonials() {
               <Link href="/love-notes" tabIndex={n === i ? 0 : -1} className="mx-auto block w-full max-w-[760px] no-underline">
                 <p className="m-0 text-center font-display text-[18px] italic leading-[1.65] text-[#4a3a2c] md:text-[21px]">&ldquo;{q}&rdquo;</p>
               </Link>
+              {REVIEW_LINKS[n] ? (
+                <p className="m-0 mt-6 text-center">
+                  <Link
+                    href={`/blog/${REVIEW_LINKS[n].post}`}
+                    tabIndex={n === i ? 0 : -1}
+                    className="text-[11px] font-light uppercase tracking-[0.18em] text-brown no-underline transition-colors hover:text-tan"
+                  >
+                    {REVIEW_LINKS[n].name} &middot; Read their wedding story &rarr;
+                  </Link>
+                </p>
+              ) : null}
             </div>
           ))}
         </div>

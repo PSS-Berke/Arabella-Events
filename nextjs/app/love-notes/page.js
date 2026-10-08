@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { LOVE_NOTES, MORE_LOVE_NOTES, LN_TITLE, LN_PHOTOS, SOCIAL_BOOTH } from '@/lib/love-notes-content';
 import { ReviewsSchema } from '@/components/Schema';
 
@@ -30,7 +31,17 @@ const QUOTE = 'm-0 whitespace-pre-line font-light leading-[1.4]';
 // testimonial a proper anchor in the page outline.
 function NameImg({ review, className }) {
   return (
-    <h2 className={`awe-caps awe-name m-0 uppercase ${className}`}>{review.name}</h2>
+    <h2 className={`awe-caps awe-name m-0 uppercase ${className}`}>
+      {review.name}
+      {review.post ? (
+        <Link
+          href={`/blog/${review.post}`}
+          className="mt-2 block font-body text-[11px] font-light normal-case tracking-[0.16em] text-brown underline decoration-[#d9cfc3] underline-offset-4 transition-colors hover:text-tan"
+        >
+          Read their wedding story &rarr;
+        </Link>
+      ) : null}
+    </h2>
   );
 }
 

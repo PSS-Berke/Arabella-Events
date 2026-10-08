@@ -94,14 +94,18 @@ export const LN_PHOTOS = {
 
 // The 12 testimonials in live order. `nameImg` is the baked serif couple-name
 // graphic shown above each quote (null for review 12, which has none).
+// `post` (optional) is the slug of the couple's blog post; a "Read their
+// wedding story" link to it appears under their name.
 export const LOVE_NOTES = [
   {
     name: 'Hannah & Hunter',
+    post: 'seven-week-timeless-wedding-tlaquepaque-sedona',
     nameImg: { src: '/media/49b5c3_cb60b9c06a1b4a2386bec09c59b61200-078b0301.png', w: 394, h: 39 },
     text: REVIEWS[0],
   },
   {
     name: 'Jordan & Austin',
+    post: 'vintage-romance-wedding-tlaquepaque-sedona',
     nameImg: { src: '/media/49b5c3_77eb19ac32aa4f9785e3448535d19fdf-55359627.png', w: 389, h: 49 },
     text: "Arabella was an absolute standout as our wedding  planner, and we can’t say enough about how grateful we are for her. From the very beginning, she demonstrated incredible organization and thoughtful planning, anticipating needs and potential obstacles long before they ever crossed our minds. Her attention to detail gave us so much confidence leading up to the wedding day. On the day itself, Arabella was truly the key piece that made everything run seamlessly. She took charge as the main point of contact between all of our vendors, ensuring every single person was on the same page and that the timeline stayed perfectly on track. If anything came up behind the scenes, we never knew about it because she already had it handled. What meant the most to us was her presence during moments when we couldn’t be there to oversee setup. She made sure every element was exactly where it needed to be, bringing our vision to life down to the smallest detail. Thanks to her we were able to actually enjoy our wedding day without worrying about anything. Arabella made it possible for us to fully immerse ourselves in the celebration, stress-free, and that alone made her worth her weight in gold. We truly couldn’t imagine our wedding day without her, and we recommend her wholeheartedly to any couple looking for someone who will go above and beyond to make their day perfect.",
   },

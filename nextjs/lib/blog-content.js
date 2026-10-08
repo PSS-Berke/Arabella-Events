@@ -921,6 +921,141 @@ Arabella
 
 *Arabella's Weddings & Events | Full-Service Wedding Planning & Design in Sedona, Arizona*`,
   },
+  {
+    slug: 'vintage-romance-wedding-tlaquepaque-sedona',
+    title: 'Vintage Romance in the Red Rocks: A Wedding at Tlaquepaque',
+    couple: 'Jordan & Austin',
+    date: '2025-10-04', // from the engraved cake server
+    location: 'Sedona, Arizona',
+    excerpt:
+      'A little vintage, a little unconventional: deep red sequined linens, anthuriums and cascading amaranthus, a piped vintage cake, and a checkered dance floor beneath the Sedona red rocks.',
+    cover: {
+      src: '/media/ja-kiss-at-gate-359bdc33.jpg',
+      alt: 'Jordan in a lace mantilla and gold satin gown kissing Austin in an ivory suit at the Tlaquepaque gate',
+      width: 1333,
+      height: 2000,
+    },
+    photos: [],
+    body: `Some weddings have a certain personality that you just can't replicate.
+
+Jordan and Austin's was one of those weddings.
+
+A little vintage, a little unconventional, and full of rich colors, interesting textures, and personal details. Their wedding was the perfect opportunity to play with a moodier, more eclectic design style against the beautiful Spanish architecture of Tlaquepaque.
+
+And I absolutely loved how it came together.
+
+![Jordan's lace mantilla and gold satin gown in the chapel, holding a bouquet of lavender anthuriums and green amaranthus](/media/ja-chapel-lace-veil-8935c327.jpg 1333x2000)
+![Walking to the chapel past a terracotta planter, the lace veil trailing behind](/media/ja-walking-to-chapel-28a40128.jpg 1333x2000)
+
+## A Little Vintage, A Little Drama
+
+For Jordan and Austin, we embraced a rich red color palette with a mix of romantic and unexpected details.
+
+Rather than keeping everything soft and neutral, we leaned into bold floral arrangements, textured fabrics, and a slightly nostalgic aesthetic that felt almost cinematic.
+
+We incorporated deep red sequined linens, candlelight, and floral arrangements filled with roses, anthuriums, and cascading amaranthus.
+
+![Red anthurium, cymbidium orchids, roses and cascading amaranthus against a red sequined linen](/media/ja-anthurium-closeup-d0b7d0fa.jpg 1333x2000)
+![A tall arrangement of anthurium, protea, red roses and hanging amaranthus on a wooden riser](/media/ja-anthurium-amaranthus-arrangement-d3248fa1.jpg 1333x2000)
+
+The flowers were one of my favorite parts of the design.
+
+I loved the contrast between the structured, glossy anthuriums and the softer, cascading amaranthus. They brought so much personality to the arrangements without feeling overly traditional.
+
+![A floor arrangement of red florals and amaranthus beside the sweetheart table's red sequined linen and pillar candles](/media/ja-red-florals-sequin-linen-8077fb6e.jpg 1333x2000)
+
+Paired with the warm architecture of Tlaquepaque, the entire design felt like something out of a vintage editorial.
+
+## The Details That Made It Theirs
+
+One thing I always try to accomplish with my weddings is making sure the design actually reflects the couple.
+
+Not just what's trending on Pinterest.
+
+Jordan and Austin's wedding had so many fun little details that gave it personality.
+
+Their vintage-inspired wedding cake, complete with delicate piping and their initials, fit perfectly into the overall aesthetic. We paired it with the rich red sequined linens, dramatic florals, and little personal touches that made the reception feel collected rather than overly styled.
+
+![A three-tier vintage piped cake with "J + A" in red beside engraved cake servers and a framed family photo](/media/ja-vintage-cake-initials-c75c40bf.jpg 1333x2000)
+![Jordan and Austin cutting their cake on a wine barrel](/media/ja-cake-cutting-barrel-98414aba.jpg 1333x2000)
+
+I especially loved how the deep reds played against the couple's ivory wedding attire.
+
+![Jordan and Austin at their red sequined sweetheart table with red pillar candles and rose petals](/media/ja-sweetheart-table-red-sequins-5a876061.jpg 1333x2000)
+
+Everything photographed so beautifully.
+
+![Jordan kissing Austin's cheek at the sweetheart table during the toasts](/media/ja-sweetheart-toast-4a21f7bb.jpg 2000x1333)
+
+And honestly, sometimes it's those unexpected combinations that make a wedding memorable.
+
+## An Intimate Celebration Under the Sedona Sky
+
+As the sun went down, the entire atmosphere shifted.
+
+The surrounding red rocks became silhouettes against the evening sky, the string lights started glowing, and the black-and-white checkered dance floor became a focal point of the celebration.
+
+![String lights over a black-and-white checkered dance floor beneath the red rocks at night](/media/ja-checkered-floor-red-rocks-28a42c4f.jpg 1333x2000)
+![String lights and candles glowing over the dance floor at dusk](/media/ja-string-lights-dusk-438dd25b.jpg 1333x2000)
+
+I love incorporating checkered dance floors into designs because they bring a little bit of playfulness without taking away from the elegance of the event.
+
+For Jordan and Austin, it was the perfect contrast to the romantic florals and vintage-inspired details.
+
+We also incorporated wine barrels and candlelight throughout the outdoor space, embracing the rustic character of Sedona while keeping the design intentional.
+
+There was something so beautiful about seeing all of those elements come together against the natural landscape.
+
+## A Wedding That Didn't Follow the Rules
+
+One of my favorite things about Jordan and Austin's wedding was that it didn't feel like we were trying to recreate anyone else's.
+
+The combination of vintage details, bold red florals, sequins, and checkered flooring wasn't necessarily what you'd expect from a traditional Sedona wedding.
+
+And that's exactly why I loved it.
+
+![Austin in a leather jacket and Jordan in a beaded gold gown beside a candlelit kiva fireplace](/media/ja-fireplace-leather-jacket-dbf524ae.jpg 1333x2000)
+![Cymbidium orchids, red anthurium and roses with hanging amaranthus](/media/ja-orchid-rose-florals-f32ea37d.jpg 1333x2000)
+
+I think wedding design becomes so much more interesting when couples are willing to embrace the things they genuinely love, even when those things don't fit into one specific aesthetic category.
+
+You can have romantic florals and a funky dance floor.
+
+You can mix sequins with vintage details.
+
+You can create something elegant without making it feel overly formal.
+
+And you can absolutely have a wedding that feels a little different from everything else you've seen.
+
+## Made to Leave You in AWE
+
+Jordan and Austin's wedding was such a fun reminder of why I love designing celebrations that feel personal rather than predictable.
+
+From the dramatic red florals to the vintage-inspired cake and the dance floor beneath the Sedona sky, every detail contributed to a celebration that felt entirely their own.
+
+![Guests greeting Jordan and Austin as they leave the ceremony](/media/ja-greeting-guests-22ea8a47.jpg 2000x1333)
+
+And getting to see it all captured through **Dana Maruna's** beautiful photography made it even more special.
+
+Her nostalgic, film-inspired photography style complemented the entire design so perfectly.
+
+This is the kind of wedding that makes me excited to keep creating, experimenting, and pushing beyond traditional wedding aesthetics.
+
+Because sometimes the most beautiful designs are the ones that break a few rules.
+
+**With love,**
+Arabella
+
+---
+
+### The Creative Team
+
+**Planning & Design:** Arabella's Weddings & Events (AWE)
+**Photography:** Dana Maruna Photo
+**Venue:** Tlaquepaque Arts & Shopping Village | Sedona, Arizona
+
+*Arabella's Weddings & Events | Full-Service Wedding Planning & Design in Sedona, Arizona*`,
+  },
 ];
 
 export const getPost = (slug) => POSTS.find((p) => p.slug === slug);
