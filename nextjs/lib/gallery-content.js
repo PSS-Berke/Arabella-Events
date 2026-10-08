@@ -29,6 +29,15 @@ export const GALLERY_ITEMS = [
     d: { x: -415, y: 40, w: 1815, h: 387 },
   },
   {
+    // NOT from the live gallery — added Oct 2026. Leads the masonry flow.
+    type: 'image',
+    src: '/media/tlaquepaque-chapel-first-kiss-b76f0e25.jpg',
+    width: 1333,
+    height: 2000,
+    alt: "Bride and groom's first kiss at the candlelit altar of the Tlaquepaque chapel in Sedona",
+    d: { x: 0, y: 0, w: 1333, h: 2000 },
+  },
+  {
     type: 'image',
     src: '/media/tlaquepaque-sedona-arizona-vintage-bride-groom-portr-5b1186a1.jpg',
     width: 588,
@@ -266,7 +275,7 @@ export const GALLERY_EXTRA_VIDEOS = [
     poster: '/media/49b5c3_d326db7690b1430d9fe14de2a6bb4b92f000-cb0df2e4.jpg',
     label: "Escort-card table of miniature suitcase favors beneath a 'Baggage Claim' sign",
     ar: '16 / 9',
-    slot: 12,
+    slot: 13,
   },
   {
     type: 'video',
@@ -274,7 +283,7 @@ export const GALLERY_EXTRA_VIDEOS = [
     poster: '/media/49b5c3_27a7a44aa2bf4bb9a0559243e72be06df000-dc5ae3c8.jpg',
     label: 'Newlyweds walking out through a shower of petals as their guests cheer',
     ar: '16 / 9',
-    slot: 20,
+    slot: 21,
   },
   {
     type: 'video',
@@ -282,6 +291,6 @@ export const GALLERY_EXTRA_VIDEOS = [
     poster: '/media/49b5c3_94afe07dea67468194477edb9160c29df000-f015404f.jpg',
     label: 'Newlyweds walking hand in hand past a flower-covered courtyard storefront',
     ar: '16 / 9',
-    slot: 26,
+    slot: 27,
   },
 ];
