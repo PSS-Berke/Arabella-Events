@@ -138,7 +138,25 @@ export default function LoveNotes() {
               <p className="m-0 mb-3 text-[11px] font-light uppercase tracking-[0.18em] text-brown">{note.label}</p>
             ) : null}
             {note.name ? <NameImg review={note} className="mb-4 w-[300px] max-w-[80%]" /> : null}
+            {note.photo ? (
+              <Image
+                src={note.photo.src}
+                alt={note.photo.alt}
+                width={note.photo.w}
+                height={note.photo.h}
+                sizes="(min-width: 768px) 360px, 80vw"
+                className="mb-8 h-auto w-full max-w-[360px]"
+              />
+            ) : null}
             <p className={`${QUOTE} text-[17px]`}>{note.text}</p>
+            {note.post ? (
+              <Link
+                href={`/blog/${note.post}`}
+                className="mt-6 text-[11px] font-light uppercase tracking-[0.18em] text-brown no-underline transition-colors hover:text-tan"
+              >
+                {note.postLabel || 'Read the wedding story'} &rarr;
+              </Link>
+            ) : null}
           </article>
         ))}
       </section>

@@ -26,6 +26,7 @@ export const POSTS = [
     slug: 'intimate-estate-wedding-hozho-alameda-ranch-scottsdale',
     title: 'An Intimate Estate Wedding: A Romantic Weekend at Hozho Alameda Ranch',
     couple: 'Sophia & Zachary',
+    photographer: { name: 'Bella Wang Photo', url: 'https://bellawangphoto.com/' },
     date: '2026-10-03',
     location: 'Scottsdale, Arizona',
     excerpt:
@@ -213,6 +214,7 @@ Arabella
     slug: 'whimsical-wild-west-wedding-don-hoels-cabins-sedona',
     title: "Whimsical Wild West: An Enchanted Forest Wedding at Don Hoel's",
     couple: 'Jennifer & Hunter',
+    photographer: { name: 'Chataccad Photography', url: 'https://chataccadphotography.com/' },
     date: '2026-09-26',
     location: "Don Hoel's Cabins, Sedona",
     excerpt:
