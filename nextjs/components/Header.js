@@ -9,16 +9,22 @@ import { NAV, IMG } from '@/lib/content';
 // beneath it. Live split the nav either side of the logo; that stopped
 // fitting once Rentals made it eight links. Live's "ARIZONA – WORLDWIDE"
 // strip was removed at Arabella's request.
-// Nav in Aboreto 17px/16px, #414141, hover+active #DEA27A (0.4s transition,
-// no underline). Mobile gets a hamburger panel.
+// Nav: Cormorant Garamond caps, widely spaced, deep espresso; hover and the
+// current page in antique gold, the current page also underlined with a
+// hairline. (Live used Aboreto with a peach accent.) Mobile gets a hamburger
+// panel.
+const NAV_LINK = 'font-display uppercase tracking-[0.22em] transition-colors duration-[400ms] ease-in-out hover:text-tan';
+const navState = (active) =>
+  active ? 'text-tan underline decoration-[0.5px] underline-offset-[7px]' : 'text-[#2e2620]';
+
 function NavLinks({ items, size, pathname, className = '' }) {
   return (
-    <ul className={`m-0 flex list-none flex-nowrap items-center gap-x-6 whitespace-nowrap p-0 font-nav ${size} tracking-[0.02em] ${className}`}>
+    <ul className={`m-0 flex list-none flex-nowrap items-center gap-x-8 whitespace-nowrap p-0 ${size} ${className}`}>
       {items.map((item) => (
         <li key={item.href}>
           <Link
             href={item.href}
-            className={`transition-colors duration-[400ms] ease-in-out hover:text-tan ${pathname === item.href ? 'text-tan' : 'text-charcoal'}`}
+            className={`${NAV_LINK} ${navState(pathname === item.href)}`}
           >
             {item.label}
           </Link>
@@ -53,7 +59,7 @@ export default function Header() {
         {/* Desktop: every link in one row beneath the logo. Eight links and the
             259px logo don't fit side by side in the 1240px band, and the old
             split layout squeezed the logo to make room. */}
-        <NavLinks items={NAV} size="text-[16px]" pathname={pathname} className="mt-3 hidden xl:flex" />
+        <NavLinks items={NAV} size="text-[14px]" pathname={pathname} className="mt-4 hidden xl:flex" />
 
         {/* Mobile hamburger panel (live Wix serves a separate mobile layout) */}
         {open && (
@@ -63,7 +69,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className={`font-nav text-[15px] transition-colors duration-[400ms] hover:text-tan ${pathname === item.href ? 'text-tan' : 'text-charcoal'}`}
+                className={`${NAV_LINK} text-[15px] ${navState(pathname === item.href)}`}
               >
                 {item.label}
               </Link>

@@ -1,11 +1,13 @@
 // Renders a blog post's simple Markdown (see lib/blog-content.js): "## " and
 // "### " headings, "---" dividers, paragraphs split on blank lines, single
 // line breaks kept, inline **bold** / *italic*, and photo blocks written as
-// ![alt](/media/file.jpg WxH). Deliberately tiny — no HTML passthrough, so
-// post text can never inject markup.
+// ![alt](/media/file.jpg WxH), and video blocks written as
+// !video[label](/media/clip.mp4 /media/poster.jpg WxH). Deliberately tiny —
+// no HTML passthrough, so post text can never inject markup.
 import Image from 'next/image';
 
 const IMG = /^!\[([^\]]*)\]\((\/media\/\S+) (\d+)x(\d+)\)$/;
+const VIDEO = /^!video\[([^\]]*)\]\((\/media\/[\w.-]+\.mp4) (\/media\/[\w.-]+\.jpg) (\d+)x(\d+)\)$/;
 const BODY = 'text-[15.5px] font-light leading-[2] tracking-[0.03em] text-pretty';
 
 function inline(text, keyBase) {
@@ -48,6 +50,20 @@ export default function PostBody({ markdown }) {
             </h2>
           );
         const lines = b.split('\n');
+        // Video block: !video[label](/media/clip.mp4 /media/poster.jpg WxH).
+        // Muted, looping and inline, like the gallery clips. Raw markup keeps
+        // the `muted` attribute in the server HTML (React drops the prop, and
+        // browsers won't autoplay without it). Only /media paths can match.
+        const vid = lines.length === 1 && b.match(VIDEO);
+        if (vid) {
+          const [, label, src, poster, w, h] = vid;
+          const html =
+            `<video src="${src}" poster="${poster}" autoplay muted loop playsinline controls preload="metadata"` +
+            ` aria-label="${label.replace(/"/g, '&quot;')}" style="display:block;width:100%;height:100%;object-fit:cover"></video>`;
+          return (
+            <div key={n} className="my-4 w-full bg-[#1d1915]" style={{ aspectRatio: `${w} / ${h}` }} dangerouslySetInnerHTML={{ __html: html }} />
+          );
+        }
         // Photo block: every line is ![alt](/media/file.jpg WxH). One photo is
         // shown full width; two or more sit side by side, two to a row.
         const photos = lines.map((l) => l.trim().match(IMG));

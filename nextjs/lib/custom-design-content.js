@@ -1,4 +1,5 @@
-// Content data for /custom-design-stationery-rentals — an image-only page on live.
+// Content for the custom-design collage at the top of /gallery (formerly its
+// own page, /custom-design-stationery-rentals, which now redirects there).
 // All positions were extracted from the live Wix mesh grid
 // ([data-mesh-id=comp-mfn1v1xsinlineContent-gridContainer], grid-template-rows: repeat(13, min-content) 1fr):
 // `left` is the offset in px from the left edge of the centered 980px reference column

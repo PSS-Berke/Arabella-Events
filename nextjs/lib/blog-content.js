@@ -11,6 +11,11 @@
 //     ![What the photo shows](/media/file.jpg 1067x1600)
 //   (the numbers are the photo's width x height). Put two such lines together,
 //   with no blank line between, to show them side by side.
+// - Videos inside the story: a line like
+//     !video[What happens in it](/media/clip.mp4 /media/poster.jpg 1280x676)
+//   (an .mp4, a still .jpg shown before it plays, and its width x height).
+// - `press` (optional): [{ name, note?, href }] shown as "As featured in" under
+//   the title. Keep in step with components/PressBar.js.
 // - `description` (optional) is the text Google shows under the title;
 //   `excerpt` is used if it's missing.
 
@@ -659,6 +664,7 @@ Sometimes, a little bit of magic happens when you let a wedding be exactly what 
     slug: 'seven-week-timeless-wedding-tlaquepaque-sedona',
     title: 'Seven Weeks, One Vision: A Timeless Sedona Wedding',
     couple: 'Hannah & Hunter',
+    press: [{ name: 'Together Journal', href: 'https://togetherjournal.com/lindsey-hunter-by-dana-maruna/' }],
     date: '2026-07-10',
     location: 'Sedona, Arizona',
     excerpt:
@@ -849,6 +855,8 @@ It creates such an interesting contrast.
 
 ![The sweetheart table along Oak Creek beneath a crystal chandelier, with a "How sweet it is to be loved by you" runner](/media/bm-sweetheart-table-a455bafb.jpg 1282x771)
 
+!video[Brynn and Megan's grand entrance, walking hand in hand between the calla-lily tables under string lights](/media/bm-entrance-d6bf0f5c.mp4 /media/bm-entrance-poster-0ba54fe5.jpg 1280x676)
+
 Between the flowing chiffon runners, lush greenery, calla lilies, and chandeliers, the reception felt like a garden estate that just happened to be nestled into the red rocks of Sedona.
 
 And that was exactly what we were hoping to accomplish.
@@ -922,9 +930,114 @@ Arabella
 *Arabella's Weddings & Events | Full-Service Wedding Planning & Design in Sedona, Arizona*`,
   },
   {
+    slug: 'vintage-vow-renewal-las-vegas',
+    title: 'Vintage Romance in Las Vegas: A Dreamy Vow Renewal',
+    couple: 'Isa & Dylan',
+    date: '2023-03-06',
+    location: 'Las Vegas, Nevada',
+    excerpt:
+      'Where it all began: a vintage-inspired vow renewal with colored glassware, green satin, garden florals, a dramatic floral veil, and disco balls suspended above the reception.',
+    cover: {
+      src: '/media/id-floral-veil-bw-340cf096.jpg',
+      alt: 'Isa in her dimensional floral veil and gown, reflected in a gilded mirror, in black and white',
+      width: 1290,
+      height: 1536,
+    },
+    photos: [],
+    body: `This one takes me back to the very beginning of my career, long before Arabella's Weddings & Events became what it is today.
+
+On March 6, 2023, Isa and Dylan celebrated their love with a beautiful vintage-inspired vow renewal at one of my favorite outdoor wedding venues in Las Vegas.
+
+And looking back at these photos, I can see so many little elements of the design style I've grown to love.
+
+The vintage details, the romantic florals, the layered textures, and most importantly, a celebration that felt completely personal to the couple.
+
+## A Little Vintage, A Little Whimsy
+
+Isa and Dylan's celebration had such a beautiful, nostalgic feeling to it.
+
+Rather than a traditional all-white wedding, the design incorporated soft greens, warm yellows, blush pinks, and delicate floral details that felt almost like something out of an old photograph.
+
+The tablescapes were filled with personality.
+
+We incorporated wooden farmhouse tables, vintage-inspired glassware in different colors, soft green satin napkins, and delicate floral arrangements that brought just the right amount of color into the space.
+
+![Disco balls and baby's breath clouds suspended above long tables set with colored vintage glassware and green satin napkins](/media/id-disco-balls-tablescape-cd9e2941.jpg 1290x1680)
+
+One of my favorite details was the collection of disco balls suspended above the reception.
+
+I loved the contrast between the romantic garden-inspired tables and the playful disco balls overhead. It gave the entire space a little unexpected personality without taking away from the elegance of the design.
+
+And honestly, that's still one of my favorite things to do when designing weddings today.
+
+Mix something classic with something completely unexpected.
+
+## A Bride With Timeless Style
+
+Can we talk about Isa's bridal look for a second?
+
+The lace, the pearls, the dramatic floral veil.
+
+Everything about it felt so romantic and vintage-inspired.
+
+![Isa looking back over her shoulder, her floral-edged cathedral veil spread across the floor beside a gilded mirror](/media/id-floral-veil-mirror-1fbd17d3.jpg 1290x1569)
+![Isa and Dylan's kiss in the window light, her layered pearls catching the sun](/media/id-kiss-window-pearls-f0f550fc.jpg 1290x1535)
+
+Her gown featured beautiful dimensional floral detailing, paired with a long veil that had delicate floral embellishments trailing along the edges.
+
+And the layered pearl necklaces were the perfect finishing touch.
+
+I love when a bride's personal style becomes part of the overall wedding aesthetic, and Isa's look complemented the celebration so beautifully.
+
+There was something so effortless about the combination of her romantic bridal style and the more playful details throughout the reception.
+
+## An Outdoor Reception With Personality
+
+Las Vegas has some incredibly beautiful outdoor wedding spaces, and I think people sometimes forget that there's so much more to getting married here than the Strip.
+
+For Isa and Dylan, the outdoor setting gave us the opportunity to create something that felt intimate, romantic, and a little unexpected.
+
+We incorporated natural wood tones, colorful glassware, garden-inspired florals, and soft linens to bring warmth into the reception.
+
+![Isa and Dylan raising a toast at their sweetheart table beside an amber goblet and garden florals](/media/id-toast-sweetheart-table-eedbb31c.jpg 1290x1594)
+
+The disco balls overhead brought a completely different energy to the space, making it feel celebratory and fun.
+
+And that's something I always appreciate about a good wedding design.
+
+It doesn't have to fit perfectly into one category.
+
+You can have a romantic garden aesthetic with vintage details and still have disco balls hanging above your dance floor.
+
+In fact, I think those combinations are what make a wedding memorable.
+
+## Where It All Began
+
+Looking back at Isa and Dylan's vow renewal is particularly special to me because it represents such an early chapter of my career.
+
+At the time, I was still learning so much about the wedding industry, developing my eye for design, and discovering which parts of the planning process I loved most.
+
+I didn't have my own wedding planning company yet.
+
+I didn't know exactly where my career would take me.
+
+But I knew I loved creating beautiful experiences for people.
+
+And I knew I was drawn to celebrations that felt a little different.
+
+![Isa laughing in a gilded mirror as Dylan wraps his arms around her](/media/id-mirror-laughing-122f813c.jpg 1290x1662)
+
+Years later, as the owner of Arabella's Weddings & Events, I can look back at weddings like this and recognize the beginning of so many things that have become part of my design philosophy.
+
+The vintage influences. The unexpected details. The willingness to mix textures, colors, and styles.
+
+And most importantly, the idea that a wedding should feel like the people we're celebrating.`,
+  },
+  {
     slug: 'vintage-romance-wedding-tlaquepaque-sedona',
     title: 'Vintage Romance in the Red Rocks: A Wedding at Tlaquepaque',
     couple: 'Jordan & Austin',
+    press: [{ name: 'Arizona Wed', note: '#2 Best Fall Wedding', href: 'https://www.instagram.com/p/DXho2XyD0_W/' }],
     date: '2025-10-04', // from the engraved cake server
     location: 'Sedona, Arizona',
     excerpt:
@@ -1057,6 +1170,9 @@ Arabella
 *Arabella's Weddings & Events | Full-Service Wedding Planning & Design in Sedona, Arizona*`,
   },
 ];
+
+// Newest first, whatever order the entries above are written in.
+POSTS.sort((a, b) => b.date.localeCompare(a.date));
 
 export const getPost = (slug) => POSTS.find((p) => p.slug === slug);
 

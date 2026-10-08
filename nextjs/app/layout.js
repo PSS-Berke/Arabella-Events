@@ -1,4 +1,4 @@
-import { Cormorant_Garamond, Barlow, Pinyon_Script, Aboreto } from 'next/font/google';
+import { Cormorant_Garamond, Barlow, Monsieur_La_Doulaise } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -8,11 +8,11 @@ import { SITE_URL, BRAND } from '@/lib/seo';
 
 // Headings: Cormorant Garamond (softer, more classic than the Playfair Display
 // live used). 300 is deliberately not loaded — it's too thin at these sizes,
-// so font-light headings render at 400.
+// so font-light headings render at 400. Accent words: Monsieur La Doulaise, a vintage calligraphy
+// (replaced Pinyon Script at Arabella's request, Oct 2026).
 const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: ['400','500','600'], style: ['normal','italic'], variable: '--font-display', display: 'swap' });
-const barlow = Barlow({ subsets: ['latin'], weight: ['300','400','500','600'], variable: '--font-barlow', display: 'swap' });
-const pinyon = Pinyon_Script({ subsets: ['latin'], weight: '400', variable: '--font-pinyon', display: 'swap' });
-const aboreto = Aboreto({ subsets: ['latin'], weight: '400', variable: '--font-aboreto', display: 'swap' });
+const barlow = Barlow({ subsets: ['latin'], weight: ['300','400','500','600'], variable: '--font-body', display: 'swap' });
+const monsieur = Monsieur_La_Doulaise({ subsets: ['latin'], weight: '400', variable: '--font-script', display: 'swap' });
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -33,7 +33,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const fontVars = [cormorant.variable, barlow.variable, pinyon.variable, aboreto.variable].join(' ');
+  const fontVars = [cormorant.variable, barlow.variable, monsieur.variable].join(' ');
   return (
     <html lang="en" className={fontVars}>
       <body className="bg-white text-charcoal font-body antialiased overflow-x-hidden">

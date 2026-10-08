@@ -2,16 +2,15 @@
 export const NAV_PRIMARY = [
   { label: 'WELCOME', href: '/' },
   { label: 'PACKAGES', href: '/services' },
-  { label: 'CUSTOM DESIGN | STATIONARY', href: '/custom-design-stationery-rentals' },
-  { label: 'RENTALS', href: '/rentals' },
 ];
 
 export const NAV_SECONDARY = [
   { label: 'ABOUT AWE + TEAM', href: '/arabella' },
   { label: 'KIND WORDS', href: '/love-notes' },
-  { label: 'GALLERY', href: '/gallery' },
+  { label: 'DESIGN + GALLERY', href: '/gallery' },
   { label: 'BLOG', href: '/blog' },
   { label: 'CONTACT', href: '/contact' },
+  { label: 'RENTALS', href: '/rentals' },
 ];
 
 export const NAV = [...NAV_PRIMARY, ...NAV_SECONDARY];

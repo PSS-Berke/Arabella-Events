@@ -20,7 +20,7 @@ Nav links to /custom-design-stationary-rentals, /arabella, /love-notes, /gallery
 
 ## Fonts
 
-Cormorant Garamond (display caps), Jost (body), Pinyon Script (calligraphic accents), loaded via `next/font/google`.
+Cormorant Garamond (display caps and menu), Barlow (body), Monsieur La Doulaise (script accents), loaded via `next/font/google`.
 
 ## Images — do this before launch
 

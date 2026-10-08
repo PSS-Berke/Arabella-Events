@@ -6,16 +6,18 @@ module.exports = {
       colors: {
         // Live-site palette (Wix theme colors)
         charcoal: '#414141',
-        tan: '#dea27a',
+        // Accent for hovers and the active menu item. Was live's peach #dea27a;
+        // now a muted antique gold at Arabella's request (Oct 2026).
+        tan: '#9a8158',
         wixcream: '#f7efe9',
         brown: '#80695a',
         darkbrown: '#40352d',
       },
       fontFamily: {
         display: ['var(--font-display)', 'Didot', 'Bodoni MT', 'Georgia', 'serif'],
-        body: ['var(--font-barlow)', 'Helvetica', 'Arial', 'sans-serif'],
-        nav: ['var(--font-aboreto)', 'Georgia', 'serif'],
-        script: ['var(--font-pinyon)', 'cursive'],
+        body: ['var(--font-body)', 'Helvetica', 'Arial', 'sans-serif'],
+        // Accent words: Monsieur La Doulaise calligraphy.
+        script: ['var(--font-script)', 'cursive'],
       },
     },
   },

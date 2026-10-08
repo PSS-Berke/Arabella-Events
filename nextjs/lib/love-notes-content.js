@@ -136,6 +136,7 @@ export const LOVE_NOTES = [
   },
   {
     name: 'Isabella & Dylan',
+    post: 'vintage-vow-renewal-las-vegas',
     nameImg: { src: '/media/49b5c3_52c4eedcf79e4c4b8842bd37fda9b463-5c965a9d.png', w: 415, h: 45 },
     text: "Arabella was absolutely phenomenal. I had my wedding in March of 2023. I had to write a review on how absolutely amazing she was to my husband, family, and me! Not only did she help us achieve everything we wanted for the wedding but was our biggest supporter and advocate when dealing with any of our vendors that were being difficult. She is a force to be reckoned with and does it with such grace. Arabella had an amazing eye for detail and made every step of the way in this experience so effortless. She was made for this industry and anyone that would over look her services would be a fool!",
   },

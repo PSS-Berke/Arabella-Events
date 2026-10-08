@@ -1,29 +1,23 @@
 'use client';
 import { useState } from 'react';
-import Image from 'next/image';
 import {
   CONTACT_FIELDS,
-  CONTACT_EMAIL,
-  CONTACT_MAILTO,
-  CONTACT_IMG,
   SUBMIT_LABEL,
   CONTACT_SUCCESS_MESSAGE,
   CONTACT_ERROR_MESSAGE,
 } from '@/lib/contact-content';
 
-// Vertical gaps (px) below each field, taken from the live Wix mesh layout.
-const FIELD_GAPS = [22, 25, 14, 22, 15, 12, 0];
+// Inquiry form (redesigned Oct 2026): soft-bordered fields in a two-column
+// grid on desktop, a dropdown for the package question, and a clear thank-you
+// state. Field list and validation rules live in lib/contact-content.js; the
+// server re-checks everything in app/api/contact/route.js.
 
-const LABEL_CLASS =
-  'mb-[9px] block font-body text-[13px] font-semibold leading-[1.4] text-charcoal';
+const LABEL = 'mb-2 block text-[11px] font-light uppercase tracking-[0.2em] text-brown';
+const INPUT_BASE =
+  'block w-full border bg-white px-4 py-3 font-body text-[15px] font-light text-[#443221] outline-none transition-colors placeholder:text-[#b3a597]';
 
 function inputClass(hasError) {
-  return [
-    'block w-full border-0 border-b-[7px] border-solid bg-white px-[10px] py-[3px]',
-    'font-body text-[15px] font-normal leading-[1.4] text-charcoal',
-    'outline-none transition-colors duration-500 placeholder:text-[#7A7370]',
-    hasError ? 'border-[#FF4040]' : 'border-[#E6DECA] hover:border-[#7A736F] focus:border-[#E6DECA]',
-  ].join(' ');
+  return `${INPUT_BASE} ${hasError ? 'border-[#c0392b]' : 'border-[#e0d6ca] hover:border-[#c9bba9] focus:border-[#443221]'}`;
 }
 
 function validate(values) {
@@ -31,7 +25,7 @@ function validate(values) {
   for (const field of CONTACT_FIELDS) {
     const value = (values[field.name] || '').trim();
     if (!value) {
-      errors[field.name] = 'This field is required.';
+      if (!field.optional) errors[field.name] = 'Please fill this in.';
     } else if (field.kind === 'email' && !new RegExp(field.pattern).test(value)) {
       errors[field.name] = 'Please enter a valid email address.';
     }
@@ -39,43 +33,8 @@ function validate(values) {
   return errors;
 }
 
-// The live envelope is a Wix image-button: one 103x78 spot whose hand-drawn
-// artwork swaps on hover (second closed envelope) and on press (open envelope).
-// It is not a link on live, so it stays non-interactive here.
-function EnvelopeDoodle() {
-  const imgClass =
-    'absolute left-0 top-1/2 h-auto w-[103px] -translate-y-1/2 transition-opacity duration-500';
-  return (
-    <div className="group relative h-[78px] w-[103px] shrink-0 select-none" role="img" aria-label="Hand drawn envelope">
-      <Image
-        src={CONTACT_IMG.envelopeDefault}
-        alt=""
-        width={206}
-        height={124}
-        className={`${imgClass} opacity-100 group-hover:opacity-0`}
-      />
-      <Image
-        src={CONTACT_IMG.envelopeHover}
-        alt=""
-        width={206}
-        height={124}
-        className={`${imgClass} opacity-0 group-hover:opacity-100 group-active:opacity-0`}
-      />
-      <Image
-        src={CONTACT_IMG.envelopeActive}
-        alt=""
-        width={206}
-        height={124}
-        className={`${imgClass} opacity-0 group-active:opacity-100`}
-      />
-    </div>
-  );
-}
-
 export default function ContactForm() {
-  const [values, setValues] = useState(() =>
-    Object.fromEntries(CONTACT_FIELDS.map((f) => [f.name, '']))
-  );
+  const [values, setValues] = useState(() => Object.fromEntries(CONTACT_FIELDS.map((f) => [f.name, ''])));
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
   const [serverError, setServerError] = useState('');
@@ -96,7 +55,10 @@ export default function ContactForm() {
     if (status === 'sending') return;
     const nextErrors = validate(values);
     setErrors(nextErrors);
-    if (Object.keys(nextErrors).length > 0) return;
+    if (Object.keys(nextErrors).length > 0) {
+      document.getElementById(`contact-${Object.keys(nextErrors)[0]}`)?.focus();
+      return;
+    }
     setStatus('sending');
     setServerError('');
     try {
@@ -118,109 +80,75 @@ export default function ContactForm() {
     }
   }
 
-  return (
-    <form noValidate onSubmit={handleSubmit} className="md:pl-[13px]">
-      <div className="flex flex-col md:grid md:grid-cols-[456px_409px] md:gap-x-[71px]">
-        {/* Field column */}
-        {status === 'success' ? (
-          <div className="flex items-start justify-center pt-16 md:pt-24" role="status" aria-live="polite">
-            <p className="m-0 font-body text-[17px] font-light tracking-[0.04em] text-charcoal">
-              {CONTACT_SUCCESS_MESSAGE}
-            </p>
-          </div>
-        ) : (
-          <div>
-            {CONTACT_FIELDS.map((field, i) => {
-              const id = `contact-${field.name}`;
-              const hasError = Boolean(errors[field.name]);
-              return (
-                <div key={field.name} style={{ marginBottom: FIELD_GAPS[i] }}>
-                  <label htmlFor={id} className={LABEL_CLASS}>
-                    {field.label}
-                  </label>
-                  {field.kind === 'textarea' ? (
-                    <textarea
-                      id={id}
-                      name={field.name}
-                      required
-                      aria-required="true"
-                      aria-invalid={hasError}
-                      value={values[field.name]}
-                      onChange={(e) => handleChange(field.name, e.target.value)}
-                      className={`${inputClass(hasError)} h-[28px] resize-none overflow-auto`}
-                    />
-                  ) : (
-                    <input
-                      id={id}
-                      name={field.name}
-                      type={field.kind === 'email' ? 'email' : 'text'}
-                      placeholder={field.placeholder || ''}
-                      maxLength={field.maxLength}
-                      pattern={field.pattern}
-                      autoComplete="off"
-                      required
-                      aria-required="true"
-                      aria-invalid={hasError}
-                      value={values[field.name]}
-                      onChange={(e) => handleChange(field.name, e.target.value)}
-                      className={`${inputClass(hasError)} h-[32px]`}
-                    />
-                  )}
-                  {hasError && (
-                    <p className="m-0 mt-[5px] font-body text-[13px] leading-[1.4] text-[#FF4040]">
-                      {errors[field.name]}
-                    </p>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        )}
-
-        {/* Companion column: envelope doodle + mailto link, portrait below */}
-        <aside className="mt-14 flex flex-col items-center md:mt-0 md:items-start">
-          <div className="flex items-center md:ml-[70px]">
-            <EnvelopeDoodle />
-            <p className="m-0 -ml-2 font-body text-[16px] font-light leading-[1.8em] text-charcoal">
-              <a href={CONTACT_MAILTO} className="underline">
-                {CONTACT_EMAIL}
-              </a>
-            </p>
-          </div>
-          <Image
-            src={CONTACT_IMG.portrait}
-            alt="Arabella laughing behind a candle-lit tablescape of white florals and autumn foliage"
-            width={553}
-            height={836}
-            sizes="295px"
-            className="mt-[10px] h-auto w-[295px]"
-          />
-        </aside>
+  if (status === 'success') {
+    return (
+      <div role="status" aria-live="polite" className="flex min-h-[420px] flex-col items-center justify-center text-center">
+        <div className="font-script text-[48px] leading-none text-[#443221] md:text-[60px]">Thank you</div>
+        <p className="m-0 mt-5 max-w-[420px] text-[15.5px] font-light leading-[1.9] text-[#4a3a2c]">{CONTACT_SUCCESS_MESSAGE}</p>
       </div>
+    );
+  }
 
-      {/* Send button — sits centered below the whole form block on live */}
-      {status !== 'success' && (
-        <div className="mt-12 flex flex-col items-center md:mt-[135px]">
-          <button
-            type="submit"
-            disabled={status === 'sending'}
-            aria-disabled={status === 'sending'}
-            aria-label={SUBMIT_LABEL}
-            className="flex h-[42px] w-[295px] items-center justify-center border-4 border-solid border-white bg-[#ECE4D8]/[0.97] font-display text-[32px] font-bold italic leading-none text-brown transition-colors duration-[400ms] hover:bg-white hover:text-[#7A736F] disabled:cursor-default disabled:bg-[#CCCCCC] disabled:text-white"
-          >
-            {SUBMIT_LABEL}
-          </button>
-          {status === 'error' && serverError && (
-            <p
-              role="alert"
-              aria-live="assertive"
-              className="m-0 mt-5 max-w-[520px] text-center font-body text-[14px] leading-[1.7] text-[#FF4040]"
-            >
-              {serverError}
-            </p>
-          )}
-        </div>
-      )}
+  return (
+    <form noValidate onSubmit={handleSubmit} className="grid gap-x-5 gap-y-6 sm:grid-cols-2">
+      {CONTACT_FIELDS.map((field) => {
+        const id = `contact-${field.name}`;
+        const hasError = Boolean(errors[field.name]);
+        const common = {
+          id,
+          name: field.name,
+          required: !field.optional,
+          'aria-required': !field.optional,
+          'aria-invalid': hasError,
+          'aria-describedby': hasError ? `${id}-error` : undefined,
+          value: values[field.name],
+          onChange: (e) => handleChange(field.name, e.target.value),
+          className: inputClass(hasError),
+        };
+        return (
+          <div key={field.name} className={field.wide ? 'sm:col-span-2' : ''}>
+            <label htmlFor={id} className={LABEL}>
+              {field.label}
+              {field.optional ? <span className="ml-1 normal-case tracking-normal text-[#b3a597]">(optional)</span> : null}
+            </label>
+            {field.kind === 'select' ? (
+              <select {...common} className={`${common.className} appearance-none bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22><path d=%22M1 1l5 5 5-5%22 fill=%22none%22 stroke=%22%2380695a%22 stroke-width=%221.5%22/></svg>')] bg-[right_1rem_center] bg-no-repeat pr-10`}>
+                <option value="">Choose one</option>
+                {field.options.map((o) => (
+                  <option key={o} value={o}>{o}</option>
+                ))}
+              </select>
+            ) : field.kind === 'textarea' ? (
+              <textarea {...common} rows={field.rows || 4} placeholder={field.placeholder || ''} maxLength={field.maxLength} className={`${common.className} resize-y`} />
+            ) : (
+              <input
+                {...common}
+                type={field.kind === 'email' ? 'email' : field.kind === 'tel' ? 'tel' : 'text'}
+                inputMode={field.kind === 'tel' ? 'tel' : undefined}
+                autoComplete={field.autoComplete || 'off'}
+                placeholder={field.placeholder || ''}
+                maxLength={field.maxLength}
+              />
+            )}
+            {hasError ? (
+              <p id={`${id}-error`} className="m-0 mt-2 text-[13px] text-[#c0392b]">{errors[field.name]}</p>
+            ) : null}
+          </div>
+        );
+      })}
+
+      <div className="flex flex-col items-center gap-4 pt-2 sm:col-span-2">
+        <button
+          type="submit"
+          disabled={status === 'sending'}
+          className="w-full cursor-pointer border border-[#443221] bg-[#443221] px-8 py-4 text-[12px] font-light uppercase tracking-[0.24em] text-white transition-colors hover:bg-transparent hover:text-[#443221] disabled:cursor-default disabled:opacity-50 sm:w-auto sm:min-w-[260px]"
+        >
+          {status === 'sending' ? 'Sending…' : SUBMIT_LABEL}
+        </button>
+        {status === 'error' && serverError ? (
+          <p role="alert" className="m-0 max-w-[520px] text-center text-[14px] leading-[1.7] text-[#c0392b]">{serverError}</p>
+        ) : null}
+      </div>
     </form>
   );
 }

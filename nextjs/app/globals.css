@@ -18,7 +18,8 @@ a:hover { color: #dea27a; }
      caps   → Playfair Display 400  — closest of 11 Didone candidates tested;
               since swapped for the softer Cormorant Garamond at Arabella's
               request, so caps now run a little narrower than the artwork
-     script → Pinyon Script         — closest of 9 formal scripts tested
+     script → Pinyon Script         — closest of 9 formal scripts tested;
+              now Monsieur La Doulaise at Arabella's request (Oct 2026)
      ink    → #524232, sampled from the stroke cores of the source PNGs
 
    Sizes are in cqw against a declared container so the text scales with its
@@ -35,7 +36,7 @@ a:hover { color: #dea27a; }
 /* Tracking adds a trailing space after the last glyph; the matching text-indent
    pushes the line back so it stays optically centred. */
 .awe-script {
-  font-family: var(--font-pinyon), cursive;
+  font-family: var(--font-script), cursive;
   letter-spacing: normal;
   text-indent: 0;
 }
@@ -82,7 +83,7 @@ a:hover { color: #dea27a; }
 /* Homepage — intro line, DIN Next Light on live (Barlow 300 stand-in).
    DIN is more letterspaced than Barlow, so tracking is opened to compensate. */
 .awe-intro {
-  font-family: var(--font-barlow), Helvetica, Arial, sans-serif;
+  font-family: var(--font-body), Helvetica, Arial, sans-serif;
   font-weight: 300;
   color: #5a4a3c;
   font-size: max(11.5px, 2.17cqw);
@@ -111,3 +112,9 @@ a:hover { color: #dea27a; }
   margin-bottom: var(--gap);
   break-inside: avoid;
 }
+
+/* Monsieur La Doulaise: its capitals are huge swashes, so accent words are set
+   in lowercase only ("the", "welcome"), and the line box is tightened so the
+   ascenders don't crowd the headings beside them. */
+.font-script, .awe-script { text-transform: lowercase; }
+.font-script { line-height: 0.9; }

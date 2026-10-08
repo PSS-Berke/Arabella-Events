@@ -1,12 +1,13 @@
 import Image from 'next/image';
+import CollageGallery from '@/components/CollageGallery';
 import { GALLERY_ITEMS, GALLERY_EXTRA_VIDEOS } from '@/lib/gallery-content';
 
 import { pageMeta } from '@/lib/seo';
 
 export const metadata = pageMeta({
-  title: 'Wedding Gallery | Scottsdale & Sedona Weddings',
+  title: 'Wedding Gallery & Custom Design | Scottsdale & Sedona',
   description:
-    "A gallery of Arizona weddings planned and designed by Arabella's Weddings & Events, from Sedona's red rocks to Scottsdale's desert resorts.",
+    "Custom wedding design, stationery and signage, and a gallery of Arizona weddings planned and designed by Arabella's Weddings & Events, from Sedona's red rocks to Scottsdale's desert resorts.",
   path: '/gallery',
 });
 
@@ -37,11 +38,49 @@ const FLOW = REST.flatMap((item, i) => (EXTRAS.has(i) ? [EXTRAS.get(i), item] : 
 
 const ratio = (item) => (item.ar ? item.ar : `${item.d.w} / ${item.d.h}`);
 
+// Tablescape row under the custom-design collage.
+const TABLESCAPE = [
+  { src: '/media/cabin-tablescape-place-settings-13796f7a.jpg', alt: 'Scalloped gold-rimmed plates with custom menus, champagne napkins and gold flatware' },
+  { src: '/media/cabin-tablescape-candles-closeup-262bd28b.jpg', alt: 'Mauve pillar and ivory taper candles with white roses in bud vases on a chiffon runner' },
+  { src: '/media/cabin-shoot-placing-menus-8202a2db.jpg', alt: 'Tucking custom menus onto gold-rimmed place settings' },
+  { src: '/media/cabin-tablescape-autumn-trees-8558bb08.jpg', alt: 'Ivory and mauve candlelit tablescape under towering autumn trees' },
+  { src: '/media/tlaquepaque-long-tables-candelabras-b3ab62f7.jpg', alt: 'Long candlelit tables with gold candelabras and red roses in a Tlaquepaque courtyard at night' },
+  { src: '/media/crystal-chandelier-amaranth-1b294729.jpg', alt: 'Crystal chandelier draped with red amaranth beneath string lights' },
+];
+
 export default function GalleryPage() {
   return (
-    <main className="bg-white">
-      {/* Present for crawlers and screen readers; the live page shows no heading here. */}
-      <h1 className="sr-only">Wedding Gallery — Scottsdale &amp; Sedona Weddings</h1>
+    <main className="bg-white text-charcoal">
+      {/* Custom design (was its own page, /custom-design-stationery-rentals,
+          which now redirects here). The collage's "CUSTOM design" title is the
+          page's h1 — see components/CollageGallery.js. */}
+      {/* overflow-x-clip: the collage bleeds past both viewport edges by
+          design; clip it here so the page itself can't scroll sideways. */}
+      <section id="custom-design" className="scroll-mt-48 overflow-x-clip">
+        <CollageGallery />
+        <div className="mx-auto max-w-[1000px] px-6 pb-16 pt-6 text-center md:px-10 lg:pt-16">
+          <div className="font-script text-[38px] leading-none sm:text-[44px] md:text-[62px]">tablescape</div>
+          <h2 className="mb-[34px] mt-1.5 font-display text-[22px] font-light tracking-[0.13em] sm:text-[27px] md:text-[38px] md:tracking-[0.19em]">DESIGN</h2>
+          <div className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-3">
+            {TABLESCAPE.map((p) => (
+              <Image
+                key={p.src}
+                src={p.src}
+                alt={p.alt}
+                width={1334}
+                height={2000}
+                sizes="(min-width: 1000px) 310px, (min-width: 768px) 32vw, 48vw"
+                className="h-auto w-full"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div id="gallery" className="scroll-mt-48 border-t border-[#e6ddd2] pt-14 text-center md:pt-20">
+        <div className="font-script text-[38px] leading-none sm:text-[44px] md:text-[62px]">The</div>
+        <h2 className="mb-10 mt-1.5 font-display text-[22px] font-light tracking-[0.13em] sm:text-[27px] md:text-[38px] md:tracking-[0.19em]">GALLERY</h2>
+      </div>
       <div className="mx-auto max-w-[1500px] px-2 py-2 md:px-3 md:py-3 lg:px-4 lg:py-4">
         <GalleryVideo
           src={HERO.src}

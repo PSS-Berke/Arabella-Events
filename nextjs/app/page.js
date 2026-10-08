@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Testimonials from '@/components/Testimonials';
 import HomeHero from '@/components/HomeHero';
+import PressBar from '@/components/PressBar';
 import { IMG, ABOUT_PARAS } from '@/lib/content';
 import { POSTS, formatDate } from '@/lib/blog-content';
 import { pageMeta } from '@/lib/seo';
@@ -85,12 +86,8 @@ export default function Home() {
     <main className="text-[#443221]">
       <HomeHero />
 
-      {/* Press line (was baked into a graphic) */}
-      <section className="border-b border-[#e6ddd2] px-6 py-10 text-center">
-        <p className={EYEBROW}>As featured in</p>
-        <p className="m-0 mt-3 font-display text-[26px] italic tracking-[0.04em] md:text-[32px]">Style Me Pretty</p>
-        <p className="m-0 mt-2 text-[12px] font-light uppercase tracking-[0.2em]">#2 Best Fall Weddings in Arizona, 2025</p>
-      </section>
+      {/* Press (Style Me Pretty was baked into a graphic on live) */}
+      <PressBar className="border-t-0" />
 
       {/* Intro + bio */}
       <section className="mx-auto grid max-w-[1120px] items-start gap-12 px-6 py-20 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-16 md:px-10 md:py-28">

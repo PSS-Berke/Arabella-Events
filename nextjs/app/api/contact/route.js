@@ -6,16 +6,17 @@
 const EMAIL_RE = /^.+@.+\.[a-zA-Z]{2,63}$/;
 
 // Mirrors CONTACT_FIELDS in lib/contact-content.js (kept dependency-free so the
-// route has no client-side imports). All fields are required, as on live.
+// route has no client-side imports). `optional` fields may be blank.
 const FIELDS = [
-  { key: 'names', label: 'First & Last Names', max: 5000 },
-  { key: 'email', label: 'Email Address', max: 250 },
-  { key: 'phone', label: 'Phone Number', max: 5000 },
-  { key: 'venueDate', label: 'Venue & Date', max: 5000 },
-  { key: 'guestCount', label: 'Guest Count?', max: 100 },
-  { key: 'budget', label: 'Budget?', max: 100 },
-  { key: 'packages', label: 'Which packages are you most interested in?', max: 100 },
-  { key: 'referral', label: 'How did you hear about us?', max: 150 },
+  { key: 'names', label: 'Names', max: 300 },
+  { key: 'email', label: 'Email', max: 250 },
+  { key: 'phone', label: 'Phone', max: 50 },
+  { key: 'venueDate', label: 'Venue & date', max: 300 },
+  { key: 'guestCount', label: 'Guest count', max: 100 },
+  { key: 'budget', label: 'Overall wedding budget', max: 100 },
+  { key: 'packages', label: 'Interested in', max: 100 },
+  { key: 'referral', label: 'How did you hear about us?', max: 150, optional: true },
+  { key: 'vision', label: 'Their vision', max: 5000, optional: true },
 ];
 
 const SEND_FAILURE =
@@ -34,6 +35,10 @@ export async function POST(request) {
     const raw = body?.[field.key];
     const value = typeof raw === 'string' ? raw.trim() : '';
     if (!value) {
+      if (field.optional) {
+        values[field.key] = '';
+        continue;
+      }
       return Response.json({ error: `"${field.label}" is required.` }, { status: 400 });
     }
     if (value.length > field.max) {
@@ -56,7 +61,7 @@ export async function POST(request) {
     );
   }
 
-  const text = FIELDS.map((field) => `${field.label}\n${values[field.key]}`).join('\n\n');
+  const text = FIELDS.map((field) => `${field.label}\n${values[field.key] || '(not given)'}`).join('\n\n');
 
   let res;
   try {

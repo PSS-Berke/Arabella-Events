@@ -14,7 +14,13 @@ const nextConfig = {
         // this keeps the old URL alive for anything already pointing at it —
         // Wix links, a directory listing, a saved bookmark.
         source: '/custom-design-stationary-rentals',
-        destination: '/custom-design-stationery-rentals',
+        destination: '/gallery#custom-design',
+        permanent: true,
+      },
+      {
+        // Custom Design was merged into the gallery page (Oct 2026).
+        source: '/custom-design-stationery-rentals',
+        destination: '/gallery#custom-design',
         permanent: true,
       },
     ];
