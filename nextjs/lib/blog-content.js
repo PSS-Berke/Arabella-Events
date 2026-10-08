@@ -307,6 +307,7 @@ Arabella
     slug: 'spanish-inspired-wedding-tlaquepaque-sedona',
     title: 'A Spanish-Inspired Wedding at Tlaquepaque',
     couple: 'Andrew & Rafael',
+    photographer: { name: 'Maya Papaya Pictures', url: 'https://mayapapayapictures.com/' },
     date: '2026-09-25',
     location: 'Sedona, Arizona',
     excerpt:
@@ -441,6 +442,7 @@ Arabella
     slug: 'old-world-italian-inspired-wedding-tlaquepaque-sedona',
     title: 'An Old World Romance: A Dramatic Italian-Inspired Wedding at Tlaquepaque',
     couple: 'Sarah & Grant',
+    photographer: { name: 'Maya Papaya Pictures', url: 'https://mayapapayapictures.com/' },
     date: '2026-09-19',
     location: 'Sedona, Arizona',
     excerpt:
