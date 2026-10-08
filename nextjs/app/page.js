@@ -212,11 +212,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured vendors: names only, linking out; full page at /vendors */}
+      {/* Featured photographers (role "Photography" in lib/vendors-content.js),
+          names linking out; every vendor is on /vendors */}
       <section className="px-6 py-16 text-center md:py-20">
-        <p className={EYEBROW}>Featured vendors</p>
-        <ul className="mx-auto mb-0 mt-6 flex max-w-[960px] list-none flex-wrap items-center justify-center gap-x-10 gap-y-4 p-0">
-          {VENDORS.map((v) => (
+        <p className={EYEBROW}>Featured photographers</p>
+        <ul className="mx-auto mb-0 mt-6 flex max-w-[960px] list-none flex-wrap items-center justify-center gap-x-12 gap-y-4 p-0">
+          {VENDORS.filter((v) => v.role === 'Photography').map((v) => (
             <li key={v.name}>
               {v.url ? (
                 <a

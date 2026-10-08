@@ -47,6 +47,19 @@ export default function BlogPost({ params }) {
         <h1 className="m-0 mt-4 font-display text-[26px] font-light leading-[1.3] tracking-[0.12em] md:text-[36px]">
           {post.title.toUpperCase()}
         </h1>
+        {post.photographer ? (
+          <p className="m-0 mt-5 text-[11px] font-light uppercase tracking-[0.2em] text-brown">
+            Photographed by{' '}
+            <a
+              href={post.photographer.url}
+              target="_blank"
+              rel="noreferrer"
+              className="font-display text-[16px] normal-case italic tracking-[0.04em] text-[#443221] underline decoration-[#d9cfc3] underline-offset-4 transition-colors hover:text-tan"
+            >
+              {post.photographer.name}
+            </a>
+          </p>
+        ) : null}
         {post.press?.length ? (
           <p className="m-0 mt-5 text-[11px] font-light uppercase tracking-[0.2em] text-brown">
             As featured in{' '}

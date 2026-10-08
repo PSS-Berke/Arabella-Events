@@ -8,6 +8,7 @@
 export const VENDORS = [
   { name: 'Dana Maruna Photo', role: 'Photography', url: 'https://danamarunaphoto.com/' },
   { name: 'Maya Papaya Pictures', role: 'Photography', url: 'https://mayapapayapictures.com/' },
+  { name: 'Bella Wang Photo', role: 'Photography', url: 'https://bellawangphoto.com/' },
   { name: 'Film and Frame Booth', role: 'Vintage photo booth', url: 'https://www.instagram.com/filmandframebooth/' },
   { name: 'Sedona Catering Co.', role: 'Catering', note: 'with Tori Talkington', url: 'https://www.sedonacateringco.com/' },
   { name: 'Premium Party Rentals', role: 'Rentals', url: 'https://www.instagram.com/premiumpartyrentalsaz/' },

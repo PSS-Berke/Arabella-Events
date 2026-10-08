@@ -37,6 +37,12 @@ export default function BlogIndex() {
                 {post.couple} &middot; {formatDate(post.date)} &middot; {post.location}
               </p>
               <h2 className="m-0 mt-3 font-display text-[20px] font-light tracking-[0.12em] md:text-[23px]">{post.title.toUpperCase()}</h2>
+              {post.photographer ? (
+                // Plain text: the whole card is already a link to the post.
+                <p className="m-0 mt-2 font-display text-[15px] italic tracking-[0.03em] text-brown">
+                  Photographed by {post.photographer.name}
+                </p>
+              ) : null}
               <p className="m-0 mt-3 text-[14.5px] font-light leading-[1.9] tracking-[0.03em] text-pretty">{post.excerpt}</p>
               <span className="mt-4 inline-block border-b border-[#443221] pb-1 text-[12px] font-light uppercase tracking-[0.18em] transition-colors group-hover:border-tan">
                 Read the story

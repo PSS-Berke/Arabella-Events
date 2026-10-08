@@ -49,6 +49,9 @@ export default function Packages() {
           <p className="mx-auto max-w-[760px] text-[13px] font-light uppercase leading-[2.1] tracking-[0.08em] text-pretty md:max-w-[536px] md:tracking-[0.14em]">
             Every wedding is unique, which is why every proposal is thoughtfully tailored to the level of planning, design, and coordination your celebration requires. Full-service weddings with AWE typically begin at $60,000 in total wedding investment, with design-forward celebrations generally beginning around $750 per guest, allowing us to create a highly personalized celebration with thoughtful details, elevated design, and a seamless guest experience.
           </p>
+          <p className="mx-auto mb-0 mt-5 max-w-[760px] text-[12px] font-semibold uppercase tracking-[0.18em] text-tan md:max-w-[536px] md:pl-[36px] md:text-left">
+            Peak month &amp; weekend pricing &middot; off-peak from $6,000
+          </p>
         </div>
         <VideoBlock
           src="/media/49b5c3_ff293a45593944c0a480183eccc60df8-480p-ba23b20b.mp4"
@@ -66,6 +69,16 @@ export default function Packages() {
         <p className="mx-auto mb-12 mt-0 max-w-[640px] text-[14.5px] font-light leading-[2] tracking-[0.05em] text-pretty">
           Starting overall wedding investment, per guest. Our full planning + design fee is 15% of your overall wedding spend, with a $7,500 minimum.
         </p>
+        {/* Peak vs off-peak note (Arabella, Oct 2026): all prices above are peak. */}
+        <div className="mx-auto mb-12 max-w-[640px] border border-[#e6ddd2] px-6 py-6">
+          <p className="m-0 font-display text-[15px] font-normal uppercase tracking-[0.18em] md:text-[17px]">
+            Peak month &amp; weekend pricing
+          </p>
+          <p className="m-0 mt-3 text-[14.5px] font-light leading-[1.9] tracking-[0.04em] text-pretty">
+            The pricing on this page reflects peak-season months and weekend dates. Off-peak dates are flexible, with
+            full planning + design starting at <strong className="font-semibold">$6,000</strong>.
+          </p>
+        </div>
         <div className="mx-auto mb-14 grid max-w-[660px] grid-cols-2 gap-3">
           <Image
             src="/media/tlaquepaque-long-tables-candelabras-b3ab62f7.jpg"
@@ -95,6 +108,52 @@ export default function Packages() {
               <p className="m-0 max-w-[300px] text-[14.5px] font-light leading-[2] tracking-[0.05em] text-pretty">{x.about}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Planning + photography collaboration with Dana Maruna Photo */}
+      <section id="dana-and-arabella" className="flex scroll-mt-48 flex-col items-center gap-10 border-t border-[#e6ddd2] py-[78px] md:flex-row-reverse md:gap-12">
+        <Image
+          src="/media/film-veil-stone-archway-0a2b8ea4.jpg"
+          alt="A bride in a cathedral veil beneath a stone archway, photographed on 35mm film by Dana Maruna"
+          width={1078}
+          height={1600}
+          sizes="(min-width: 768px) 360px, 80vw"
+          className="h-auto w-full max-w-[360px] md:shrink-0"
+        />
+        <div className="text-center">
+          <div className="font-script text-[38px] leading-none sm:text-[44px] md:text-[62px]">Dana + Arabella</div>
+          <h2 className="mb-[18px] mt-1.5 font-display text-[22px] font-light tracking-[0.13em] sm:text-[27px] md:text-[34px] md:tracking-[0.17em]">PLANNING &amp; PHOTOGRAPHY</h2>
+          <p className="mx-auto mb-8 mt-0 max-w-[560px] text-[14.5px] font-light leading-[2] tracking-[0.05em] text-pretty">
+            A collaboration with{' '}
+            <a href="https://danamarunaphoto.com/" target="_blank" rel="noreferrer" className="underline decoration-[#d9cfc3] underline-offset-4 transition-colors hover:text-tan">
+              Dana Maruna Photo
+            </a>
+            : full planning and film photography, designed together from the very first idea.
+          </p>
+          <p className="m-0 font-display text-[22px] tracking-[0.06em] md:text-[26px]">Starting at $10,500</p>
+          <ul className="mx-auto mb-8 mt-8 flex max-w-[480px] list-none flex-col gap-3 p-0 text-left text-[14.5px] font-light tracking-[0.05em]">
+            {[
+              'Full planning',
+              '6 hours of photography coverage',
+              'Digital and film photos',
+              'Collaborative timeline planning',
+              'High-resolution images',
+              'Online gallery',
+              'Two dedicated women who love to collaborate and bring your vision to life',
+            ].map((item) => (
+              <li key={item} className="flex gap-[14px]">
+                <span>&bull;</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/contact"
+            className="inline-block border-b border-[#443221] pb-1 text-[12px] font-light uppercase tracking-[0.18em] transition-colors hover:border-tan"
+          >
+            Inquire about dates
+          </Link>
         </div>
       </section>
 

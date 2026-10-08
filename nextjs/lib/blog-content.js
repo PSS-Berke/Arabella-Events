@@ -16,6 +16,8 @@
 //   (an .mp4, a still .jpg shown before it plays, and its width x height).
 // - `press` (optional): [{ name, note?, href }] shown as "As featured in" under
 //   the title. Keep in step with components/PressBar.js.
+// - `photographer` (optional): { name, url }, shown as "Photographed by"
+//   on the post and its blog card.
 // - `description` (optional) is the text Google shows under the title;
 //   `excerpt` is used if it's missing.
 
@@ -664,6 +666,7 @@ Sometimes, a little bit of magic happens when you let a wedding be exactly what 
     slug: 'seven-week-timeless-wedding-tlaquepaque-sedona',
     title: 'Seven Weeks, One Vision: A Timeless Sedona Wedding',
     couple: 'Hannah & Hunter',
+    photographer: { name: 'Dana Maruna Photo', url: 'https://danamarunaphoto.com/' },
     press: [{ name: 'Together Journal', href: 'https://togetherjournal.com/lindsey-hunter-by-dana-maruna/' }],
     date: '2026-07-10',
     location: 'Sedona, Arizona',
@@ -1037,6 +1040,7 @@ And most importantly, the idea that a wedding should feel like the people we're 
     slug: 'vintage-romance-wedding-tlaquepaque-sedona',
     title: 'Vintage Romance in the Red Rocks: A Wedding at Tlaquepaque',
     couple: 'Jordan & Austin',
+    photographer: { name: 'Dana Maruna Photo', url: 'https://danamarunaphoto.com/' },
     press: [{ name: 'Arizona Wed', note: '#2 Best Fall Wedding', href: 'https://www.instagram.com/p/DXho2XyD0_W/' }],
     date: '2025-10-04', // from the engraved cake server
     location: 'Sedona, Arizona',

@@ -84,6 +84,16 @@ export default function HomeHero() {
         </div>
       </div>
 
+      {/* Photographer credit: every hero photo is Dana Maruna's 35mm film work */}
+      <a
+        href="https://danamarunaphoto.com/"
+        target="_blank"
+        rel="noreferrer"
+        className="absolute bottom-[52px] right-1/2 z-10 translate-x-1/2 whitespace-nowrap text-[10px] font-light uppercase tracking-[0.22em] text-white/80 no-underline transition-colors hover:text-white md:bottom-6 md:right-6 md:translate-x-0"
+      >
+        Film photography by Dana Maruna Photo
+      </a>
+
       <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-3">
         {SETS.map((_, n) => (
           <button
