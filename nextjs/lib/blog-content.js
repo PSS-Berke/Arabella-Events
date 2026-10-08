@@ -605,10 +605,10 @@ Hannah and Hunter, thank you for trusting me with your vision, allowing me to be
     excerpt:
       "A full-circle return to L'Auberge de Sedona: calla lilies, chiffon runners, and chandeliers above dinner along Oak Creek, a transformed ballroom, and a live tattoo artist, all planned in seven months.",
     cover: {
-      src: '/media/bm-recessional-red-rocks-e77c86c6.jpg',
-      alt: 'Brynn and Megan raising their calla lily bouquets in celebration before the Sedona red rocks',
-      width: 1333,
-      height: 2000,
+      src: '/media/bm-night-tables-chandeliers-c482e0c7.jpg',
+      alt: 'Brynn and Megan walking hand in hand between long calla-lily tables beneath string lights and crystal chandeliers',
+      width: 1290,
+      height: 1527,
     },
     photos: [],
     body: `L'Auberge de Sedona will always have a special place in my heart.
@@ -637,6 +637,8 @@ Think lush greenery, elegant calla lilies, soft ivory fabrics, and a beautiful c
 
 ![A tender moment during the vows on the deck before the red rocks](/media/bm-vows-red-rocks-4e66c530.jpg 1333x2000)
 ![Reading vows from a small green book as the wedding party looks on](/media/bm-reading-vows-87c9b37f.jpg 1333x2000)
+![Brynn and Megan raising their calla lily bouquets in celebration before the Sedona red rocks](/media/bm-recessional-red-rocks-e77c86c6.jpg 1333x2000)
+![Laughing together during the ceremony with their officiant](/media/bm-ceremony-laughing-a33f21b8.jpg 1333x2000)
 
 I worked very closely with **Izra's Florals** to develop their tablescape designs. We focused on incorporating calla lilies, layered greenery, and arrangements that felt organic while still having that elevated, estate-inspired look.
 
@@ -645,6 +647,8 @@ I love calla lilies because they're naturally sculptural. They can make such a s
 We paired the florals with soft chiffon table runners that draped effortlessly across the tables, adding movement and texture without taking away from the arrangements themselves.
 
 The entire design was romantic, garden-inspired, and very intentionally curated.
+
+![Calla lilies in tall glass vases and a calla laid across each plate on a long wooden table with chiffon runners](/media/bm-calla-tablescape-397b443c.jpg 1282x868)
 
 ## Dinner Along Oak Creek
 
@@ -655,6 +659,8 @@ For Brynn and Megan, we wanted dinner to feel like an intimate garden party, sur
 We incorporated chandeliers to bring a little unexpected elegance into the outdoor setting. There's something I absolutely love about seeing a beautiful chandelier suspended in nature.
 
 It creates such an interesting contrast.
+
+![The sweetheart table along Oak Creek beneath a crystal chandelier, with a "How sweet it is to be loved by you" runner](/media/bm-sweetheart-table-a455bafb.jpg 1282x771)
 
 Between the flowing chiffon runners, lush greenery, calla lilies, and chandeliers, the reception felt like a garden estate that just happened to be nestled into the red rocks of Sedona.
 
@@ -693,8 +699,6 @@ But that's also what made this wedding so much fun.
 Brynn and Megan brought so many wonderful ideas to the table, and I loved being able to collaborate with a couple who appreciated the design process as much as I do.
 
 There were a lot of moving pieces, a lot of decisions, and a whole lot of creativity involved in bringing everything together.
-
-![Laughing together during the ceremony with their officiant](/media/bm-ceremony-laughing-a33f21b8.jpg 1333x2000)
 
 My role wasn't to change what they wanted. It was to take their vision, refine the details, source the right partners, and make sure everything felt cohesive from beginning to end.
 
