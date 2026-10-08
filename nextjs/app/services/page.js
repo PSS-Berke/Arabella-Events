@@ -140,7 +140,7 @@ export default function Packages() {
               'Collaborative timeline planning',
               'High-resolution images',
               'Online gallery',
-              'Two dedicated women who love to collaborate and bring your vision to life',
+              'Two passionate girls who love what we do and are here to bring your vision to life',
             ].map((item) => (
               <li key={item} className="flex gap-[14px]">
                 <span>&bull;</span>
