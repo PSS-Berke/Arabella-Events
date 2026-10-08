@@ -621,9 +621,9 @@ And I was SO excited.
 
 We had just seven months to plan their entire wedding from start to finish, and these two had no shortage of ideas.
 
-Especially Megan.
+Megan is a creative through and through. A thrifter, a crafter, and someone who genuinely appreciates all the little details that make a wedding personal. And Brynn brought so much heart and excitement to every conversation, always making sure the day felt true to both of them.
 
-Megan is a creative through and through. A thrifter, a crafter, and someone who genuinely appreciates all the little details that make a wedding personal. She already had such a specific vision in mind, and my job was to take all of those ideas, bring them together, and figure out how to make everything actually happen.
+Together, they already had such a specific vision in mind, and my job was to take all of those ideas, bring them together, and figure out how to make everything actually happen.
 
 Which, if you know me, is my favorite kind of challenge.
 
@@ -690,7 +690,7 @@ Planning an entire wedding in seven months is no small task, especially when you
 
 But that's also what made this wedding so much fun.
 
-Megan brought so many wonderful ideas to the table, and I loved being able to collaborate with someone who appreciated the design process as much as I do.
+Brynn and Megan brought so many wonderful ideas to the table, and I loved being able to collaborate with a couple who appreciated the design process as much as I do.
 
 There were a lot of moving pieces, a lot of decisions, and a whole lot of creativity involved in bringing everything together.
 
