@@ -29,8 +29,52 @@ const SCRIPT = 'font-script text-[40px] leading-none md:text-[54px]';
 const BODY = 'text-[15.5px] font-light leading-[1.95] tracking-[0.02em] text-[#4a3a2c] text-pretty';
 const EYEBROW = 'm-0 text-[11px] font-light uppercase tracking-[0.24em] text-brown';
 const MAIL =
-  'mt-6 inline-block border-b border-[#d9cfc3] pb-1 font-display text-[16px] tracking-[0.04em] text-[#443221] no-underline transition-colors hover:border-tan hover:text-tan';
+  'inline-block border-b border-[#d9cfc3] pb-1 font-display text-[16px] tracking-[0.04em] text-[#443221] no-underline transition-colors hover:border-tan hover:text-tan';
 
+// Meet the team. `summary` shows on the card; `more` opens with "Read more";
+// `fun` fades in over the photo on hover (or tap on a phone)
+// (simple HTML allowed, e.g. <a> and <strong>).
+const TEAM = [
+  {
+    name: 'Arabella Mascari',
+    role: 'Lead Planner & Owner',
+    photo: { src: ABOUT_IMG.heartPhoto, alt: 'Arabella in a black dress standing at a candlelit forest tablescape' },
+    summary: 'The creative mind behind AWE, leading every design and plan from the first conversation to the last dance.',
+    more: [
+      'Arabella draws on years inside some of hospitality’s most respected names, from MGM Resorts and Hilton to L’Auberge de Sedona and Legends Global.',
+      'With more than 300 celebrations planned since 2017, across Sedona, Scottsdale, Chicago, and beyond, she brings a designer’s eye and a planner’s calm to every wedding, so each one feels completely its own. <a href="#trajectory" class="underline decoration-[#d9cfc3] underline-offset-4">Her experience ↓</a>',
+    ],
+    fun: 'A thoughtful, romantic soul who thrives on meaningful connections and spontaneous experiences. Proof you can chase dreams in heels or barefoot! A home full of butterflies, 42 plants, stained glass and eclectic portraits, and a vase that’s always full. Swing dancing, line dancing, roller skating, laughter, and music.',
+    email: 'arabella@arabellasweddings.com',
+  },
+  {
+    name: 'Andie Murray',
+    role: 'Micro Weddings Specialist & Day-of Coordinator',
+    photo: null,
+    summary: 'Endlessly organized and full of ambition, Andie keeps every detail in its place, so you can simply be present.',
+    more: [
+      'The newest member of the AWE family, and already indispensable. Andie keeps Arabella on track and every detail in its place behind the scenes.',
+      'As our micro weddings specialist and day-of coordinator, Andie oversees our <a href="/services#micro-weddings" class="underline decoration-[#d9cfc3] underline-offset-4">micro wedding packages</a> and month-of coordination.',
+    ],
+    fun: 'Swing dancing, line dancing, and taking care of her kiddos and her puppies!',
+    email: 'hello@arabellasweddings.com',
+  },
+  {
+    name: 'Malu Russell',
+    role: 'Arabella’s Partner & Logistical Direction',
+    photo: { src: '/media/malu-tlaquepaque-chapel-60cad573.jpg', alt: 'Malu Russell standing before the painted altar of the Tlaquepaque chapel' },
+    summary: 'Arabella is the creative mind; Malu is the logistical direction, always a step ahead with the alternatives ready.',
+    more: [
+      'Every strong woman needs someone in her corner, and Malu is the steady force behind AWE.',
+      'As Arabella’s partner, Malu is involved in every part of the business. From logistics and timelines to rentals, installations, setups, and breakdowns, he helps with everything, and he’s always a step ahead: anticipating what a day might need, foreseeing potential challenges, and having the alternatives ready before anyone else has noticed a thing.',
+      'While Arabella dreams up the vision and the finer details, he makes sure every plan has a backup and every moving piece lands exactly where it should, so the day unfolds calmly and beautifully.',
+      'There’s a good chance he’s helped plan, carry, build, or install something, or offered an alternative, that made your favorite moment possible.',
+      '<strong>His unofficial title?</strong> Arabella’s right-hand, professional heavy lifter, master of table drape, and the muscle behind the magic. <span style="color:#9a8158">♡</span>',
+    ],
+    fun: 'Runs his own roofing business, loves the gym and a healthy lifestyle, and is always ready to dance.',
+    email: 'malu@arabellasweddings.com',
+  },
+];
 // "Dive deeper into my experience": the hospitality brands behind AWE, told as
 // a story rather than a résumé (no titles or dates on the page). Drawn from
 // Arabella's résumé, Oct 2026. InterContinental's line is general until she
@@ -107,31 +151,60 @@ export default function AboutPage() {
     <main className="overflow-x-hidden text-[#443221]">
       <PersonSchema />
 
-      {/* Opening: a quiet, centered name and title (Arabella didn't want a big
-          dramatic opener). Lines rise softly and the gold rules draw outward. */}
-      <header className="px-6 pb-4 pt-14 text-center md:pt-20">
-        <h1 className="m-0">
-          <span
-            className="awe-rise block font-display text-[40px] font-normal uppercase leading-none tracking-[0.22em] md:text-[60px]"
-            style={{ animationDelay: '0.1s' }}
-          >
-            Arabella
-          </span>
-          <span className="mx-auto mt-6 flex w-full max-w-[360px] items-center gap-4" aria-hidden="true">
-            <span className="awe-draw h-px flex-1 origin-right bg-[#c9b48a]" style={{ animationDelay: '0.4s' }} />
-            <span className="awe-rise h-[5px] w-[5px] rotate-45 bg-[#c9b48a]" style={{ animationDelay: '0.4s' }} />
-            <span className="awe-draw h-px flex-1 origin-left bg-[#c9b48a]" style={{ animationDelay: '0.4s' }} />
-          </span>
-          <span
-            className="awe-rise mt-6 block font-display text-[14px] font-normal uppercase tracking-[0.32em] text-[#9a8158] md:text-[17px]"
-            style={{ animationDelay: '0.6s' }}
-          >
-            Lead Planner &amp; Owner
-          </span>
-        </h1>
-      </header>
+      {/* Meet the team (top of the page, Oct 2026). Three matching cards: the
+          same photo frame, name, role, gold rule, a short summary, and a
+          "Read more" that opens the full write-up (Malu's is Arabella's own
+          words), with the email pinned to the bottom so the cards line up. */}
+      <section className="bg-[#f7f1ec] px-6 pb-20 pt-14 md:pb-28 md:pt-20">
+        <Reveal className="text-center">
+          <div className={SCRIPT}>meet the</div>
+          <h1 className={`${H2} mt-2`}>Team</h1>
+        </Reveal>
+        <div className="mx-auto mt-14 grid max-w-[1180px] items-stretch gap-8 md:grid-cols-3">
+          {TEAM.map((m, n) => (
+            <Reveal key={m.name} delay={n * 150} className="flex flex-col items-center bg-white px-7 py-10 text-center md:px-9">
+              <div
+                tabIndex={0}
+                aria-label={`${m.name}: ${m.fun}`}
+                className="group/photo relative aspect-[3/4] w-full max-w-[260px] cursor-default overflow-hidden bg-[#efe6db] outline-none"
+              >
+                {m.photo ? (
+                  <Image src={m.photo.src} alt={m.photo.alt} fill sizes="(min-width: 768px) 260px, 80vw" className="object-cover" />
+                ) : (
+                  <span className="absolute inset-0 flex items-center justify-center font-script text-[110px] leading-none text-[#9a8158]">
+                    {m.name[0].toLowerCase()}
+                  </span>
+                )}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 flex flex-col items-center justify-center bg-[#1d1915]/80 px-6 text-center text-white opacity-0 transition-opacity duration-500 group-hover/photo:opacity-100 group-focus/photo:opacity-100"
+                >
+                  <span className="font-script text-[34px] leading-none text-[#e9dcc4]">just for fun</span>
+                  <span className="mt-4 font-display text-[16px] italic leading-[1.55] text-white/95">{m.fun}</span>
+                </div>
+              </div>
+              <p className="m-0 mt-8 whitespace-nowrap font-display text-[19px] uppercase tracking-[0.14em] lg:text-[22px] lg:tracking-[0.18em]">{m.name}</p>
+              <p className="m-0 mt-2 min-h-[2.6em] text-[10.5px] font-light uppercase leading-[1.6] tracking-[0.24em] text-[#9a8158]">{m.role}</p>
+              <span aria-hidden="true" className="mt-4 h-px w-10 bg-[#c9b48a]" />
+              <p className="m-0 mt-5 font-display text-[18px] italic leading-[1.6] text-[#5a4634] md:text-[19px]">{m.summary}</p>
+              <details className="group mt-5 w-full">
+                <summary className="cursor-pointer list-none text-[11px] font-light uppercase tracking-[0.22em] text-brown transition-colors hover:text-tan [&::-webkit-details-marker]:hidden">
+                  <span className="group-open:hidden">Read more &darr;</span>
+                  <span className="hidden group-open:inline">Read less &uarr;</span>
+                </summary>
+                <div className="mt-4 flex flex-col gap-4 text-left">
+                  {m.more.map((para, k) => (
+                    <p key={k} className={`m-0 ${BODY} text-[14.5px]`} dangerouslySetInnerHTML={{ __html: para }} />
+                  ))}
+                </div>
+              </details>
+              <a href={`mailto:${m.email}`} className={`${MAIL} mt-auto pt-8`}>{m.email}</a>
+            </Reveal>
+          ))}
+        </div>
+      </section>
       {/* The trajectory */}
-      <section className="mx-auto grid max-w-[1120px] items-center gap-12 px-6 pb-20 pt-10 md:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] md:gap-16 md:px-10 md:pb-28 md:pt-14">
+      <section id="trajectory" className="scroll-mt-24 mx-auto grid max-w-[1120px] items-center gap-12 px-6 pb-20 pt-10 md:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] md:gap-16 md:px-10 md:pb-28 md:pt-14">
         <Reveal>
           <div className={SCRIPT}>the</div>
           <h2 className={`${H2} mt-2`}>Trajectory</h2>
@@ -218,47 +291,55 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      {/* The heart */}
-      <section className="bg-[#f7f1ec] px-6 py-20 md:py-28">
-        <div className="mx-auto grid max-w-[1120px] items-center gap-12 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-16 md:px-4">
-          <Reveal className="relative mx-auto w-full max-w-[440px]">
-            <span aria-hidden="true" className="absolute -left-4 -top-4 h-full w-full border border-[#c9b48a]/60" />
-            <Photo
-              src="/media/Screenshot-2026-01-26-6_54_32-PM-52c31217.png"
-              w={553}
-              h={836}
-              alt="Arabella laughing behind a candle-lit tablescape of white florals and autumn foliage"
-              sizes="(min-width: 1120px) 440px, (min-width: 768px) 42vw, 92vw"
-              className="relative"
-            />
-          </Reveal>
-          <Reveal delay={150}>
-            <div className={SCRIPT}>the</div>
-            <h2 className={`${H2} mt-2`}>Heart</h2>
+      {/* The heart & the core (Oct 2026): one shared photo carousel, then the
+          two pieces side by side in matching columns. */}
+      <section className="bg-[#f7f1ec] px-6 py-20 md:py-24">
+        <Reveal className="mx-auto w-full max-w-[360px]">
+          <AboutCarousel
+            photos={[
+              { src: '/media/Screenshot-2026-01-26-6_54_32-PM-52c31217.png', alt: 'Arabella laughing behind a candle-lit tablescape of white florals and autumn foliage' },
+                  { src: '/media/arabella-arranging-wildflowers-4ef48f96.jpg', alt: 'Arabella smiling on the floor surrounded by wildflower arrangements in progress' },
+                          { src: '/media/arabella-arranging-wildflowers-team-45e3753a.jpg', alt: 'Malu and Arabella arranging wildflowers into rows of glass bud vases' },
+                          { src: '/media/cabin-shoot-lighting-candle-ad98da3d.jpg', alt: 'Lighting a pillar candle among white roses and gold-rimmed coupes' },
+                          { src: '/media/cabin-shoot-placing-menus-8202a2db.jpg', alt: 'Tucking custom menus onto gold-rimmed place settings' },
+              { src: ABOUT_IMG.corePhoto, alt: 'Arabella smiling behind a fully set candlelit table in a forest backyard' },
+            ]}
+          />
+        </Reveal>
+        <div className="mx-auto mt-16 grid max-w-[1040px] items-start gap-14 md:grid-cols-2 md:gap-16">
+          <Reveal>
+            <div className="text-center">
+              <div className={SCRIPT}>the</div>
+              <h2 className={`${H2} mt-2`}>Heart</h2>
+              <span aria-hidden="true" className="mx-auto mt-5 block h-px w-10 bg-[#c9b48a]" />
+            </div>
             <div className="mt-8 flex flex-col gap-5">
               {HEART_PARAS.map((p, n) => (
                 <p key={n} className={`m-0 ${BODY}`}>{p}</p>
               ))}
             </div>
           </Reveal>
+          <Reveal delay={150}>
+            <div className="text-center">
+              <div className={SCRIPT}>the</div>
+              <h2 className={`${H2} mt-2`}>Core</h2>
+              <span aria-hidden="true" className="mx-auto mt-5 block h-px w-10 bg-[#c9b48a]" />
+            </div>
+            <div className="mt-8 flex flex-col gap-5">
+              {CORE_PARAS.map((para, n) => (
+                <p key={n} className={`m-0 ${BODY}`}>
+                  {para.map((seg, s) =>
+                    seg.bold ? (
+                      <strong key={s} className="font-semibold">{seg.text}</strong>
+                    ) : (
+                      <span key={s}>{seg.text}</span>
+                    )
+                  )}
+                </p>
+              ))}
+            </div>
+          </Reveal>
         </div>
-      </section>
-      {/* Behind the scenes: a small carousel of Arabella at work */}
-      <section className="px-6 py-20 text-center md:py-28">
-        <Reveal>
-          <div className={SCRIPT}>behind the</div>
-          <h2 className={`${H2} mt-2`}>Scenes</h2>
-          <p className={`m-0 mx-auto mb-12 mt-6 max-w-[520px] ${BODY}`}>
-            Hand-arranging wildflowers, one little vase at a time.
-          </p>
-          <AboutCarousel
-            photos={[
-              { src: '/media/arabella-arranging-wildflowers-4ef48f96.jpg', alt: 'Arabella smiling on the floor surrounded by wildflower arrangements in progress' },
-              { src: '/media/cabin-shoot-lighting-candle-ad98da3d.jpg', alt: 'Lighting a pillar candle among white roses and gold-rimmed coupes' },
-              { src: '/media/cabin-shoot-placing-menus-8202a2db.jpg', alt: 'Tucking custom menus onto gold-rimmed place settings' },
-            ]}
-          />
-        </Reveal>
       </section>
       {/* Candid strip. Never cropped: each photo's width share in its row is
           its own aspect ratio, so every photo in a row lands at the same
@@ -279,111 +360,6 @@ export default function AboutPage() {
         ))}
       </section>
 
-      {/* The core */}
-      <section className="px-6 py-20 text-center md:py-28">
-        <Reveal className="mx-auto max-w-[900px]">
-          <div className={SCRIPT}>the</div>
-          <h2 className={`${H2} mt-2`}>Core</h2>
-          <Photo
-            src={ABOUT_IMG.corePhoto}
-            w={1200}
-            h={978}
-            alt="Arabella smiling behind a fully set candlelit table in a forest backyard"
-            sizes="(min-width: 900px) 760px, 92vw"
-            className="mx-auto mt-12 max-w-[760px]"
-          />
-          <div className="mx-auto mt-12 flex max-w-[680px] flex-col gap-6">
-            {CORE_PARAS.map((para, n) => (
-              <p key={n} className="m-0 font-display text-[19px] italic leading-[1.7] text-[#5a4634] md:text-[22px]">
-                {para.map((seg, s) =>
-                  seg.bold ? (
-                    <strong key={s} className="font-semibold not-italic">{seg.text}</strong>
-                  ) : (
-                    <span key={s}>{seg.text}</span>
-                  )
-                )}
-              </p>
-            ))}
-          </div>
-        </Reveal>
-      </section>
-      {/* The team: Andie (day-of assistant; oversees micro weddings and
-          month-of coordination) and Malu (Arabella's partner; his copy is
-          Arabella's own words, Oct 2026). Matching cards on cream. */}
-      <section className="bg-[#f7f1ec] px-6 py-20 md:py-28">
-        <Reveal className="text-center">
-          <div className={SCRIPT}>meet the</div>
-          <h2 className={`${H2} mt-2`}>Team</h2>
-        </Reveal>
-        <div className="mx-auto mt-14 grid max-w-[1060px] items-start gap-8 md:grid-cols-2">
-          <Reveal className="flex flex-col items-center bg-white px-8 py-12 text-center md:px-12">
-            <div className="flex aspect-[3/4] w-full max-w-[280px] items-center justify-center bg-[#efe6db]">
-              <span className="font-script text-[120px] leading-none text-[#9a8158]">a</span>
-            </div>
-            <p className="m-0 mt-8 font-display text-[26px] uppercase tracking-[0.2em] md:text-[30px]">Andie Murray</p>
-            <p className="m-0 mt-2 text-[11px] font-light uppercase tracking-[0.26em] text-[#9a8158]">Day-of Assistant</p>
-            <span aria-hidden="true" className="mt-5 h-px w-10 bg-[#c9b48a]" />
-            <p className={`m-0 mt-5 ${BODY}`}>
-              The newest member of the AWE family, and already indispensable. Endlessly organized and full of ambition,
-              Andie keeps Arabella on track and every detail in its place behind the scenes, so that on your wedding day
-              you can simply be present.
-            </p>
-            <p className="m-0 mt-5 font-display text-[18px] italic leading-[1.6] text-[#5a4634] md:text-[20px]">
-              Andie oversees our{' '}
-              <Link href="/services#micro-weddings" className="underline decoration-[#d9cfc3] underline-offset-4 transition-colors hover:text-tan">
-                micro wedding packages
-              </Link>{' '}
-              and month-of coordination.
-            </p>
-            <a href="mailto:hello@arabellasweddings.com" className={MAIL}>hello@arabellasweddings.com</a>
-          </Reveal>
-          <Reveal delay={150} className="flex flex-col items-center bg-white px-8 py-12 text-center md:px-12">
-            <Image
-              src="/media/malu-tlaquepaque-chapel-60cad573.jpg"
-              alt="Malu Russell standing before the painted altar of the Tlaquepaque chapel"
-              width={1500}
-              height={2000}
-              sizes="(min-width: 768px) 280px, 80vw"
-              className="aspect-[3/4] h-auto w-full max-w-[280px] object-cover"
-            />
-            <Image
-              src="/media/arabella-arranging-wildflowers-team-45e3753a.jpg"
-              alt="Malu and Arabella arranging wildflowers into rows of glass bud vases"
-              width={1333}
-              height={2000}
-              sizes="(min-width: 768px) 280px, 80vw"
-              className="mt-6 aspect-[4/5] h-auto w-full max-w-[280px] object-cover"
-            />
-            <p className="m-0 mt-8 font-display text-[26px] uppercase tracking-[0.2em] md:text-[30px]">Malu Russell</p>
-            <p className="m-0 mt-2 text-[11px] font-light uppercase tracking-[0.26em] text-[#9a8158]">Arabella&rsquo;s Partner &amp; Behind-the-Scenes Support</p>
-            <span aria-hidden="true" className="mt-5 h-px w-10 bg-[#c9b48a]" />
-            <div className="mt-5 flex flex-col gap-4">
-              <p className={`m-0 ${BODY}`}>
-                Every strong woman needs someone in her corner, and Malu is one of the helping hands behind AWE.
-              </p>
-              <p className={`m-0 ${BODY}`}>
-                As Arabella&rsquo;s partner, Malu plays a special role in supporting the business behind the scenes. From
-                transporting rentals and assisting with installations to helping with the physical demands of wedding setups
-                and breakdowns, he lends an extra set of hands wherever they&rsquo;re needed.
-              </p>
-              <p className={`m-0 ${BODY}`}>
-                While Arabella handles the creative vision, planning, and finer details, Malu helps bring those visions to life
-                through the less glamorous (but equally important!) parts of wedding production.
-              </p>
-              <p className={`m-0 ${BODY}`}>
-                He may not be the one designing your tablescapes, but there&rsquo;s a good chance he&rsquo;s helped carry,
-                build, load, or install something that made them possible.
-              </p>
-              <p className="m-0 font-display text-[18px] italic leading-[1.6] text-[#5a4634] md:text-[20px]">
-                <strong className="font-semibold not-italic">His unofficial title?</strong> Arabella&rsquo;s right-hand,
-                professional heavy lifter, master of table drape, and the muscle behind the magic.{' '}
-                <span className="text-[#9a8158]">&#9825;</span>
-              </p>
-            </div>
-            <a href="mailto:malu@arabellasweddings.com" className={MAIL}>malu@arabellasweddings.com</a>
-          </Reveal>
-        </div>
-      </section>
       {/* Close: candlelit banner */}
       <section className="relative isolate overflow-hidden bg-[#1d1915] px-6 py-24 text-center text-white md:py-32">
         <Image src="/media/film-candles-fireplace-b617fac6.jpg" alt="" fill sizes="100vw" className="-z-20 object-cover" />

@@ -16,7 +16,7 @@ export default function AboutCarousel({ photos }) {
   const arrow =
     'absolute top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center border-0 bg-white/80 text-[22px] leading-none text-[#443221] transition-colors hover:bg-white';
   return (
-    <div className="mx-auto w-full max-w-[520px]">
+    <div className="mx-auto w-full">
       <div className="relative grid aspect-[4/5] overflow-hidden bg-[#efe6db]">
         {photos.map((p, k) => (
           <div
@@ -24,7 +24,7 @@ export default function AboutCarousel({ photos }) {
             aria-hidden={k !== i}
             className={`col-start-1 row-start-1 transition-opacity duration-[1200ms] ease-in-out ${k === i ? 'opacity-100' : 'opacity-0'}`}
           >
-            <Image src={p.src} alt={p.alt} fill sizes="(min-width: 768px) 520px, 92vw" className="object-cover" />
+            <Image src={p.src} alt={p.alt} fill sizes="(min-width: 768px) 320px, 92vw" className="object-cover" />
           </div>
         ))}
         <button type="button" aria-label="Previous photo" onClick={() => setI((i - 1 + n) % n)} className={`${arrow} left-3`}>
