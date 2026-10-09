@@ -131,68 +131,54 @@ function Bullets({ items }) {
 export default function Packages() {
   return (
     <main className="text-[#443221]">
-      {/* Hero: a full-width candlelit table under a dark wash, matching the
-          investment band; lines rise in turn and the gold rules draw outward. */}
-      <section className="relative isolate flex min-h-[80vh] flex-col items-center justify-center overflow-hidden bg-[#1d1915] px-6 py-24 text-center text-white">
+      {/* Hero (Oct 2026: toned down at Arabella's request): a short candlelit
+          photo banner with all text in white and the white AWE mark, no rules. */}
+      <section className="relative isolate flex min-h-[40vh] flex-col items-center justify-center overflow-hidden bg-[#1d1915] px-6 py-14 text-center text-white">
         <Image
           src="/media/hh-long-table-tapers-menus-111372ff.jpg"
           alt=""
           fill
           priority
           sizes="100vw"
-          className="awe-settle -z-20 object-cover object-[50%_65%]"
+          className="-z-20 object-cover object-[50%_65%]"
         />
-        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/50 to-black/75" />
-        <p className="awe-rise m-0 text-[11px] font-light uppercase tracking-[0.3em] text-[#c9b48a]" style={{ animationDelay: '0.1s' }}>
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-black/50" />
+        <p className="awe-rise m-0 text-[10px] font-light uppercase tracking-[0.3em] md:text-[11px]" style={{ animationDelay: '0.1s' }}>
           Sedona &middot; Scottsdale &middot; Destination
         </p>
-        <div className="awe-rise mt-6 font-script text-[56px] leading-none text-[#e9dcc4] md:text-[84px]" style={{ animationDelay: '0.3s' }}>
-          the
-        </div>
         <h1
-          className="awe-rise m-0 mt-2 font-display text-[36px] font-normal uppercase tracking-[0.24em] md:text-[60px]"
-          style={{ animationDelay: '0.6s' }}
+          className="awe-rise m-0 mt-4 font-display text-[26px] font-normal uppercase tracking-[0.22em] md:text-[38px]"
+          style={{ animationDelay: '0.3s' }}
         >
           Packages
         </h1>
-        <div className="mt-8 flex w-full max-w-[560px] items-center gap-5" aria-hidden="true">
-          <span className="awe-draw h-px flex-1 origin-right bg-[#c9b48a]" style={{ animationDelay: '1s' }} />
-          <Image
-            src="/media/awe-logo-champagne-29e404bd.png"
-            alt=""
-            width={648}
-            height={242}
-            priority
-            className="awe-rise h-auto w-[100px] md:w-[120px]"
-            style={{ animationDelay: '1s' }}
-          />
-          <span className="awe-draw h-px flex-1 origin-left bg-[#c9b48a]" style={{ animationDelay: '1s' }} />
-        </div>
-        <p
-          className="awe-rise m-0 mt-8 max-w-[560px] font-display text-[19px] italic leading-[1.6] text-white/90 md:text-[22px]"
-          style={{ animationDelay: '1.3s' }}
-        >
-          Planning and design tailored to every couple, and never repeated.
-        </p>
+        <Image
+          src="/media/awe-logo-white-bbd258a1.png"
+          alt=""
+          width={648}
+          height={242}
+          priority
+          className="awe-rise mt-5 h-auto w-[80px] md:w-[96px]"
+          style={{ animationDelay: '0.5s' }}
+        />
         <nav
           aria-label="On this page"
-          className="awe-rise mt-12 flex max-w-[760px] flex-wrap justify-center gap-x-8 gap-y-3"
-          style={{ animationDelay: '1.6s' }}
+          className="awe-rise mt-8 flex max-w-[760px] flex-wrap justify-center gap-x-7 gap-y-3"
+          style={{ animationDelay: '0.7s' }}
         >
           {JUMP.map((j) => (
             <a
               key={j.href}
               href={j.href}
-              className="border-b border-transparent pb-1 text-[11px] font-light uppercase tracking-[0.24em] text-white/85 no-underline transition-colors hover:border-[#c9b48a] hover:text-white"
+              className="border-b border-transparent pb-1 text-[10.5px] font-light uppercase tracking-[0.24em] text-white no-underline transition-colors hover:border-white"
             >
               {j.label}
             </a>
           ))}
         </nav>
       </section>
-
       {/* I. Full planning + design */}
-      <section id="full-planning" className="mx-auto grid max-w-[1120px] scroll-mt-24 items-center gap-12 px-6 py-20 md:grid-cols-[1.05fr_1fr] md:gap-16 md:px-10 md:py-28">
+      <section id="full-planning" className="mx-auto grid max-w-[1120px] scroll-mt-24 items-center gap-12 px-6 py-20 md:grid-cols-[1.05fr_1fr] md:gap-16 md:px-10 md:py-24">
         <Reveal>
           <Chapter num="I" script="full" title="Planning + Design" />
           <p className={`m-0 mt-8 ${BODY}`}>
