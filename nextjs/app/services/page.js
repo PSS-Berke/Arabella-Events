@@ -381,6 +381,28 @@ export default function Packages() {
             ]}
           />
         </Reveal>
+        {/* Arabella's note on starting partial planning (her wording, Oct 2026) */}
+        <Reveal className="border border-[#e6ddd2] bg-[#f8f5f0] px-7 py-9 md:order-3 md:col-span-2 md:px-12 md:py-11">
+          <p className={`m-0 text-center font-display text-[20px] italic md:text-[23px]`}>
+            A Note About Partial Planning <span className={GOLD}>&#9825;</span>
+          </p>
+          <div className={`mx-auto mt-6 flex max-w-[720px] flex-col gap-4 text-center ${BODY}`}>
+            <p className="m-0">
+              At Arabella&rsquo;s Weddings &amp; Events, we take great pride in the experience we create for our couples.
+              Because partial planning means stepping into an already established planning process, we kindly ask that all
+              previously booked vendors, contracts, and important details are organized and aligned before our services begin.
+            </p>
+            <p className="m-0">
+              To ensure we can provide the level of care and attention every celebration deserves, AWE reserves the right to
+              delay the start of services if existing arrangements require additional organization, communication, or
+              logistical support beyond the scope of partial planning.
+            </p>
+            <p className="m-0">
+              Our goal is never to create additional stress, but to ensure we are stepping into a planning process where we can
+              confidently support you, your vendors, and the beautiful day you&rsquo;ve envisioned.
+            </p>
+          </div>
+        </Reveal>
       </section>
 
       {/* V. À la carte: each row opens to a short description */}
