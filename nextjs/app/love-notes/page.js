@@ -13,164 +13,187 @@ export const metadata = pageMeta({
 });
 
 /*
- * 1:1 rebuild of https://www.arabellasweddings.com/love-notes.
- *
- * Desktop (lg+) reproduces the live Wix mesh layout exactly: each section is a
- * 980px single-column CSS grid (grid-template-columns:100%) whose children are
- * pinned with grid-area spans, left offsets (ml-[..]) and the live top/bottom
- * margins, all lifted verbatim from the live page's generated CSS. Below lg the
- * same DOM stacks into a centered single column.
+ * Kind Words. Rebuilt Oct 2026 (was a 1:1 copy of the Wix mesh layout) as one
+ * consistent layout in two parts:
+ *   1. Couples, newest wedding first: the couple's name as the heading, the
+ *      review beside a photo, the photo alternating sides.
+ *   2. Vendor Reviews from fellow wedding professionals, in their own section.
+ * Review text is verbatim; see lib/love-notes-content.js.
  */
 
-// Shared type treatment: live renders every quote in Avenir Light 16-18px,
-// #414141, letter-spacing 0, line-height 1.4em (font-body Barlow stands in).
-const QUOTE = 'm-0 whitespace-pre-line font-light leading-[1.4]';
+const QUOTE = 'm-0 whitespace-pre-line font-light leading-[1.4] text-[17px]';
 
-// Couple names — live text (each was a separate baked PNG on live, rendered at
-// 1x and therefore soft on retina). As a heading, each name also gives its
-// testimonial a proper anchor in the page outline.
-function NameImg({ review, className }) {
+// Extra details for the original reviews, keyed by couple name: the photo
+// that sat beside each on the old layout, plus wedding details and story
+// links where we have them. Pairings are the ones on the original page;
+// Salem & Dylan and Britney & Markus had no photo.
+const ORIGINAL_EXTRAS = {
+  'Hannah & Hunter': { photo: LN_PHOTOS.chapel, label: 'Tlaquepaque · July 10, 2026' },
+  'Jordan & Austin': { photo: LN_PHOTOS.sedona, label: 'Tlaquepaque · October 4, 2025' },
+  'Jenna & Derek': { photo: LN_PHOTOS.jennaDerek },
+  'Alicia & Hawk': { photo: LN_PHOTOS.willow },
+  'Jenna & Joseph': { photo: LN_PHOTOS.archway },
+  'Britney & Markus': { label: 'Chicago' },
+  'Isabella & Dylan': { photo: LN_PHOTOS.ceremony, label: 'Las Vegas · March 6, 2023' },
+  'Stephanie & Trevor': { photo: LN_PHOTOS.brideGroomCloseup, label: 'Las Vegas' },
+  'Vaden & Clark': { photo: LN_PHOTOS.bouquet },
+  'Monica & Bryan': { photo: LN_PHOTOS.embrace, label: 'Hilton Lake Las Vegas' },
+};
+
+const byName = (list, name) => list.find((r) => r.name === name);
+const original = (name) => ({ ...byName(LOVE_NOTES, name), ...ORIGINAL_EXTRAS[name] });
+const newer = (name) => byName(MORE_LOVE_NOTES, name);
+
+// Newest wedding first. Weddings without a known date sit after the dated
+// ones, in the order they appeared on the original page.
+const COUPLES = [
+  newer('Jennifer & Hunter'),
+  newer('Sarah & Grant'),
+  newer('Hannah & Michael'),
+  newer('Kassie & Nathan'),
+  original('Hannah & Hunter'),
+  newer('Patricia & Drew'),
+  original('Jordan & Austin'),
+  original('Jenna & Derek'),
+  original('Alicia & Hawk'),
+  original('Salem & Dylan'),
+  original('Jenna & Joseph'),
+  original('Britney & Markus'),
+  original('Stephanie & Trevor'),
+  original('Vaden & Clark'),
+  original('Monica & Bryan'),
+  original('Isabella & Dylan'),
+].filter(Boolean);
+
+// Fellow wedding professionals: the newer vendor reviews (they carry a label
+// but no couple name) plus the unnamed industry review from the original page.
+// Reviews from the same vendor (labels starting the same, e.g. the two from
+// L'Auberge de Sedona) are merged into one card.
+const VENDORS = [
+  ...MORE_LOVE_NOTES.filter((r) => !r.name),
+  { label: 'From Social Booth LV', ...LOVE_NOTES.find((r) => !r.name), url: SOCIAL_BOOTH.href, logo: SOCIAL_BOOTH.logo },
+].reduce((cards, r) => {
+  const same = cards.find((c) => r.label.startsWith(c.label));
+  if (same) same.texts.push(r.text);
+  else cards.push({ ...r, texts: [r.text] });
+  return cards;
+}, []);
+
+function Review({ note, flip, heading, sub }) {
   return (
-    <h2 className={`awe-caps awe-name m-0 uppercase ${className}`}>
-      {review.name}
-      {review.post ? (
-        <Link
-          href={`/blog/${review.post}`}
-          className="mt-2 block font-body text-[11px] font-light normal-case tracking-[0.16em] text-brown underline decoration-[#d9cfc3] underline-offset-4 transition-colors hover:text-tan"
-        >
-          Read their wedding story &rarr;
-        </Link>
+    <article
+      className={`flex flex-col items-center gap-8 lg:items-start lg:gap-10 ${note.photo ? (flip ? 'lg:flex-row-reverse' : 'lg:flex-row') : ''}`}
+    >
+      {note.photo ? (
+        <Image
+          src={note.photo.src}
+          alt={note.photo.alt}
+          width={note.photo.w}
+          height={note.photo.h}
+          sizes="(min-width: 1024px) 346px, 90vw"
+          className="h-auto w-full max-w-[346px] lg:mt-[60px] lg:shrink-0"
+        />
       ) : null}
-    </h2>
+      <div className={`flex w-full min-w-0 flex-col items-center lg:items-start ${note.photo ? '' : 'lg:mx-auto lg:max-w-[760px] lg:items-center'}`}>
+        <h2 className="awe-caps awe-name m-0 w-full text-center uppercase lg:text-left">
+          {note.url ? (
+            <a href={note.url} target="_blank" rel="noopener noreferrer" className="text-inherit no-underline transition-colors hover:text-tan">
+              {heading}
+            </a>
+          ) : (
+            heading
+          )}
+        </h2>
+        {note.logo ? (
+          <a href={note.url} target="_blank" rel="noopener noreferrer" className="mt-3">
+            <Image src={note.logo.src} alt="" width={note.logo.w} height={note.logo.h} className="h-auto max-h-[64px] w-auto max-w-[200px]" />
+          </a>
+        ) : null}
+        {sub ? <p className="m-0 mt-1 font-body text-[11px] font-light uppercase tracking-[0.18em] text-brown">{sub}</p> : null}
+        {note.post ? (
+          <Link
+            href={`/blog/${note.post}`}
+            className="mt-2 font-body text-[11px] font-light tracking-[0.16em] text-brown underline decoration-[#d9cfc3] underline-offset-4 transition-colors hover:text-tan"
+          >
+            {note.postLabel || 'Read their wedding story'} &rarr;
+          </Link>
+        ) : null}
+        <p className={`${QUOTE} mt-4 ${note.photo ? 'text-left' : 'text-center'}`}>{note.text}</p>
+      </div>
+    </article>
   );
 }
 
-function Photo({ img, className }) {
-  return <Image src={img.src} alt={img.alt} width={img.w} height={img.h} className={className} />;
+// A vendor's logo stands in for their name when we have one (the name stays
+// as the image's alt text). `texts` holds one or more reviews from the same
+// vendor, shown together in one card.
+function VendorCard({ note }) {
+  const name = note.label.replace(/^From /, '');
+  const mark = note.logo ? (
+    <Image src={note.logo.src} alt={name} width={note.logo.w} height={note.logo.h} className="mx-auto block h-auto max-h-[56px] w-auto max-w-[200px]" />
+  ) : (
+    name
+  );
+  return (
+    <article className="flex flex-col items-center border border-[#e6ddd2] px-6 py-8 text-center md:px-8">
+      <h3 className="m-0 font-display text-[16px] font-normal uppercase tracking-[0.14em] text-[#443221] md:text-[18px]">
+        {note.url ? (
+          <a href={note.url} target="_blank" rel="noopener noreferrer" className="text-inherit no-underline transition-colors hover:text-tan">
+            {mark}
+          </a>
+        ) : (
+          mark
+        )}
+      </h3>
+      {note.texts.map((text, k) => (
+        <p key={k} className="m-0 mt-4 whitespace-pre-line font-light leading-[1.6] text-[15px] text-charcoal">&ldquo;{text}&rdquo;</p>
+      ))}
+      {note.post ? (
+        <Link
+          href={`/blog/${note.post}`}
+          className="mt-4 font-body text-[11px] font-light tracking-[0.16em] text-brown underline decoration-[#d9cfc3] underline-offset-4 transition-colors hover:text-tan"
+        >
+          {note.postLabel || 'Read the wedding story'} &rarr;
+        </Link>
+      ) : null}
+    </article>
+  );
 }
 
-const SECTION =
-  'mx-auto flex w-full max-w-[980px] flex-col items-center px-6 lg:grid lg:w-[980px] lg:max-w-none lg:grid-cols-[100%] lg:items-start lg:justify-items-start lg:px-0';
-
 export default function LoveNotes() {
-  const r = LOVE_NOTES;
   return (
     <main className="bg-white pb-16 text-charcoal lg:pb-20">
-      <ReviewsSchema reviews={LOVE_NOTES} />
-      {/* "THE AWE experience" title graphic */}
-      <section className="mx-auto flex w-full max-w-[980px] justify-center px-6 pt-6 lg:block lg:px-0 lg:pt-0">
+      <ReviewsSchema reviews={COUPLES} />
+      <section className="mx-auto flex w-full max-w-[980px] justify-center px-6 pt-6 lg:px-0 lg:pt-8">
         <h1 className="m-0">
-        <Image
-          src={LN_TITLE.src}
-          alt="The AWE Experience"
-          width={LN_TITLE.w}
-          height={LN_TITLE.h}
-          priority
-          className="h-auto w-[200px] lg:ml-[6px] lg:mt-[8px] lg:w-[234px]"
-        />
+          <Image
+            src={LN_TITLE.src}
+            alt="The AWE Experience"
+            width={LN_TITLE.w}
+            height={LN_TITLE.h}
+            priority
+            className="h-auto w-[200px] lg:w-[234px]"
+          />
         </h1>
       </section>
 
-      {/* Review 1 (Hannah & Hunter) + chapel photo right */}
-      <section className={`${SECTION} lg:grid-rows-[repeat(3,min-content)_1fr]`}>
-        <NameImg review={r[0]} className="mt-10 h-auto w-[290px] max-w-[80%] lg:mb-[9px] lg:ml-[46px] lg:mt-[49px] lg:w-[394px] lg:max-w-none lg:[grid-area:1/1/2/2]" />
-        <p className={`${QUOTE} mt-4 w-full max-w-[520px] text-[16px] lg:mb-[70px] lg:ml-[37px] lg:mt-0 lg:w-[474px] lg:max-w-none lg:[grid-area:2/1/3/2]`}>{r[0].text}</p>
-        <Photo img={LN_PHOTOS.chapel} className="mt-10 h-auto w-[421px] max-w-full lg:mb-[32px] lg:ml-[559px] lg:mt-[38px] lg:max-w-none lg:[grid-area:1/1/4/2]" />
+      <section className="mx-auto mt-12 flex w-full max-w-[980px] flex-col gap-16 px-6 lg:gap-20 lg:px-0">
+        {COUPLES.map((note, i) => (
+          <Review key={note.name} note={note} flip={i % 2 === 1} heading={note.name} sub={note.label} />
+        ))}
       </section>
 
-      {/* Reviews 2-5 with Sedona / Jenna & Derek / willow photos */}
-      <section className={`${SECTION} lg:grid-rows-[repeat(10,min-content)_1fr]`}>
-        <Photo img={LN_PHOTOS.sedona} className="mt-10 h-auto w-[346px] max-w-full lg:mb-[59px] lg:ml-[14px] lg:mt-0 lg:max-w-none lg:[grid-area:2/1/3/2]" />
-        <NameImg review={r[1]} className="mt-12 h-auto w-[290px] max-w-[80%] lg:mb-[-13px] lg:ml-[457px] lg:mt-[189px] lg:w-[389px] lg:max-w-none lg:[grid-area:1/1/2/2]" />
-        <p className={`${QUOTE} mt-4 w-full max-w-[585px] text-[17px] lg:mb-[10px] lg:ml-[375px] lg:mt-[20px] lg:w-[585px] lg:max-w-none lg:[grid-area:2/1/3/2]`}>{r[1].text}</p>
-        <NameImg review={r[2]} className="mt-12 h-auto w-[290px] max-w-[80%] lg:mb-[15px] lg:ml-[101px] lg:mt-0 lg:w-[389px] lg:max-w-none lg:[grid-area:3/1/4/2]" />
-        <p className={`${QUOTE} mt-4 w-full max-w-[520px] text-[17px] lg:mb-[60px] lg:ml-[57px] lg:mt-0 lg:w-[497px] lg:max-w-none lg:[grid-area:4/1/5/2]`}>{r[2].text}</p>
-        <Photo img={LN_PHOTOS.jennaDerek} className="mt-10 h-auto w-[346px] max-w-full lg:mb-[10px] lg:ml-[587px] lg:mt-[15px] lg:max-w-none lg:[grid-area:3/1/6/2]" />
-        <Photo img={LN_PHOTOS.willow} className="mt-10 h-auto w-[446px] max-w-full lg:mb-[10px] lg:ml-[23px] lg:mt-0 lg:max-w-none lg:[grid-area:6/1/9/2]" />
-        <NameImg review={r[3]} className="mt-12 h-auto w-[290px] max-w-[80%] lg:mb-[25px] lg:ml-[533px] lg:mt-[42px] lg:w-[389px] lg:max-w-none lg:[grid-area:6/1/7/2]" />
-        <p className={`${QUOTE} mt-4 w-full max-w-[520px] text-[17px] lg:mb-[10px] lg:ml-[490px] lg:mt-0 lg:w-[475px] lg:max-w-none lg:[grid-area:7/1/8/2]`}>{r[3].text}</p>
-        <NameImg review={r[4]} className="mt-12 h-auto w-[290px] max-w-[80%] lg:mb-0 lg:ml-[333px] lg:mt-0 lg:w-[389px] lg:max-w-none lg:[grid-area:9/1/10/2]" />
-        <p className={`${QUOTE} mt-4 w-full max-w-[520px] text-[17px] lg:mb-[10px] lg:ml-[333px] lg:mt-0 lg:w-[433px] lg:max-w-none lg:[grid-area:10/1/11/2]`}>{r[4].text}</p>
-      </section>
-
-      {/* Reviews 6-12, remaining photos, Social Booth LV credit */}
-      <section className={`${SECTION} lg:grid-rows-[repeat(20,min-content)_1fr]`}>
-        <Photo img={LN_PHOTOS.archway} className="mt-10 h-auto w-[342px] max-w-full lg:mb-[10px] lg:ml-[46px] lg:mt-[61px] lg:max-w-none lg:[grid-area:1/1/4/2]" />
-        <NameImg review={r[5]} className="mt-12 h-auto w-[290px] max-w-[80%] lg:mb-[37px] lg:ml-[474px] lg:mt-[61px] lg:w-[389px] lg:max-w-none lg:[grid-area:1/1/2/2]" />
-        <p className={`${QUOTE} mt-4 w-full max-w-[520px] text-center text-[17px] lg:mb-[10px] lg:ml-[439px] lg:mt-0 lg:w-[478px] lg:max-w-none lg:[grid-area:2/1/3/2]`}>{r[5].text}</p>
-        <NameImg review={r[6]} className="mt-12 h-auto w-[300px] max-w-[80%] lg:mb-[23px] lg:ml-[289px] lg:mt-0 lg:w-[415px] lg:max-w-none lg:[grid-area:5/1/6/2]" />
-        <p className={`${QUOTE} mt-4 w-full max-w-[640px] text-center text-[17px] lg:mb-[39px] lg:ml-[88px] lg:mt-0 lg:w-[796px] lg:max-w-none lg:[grid-area:6/1/7/2]`}>{r[6].text}</p>
-        <Photo img={LN_PHOTOS.ceremony} className="mt-10 h-auto w-[342px] max-w-full lg:mb-[58px] lg:ml-[34px] lg:mt-0 lg:max-w-none lg:[grid-area:7/1/10/2]" />
-        <NameImg review={r[7]} className="mt-12 h-auto w-[300px] max-w-[80%] lg:mb-[29px] lg:ml-[469px] lg:mt-[21px] lg:w-[415px] lg:max-w-none lg:[grid-area:7/1/8/2]" />
-        <p className={`${QUOTE} mt-4 w-full max-w-[520px] text-center text-[17px] lg:mb-[10px] lg:ml-[433px] lg:mt-0 lg:w-[478px] lg:max-w-none lg:[grid-area:8/1/9/2]`}>{r[7].text}</p>
-        <NameImg review={r[8]} className="mt-12 h-auto w-[300px] max-w-[80%] lg:mb-[-30px] lg:ml-[115px] lg:mt-0 lg:w-[415px] lg:max-w-none lg:[grid-area:10/1/11/2]" />
-        <p className={`${QUOTE} mt-4 w-full max-w-[600px] text-center text-[18px] lg:mb-[10px] lg:ml-[46px] lg:mt-[65px] lg:w-[572px] lg:max-w-none lg:[grid-area:11/1/12/2]`}>{r[8].text}</p>
-        <Photo img={LN_PHOTOS.brideGroomCloseup} className="mt-10 h-auto w-[282px] max-w-full lg:mb-[58px] lg:ml-[652px] lg:mt-0 lg:max-w-none lg:[grid-area:11/1/12/2]" />
-        <Photo img={LN_PHOTOS.bouquet} className="mt-10 h-auto w-[287px] max-w-full lg:mb-[10px] lg:ml-[89px] lg:mt-0 lg:max-w-none lg:[grid-area:12/1/15/2]" />
-        <NameImg review={r[9]} className="mt-12 h-auto w-[300px] max-w-[80%] lg:mb-[17px] lg:ml-[475px] lg:mt-[45px] lg:w-[415px] lg:max-w-none lg:[grid-area:12/1/13/2]" />
-        <p className={`${QUOTE} mt-4 w-full max-w-[520px] text-center text-[17px] lg:mb-[10px] lg:ml-[491px] lg:mt-0 lg:w-[413px] lg:max-w-none lg:[grid-area:13/1/14/2]`}>{r[9].text}</p>
-        <NameImg review={r[10]} className="mt-12 h-auto w-[300px] max-w-[80%] lg:mb-[-27px] lg:ml-[89px] lg:mt-0 lg:w-[415px] lg:max-w-none lg:[grid-area:16/1/17/2]" />
-        <p className={`${QUOTE} mt-4 w-full max-w-[560px] text-center text-[17px] lg:mb-[10px] lg:ml-[61px] lg:mt-[42px] lg:w-[487px] lg:max-w-none lg:[grid-area:17/1/18/2]`}>{r[10].text}</p>
-        <Photo img={LN_PHOTOS.embrace} className="mt-10 h-auto w-[313px] max-w-full lg:mb-[10px] lg:ml-[610px] lg:mt-0 lg:max-w-none lg:[grid-area:17/1/18/2]" />
-        <a
-          href={SOCIAL_BOOTH.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 lg:mb-[5px] lg:ml-[656px] lg:mt-0 lg:[grid-area:19/1/20/2]"
-        >
-          <Image
-            src={SOCIAL_BOOTH.logo.src}
-            alt="Social Booth LV"
-            width={SOCIAL_BOOTH.logo.w}
-            height={SOCIAL_BOOTH.logo.h}
-            className="h-auto w-[119px]"
-          />
-        </a>
-        <Photo img={LN_PHOTOS.photoBooth} className="mt-10 h-auto w-[407px] max-w-full lg:mb-[63px] lg:ml-[81px] lg:mt-0 lg:max-w-none lg:[grid-area:20/1/21/2]" />
-        <p className={`${QUOTE} mt-10 w-full max-w-[520px] text-center text-[17px] lg:mb-[10px] lg:ml-[515px] lg:mt-0 lg:w-[417px] lg:max-w-none lg:[grid-area:20/1/21/2]`}>{r[11].text}</p>
-      </section>
-
-      {/* Newer reviews (not on live), laid out like the originals above: the
-          couple name as a heading, the review beside a photo, and the photo
-          alternating sides. Reviews without a photo run full width. */}
-      <section className="mx-auto mt-16 flex w-full max-w-[980px] flex-col gap-16 px-6 lg:mt-24 lg:gap-20 lg:px-0">
-        {MORE_LOVE_NOTES.map((note, i) => {
-          const heading = note.name || note.label;
-          const sub = note.name ? note.label : null;
-          const flip = i % 2 === 1;
-          return (
-            <article
-              key={i}
-              className={`flex flex-col items-center gap-8 lg:items-start lg:gap-10 ${note.photo ? (flip ? 'lg:flex-row-reverse' : 'lg:flex-row') : ''}`}
-            >
-              {note.photo ? (
-                <Image
-                  src={note.photo.src}
-                  alt={note.photo.alt}
-                  width={note.photo.w}
-                  height={note.photo.h}
-                  sizes="(min-width: 1024px) 346px, 90vw"
-                  className="h-auto w-full max-w-[346px] lg:mt-[60px] lg:shrink-0"
-                />
-              ) : null}
-              <div className={`flex w-full flex-col items-center lg:items-start ${note.photo ? '' : 'lg:mx-auto lg:max-w-[760px] lg:items-center'}`}>
-                {heading ? <NameImg review={{ name: heading }} className="w-full text-center lg:text-left" /> : null}
-                {sub ? (
-                  <p className="m-0 mt-1 font-body text-[11px] font-light uppercase tracking-[0.18em] text-brown">{sub}</p>
-                ) : null}
-                {note.post ? (
-                  <Link
-                    href={`/blog/${note.post}`}
-                    className="mt-2 font-body text-[11px] font-light tracking-[0.16em] text-brown underline decoration-[#d9cfc3] underline-offset-4 transition-colors hover:text-tan"
-                  >
-                    {note.postLabel || 'Read their wedding story'} &rarr;
-                  </Link>
-                ) : null}
-                <p className={`${QUOTE} mt-4 text-[17px] ${note.photo ? 'text-left' : 'text-center'}`}>{note.text}</p>
-              </div>
-            </article>
-          );
-        })}
+      {/* Vendor reviews: compact cards, two to a row (name, logo, review) */}
+      <section className="mx-auto mt-24 w-full max-w-[1060px] border-t border-[#e6ddd2] px-6 pt-16 lg:px-0">
+        <div className="text-center">
+          <div className="font-script text-[40px] leading-none md:text-[54px]">vendor</div>
+          <p className="m-0 mt-2 font-display text-[22px] uppercase tracking-[0.16em] md:text-[30px]">Reviews</p>
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          {VENDORS.map((note, i) => (
+            <VendorCard key={note.label + i} note={note} />
+          ))}
+        </div>
       </section>
     </main>
   );

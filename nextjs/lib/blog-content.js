@@ -802,6 +802,7 @@ Hannah and Hunter, thank you for trusting me with your vision, allowing me to be
     couple: 'Brynn & Megan',
     date: '2026-06-27',
     location: "L'Auberge de Sedona",
+    photographer: { name: 'Andrea Neff Photos' },
     excerpt:
       "A full-circle return to L'Auberge de Sedona: calla lilies, chiffon runners, and chandeliers above dinner along Oak Creek, a transformed ballroom, and a live tattoo artist, all planned in seven months.",
     cover: {

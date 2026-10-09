@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 // Homepage hero: an editorial triptych of 35mm film portraits (Dana Maruna)
 // that slowly cross-fades between sets of three, under a soft dark wash with
@@ -28,9 +27,6 @@ const SETS = [
   ],
 ];
 
-const BTN =
-  'inline-block border px-7 py-3 text-[12px] font-light uppercase tracking-[0.2em] no-underline transition-colors';
-
 export default function HomeHero() {
   const [i, setI] = useState(0);
   useEffect(() => {
@@ -40,7 +36,7 @@ export default function HomeHero() {
   }, []);
 
   return (
-    <section className="relative isolate grid h-[82vh] min-h-[540px] max-h-[900px] w-full overflow-hidden bg-[#1d1915]">
+    <section className="relative isolate grid h-[92vh] min-h-[640px] max-h-[980px] w-full overflow-hidden bg-[#1d1915]">
       {SETS.map((set, n) => (
         <div
           key={n}
@@ -63,7 +59,8 @@ export default function HomeHero() {
       ))}
       <div aria-hidden="true" className="relative col-start-1 row-start-1 bg-gradient-to-b from-black/30 via-black/40 to-black/60" />
 
-      <div className="relative z-10 col-start-1 row-start-1 flex flex-col items-center justify-center px-6 text-center text-white">
+      {/* Top padding clears the white AWE header that floats over the hero */}
+      <div className="relative z-10 col-start-1 row-start-1 flex flex-col items-center justify-center px-6 pt-32 text-center text-white md:pt-40 xl:pt-64">
         <p className="m-0 text-[11px] font-light uppercase tracking-[0.32em] md:text-[12px]">
           Sedona &middot; Scottsdale &middot; Destination
         </p>
@@ -74,14 +71,6 @@ export default function HomeHero() {
         <p className="m-0 mt-5 max-w-[520px] text-[14px] font-light leading-[1.9] tracking-[0.06em] text-white/90 md:text-[15px]">
           Thoughtfully designed, meticulously planned celebrations, so you can simply be present.
         </p>
-        <div className="mt-9 flex flex-wrap justify-center gap-4">
-          <Link href="/contact" className={`${BTN} border-white bg-white text-[#443221] hover:bg-transparent hover:text-white`}>
-            Inquire
-          </Link>
-          <Link href="/services" className={`${BTN} border-white/80 text-white hover:bg-white hover:text-[#443221]`}>
-            View packages
-          </Link>
-        </div>
       </div>
 
       {/* Photographer credit: every hero photo is Dana Maruna's 35mm film work */}
@@ -89,23 +78,10 @@ export default function HomeHero() {
         href="https://danamarunaphoto.com/"
         target="_blank"
         rel="noreferrer"
-        className="absolute bottom-[52px] right-1/2 z-10 translate-x-1/2 whitespace-nowrap text-[10px] font-light uppercase tracking-[0.22em] text-white/80 no-underline transition-colors hover:text-white md:bottom-6 md:right-6 md:translate-x-0"
+        className="absolute bottom-6 right-1/2 z-10 translate-x-1/2 whitespace-nowrap text-[10px] font-light uppercase tracking-[0.22em] text-white/80 no-underline transition-colors hover:text-white md:bottom-6 md:right-6 md:translate-x-0"
       >
         Film photography by Dana Maruna Photo
       </a>
-
-      <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-3">
-        {SETS.map((_, n) => (
-          <button
-            key={n}
-            type="button"
-            aria-label={`Show photo set ${n + 1}`}
-            aria-current={n === i}
-            onClick={() => setI(n)}
-            className={`h-[7px] w-[7px] cursor-pointer rounded-full border-0 p-0 transition-colors ${n === i ? 'bg-white' : 'bg-white/40 hover:bg-white/70'}`}
-          />
-        ))}
-      </div>
     </section>
   );
 }

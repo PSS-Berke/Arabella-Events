@@ -10,6 +10,7 @@ export const VENDORS = [
   { name: 'Maya Papaya Pictures', role: 'Photography', url: 'https://mayapapayapictures.com/' },
   { name: 'Bella Wang Photo', role: 'Photography', url: 'https://bellawangphoto.com/' },
   { name: 'Chataccad Photography', role: 'Photography', url: 'https://chataccadphotography.com/' },
+  { name: 'Kylie Films', role: 'Videography', url: 'https://kyliefilms.com/' },
   { name: 'Film and Frame Booth', role: 'Vintage photo booth', url: 'https://www.instagram.com/filmandframebooth/' },
   { name: 'Sedona Catering Co.', role: 'Catering', note: 'with Tori Talkington', url: 'https://www.sedonacateringco.com/' },
   { name: 'Premium Party Rentals', role: 'Rentals', url: 'https://www.instagram.com/premiumpartyrentalsaz/' },
@@ -20,6 +21,7 @@ export const VENDORS = [
 export const VENUES = [
   {
     name: 'Tlaquepaque Arts & Shopping Village',
+    url: 'https://tlaq.com/weddings/',
     where: 'Sedona, Arizona',
     note: 'Sycamore-shaded courtyards, stucco arches, and tiled fountains: the setting for several of our favorite celebrations.',
     photo: {
@@ -45,6 +47,11 @@ export const VENUES = [
     where: 'Sedona, Arizona',
     note: 'An intimate inn set along the banks of Oak Creek.',
     url: 'https://creeksideinn.net/',
-    photo: null,
+    photo: {
+      src: '/media/pd-vows-forest-259b7480.jpg',
+      alt: 'Patricia smiling at Drew as they hold hands for their vows in the sunlit trees at Creekside Inn',
+      width: 1333,
+      height: 2000,
+    },
   },
 ];

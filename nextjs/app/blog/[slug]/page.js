@@ -50,14 +50,18 @@ export default function BlogPost({ params }) {
         {post.photographer ? (
           <p className="m-0 mt-5 text-[11px] font-light uppercase tracking-[0.2em] text-brown">
             Photographed by{' '}
-            <a
-              href={post.photographer.url}
-              target="_blank"
-              rel="noreferrer"
-              className="font-display text-[16px] normal-case italic tracking-[0.04em] text-[#443221] underline decoration-[#d9cfc3] underline-offset-4 transition-colors hover:text-tan"
-            >
-              {post.photographer.name}
-            </a>
+            {post.photographer.url ? (
+              <a
+                href={post.photographer.url}
+                target="_blank"
+                rel="noreferrer"
+                className="font-display text-[16px] normal-case italic tracking-[0.04em] text-[#443221] underline decoration-[#d9cfc3] underline-offset-4 transition-colors hover:text-tan"
+              >
+                {post.photographer.name}
+              </a>
+            ) : (
+              <span className="font-display text-[16px] normal-case italic tracking-[0.04em] text-[#443221]">{post.photographer.name}</span>
+            )}
           </p>
         ) : null}
         {post.press?.length ? (

@@ -118,3 +118,41 @@ a:hover { color: #dea27a; }
    ascenders don't crowd the headings beside them. */
 .font-script, .awe-script { text-transform: lowercase; }
 .font-script { line-height: 0.9; }
+
+/* "Featured in" banner: the track holds two identical copies and slides by one. */
+@keyframes awe-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.awe-marquee { animation: awe-marquee 45s linear infinite; }
+.awe-marquee:hover { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .awe-marquee { animation: none; }
+}
+
+/* Contact banner: lines rise in turn, gold rules draw outward, the photo settles. */
+@keyframes awe-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes awe-draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes awe-settle {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+.awe-rise { opacity: 0; animation: awe-rise 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.awe-draw { transform: scaleX(0); animation: awe-draw 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.awe-settle { animation: awe-settle 14s ease-out forwards; }
+@media (prefers-reduced-motion: reduce) {
+  .awe-rise, .awe-draw, .awe-settle { animation: none; opacity: 1; transform: none; }
+}
+
+/* Scroll reveal (components/Reveal.js): fade up once, on first view. */
+.awe-reveal { opacity: 0; transform: translateY(28px); transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1), transform 1.1s cubic-bezier(0.22, 1, 0.36, 1); }
+.awe-reveal.is-shown { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .awe-reveal { opacity: 1; transform: none; transition: none; }
+}

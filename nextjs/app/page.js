@@ -22,7 +22,7 @@ export const metadata = pageMeta({
  * the Wix page: a small boxed slideshow, a flat graphic with its text baked
  * in, and narrow, low-contrast paragraphs). Everything is now live text and
  * full-size photography:
- *   hero → press line → intro/bio → favorites → services → reviews →
+ *   hero → divider → press banner → services → reviews →
  *   recent weddings → closing call to action.
  */
 
@@ -32,11 +32,6 @@ const LINK =
   'inline-block border-b border-[#443221] pb-1 text-[12px] font-light uppercase tracking-[0.2em] text-[#443221] no-underline transition-colors hover:border-tan hover:text-tan';
 const EYEBROW = 'm-0 text-[11px] font-light uppercase tracking-[0.24em] text-brown';
 
-const FAVORITES = [
-  { src: IMG.trio1, alt: 'Bride in a lace mantilla veil and beaded champagne gown on the stairs at Tlaquepaque, Sedona' },
-  { src: IMG.trio2, alt: 'Couple embracing before the red rocks of Sedona' },
-  { src: IMG.trio3, alt: 'Bride in a lace gown holding an orange and white bouquet beside a canal bridge' },
-];
 
 const SERVICES = [
   {
@@ -59,81 +54,34 @@ const SERVICES = [
   },
 ];
 
-// Raw markup keeps the `muted` attribute in SSR HTML (React drops the muted
-// prop, and without it browsers block autoplay until hydration).
-function FavoritesVideo() {
-  return (
-    <div
-      className="aspect-video w-full bg-[#2b2420]"
-      dangerouslySetInnerHTML={{
-        __html:
-          '<video src="/media/49b5c3_94afe07dea67468194477edb9160c29d-1080p-f179853e.mp4"' +
-          ' poster="/media/49b5c3_94afe07dea67468194477edb9160c29df000-f015404f.jpg"' +
-          ' autoplay muted loop playsinline controls preload="metadata"' +
-          ' aria-label="Newlyweds walking hand in hand past a flower-covered courtyard storefront"' +
-          ' style="display:block;width:100%;height:100%;object-fit:cover"></video>',
-      }}
-    />
-  );
-}
-
 export default function Home() {
   const recent = POSTS.slice(0, 3);
   return (
     <main className="text-[#443221]">
       <HomeHero />
 
+      {/* Divider: a double rule broken by the gold AWE mark (Oct 2026; the intro
+          headline and copy that sat under it were removed at Arabella's request) */}
+      {/* Soft gold rules that fade in from the edges, a tiny diamond either
+          side, and the AWE mark with a small caption beneath. */}
+      <div className="mx-auto flex max-w-[900px] flex-col items-center px-6 py-12 md:py-14">
+        <div className="flex w-full items-center gap-4 md:gap-5">
+          <span aria-hidden="true" className="h-px flex-1 bg-gradient-to-r from-transparent to-[#c9b48a]" />
+          <span aria-hidden="true" className="h-[6px] w-[6px] rotate-45 bg-[#c9b48a]" />
+          <Image src="/media/awe-logo-gold-d9f2a20d.png" alt="" width={648} height={242} className="mx-1 h-auto w-[120px] md:w-[150px]" />
+          <span aria-hidden="true" className="h-[6px] w-[6px] rotate-45 bg-[#c9b48a]" />
+          <span aria-hidden="true" className="h-px flex-1 bg-gradient-to-l from-transparent to-[#c9b48a]" />
+        </div>
+        <p className="m-0 mt-3 font-script text-[30px] leading-none text-[#9a8158] md:text-[36px]">with love, from arizona</p>
+      </div>
+
       {/* Press (Style Me Pretty was baked into a graphic on live) */}
-      <PressBar className="border-t-0" />
+      <PressBar />
 
-      {/* Welcome: a short intro only; the full story lives on /arabella */}
-      <section className="mx-auto grid max-w-[1120px] items-center gap-10 px-6 py-12 md:grid-cols-2 md:gap-16 md:px-10 md:py-16">
-        <Image
-          src="/media/tlaquepaque-veil-portrait-569b88f9.jpg"
-          alt="Bride and groom forehead to forehead beneath a stone arch as her cathedral veil sweeps across the frame"
-          width={1333}
-          height={2000}
-          sizes="(min-width: 1120px) 480px, (min-width: 768px) 45vw, 92vw"
-          className="mx-auto h-auto w-full max-w-[480px]"
-        />
-        <div className="text-center md:text-left">
-          <div className={SCRIPT}>Welcome</div>
-          <h2 className={`${H2} mt-2`}>An eye for what could be</h2>
-          <p className="m-0 mt-8 font-display text-[20px] italic leading-[1.65] text-[#5a4634] md:text-[23px]">
-            Full wedding planning, design, and coordination throughout Arizona, Chicago, and beyond.
-          </p>
-          <p className="m-0 mt-8 font-display text-[16px] uppercase leading-[1.8] tracking-[0.14em]">
-            Share the vision. Trust the process. And allow yourself to be surprised by what we{' '}
-            <span className="font-script text-[30px] normal-case tracking-normal">create</span>
-          </p>
-          <div className="mt-10">
-            <Link href="/arabella" className={LINK}>Meet Arabella</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* A few favorites */}
-      <section className="border-y border-[#e6ddd2] bg-white px-6 py-12 md:py-16">
-        <div className="mx-auto max-w-[1000px] text-center">
-          <div className={SCRIPT}>A few</div>
-          <h2 className={`${H2} mt-2`}>Favorites</h2>
-          <div className="mt-8" />
-          <FavoritesVideo />
-          <div className="mt-4 grid grid-cols-3 gap-2 md:mt-6 md:gap-6">
-            {FAVORITES.map((p) => (
-              <Image key={p.src} src={p.src} alt={p.alt} width={504} height={700} sizes="(min-width: 1000px) 316px, 32vw" className="aspect-[4/5] h-auto w-full object-cover" />
-            ))}
-          </div>
-          <div className="mt-8">
-            <Link href="/gallery" className={LINK}>View the gallery</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
+      {/* Services: three photo cards (heading reworded Oct 2026, was "The Offerings") */}
       <section className="mx-auto max-w-[1120px] px-6 py-12 text-center md:px-10 md:py-16">
-        <div className={SCRIPT}>The</div>
-        <h2 className={`${H2} mt-2`}>Offerings</h2>
+        <div className={SCRIPT}>ways to</div>
+        <h2 className={`${H2} mt-2`}>Work With Us</h2>
         <div className="mt-10 grid gap-14 md:grid-cols-3 md:gap-8">
           {SERVICES.map((s) => (
             <Link key={s.name} href={s.href} className="group flex flex-col items-center no-underline text-inherit">
@@ -240,9 +188,9 @@ export default function Home() {
       {/* Featured photographers (role "Photography" in lib/vendors-content.js),
           names linking out; every vendor is on /vendors */}
       <section className="px-6 py-10 text-center md:py-12">
-        <p className={EYEBROW}>Featured photographers</p>
+        <p className={EYEBROW}>Featured photographers &amp; videographers</p>
         <ul className="mx-auto mb-0 mt-6 flex max-w-[960px] list-none flex-wrap items-center justify-center gap-x-12 gap-y-4 p-0">
-          {VENDORS.filter((v) => v.role === 'Photography').map((v) => (
+          {VENDORS.filter((v) => v.role === 'Photography' || v.role === 'Videography').map((v) => (
             <li key={v.name}>
               {v.url ? (
                 <a

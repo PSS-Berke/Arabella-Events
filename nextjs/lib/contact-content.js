@@ -50,6 +50,6 @@ export const CONTACT_IMG = {
   envelopeDefault: '/media/a3c153_dde7f1753cf149eda2743a75c080176b-9279fdcb.png',
   envelopeHover: '/media/a3c153_2599e763b04144a392932f4986be5c39-541d238c.png',
   envelopeActive: '/media/a3c153_9831f92b41ff493a8944f84d16272c1e-7afdd4ec.png',
-  // Portrait of Arabella behind a candle-lit tablescape (553x836 source, ~295x446 display).
-  portrait: '/media/Screenshot-2026-01-26-6_54_32-PM-52c31217.png',
+  // Beside the form (Oct 2026: replaced a screenshot of Arabella at a tablescape).
+  portrait: '/media/tlaquepaque-veil-portrait-569b88f9.jpg',
 };
