@@ -31,8 +31,34 @@ function GalleryVideo({ src, poster, label, className, style }) {
   return <div className={className} style={style} dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
+// Gallery photos that are about the design rather than the couple
+// (tablescapes, florals, cakes, lighting, details). They move up into the
+// "the art of Design" grid instead of the main gallery.
+const DESIGN_FROM_GALLERY = new Set([
+  '/media/tlaquepaque-sedona-arizona-vintage-bride-groom-portr-5b1186a1.jpg', // red rose & anthurium centerpiece
+  '/media/49b5c3_2b82374151bc4053ae2a38ad44948015-908e9d2d.png', // baby's breath runner, overhead
+  '/media/cabin-tablescape-forest-table-a0e8e91e.jpg',
+  '/media/red-anthurium-lion-fountain-593cfa54.jpg',
+  '/media/IMG_4576-1-_JPG-6f24d2f5.jpg', // disco balls & streamers
+  '/media/cabin-tablescape-place-settings-13796f7a.jpg',
+  '/media/checkered-dance-floor-red-rocks-c3a80f8a.jpg',
+  '/media/cabin-tablescape-candles-closeup-262bd28b.jpg',
+  '/media/Screenshot-2026-01-26-6_43_11-PM-0a464cb7.png', // cafe lights over a courtyard
+  '/media/vintage-piped-wedding-cake-564d76e7.jpg',
+  '/media/cabin-shoot-lighting-tablescape-2ab0112a.jpg',
+  '/media/red-anthurium-floral-table-d523165a.jpg',
+  '/media/cabin-tablescape-autumn-trees-8558bb08.jpg',
+  '/media/49b5c3_f2f847eccbe148dbb4f7320e54ccc04c-6a8b8799.png', // save-the-date
+  '/media/cabin-shoot-lighting-candle-ad98da3d.jpg',
+  '/media/string-lights-dusk-cce7149a.jpg',
+  '/media/cabin-shoot-placing-menus-8202a2db.jpg',
+  '/media/4B27FF08-1DC7-4562-926D-EA128012AAA9--e9962c1f.png', // ceremony chairs
+  '/media/D609A444-4075-4652-B221-4411AF985573-1-_JPG-e5561297.jpg', // reception tent
+  '/media/49b5c3_d51a156bded7463ebe9cc08643708126-6daba43a.png', // audio guestbook
+]);
+
 const HERO = GALLERY_ITEMS[0]; // wide 4.7:1 film clip, full width above the columns
-const REST = GALLERY_ITEMS.slice(1);
+const REST = GALLERY_ITEMS.slice(1).filter((item) => !DESIGN_FROM_GALLERY.has(item.src));
 // The home- and packages-page clips are woven in at their `slot` indices so
 // motion is spread across the columns.
 const EXTRAS = new Map(GALLERY_EXTRA_VIDEOS.map((v) => [v.slot, v]));
@@ -50,6 +76,16 @@ const DESIGN = [
   { src: '/media/hh-tables-balconies-string-lights-f4068ce2.jpg', alt: 'Reception tables under string lights between courtyard balconies', w: 1067, h: 1600 },
   { src: '/media/film-sculptural-cake-monogram-61ca5afb.jpg', alt: 'A sculptural ivory wedding cake with the couple’s monogram', w: 1078, h: 1600 },
   { src: '/media/cabin-tablescape-autumn-trees-8558bb08.jpg', alt: 'Ivory and mauve candlelit tablescape under towering autumn trees', w: 1334, h: 2000 },
+];
+// Then every design-focused photo from the gallery not already above.
+const DESIGN_ALL = [
+  ...DESIGN,
+  ...GALLERY_ITEMS.filter((g) => DESIGN_FROM_GALLERY.has(g.src) && !DESIGN.some((d) => d.src === g.src)).map((g) => ({
+    src: g.src,
+    alt: g.alt,
+    w: g.width,
+    h: g.height,
+  })),
 ];
 
 export default function GalleryPage() {
@@ -114,7 +150,7 @@ export default function GalleryPage() {
           </p>
         </Reveal>
         <div className="mx-auto mt-14 grid max-w-[1180px] grid-cols-2 gap-2 md:grid-cols-3 md:gap-4">
-          {DESIGN.map((p, n) => (
+          {DESIGN_ALL.map((p, n) => (
             <Reveal key={p.src} delay={(n % 3) * 120} className="overflow-hidden">
               <Image
                 src={p.src}
