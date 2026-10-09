@@ -27,9 +27,13 @@ const SETS = [
   ],
 ];
 
-// Phones show one photo per set: the moodiest of the three (Oct 2026, the
-// first photos read too bright on mobile). Index into each set.
-const MOBILE = [1, 0, 2];
+// Phones show one moody photo per slide instead of a set (Oct 2026: Jordan &
+// Austin in the chapel, the black-and-white veil, then the candles).
+const MOBILE = [
+  { src: '/media/film-lace-mantilla-chapel-7d603713.jpg', alt: 'A bride in a lace mantilla before the chapel altar' },
+  { src: '/media/film-veil-staircase-bw-ea1f5e9b.jpg', alt: 'A bride lifting her veil on a shadowed staircase, in black and white' },
+  { src: '/media/film-candles-fireplace-b617fac6.jpg', alt: 'Dozens of candles glowing in a brick fireplace' },
+];
 
 export default function HomeHero() {
   const [i, setI] = useState(0);
@@ -54,8 +58,11 @@ export default function HomeHero() {
           aria-hidden={n !== i}
           className={`relative col-start-1 row-start-1 grid grid-cols-1 gap-[3px] transition-opacity duration-[2000ms] ease-in-out md:grid-cols-3 ${n === i ? 'opacity-100' : 'opacity-0'}`}
         >
+          <div className="relative md:hidden">
+            <Image src={MOBILE[n].src} alt={MOBILE[n].alt} fill priority={n === 0} sizes="100vw" className="object-cover" />
+          </div>
           {set.map((p, k) => (
-            <div key={p.src} className={`relative ${k !== MOBILE[n] ? 'hidden md:block' : ''}`}>
+            <div key={p.src} className="relative hidden md:block">
               <Image
                 src={p.src}
                 alt={p.alt}
