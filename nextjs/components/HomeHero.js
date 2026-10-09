@@ -27,6 +27,10 @@ const SETS = [
   ],
 ];
 
+// Phones show one photo per set: the moodiest of the three (Oct 2026, the
+// first photos read too bright on mobile). Index into each set.
+const MOBILE = [1, 0, 2];
+
 export default function HomeHero() {
   const [i, setI] = useState(0);
   // Headline swap: "Wedding Planning & design" shows first, then fades out and
@@ -51,7 +55,7 @@ export default function HomeHero() {
           className={`relative col-start-1 row-start-1 grid grid-cols-1 gap-[3px] transition-opacity duration-[2000ms] ease-in-out md:grid-cols-3 ${n === i ? 'opacity-100' : 'opacity-0'}`}
         >
           {set.map((p, k) => (
-            <div key={p.src} className={`relative ${k > 0 ? 'hidden md:block' : ''}`}>
+            <div key={p.src} className={`relative ${k !== MOBILE[n] ? 'hidden md:block' : ''}`}>
               <Image
                 src={p.src}
                 alt={p.alt}
@@ -64,7 +68,7 @@ export default function HomeHero() {
           ))}
         </div>
       ))}
-      <div aria-hidden="true" className="relative col-start-1 row-start-1 bg-gradient-to-b from-black/30 via-black/40 to-black/60" />
+      <div aria-hidden="true" className="relative col-start-1 row-start-1 bg-gradient-to-b from-black/50 via-black/55 to-black/70 md:from-black/30 md:via-black/40 md:to-black/60" />
 
       {/* Top padding clears the white AWE header that floats over the hero */}
       <div className="relative z-10 col-start-1 row-start-1 flex flex-col items-center justify-center px-6 pt-32 text-center text-white md:pt-40 xl:pt-64">
