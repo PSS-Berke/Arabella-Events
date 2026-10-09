@@ -234,7 +234,7 @@ For Jennifer's wedding, we took inspiration from the Wild West, but with a whims
 
 Think rustic meets romantic. Crystals, vintage candelabras, wildflowers, soft draping, and little details that looked like they belonged in an enchanted forest.
 
-I wanted the design to feel collected rather than overly styled. A little wild, a little imperfect, and full of personality.
+I wanted the design to feel like wildflowers gathered from a western meadow: free, romantic, and true to Jennifer's heart.
 
 ![The groom kissing the bride's hand among the trees, her tulle cape trailing across the grass](/media/jh-hand-kiss-forest-d3528897.jpg 1333x2000)
 ![Bridesmaids in soft blue lace holding wildflower bouquets in the sunlit forest](/media/jh-bridesmaids-wildflowers-2aee6442.jpg 1333x2000)
