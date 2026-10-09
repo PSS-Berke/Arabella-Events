@@ -314,14 +314,13 @@ Arabella
     location: 'Sedona, Arizona',
     excerpt:
       'Eucalyptus and a touch of orange became a warm, Spanish-inspired celebration of terracotta, autumn florals, papel picado and candlelight in the Tlaquepaque courtyard.',
-    cover: {
-      src: '/media/tlaquepaque-terracotta-tables-papel-picado-3a7c14f6.jpg',
-      alt: 'Wooden farm tables set with terracotta vessels and candles beneath papel picado along a Tlaquepaque wall at night',
-      width: 1290,
-      height: 1822,
-    },
+    // Photos held back until the couple shares them (Arabella, Oct 2026);
+    // restore the cover and the ar-* images in the body when they're public.
+    cover: null,
     photos: [],
     body: `When Andrew and Rafael booked us in November 2025, they were planning their destination wedding all the way from Washington. They had fallen in love with Tlaquepaque in Sedona and came to us with an initial vision of eucalyptus greenery and touches of orange.
+
+*Photos coming soon.*
 
 Little did they know just how far we were going to take that inspiration!
 
@@ -343,8 +342,6 @@ Some arrangements were tucked into the vessels, while others spilled out of them
 
 The combination of the pottery, rich orange florals, and natural wooden tables was exactly what I had envisioned.
 
-![Patterned dinnerware, terracotta candleholders, taper candles and a vessel of red chrysanthemums on a wooden table](/media/ar-terracotta-place-settings-abd63dbb.jpg 709x1036)
-![A low arrangement of burnt-red chrysanthemums on a taupe runner between glassware](/media/ar-chrysanthemum-centerpiece-3dc0f657.jpg 709x1036)
 
 ## All in the Details
 
@@ -352,8 +349,6 @@ If you know me, you know I LOVE the little details.
 
 We decided to incorporate traditional Mexican papel picado throughout the courtyard to really lean into the Spanish-inspired atmosphere. With Tlaquepaque's architecture and the existing string lights overhead, it completely transformed the space.
 
-![Long wooden banquet tables with terracotta vessels beneath rows of white papel picado and string lights](/media/ar-long-tables-papel-picado-e565ed02.jpg 709x1036)
-![Banquet tables with taupe runners and terracotta pottery lining the Tlaquepaque courtyard](/media/ar-banquet-tables-courtyard-9d4ab4af.jpg 709x1036)
 
 We kept the wooden banquet tables exposed and layered them with soft taupe runners that draped over the edges. We brought in patterned dinnerware that complemented the papel picado, terracotta candleholders, taper candles, and plenty of votives.
 
@@ -361,7 +356,6 @@ I wanted the tables to feel warm and inviting, but still have enough interesting
 
 We also incorporated a beautiful warm-toned checkerboard dance floor right in the center of the courtyard, with the long banquet tables lining either side.
 
-![A warm-toned checkerboard dance floor in the center of the courtyard with banquet tables on either side](/media/ar-checkerboard-dance-floor-9d8cea12.jpg 709x468)
 
 Everything tied together without feeling overly matched.
 
@@ -375,7 +369,6 @@ We carried the florals down to the ground, added clusters of pillar candles, and
 
 The ivory draping behind them softened the entire space, and the lantern hanging overhead was the perfect finishing touch.
 
-![The grooms' sweetheart table with wooden chairs, satin draping, pillar candles and florals beneath papel picado and a lantern](/media/ar-sweetheart-table-1fd389a0.jpg 789x482)
 
 It was romantic, a little dramatic, and so beautiful once all the candles were lit.
 
@@ -383,7 +376,6 @@ And of course, we couldn't forget the cake!
 
 **Sedona Bakery** created an especially tall burnt-orange wedding cake that fit right into our color palette. I love when even the cake becomes part of the overall design rather than feeling like a completely separate element.
 
-![A dessert table of tiered cupcake stands and florals on satin draping](/media/ar-dessert-table-69a5d756.jpg 709x468)
 
 ## An Entrance We Won't Forget
 
@@ -405,7 +397,6 @@ After an evening of celebrating, dancing, and enjoying the courtyard, it was suc
 
 It's those little touches that make a wedding feel personal and memorable.
 
-![A candlelit banquet table with terracotta vessels against a Tlaquepaque wall at night](/media/ar-table-zona-wall-4b0e8cff.jpg 709x1036)
 
 ## A Wedding We'll Always Remember
 
@@ -588,7 +579,9 @@ One of my favorite design elements was the use of draping amaranthus. Its cascad
 
 We paired these with thoughtfully curated florals, vintage crystal, and layers of fabric that added depth without feeling too formal.
 
-Cream-colored linens provided a soft foundation, while lace, silver, and candlelight introduced the character and texture that made the design so unique.
+We decided to incorporate draped, styled Vanilla Lamour linens with lace overlays, and hung three vintage candelabra-style chandeliers above the tables to match the atmospheric candelabras below.
+
+The vanilla linens provided a soft foundation, while lace, silver, and candlelight introduced the character and texture that made the design so unique.
 
 I wanted the tables to feel like something you might stumble upon deep in an enchanted forest. A little mysterious, a little whimsical, and completely romantic.
 
@@ -640,7 +633,7 @@ I think one of the biggest misconceptions about luxury wedding design is that ev
 
 Hannah and Michael's wedding was a reminder that luxury can also be playful.
 
-It can be a vintage silver platter discovered while thrifting. It can be cascading florals draped over a candelabra. It can be lace layered over cream linens, candlelight dancing beneath the trees, or a dance floor that feels wonderfully out of place in the middle of a forest.
+It can be a vintage silver platter discovered while thrifting. It can be vintage candelabra chandeliers glowing above the tables. It can be lace layered over draped vanilla linens, candlelight dancing beneath the trees, or a dance floor that feels wonderfully out of place in the middle of a forest.
 
 **To me, thoughtful design isn't about making everything match. It's about making everything belong.**
 
@@ -802,7 +795,7 @@ Hannah and Hunter, thank you for trusting me with your vision, allowing me to be
     couple: 'Brynn & Megan',
     date: '2026-06-27',
     location: "L'Auberge de Sedona",
-    photographer: { name: 'Andrea Neff Photos' },
+    photographer: { name: 'Andrea Neff Photography', url: 'https://www.andrea-neff.com/' },
     excerpt:
       "A full-circle return to L'Auberge de Sedona: calla lilies, chiffon runners, and chandeliers above dinner along Oak Creek, a transformed ballroom, and a live tattoo artist, all planned in seven months.",
     cover: {

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Testimonials from '@/components/Testimonials';
 import HomeHero from '@/components/HomeHero';
 import PressBar from '@/components/PressBar';
+import PostCover from '@/components/PostCover';
 import { VENDORS } from '@/lib/vendors-content';
 import { IMG } from '@/lib/content';
 import { POSTS, formatDate } from '@/lib/blog-content';
@@ -44,7 +45,7 @@ const SERVICES = [
     eyebrow: 'All-inclusive',
     name: 'Micro Weddings at Tlaquepaque',
     href: '/services#micro-weddings',
-    img: { src: '/media/tlaquepaque-terracotta-tables-papel-picado-3a7c14f6.jpg', alt: 'Wooden tables with terracotta vessels beneath papel picado at Tlaquepaque', w: 1290, h: 1822 },
+    img: { src: '/media/tlaquepaque-long-tables-candelabras-b3ab62f7.jpg', alt: 'Long candlelit tables with gold candelabras and red roses in a Tlaquepaque courtyard at night', w: 1333, h: 2000 },
   },
   {
     eyebrow: 'Reserve online',
@@ -60,18 +61,10 @@ export default function Home() {
     <main className="text-[#443221]">
       <HomeHero />
 
-      {/* Divider: a double rule broken by the gold AWE mark (Oct 2026; the intro
-          headline and copy that sat under it were removed at Arabella's request) */}
-      {/* Soft gold rules that fade in from the edges, a tiny diamond either
-          side, and the AWE mark with a small caption beneath. */}
+      {/* The gold AWE mark with a small script line beneath (Oct 2026; the rules
+          and diamonds either side were removed at Arabella's request) */}
       <div className="mx-auto flex max-w-[900px] flex-col items-center px-6 py-12 md:py-14">
-        <div className="flex w-full items-center gap-4 md:gap-5">
-          <span aria-hidden="true" className="h-px flex-1 bg-gradient-to-r from-transparent to-[#c9b48a]" />
-          <span aria-hidden="true" className="h-[6px] w-[6px] rotate-45 bg-[#c9b48a]" />
-          <Image src="/media/awe-logo-gold-d9f2a20d.png" alt="" width={648} height={242} className="mx-1 h-auto w-[120px] md:w-[150px]" />
-          <span aria-hidden="true" className="h-[6px] w-[6px] rotate-45 bg-[#c9b48a]" />
-          <span aria-hidden="true" className="h-px flex-1 bg-gradient-to-l from-transparent to-[#c9b48a]" />
-        </div>
+        <Image src="/media/awe-logo-gold-d9f2a20d.png" alt="" width={648} height={242} className="h-auto w-[130px] md:w-[160px]" />
         <p className="m-0 mt-3 font-script text-[30px] leading-none text-[#9a8158] md:text-[36px]">with love, from arizona</p>
       </div>
 
@@ -103,6 +96,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Reviews */}
+      <section className="border-y border-[#e6ddd2] bg-white px-6 pt-12 md:pt-16">
+        <h2 className="m-0">
+          <Image src={IMG.aweExperience} alt="The AWE Experience" width={465} height={238} className="mx-auto block h-auto w-[260px] max-w-full md:w-[300px]" />
+        </h2>
+        <Testimonials />
+      </section>
+
+      {/* Recent wedding stories from the blog (was "Real Weddings") */}
+      <section className="mx-auto max-w-[1120px] px-6 py-12 text-center md:px-10 md:py-16">
+        <div className={SCRIPT}>read the</div>
+        <h2 className={`${H2} mt-2`}>Blog</h2>
+        <div className="mt-10 grid gap-14 md:grid-cols-3 md:gap-8">
+          {recent.map((p) => (
+            <Link key={p.slug} href={`/blog/${p.slug}`} className="group flex flex-col no-underline text-inherit">
+              <div className="w-full overflow-hidden">
+                <PostCover
+                  post={p}
+                  sizes="(min-width: 1120px) 340px, (min-width: 768px) 30vw, 92vw"
+                  className="aspect-[4/5] h-auto w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+              </div>
+              <p className={`${EYEBROW} mt-6`}>{p.couple} &middot; {formatDate(p.date)}</p>
+              <h3 className="m-0 mt-2 font-display text-[18px] font-normal uppercase leading-[1.4] tracking-[0.1em]">{p.title}</h3>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-10">
+          <Link href="/blog" className={LINK}>See all stories</Link>
+        </div>
+      </section>
+
       {/* Dana + Arabella collaboration (full details on /services) */}
       <section className="border-t border-[#e6ddd2] px-6 py-12 md:py-16">
         <div className="mx-auto grid max-w-[1000px] items-center gap-12 md:grid-cols-2 md:gap-16">
@@ -125,41 +150,6 @@ export default function Home() {
               <Link href="/services#dana-and-arabella" className={LINK}>See the package</Link>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Reviews */}
-      <section className="border-y border-[#e6ddd2] bg-white px-6 pt-12 md:pt-16">
-        <h2 className="m-0">
-          <Image src={IMG.aweExperience} alt="The AWE Experience" width={465} height={238} className="mx-auto block h-auto w-[260px] max-w-full md:w-[300px]" />
-        </h2>
-        <Testimonials />
-      </section>
-
-      {/* Recent weddings */}
-      <section className="mx-auto max-w-[1120px] px-6 py-12 text-center md:px-10 md:py-16">
-        <div className={SCRIPT}>Real</div>
-        <h2 className={`${H2} mt-2`}>Weddings</h2>
-        <div className="mt-10 grid gap-14 md:grid-cols-3 md:gap-8">
-          {recent.map((p) => (
-            <Link key={p.slug} href={`/blog/${p.slug}`} className="group flex flex-col no-underline text-inherit">
-              <div className="w-full overflow-hidden">
-                <Image
-                  src={p.cover.src}
-                  alt={p.cover.alt}
-                  width={p.cover.width}
-                  height={p.cover.height}
-                  sizes="(min-width: 1120px) 340px, (min-width: 768px) 30vw, 92vw"
-                  className="aspect-[4/5] h-auto w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-              </div>
-              <p className={`${EYEBROW} mt-6`}>{p.couple} &middot; {formatDate(p.date)}</p>
-              <h3 className="m-0 mt-2 font-display text-[18px] font-normal uppercase leading-[1.4] tracking-[0.1em]">{p.title}</h3>
-            </Link>
-          ))}
-        </div>
-        <div className="mt-10">
-          <Link href="/blog" className={LINK}>Read the blog</Link>
         </div>
       </section>
 
@@ -186,29 +176,32 @@ export default function Home() {
       </section>
 
       {/* Featured photographers (role "Photography" in lib/vendors-content.js),
-          names linking out; every vendor is on /vendors */}
+          logos linking out; the full list is on /vendors (Our Partners) */}
       <section className="px-6 py-10 text-center md:py-12">
         <p className={EYEBROW}>Featured photographers &amp; videographers</p>
-        <ul className="mx-auto mb-0 mt-6 flex max-w-[960px] list-none flex-wrap items-center justify-center gap-x-12 gap-y-4 p-0">
-          {VENDORS.filter((v) => v.role === 'Photography' || v.role === 'Videography').map((v) => (
-            <li key={v.name}>
-              {v.url ? (
-                <a
-                  href={v.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-display text-[15px] uppercase tracking-[0.16em] text-[#443221] no-underline transition-colors hover:text-tan md:text-[17px]"
-                >
-                  {v.name}
-                </a>
-              ) : (
-                <span className="font-display text-[15px] uppercase tracking-[0.16em] md:text-[17px]">{v.name}</span>
-              )}
-            </li>
-          ))}
+        <ul className="mx-auto mb-0 mt-6 flex max-w-[960px] list-none flex-wrap items-center justify-center gap-x-12 gap-y-8 p-0">
+          {VENDORS.filter((v) => v.role === 'Photography' || v.role === 'Videography').map((v) => {
+            // A logo, when there is one, stands in for the name (and is the link).
+            const mark = v.logo ? (
+              <Image src={v.logo.src} alt={v.name} width={v.logo.w} height={v.logo.h} className="block h-auto max-h-[36px] w-auto max-w-[180px]" />
+            ) : (
+              <span className="font-display text-[15px] uppercase tracking-[0.16em] md:text-[17px]">{v.name}</span>
+            );
+            return (
+              <li key={v.name}>
+                {v.url ? (
+                  <a href={v.url} target="_blank" rel="noreferrer" className="text-[#443221] no-underline transition-opacity hover:opacity-70">
+                    {mark}
+                  </a>
+                ) : (
+                  mark
+                )}
+              </li>
+            );
+          })}
         </ul>
         <div className="mt-8">
-          <Link href="/vendors" className={LINK}>Vendors &amp; venues</Link>
+          <Link href="/vendors" className={LINK}>Our partners</Link>
         </div>
       </section>
     </main>

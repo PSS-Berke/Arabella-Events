@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import PostCover from '@/components/PostCover';
 import { pageMeta } from '@/lib/seo';
 import { POSTS, formatDate } from '@/lib/blog-content';
 
@@ -25,11 +26,8 @@ export default function BlogIndex() {
         {POSTS.map((post) => (
           <article key={post.slug} className="flex w-full flex-col md:w-[calc(50%-20px)]">
             <Link href={`/blog/${post.slug}`} className="group block no-underline text-inherit">
-              <Image
-                src={post.cover.src}
-                alt={post.cover.alt}
-                width={post.cover.width}
-                height={post.cover.height}
+              <PostCover
+                post={post}
                 sizes="(min-width: 1000px) 440px, (min-width: 768px) 45vw, 90vw"
                 className="mb-6 aspect-[4/5] h-auto w-full object-cover transition-opacity group-hover:opacity-90"
               />
@@ -57,7 +55,7 @@ export default function BlogIndex() {
           href="/vendors"
           className="inline-block border-b border-[#443221] pb-1 text-[12px] font-light uppercase tracking-[0.18em] transition-colors hover:border-tan"
         >
-          Our featured vendors &amp; venues
+          Our partners &amp; venues
         </Link>
       </div>
     </main>

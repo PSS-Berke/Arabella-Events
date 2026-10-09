@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import PostCover from '@/components/PostCover';
 import { notFound } from 'next/navigation';
 import { pageMeta, SITE_URL, BRAND } from '@/lib/seo';
 import { POSTS, getPost, formatDate } from '@/lib/blog-content';
@@ -25,7 +26,7 @@ export default function BlogPost({ params }) {
     '@type': 'BlogPosting',
     headline: post.title,
     datePublished: post.date,
-    image: `${SITE_URL}${post.cover.src}`,
+    ...(post.cover && { image: `${SITE_URL}${post.cover.src}` }),
     author: { '@type': 'Person', name: 'Arabella', url: `${SITE_URL}/arabella` },
     publisher: { '@id': `${SITE_URL}/#business`, name: BRAND },
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
@@ -85,15 +86,7 @@ export default function BlogPost({ params }) {
         ) : null}
       </header>
 
-      <Image
-        src={post.cover.src}
-        alt={post.cover.alt}
-        width={post.cover.width}
-        height={post.cover.height}
-        priority
-        sizes="(min-width: 760px) 680px, 100vw"
-        className="mx-auto my-12 h-auto w-full max-w-[560px]"
-      />
+      <PostCover post={post} priority sizes="(min-width: 760px) 680px, 100vw" className="mx-auto my-12 h-auto w-full max-w-[560px]" />
 
       <PostBody markdown={post.body} />
 

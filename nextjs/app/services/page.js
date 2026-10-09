@@ -324,10 +324,10 @@ export default function Packages() {
         <div className="mx-auto grid max-w-[1120px] items-center gap-12 px-6 py-20 md:grid-cols-2 md:gap-16 md:px-10 md:py-28">
           <Reveal>
             <Image
-              src="/media/tlaquepaque-terracotta-tables-papel-picado-3a7c14f6.jpg"
-              alt="Wooden farm tables set with terracotta vessels and candles beneath papel picado along a Tlaquepaque wall at night"
-              width={1290}
-              height={1822}
+              src="/media/hh-sycamore-courtyard-overview-25a451fc.jpg"
+              alt="A reception set beneath the sycamores in a Tlaquepaque courtyard"
+              width={1067}
+              height={1600}
               sizes="(min-width: 768px) 460px, 90vw"
               className="mx-auto h-auto w-full max-w-[460px]"
             />

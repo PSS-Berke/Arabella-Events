@@ -90,10 +90,10 @@ export default function AboutPage() {
       <section className="bg-[#f7f1ec] px-6 py-20 md:py-28">
         <div className="mx-auto grid max-w-[1120px] items-start gap-12 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-16 md:px-4">
           <Photo
-            src="/media/ar-sweetheart-table-1fd389a0.jpg"
-            w={789}
-            h={482}
-            alt="Standing behind a draped sweetheart table with papel picado, a lantern and a floor of candles and florals"
+            src="/media/Screenshot-2026-01-26-6_54_32-PM-52c31217.png"
+            w={553}
+            h={836}
+            alt="Arabella laughing behind a candle-lit tablescape of white florals and autumn foliage"
             sizes="(min-width: 1120px) 460px, (min-width: 768px) 42vw, 92vw"
             className="md:sticky md:top-[200px]"
           />

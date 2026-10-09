@@ -68,9 +68,6 @@ export default function HomeHero() {
           Wedding Planning
           <span className="block font-script text-[44px] normal-case tracking-normal sm:text-[56px] md:text-[72px]">&amp; Design</span>
         </h1>
-        <p className="m-0 mt-5 max-w-[520px] text-[14px] font-light leading-[1.9] tracking-[0.06em] text-white/90 md:text-[15px]">
-          Thoughtfully designed, meticulously planned celebrations, so you can simply be present.
-        </p>
       </div>
 
       {/* Photographer credit: every hero photo is Dana Maruna's 35mm film work */}

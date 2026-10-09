@@ -48,7 +48,7 @@ export default function Footer() {
           href="/vendors"
           className="text-[11px] font-light uppercase tracking-[0.18em] text-brown transition-colors hover:text-tan"
         >
-          Featured Vendors &amp; Venues
+          Our Partners &amp; Venues
         </Link>
       </nav>
     </footer>

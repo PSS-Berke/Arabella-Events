@@ -206,6 +206,8 @@ export const MORE_LOVE_NOTES = [
   {
     name: null,
     label: 'From Dana Maruna Photo',
+    url: 'https://danamarunaphoto.com/',
+    logo: { src: '/media/dana-logo-clear-3c4cf140.png', w: 455, h: 35 },
     photo: { src: '/media/film-veil-stone-archway-0a2b8ea4.jpg', w: 1078, h: 1600, alt: 'A bride in a cathedral veil beneath a stone archway, photographed on 35mm film by Dana Maruna' },
     post: 'vintage-romance-wedding-tlaquepaque-sedona',
     postLabel: 'Jordan & Austin’s wedding',
@@ -236,7 +238,7 @@ export const MORE_LOVE_NOTES = [
     label: 'From Tlaquepaque',
     url: 'https://tlaq.com/weddings/',
     logo: { src: '/media/tlaquepaque-logo-clear-66d9b2f7.png', w: 286, h: 64 },
-    photo: { src: '/media/tlaquepaque-terracotta-tables-papel-picado-3a7c14f6.jpg', w: 1290, h: 1822, alt: 'Wooden tables with terracotta vessels and candles beneath papel picado at Tlaquepaque' },
+    photo: { src: '/media/hh-sycamore-courtyard-overview-25a451fc.jpg', w: 1067, h: 1600, alt: 'A reception set beneath the sycamores in a Tlaquepaque courtyard' },
     text: "I'm a venue manager in Sedona, and I always enjoy and appreciate working with Arabella. She is organized, professional, and truly a pleasure to work with. She takes the time to listen to her clients and goes above and beyond to bring their vision to life. I would highly recommend her to any couple looking for a wonderful wedding planner!",
   },
   {
