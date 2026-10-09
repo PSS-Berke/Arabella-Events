@@ -5,6 +5,15 @@ import { notFound } from 'next/navigation';
 import { pageMeta, SITE_URL, BRAND } from '@/lib/seo';
 import { POSTS, getPost, formatDate } from '@/lib/blog-content';
 import PostBody from '@/components/PostBody';
+import { LOVE_NOTES, MORE_LOVE_NOTES } from '@/lib/love-notes-content';
+
+// The couple's review from Kind Words. Blog posts sometimes use a shorter
+// name than the review does, so a few are mapped by hand.
+const REVIEW_NAME = { 'Isa & Dylan': 'Isabella & Dylan' };
+function coupleReview(couple) {
+  const name = REVIEW_NAME[couple] || couple;
+  return [...MORE_LOVE_NOTES, ...LOVE_NOTES].find((r) => r.name === name && r.text) || null;
+}
 
 export function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }));
@@ -114,6 +123,54 @@ export default function BlogPost({ params }) {
           ))}
         </div>
       ) : null}
+
+      {/* The vendor team (`vendors` on the post in lib/blog-content.js) */}
+      {post.vendors?.length ? (
+        <section className="mt-16 border-t border-[#e6ddd2] pt-12 text-center">
+          <div className="font-script text-[40px] leading-none md:text-[54px]">the vendor</div>
+          <h2 className="m-0 mt-1 font-display text-[18px] font-normal uppercase tracking-[0.22em] md:text-[22px]">Team</h2>
+          <ul className="m-0 mx-auto mt-8 grid max-w-[560px] list-none gap-x-10 gap-y-5 p-0 sm:grid-cols-2">
+            {post.vendors.map((v) => (
+              <li key={v.role + v.name}>
+                <p className="m-0 text-[10px] font-light uppercase tracking-[0.24em] text-brown">{v.role}</p>
+                {v.url ? (
+                  <a
+                    href={v.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-1 inline-block font-display text-[17px] tracking-[0.04em] text-[#443221] underline decoration-[#d9cfc3] underline-offset-4 transition-colors hover:text-tan"
+                  >
+                    {v.name}
+                  </a>
+                ) : (
+                  <p className="m-0 mt-1 font-display text-[17px] tracking-[0.04em]">{v.name}</p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
+      {/* What they said: the couple's own review from Kind Words, when they left one */}
+      {(() => {
+        const review = coupleReview(post.couple);
+        if (!review) return null;
+        return (
+          <section className="mt-16 border-t border-[#e6ddd2] pt-12 text-center">
+            <div className="font-script text-[40px] leading-none md:text-[54px]">what they said&hellip;</div>
+            <blockquote className="m-0 mx-auto mt-8 max-w-[640px] whitespace-pre-line font-display text-[18px] italic leading-[1.7] text-[#5a4634] md:text-[20px]">
+              &ldquo;{review.text}&rdquo;
+            </blockquote>
+            <p className="m-0 mt-6 text-[11px] font-light uppercase tracking-[0.24em] text-brown">&mdash; {review.name}</p>
+            <Link
+              href="/love-notes"
+              className="mt-6 inline-block border-b border-[#d9cfc3] pb-1 text-[11px] font-light uppercase tracking-[0.2em] text-[#443221] no-underline transition-colors hover:border-tan hover:text-tan"
+            >
+              Read more kind words &rarr;
+            </Link>
+          </section>
+        );
+      })()}
 
       <div className="mt-16 border-t border-[#e6ddd2] pt-12 text-center">
         <div className="font-script text-[38px] leading-none md:text-[52px]">Let&rsquo;s begin</div>

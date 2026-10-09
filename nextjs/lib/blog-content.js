@@ -215,6 +215,12 @@ Arabella
     title: "Whimsical Wild West: An Enchanted Forest Wedding at Don Hoel's",
     couple: 'Jennifer & Hunter',
     photographer: { name: 'Chataccad Photography', url: 'https://chataccadphotography.com/' },
+    vendors: [
+      { role: 'Photography', name: 'Chataccad Photography', url: 'https://chataccadphotography.com/' },
+      { role: 'Catering', name: "Big Nate's Family BBQ", url: 'https://bnfbbq.com/' },
+      { role: 'Bar', name: 'Snake Oil Station', url: 'https://www.snakeoilstation.com/' },
+      { role: 'DJ', name: 'Giovanny, Direct Sounds', url: 'https://www.directsoundsdj.com/giovanny' },
+    ],
     date: '2026-09-26',
     location: "Don Hoel's Cabins, Sedona",
     excerpt:

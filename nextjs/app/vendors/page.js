@@ -34,7 +34,7 @@ export default function VendorsPage() {
               <span className={`${H} text-[16px] md:text-[18px]`}>
                 {(() => {
                   const mark = v.logo ? (
-                    <Image src={v.logo.src} alt={v.name} width={v.logo.w} height={v.logo.h} className="mx-auto mt-2 block h-[60px] w-auto max-w-[230px] object-contain" />
+                    <Image src={v.logo.src} alt={v.name} width={v.logo.w} height={v.logo.h} className={`mx-auto mt-2 block w-auto max-w-[230px] object-contain ${v.logo.w / v.logo.h < 1.4 ? 'h-[88px]' : 'h-[60px]'}`} />
                   ) : (
                     v.name.toUpperCase()
                   );

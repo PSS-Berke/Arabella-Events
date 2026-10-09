@@ -20,8 +20,11 @@ export const VENDORS = [
   { name: 'Sedona Catering Co.', role: 'Catering', note: 'with Tori Talkington', url: 'https://www.sedonacateringco.com/', logo: { src: '/media/sedona-catering-logo-clear-7e155f36.png', w: 369, h: 55 } },
   { name: 'Premium Party Rentals', role: 'Rentals', url: 'https://www.instagram.com/premiumpartyrentalsaz/', logo: { src: '/media/premium-party-logo-clear-fa35729d.png', w: 151, h: 93 } },
   { name: 'Verve Rentals', role: 'Rentals', note: 'Northern Arizona', url: 'https://www.verveeventsandtents.com/', logo: { src: '/media/verve-logo-clear-07ab8fe3.png', w: 150, h: 109 } },
+  { name: 'The Confetti Studio', role: 'Décor & Rentals', url: 'https://theconfettistudio.com/', logo: { src: '/media/confetti-studio-logo-fb3d66e5.png', w: 397, h: 397 } },
+  { name: 'Snake Oil Station', role: 'Mobile Bar', note: 'with Aidan', url: 'https://www.snakeoilstation.com/', logo: { src: '/media/snake-oil-logo-6809be68.png', w: 178, h: 178 } },
   { name: 'Officiant of the Desert', role: 'Officiant', url: 'https://www.instagram.com/officiantofthedesert' },
-  { name: 'DTB Productions', role: 'DJ & Entertainment', url: 'https://dtbpro.com/' },
+  { name: 'Giovanny, Direct Sounds', role: 'DJ & Entertainment', url: 'https://www.directsoundsdj.com/giovanny', logo: { src: '/media/direct-sounds-logo-d25a03b1.png', w: 158, h: 47 } },
+  { name: 'DTB Productions', role: 'DJ & Entertainment', url: 'https://dtbpro.com/', logo: { src: '/media/dtb-logo-e158683f.png', w: 89, h: 90 } },
   { name: 'DJ Flaeva Frae', role: 'DJ & Entertainment', url: 'https://dtbpro.com/', logo: { src: '/media/flaeva-logo-clear-4f69c5b1.png', w: 297, h: 62 } },
 ];
 
