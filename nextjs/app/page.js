@@ -99,7 +99,14 @@ export default function Home() {
       {/* Reviews */}
       <section className="border-y border-[#e6ddd2] bg-white px-6 pt-12 md:pt-16">
         <h2 className="m-0">
-          <Image src={IMG.aweExperience} alt="The AWE Experience" width={465} height={238} className="mx-auto block h-auto w-[260px] max-w-full md:w-[300px]" />
+          {/* "THE AWE experience", built from the crisp logo file and live type
+              (Oct 2026: replaced a soft, low-resolution baked graphic) */}
+          <span className="sr-only">The AWE Experience</span>
+          <span aria-hidden="true" className="mx-auto flex w-fit flex-col items-center">
+            <span className="self-start font-display text-[15px] uppercase tracking-[0.3em] md:text-[17px]">The</span>
+            <Image src="/media/Arabella-s-2--6f7587cd.png" alt="" width={648} height={242} className="-mt-1 h-auto w-[220px] md:w-[260px]" />
+            <span className="-mt-3 self-end font-script text-[38px] leading-none md:text-[46px]">experience</span>
+          </span>
         </h2>
         <Testimonials />
       </section>

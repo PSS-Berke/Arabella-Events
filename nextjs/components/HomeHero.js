@@ -29,6 +29,13 @@ const SETS = [
 
 export default function HomeHero() {
   const [i, setI] = useState(0);
+  // Headline swap: "Wedding Planning & design" shows first, then fades out and
+  // "Designed to leave you in awe" rises in its place and stays.
+  const [awe, setAwe] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setAwe(true), 2200);
+    return () => clearTimeout(t);
+  }, []);
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const t = setInterval(() => setI((n) => (n + 1) % SETS.length), 6500);
@@ -64,10 +71,29 @@ export default function HomeHero() {
         <p className="m-0 text-[11px] font-light uppercase tracking-[0.32em] md:text-[12px]">
           Sedona &middot; Scottsdale &middot; Destination
         </p>
-        <h1 className="m-0 mt-5 font-display text-[34px] font-normal uppercase leading-[1.15] tracking-[0.14em] sm:text-[46px] md:text-[60px]">
-          Wedding Planning
-          <span className="block font-script text-[44px] normal-case tracking-normal sm:text-[56px] md:text-[72px]">&amp; Design</span>
-        </h1>
+        <div className="mt-5 grid place-items-center">
+          <h1
+            className={`col-start-1 row-start-1 m-0 font-display text-[34px] font-normal uppercase leading-[1.15] tracking-[0.14em] transition-all duration-[900ms] ease-in-out sm:text-[46px] md:text-[60px] ${awe ? 'pointer-events-none -translate-y-3 opacity-0 blur-[3px]' : 'opacity-100'}`}
+          >
+            Wedding Planning
+            <span className="block font-script text-[44px] normal-case tracking-normal sm:text-[56px] md:text-[72px]">&amp; Design</span>
+          </h1>
+          <div
+            aria-hidden={!awe}
+            className={`col-start-1 row-start-1 flex flex-col items-center transition-all delay-[350ms] duration-[1200ms] ease-out ${awe ? 'translate-y-0 opacity-100 blur-0' : 'translate-y-6 opacity-0 blur-[6px]'}`}
+          >
+            <p className="m-0 font-display text-[22px] font-normal uppercase tracking-[0.28em] text-white sm:text-[30px] md:text-[40px]">
+              Designed to leave you in
+            </p>
+            <Image
+              src="/media/awe-logo-white-bbd258a1.png"
+              alt="AWE"
+              width={648}
+              height={242}
+              className="mt-4 h-auto w-[260px] sm:w-[340px] md:w-[460px]"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Photographer credit: every hero photo is Dana Maruna's 35mm film work */}

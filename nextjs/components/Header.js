@@ -42,7 +42,8 @@ export default function Header() {
   // Opening the phone menu brings back the white bar so the links stay readable.
   const light = pathname === '/' && !open;
   const bar = light ? 'bg-white' : 'bg-charcoal';
-  // Once the big header has scrolled away, a slim white menu bar stays pinned
+  // Once the big header has scrolled away, a slim white bar with the AWE logo
+  // and the menu stays pinned
   // to the top of the window (Arabella, Oct 2026: the logo scrolls away, the
   // menu stays).
   const ref = useRef(null);
@@ -64,9 +65,9 @@ export default function Header() {
       aria-hidden={!pinned}
       className={`fixed inset-x-0 top-0 z-[60] border-b border-[#e6ddd2] bg-white/95 backdrop-blur-sm transition-transform duration-500 ${pinned ? 'translate-y-0' : '-translate-y-full'}`}
     >
-      <div className="mx-auto flex max-w-[1240px] items-center justify-between px-6 py-2 xl:justify-center xl:py-4">
-        <Link href="/" aria-label="Arabella's Weddings & Events, home" tabIndex={pinned ? 0 : -1} className="shrink-0 xl:hidden">
-          <Image src={IMG.logo} alt="" width={648} height={242} className="h-auto w-[90px]" />
+      <div className="mx-auto flex max-w-[1240px] items-center justify-between px-6 py-2 xl:flex-col xl:justify-center xl:gap-2 xl:pb-3 xl:pt-3">
+        <Link href="/" aria-label="Arabella's Weddings & Events, home" tabIndex={pinned ? 0 : -1} className="shrink-0">
+          <Image src={IMG.logo} alt="" width={648} height={242} className="h-auto w-[90px] xl:w-[100px]" />
         </Link>
         <NavLinks items={NAV} size="text-[13px]" pathname={pathname} className="hidden xl:flex" />
         <button

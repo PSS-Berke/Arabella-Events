@@ -156,3 +156,4 @@ a:hover { color: #dea27a; }
 @media (prefers-reduced-motion: reduce) {
   .awe-reveal { opacity: 1; transform: none; transition: none; }
 }
+
