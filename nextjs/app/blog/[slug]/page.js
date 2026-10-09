@@ -88,7 +88,24 @@ export default function BlogPost({ params }) {
 
       <PostCover post={post} priority sizes="(min-width: 760px) 680px, 100vw" className="mx-auto my-12 h-auto w-full max-w-[560px]" />
 
-      <PostBody markdown={post.body} />
+      {/* "Designed to leave you in awe." sits just above Arabella's "With love,"
+          sign-off in every story (or at the end, if a story has no sign-off). */}
+      {(() => {
+        const m = [...post.body.matchAll(/\*{1,2}With love,\*{1,2}/g)].pop();
+        const awe = (
+          <p className="m-0 mx-auto my-10 max-w-[680px] text-center font-display text-[19px] italic tracking-[0.04em] text-[#9a8158] md:text-[22px]">
+            Designed to leave you in awe.
+          </p>
+        );
+        if (!m) return (<><PostBody markdown={post.body} />{awe}</>);
+        return (
+          <>
+            <PostBody markdown={post.body.slice(0, m.index)} />
+            {awe}
+            <PostBody markdown={post.body.slice(m.index)} />
+          </>
+        );
+      })()}
 
       {post.photos.length ? (
         <div className="mt-14 grid grid-cols-2 gap-3">

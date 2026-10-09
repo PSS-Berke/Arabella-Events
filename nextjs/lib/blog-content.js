@@ -181,7 +181,7 @@ These are the kinds of projects that challenge me creatively and logistically, a
 ![Sophia leaning into Zachary, champagne in hand, during the toasts](/media/sz-toasts-night-37adcfef.jpg 1333x2000)
 ![An embrace on the lawn in a haze of golden-hour light](/media/sz-golden-hour-embrace-af6ed940.jpg 1326x2000)
 
-## Made to Leave You in AWE
+## Designed to Leave You in AWE
 
 Sophia and Zachary's wedding was a beautiful example of how a wedding doesn't have to follow a traditional format to feel special.
 
@@ -218,7 +218,7 @@ Arabella
     date: '2026-09-26',
     location: "Don Hoel's Cabins, Sedona",
     excerpt:
-      "Rustic meets romantic in the forest at Don Hoel's: crystals, vintage candelabras, wildflowers, soft draping, a petal-strewn sweetheart table, and hand-pressed dandelions on the candlesticks.",
+      "Rustic meets romantic in the forest at Don Hoel's: crystals, vintage candelabras, wildflowers, soft draping, a petal-strewn sweetheart table, and hand-pressed chamomile on the candlesticks.",
     cover: {
       src: '/media/jh-twirl-cabins-165892d8.jpg',
       alt: 'The groom twirling the bride beneath tall pines beside the cabins at Don Hoel’s',
@@ -265,9 +265,9 @@ It was whimsical, romantic, and just the right amount of wild.
 
 But my favorite little detail?
 
-**Hand-pressed dandelions on their candlesticks.**
+**Hand-pressed chamomile on their candlesticks.**
 
-I incorporated real pressed dandelions into the candle details as a subtle nod to the surrounding forest and the carefree, whimsical feeling we were trying to create.
+I incorporated real pressed chamomile into the candle details as a subtle nod to the surrounding forest and the carefree, whimsical feeling we were trying to create.
 
 They're the kind of tiny detail you might not even notice at first glance, but once you do, you realize how much thought went into the design.
 
@@ -287,9 +287,9 @@ The combination of crystals, candelabras, wildflowers, and delicate handmade tou
 
 And that's something I really believe in as a designer. Luxury doesn't always have to mean extravagant floral installations or perfectly symmetrical tablescapes.
 
-Sometimes luxury is simply having someone care enough to hand-press a dandelion because they know it will make your wedding feel that much more special.
+Sometimes luxury is simply having someone care enough to hand-press chamomile flowers because they know it will make your wedding feel that much more special.
 
-## Made to Leave You in AWE
+## Designed to Leave You in AWE
 
 Jennifer's wedding was such a fun opportunity to embrace a completely different design style.
 
@@ -1142,7 +1142,7 @@ You can create something elegant without making it feel overly formal.
 
 And you can absolutely have a wedding that feels a little different from everything else you've seen.
 
-## Made to Leave You in AWE
+## Designed to Leave You in AWE
 
 Jordan and Austin's wedding was such a fun reminder of why I love designing celebrations that feel personal rather than predictable.
 
