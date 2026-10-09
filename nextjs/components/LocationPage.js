@@ -114,7 +114,7 @@ export default function LocationPage({ data }) {
 
       {/* Venue guide */}
       <section className="border-t border-[#e6ddd2] py-[62px] text-center">
-        <SectionHeading script="The">{venuesHeading}</SectionHeading>
+        <SectionHeading script={data.venuesScript || 'the'}>{venuesHeading}</SectionHeading>
         <p className={`mx-auto mb-10 max-w-[700px] ${BODY}`}>{venuesIntro}</p>
         <div className="mx-auto grid max-w-[880px] gap-9 text-left md:grid-cols-2">
           {venues.map((v) => (
@@ -129,7 +129,7 @@ export default function LocationPage({ data }) {
 
       {/* Market-specific planning guidance — the part that earns the ranking */}
       <section className="border-t border-[#e6ddd2] py-[62px] text-center">
-        <SectionHeading script="Planning">{practicalHeading}</SectionHeading>
+        <SectionHeading script={data.practicalScript || 'the details'}>{practicalHeading}</SectionHeading>
         <div className="mx-auto flex max-w-[760px] flex-col gap-9 text-left">
           {practical.map((item) => (
             <div key={item.h} className="flex flex-col gap-2">

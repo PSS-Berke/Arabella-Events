@@ -29,7 +29,8 @@ export const SCOTTSDALE = {
     'Scottsdale weddings are resort weddings. The desert does the work — Camelback and the McDowells hold the horizon, the light goes gold an hour before sunset, and the architecture is built to sit inside it rather than compete. What that setting asks of a planner is precision: resort venues run on banquet event orders, load-in windows, and noise ordinances, and the difference between a celebration that feels effortless and one that feels managed is almost always decided weeks before anyone arrives.',
     'That is the part of this work I know best. Before planning independently I spent years inside hospitality — MGM Resorts International, InterContinental, Hilton, Legends — including a stretch as Wedding Manager for one of Las Vegas’s premier outdoor venues, running celebrations from first inquiry through the last song. I know how a resort operates from the other side of the table, which is why my couples never have to translate between their vision and the venue’s operations.',
   ],
-  venuesHeading: 'THE VENUES THAT DEFINE SCOTTSDALE',
+  venuesScript: 'the',
+  venuesHeading: 'VENUES THAT DEFINE SCOTTSDALE',
   venuesIntro:
     'A short guide to the rooms and lawns this market is known for, and what each one actually asks of a wedding day.',
   venues: [
@@ -54,6 +55,7 @@ export const SCOTTSDALE = {
       note: 'Twenty-three acres against Camelback, with the cactus-lined Cholla Lawn, the smaller Studio Lawn, and the Foundry Ballroom with its shaded terrace. The most flexible footprint in the market for a celebration that moves between spaces.',
     },
   ],
+  practicalScript: 'a guide to',
   practicalHeading: 'PLANNING A SCOTTSDALE WEDDING',
   practical: [
     {
@@ -120,6 +122,7 @@ export const SEDONA = {
     href: '/services#micro-weddings',
     cta: 'See micro wedding packages',
   },
+  venuesScript: 'the venues',
   venuesHeading: 'WHERE SEDONA WEDDINGS HAPPEN',
   venuesIntro:
     'The settings this market is known for, and the practical shape of a celebration at each.',
@@ -145,6 +148,7 @@ export const SEDONA = {
       note: 'Cathedral Rock and the other well-known overlooks are Forest Service land. Spectacular, and entirely governed by permit — see below, because this is where most Sedona plans go wrong.',
     },
   ],
+  practicalScript: 'the details',
   practicalHeading: 'WHAT PLANNING IN SEDONA ACTUALLY INVOLVES',
   practical: [
     {

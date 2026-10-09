@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Reveal from '@/components/Reveal';
+import AboutCarousel from '@/components/AboutCarousel';
 import Link from 'next/link';
 import { PersonSchema } from '@/components/Schema';
 import { ABOUT_IMG, HEART_PARAS, TRAJECTORY_PARAS, CORE_PARAS } from '@/lib/about-content';
@@ -242,6 +243,23 @@ export default function AboutPage() {
           </Reveal>
         </div>
       </section>
+      {/* Behind the scenes: a small carousel of Arabella at work */}
+      <section className="px-6 py-20 text-center md:py-28">
+        <Reveal>
+          <div className={SCRIPT}>behind the</div>
+          <h2 className={`${H2} mt-2`}>Scenes</h2>
+          <p className={`m-0 mx-auto mb-12 mt-6 max-w-[520px] ${BODY}`}>
+            Hand-arranging wildflowers, one little vase at a time.
+          </p>
+          <AboutCarousel
+            photos={[
+              { src: '/media/arabella-arranging-wildflowers-4ef48f96.jpg', alt: 'Arabella smiling on the floor surrounded by wildflower arrangements in progress' },
+              { src: '/media/cabin-shoot-lighting-candle-ad98da3d.jpg', alt: 'Lighting a pillar candle among white roses and gold-rimmed coupes' },
+              { src: '/media/cabin-shoot-placing-menus-8202a2db.jpg', alt: 'Tucking custom menus onto gold-rimmed place settings' },
+            ]}
+          />
+        </Reveal>
+      </section>
       {/* Candid strip. Never cropped: each photo's width share in its row is
           its own aspect ratio, so every photo in a row lands at the same
           height with nothing cut off (the guest photo needs Arabella, behind
@@ -327,6 +345,14 @@ export default function AboutPage() {
               height={2000}
               sizes="(min-width: 768px) 280px, 80vw"
               className="aspect-[3/4] h-auto w-full max-w-[280px] object-cover"
+            />
+            <Image
+              src="/media/arabella-arranging-wildflowers-team-45e3753a.jpg"
+              alt="Malu and Arabella arranging wildflowers into rows of glass bud vases"
+              width={1333}
+              height={2000}
+              sizes="(min-width: 768px) 280px, 80vw"
+              className="mt-6 aspect-[4/5] h-auto w-full max-w-[280px] object-cover"
             />
             <p className="m-0 mt-8 font-display text-[26px] uppercase tracking-[0.2em] md:text-[30px]">Malu Russell</p>
             <p className="m-0 mt-2 text-[11px] font-light uppercase tracking-[0.26em] text-[#9a8158]">Arabella&rsquo;s Partner &amp; Behind-the-Scenes Support</p>

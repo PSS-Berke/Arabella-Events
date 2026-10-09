@@ -23,6 +23,196 @@
 
 export const POSTS = [
   {
+    slug: 'intimate-wildflower-wedding-creekside-inn-sedona',
+    title: 'An Intimate Wildflower Wedding Along Oak Creek',
+    couple: 'Patricia & Drew',
+    // Date to confirm with Arabella (Oct 2026).
+    date: '2026-05-16',
+    location: 'Creekside Inn, Sedona',
+    excerpt:
+      'A quiet ceremony beneath the trees along Oak Creek, hand-arranged wildflowers in petite glass vases, and a little vintage lace: proof that small celebrations can feel incredibly special.',
+    cover: {
+      src: '/media/pd-tall-grass-walk-2a1811f5.jpg',
+      alt: 'Patricia leading Drew by the hand through tall grass beneath the trees along Oak Creek',
+      width: 1333,
+      height: 2000,
+    },
+    vendors: [
+      { role: 'Venue', name: 'Creekside Inn, Sedona', url: 'https://creeksideinn.net/' },
+      { role: 'Planning, Design & Wildflower Arrangements', name: 'Arabella’s Weddings & Events' },
+      { role: 'DJ', name: 'Direct Sounds', url: 'https://www.directsoundsdj.com/' },
+      { role: 'Bar', name: 'Last Call Mobile Bar', url: 'https://lastcallarizona.com/home' },
+    ],
+    photos: [],
+    body: `Some weddings don't need elaborate installations, hundreds of guests, or an enormous production to feel incredibly special. Patricia and Drew's intimate wedding at Creekside Inn was such a beautiful reminder of that.
+
+Nestled among the trees along Oak Creek, their ceremony was everything I love about smaller celebrations. Quiet, personal, surrounded by nature, and centered entirely around the two people getting married.
+
+![Patricia smiling at Drew as they hold hands for their vows in the sunlit trees](/media/pd-vows-forest-259b7480.jpg 1333x2000)
+
+## A Ceremony Beneath the Trees
+
+Their ceremony took place beneath the shade of the trees, with wooden garden chairs arranged on the grass and a simple wooden arbor dressed in soft ivory fabric and delicate florals. The natural greenery surrounding the space was already so beautiful that we really didn't need to compete with it.
+
+## Wildflowers & Lace
+
+For their reception, I wanted to embrace the relaxed, garden-inspired atmosphere of the property. I personally created their wildflower arrangements, using a playful assortment of colorful blooms in petite glass vases. We incorporated soft pinks, yellows, purples, and whites to give the tables a freshly gathered, almost whimsical feeling.
+
+![Long wooden garden tables with lace runners and wildflowers in petite glass vases beneath string lights](/media/pd-reception-string-lights-00ce5206.jpg 2000x1333)
+
+![Wildflowers in petite glass vases on a lace runner, with blush napkins and pink glass votives](/media/pd-tablescape-wildflowers-8c3a182b.jpg 1333x2000)
+![A single stem of white blooms and chamomile in a glass bud vase on lace](/media/pd-wildflower-vases-lace-runner-2b10aeec.jpg 1333x2000)
+
+I also brought in a delicate lace table runner to dress up the wooden garden tables without covering up their natural character. Paired with the colorful wildflowers, soft neutral napkins, and warm wooden tones, the tablescapes felt romantic, nostalgic, and effortlessly charming.
+
+![The sweetheart table dressed in vintage lace beneath sunlit sycamores](/media/pd-sweetheart-table-lace-4afe8295.jpg 1000x1500)
+![A gathered bunch of daisies, chrysanthemums and waxflower beside a lace overlay](/media/pd-wildflower-bunch-lace-03c9a223.jpg 1333x2000)
+
+And that was really the beauty of this wedding. Nothing felt overly styled or out of place. Everything complemented the surroundings and the intimate experience Patricia and Drew wanted to create.
+
+One of my favorite details was how relaxed and personal the entire celebration felt. From their ceremony beneath the trees to their sweet cake-cutting moment surrounded by cupcakes, their wedding was a beautiful example of how meaningful a smaller celebration can be.
+
+![A heart-shaped buttercream cake topped with a 'just married' script](/media/pd-heart-cake-just-married-aabe5164.jpg 2000x1333)
+
+![Heart-topped concha cupcakes on a wooden stand](/media/pd-heart-cupcakes-85240cd9.jpg 1333x2000)
+![Patricia and Drew lying together in the meadow grass, her veil spread around them](/media/pd-meadow-embrace-bac72cdb.jpg 2000x1333)
+
+As a planner and designer, I love the opportunity to get hands-on with these intimate weddings. Sometimes that means personally arranging the flowers, sourcing a vintage-inspired linen, or finding those little details that make a space feel special without overwhelming it.
+
+Patricia and Drew's wedding was full of those little moments, and I couldn't have loved the simplicity of it more.
+
+![A joyful three-way hug with Patricia and Drew, in black and white](/media/pd-group-hug-bw-9753242e.jpg 2000x1333)
+
+Proof that you don't need a grand production to create something beautiful. Sometimes all you need is a creekside setting, a handful of wildflowers, a little lace, and the people you love. 🤍
+
+**With love,**
+Arabella
+*Arabella's Weddings & Events | Wedding Planning & Design in Sedona, Arizona*`,
+  },
+  {
+    slug: 'sedona-destination-wedding-red-rocks',
+    title: 'A Sedona Destination Wedding with a Little Last-Minute Magic',
+    couple: 'Kassie & Nathan',
+    photographer: { name: 'Dana Maruna Photo', url: 'https://danamarunaphoto.com/' },
+    date: '2026-09-04',
+    location: 'Sedona, Arizona',
+    excerpt:
+      'An out-of-state couple, Sedona’s red rocks, and a last-minute photographer save: how month-of coordination kept Kassie and Nathan’s destination wedding on course.',
+    cover: {
+      src: '/media/kn-red-rock-dip-kiss-fe51d92f.jpg',
+      alt: 'Nathan dipping Kassie into a kiss on the red rocks of Sedona, her lace train spilling across the sandstone',
+      width: 1333,
+      height: 2000,
+    },
+    vendors: [
+      { role: 'Month-of Planning & Coordination', name: 'Arabella’s Weddings & Events' },
+      { role: 'Photography', name: 'Dana Maruna Photo', url: 'https://danamarunaphoto.com/' },
+      { role: 'Catering', name: 'Southwestern Weddings', url: 'https://southwesternweddings.com/catering' },
+      { role: 'Dinner Reception', name: 'Agave of Sedona', url: 'https://agaveofsedona.com/' },
+    ],
+    photos: [],
+    body: `There is something so special about couples who travel from out of state to celebrate their love in Sedona. Kassie and Nathan chose our beautiful red rocks as the backdrop for their wedding, and their day was filled with breathtaking scenery, intimate moments, and a few unexpected challenges behind the scenes!
+
+Kassie and Nathan brought us on for Month-of Coordination after planning much of their wedding from out of state. With destination weddings, having reliable vendors and clear communication is especially important, since couples are trusting a team of professionals to bring everything together from hundreds of miles away.
+
+![Kassie resting her head on Nathan's shoulder before a red rock butte](/media/kn-red-rock-portrait-a1bd985a.jpg 1333x2000)
+
+## A Last-Minute Change
+
+As we stepped into the final stages of planning, we encountered some difficulties communicating with their originally booked photographer. After multiple attempts to confirm the necessary details and ensure everything was in place, I made the decision to bring in one of my trusted photography partners, Dana Maruna, to make sure their wedding memories would be captured beautifully.
+
+This is one of those behind-the-scenes moments that couples don't always see, but it's exactly why having an experienced planner matters. Sometimes our job isn't just coordinating the details that have already been planned. It's recognizing potential issues before they become wedding-day emergencies and finding solutions.
+
+And thankfully, Dana was able to step in!
+
+## Red Rock Portraits
+
+Kassie and Nathan's portraits against Sedona's gorgeous red rock formations were absolutely breathtaking. Between the soft blue skies, warm desert tones, and the way these two looked at each other, the photographs captured everything that makes a Sedona destination wedding so special.
+
+![Nathan dipping Kassie into a kiss on the sweeping red rocks](/media/kn-red-rock-dip-kiss-fe51d92f.jpg 1333x2000)
+![Kassie and Nathan laughing together above the Sedona valley](/media/kn-laughing-red-rocks-2a9294d5.jpg 1333x2000)
+
+Following their celebration, the couple enjoyed dinner at Agave of Sedona, bringing their wedding day to a close surrounded by the beauty of Sedona.
+
+This wedding was a reminder that even when plans change, the right team can make all the difference. I'm so grateful we were able to step in, navigate those last-minute details, and help Kassie and Nathan enjoy the celebration they traveled all this way for. 🤍
+
+**With love,**
+Arabella
+*Arabella's Weddings & Events | Wedding Planning & Design in Sedona, Arizona*`,
+  },
+  {
+    slug: 'moody-candlelit-wedding-tlaquepaque-sedona',
+    title: 'A Moody, Candlelit Wedding at Tlaquepaque',
+    couple: 'Abby & Connor',
+    photographer: { name: 'Dana Maruna Photo', url: 'https://danamarunaphoto.com/' },
+    date: '2026-10-03',
+    location: 'Tlaquepaque, Sedona',
+    excerpt:
+      'Month-of coordination with a fresh perspective: a candlelit chapel ceremony, dinner moved into the Calle, a checkered dance floor, and the sweetest cat cake toppers.',
+    cover: {
+      src: '/media/ac-calle-dip-kiss-585d1be2.jpg',
+      alt: 'Connor dipping Abby into a kiss on the checkered dance floor beneath string lights in the Tlaquepaque Calle',
+      width: 1067,
+      height: 1600,
+    },
+    vendors: [
+      { role: 'Venue', name: 'Tlaquepaque Weddings', url: 'https://tlaq.com/weddings/' },
+      { role: 'Photography', name: 'Dana Maruna Photo', url: 'https://danamarunaphoto.com/' },
+      { role: 'Month-of Coordination & Design', name: 'Arabella’s Weddings & Events' },
+      { role: 'Lead Day-of Coordinator', name: 'Lauren, AWE' },
+      { role: 'Rentals & Event Production', name: 'Verve Events & Tents', url: 'https://www.verveeventsandtents.com/' },
+      { role: 'Custom Cake Figurines', name: 'Etsy' },
+    ],
+    photos: [],
+    body: `Abby and Connor brought us on for our Month-of Coordination package, and in just under a month, we made some pretty significant changes to their wedding plans!
+
+![Abby and Connor holding hands before the blue-tiled niche at Tlaquepaque, her cathedral veil pooling at her feet](/media/ac-tile-wall-portrait-2e86aa1f.jpg 1067x1600)
+![Connor kissing Abby's hand beneath the blue-tiled arch](/media/ac-tile-wall-hand-kiss-091cbd7d.jpg 1067x1600)
+
+## A New Home for Dinner
+
+One of the biggest changes we made was relocating their dinner and dancing into Tlaquepaque's beautiful Calle. Guest comfort was a huge priority, and we wanted to create a space that felt welcoming, intimate, and cohesive while taking full advantage of the venue's gorgeous Spanish-inspired architecture.
+
+![The Calle from above: long candlelit tables with greenery and wood chargers on either side of a checkered dance floor beneath string lights](/media/ac-calle-reception-overhead-65e72f42.jpg 1067x1600)
+
+From there, we got to work adding some of our own design touches! We sourced a rustic wood and white checkered dance floor, and while Abby already had beautiful greenery planned, we recommended bringing in more candles to fill the reception tables with warmth and romance. Together with rich brown table runners, custom dinner menus, and thoughtful little details, everything came together beautifully.
+
+![Connor dipping Abby into a kiss on the checkered dance floor, candlelit tables in the foreground](/media/ac-calle-dip-kiss-585d1be2.jpg 1067x1600)
+
+## A Candlelit Chapel
+
+Their ceremony inside Tlaquepaque's chapel was a true highlight. Rather than relying on the overhead lighting, Abby and Connor opted to turn the lights off and allow the natural light to filter through the chapel, complemented by the soft glow of candles. The result was this incredibly moody, intimate atmosphere that felt so romantic without needing an abundance of decor. Sometimes the architecture and lighting really do all the work!
+
+![The first kiss at the altar of the Tlaquepaque chapel, guests standing between candlelit pews](/media/ac-chapel-first-kiss-332fd636.jpg 1600x1067)
+
+![Abby and Connor at the chapel altar beneath the painted arch, white florals on either side](/media/ac-chapel-altar-portrait-33feee62.jpg 1067x1600)
+![Wrapped together beneath the veil before the chapel altar, in black and white](/media/ac-veil-embrace-bw-2eb5576f.jpg 1067x1600)
+
+![A long embrace before the altar, in black and white](/media/ac-altar-hug-bw-4448d8f7.jpg 1067x1600)
+![Abby and Connor walking out of the chapel with arms raised, in black and white](/media/ac-chapel-exit-bw-28c4c83b.jpg 1067x1600)
+
+## A Few Personal Touches
+
+And of course, we had to incorporate a few personal touches!
+
+One of our absolute favorite details was Abby and Connor's adorable custom cat figurines from Etsy, which they incorporated into their wedding cake. We love when couples find creative ways to include their pets in their celebration, especially when they can't physically be there. It was such a sweet and playful little detail that made their wedding feel even more like them.
+
+![A white buttercream cake topped with two cat figurines and white roses](/media/ac-cat-cake-1a1b5f82.jpg 1067x1600)
+![Abby seated in a sea of satin and tulle in a Tlaquepaque courtyard](/media/ac-bride-seated-courtyard-01643ea5.jpg 1067x1600)
+
+![Abby and Connor running hand in hand across a terrace, in black and white](/media/ac-running-bw-1cedef27.jpg 1067x1600)
+
+Between the candlelit chapel, greenery-filled reception, checkered dance floor, and dinner beneath the charm of the Calle, their wedding was a beautiful reminder of how much thoughtful planning and a few intentional design changes can transform an entire celebration.
+
+And to think, we pulled all of these details together in less than a month!
+
+We're always so grateful when couples trust us to make recommendations, adjust their original plans, and bring a fresh perspective to their wedding day. Abby and Connor's celebration was such a beautiful example of what can happen when thoughtful logistics and intentional design come together. 🤍
+
+**With love,**
+Arabella
+*Arabella's Weddings & Events | Wedding Planning & Design in Sedona, Arizona*`,
+  },
+  {
     slug: 'intimate-estate-wedding-hozho-alameda-ranch-scottsdale',
     title: 'An Intimate Estate Wedding: A Romantic Weekend at Hozho Alameda Ranch',
     couple: 'Sophia & Zachary',
