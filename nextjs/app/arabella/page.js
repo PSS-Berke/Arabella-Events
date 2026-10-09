@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Reveal from '@/components/Reveal';
-import AboutCarousel from '@/components/AboutCarousel';
+import CollageCarousel from '@/components/CollageCarousel';
 import Link from 'next/link';
 import { PersonSchema } from '@/components/Schema';
 import { ABOUT_IMG, HEART_PARAS, TRAJECTORY_PARAS, CORE_PARAS } from '@/lib/about-content';
@@ -127,19 +127,6 @@ const HIGHLIGHTS = [
   { big: '150%', small: 'Of sales goal' },
   { big: '2×', small: 'Group sales in a year' },
   { big: '300+', small: 'Celebrations' },
-];
-const CANDIDS = [
-  { src: ABOUT_IMG.candid1, w: 614, h: 430, alt: 'Laughing with a bride at an outdoor reception under string lights' },
-  { src: '/media/cabin-shoot-laughing-14ed8beb.jpg', w: 1334, h: 2000, alt: 'A big laugh behind a candlelit forest tablescape' },
-  { src: ABOUT_IMG.candid2, w: 702, h: 430, alt: 'Arabella taking photos of three wedding guests in a garden' },
-  { src: '/media/cabin-shoot-smiling-f3d0f913.jpg', w: 1334, h: 2000, alt: 'Smiling behind the candles and white roses of a forest tablescape' },
-  { src: ABOUT_IMG.candid3, w: 632, h: 430, alt: 'Hugging a veiled bride at a reception' },
-];
-
-// Indexes into CANDIDS: guest photo between the two portraits, then the pair.
-const CANDID_ROWS = [
-  [1, 2, 3],
-  [0, 4],
 ];
 
 function Photo({ src, w, h, alt, className = '', sizes }) {
@@ -291,18 +278,33 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      {/* The heart & the core (Oct 2026): one shared photo carousel, then the
+      {/* The heart & the core (Oct 2026): one collage carousel (it also holds the
+          candid photos that used to sit in their own strip), then the
           two pieces side by side in matching columns. */}
       <section className="bg-[#f7f1ec] px-6 py-20 md:py-24">
-        <Reveal className="mx-auto w-full max-w-[360px]">
-          <AboutCarousel
-            photos={[
-              { src: '/media/Screenshot-2026-01-26-6_54_32-PM-52c31217.png', alt: 'Arabella laughing behind a candle-lit tablescape of white florals and autumn foliage' },
-                  { src: '/media/arabella-arranging-wildflowers-4ef48f96.jpg', alt: 'Arabella smiling on the floor surrounded by wildflower arrangements in progress' },
-                          { src: '/media/arabella-arranging-wildflowers-team-45e3753a.jpg', alt: 'Malu and Arabella arranging wildflowers into rows of glass bud vases' },
-                          { src: '/media/cabin-shoot-lighting-candle-ad98da3d.jpg', alt: 'Lighting a pillar candle among white roses and gold-rimmed coupes' },
-                          { src: '/media/cabin-shoot-placing-menus-8202a2db.jpg', alt: 'Tucking custom menus onto gold-rimmed place settings' },
-              { src: ABOUT_IMG.corePhoto, alt: 'Arabella smiling behind a fully set candlelit table in a forest backyard' },
+        <Reveal className="mx-auto w-full max-w-[860px]">
+          <CollageCarousel
+            slides={[
+              [
+                { src: ABOUT_IMG.corePhoto, alt: 'Arabella smiling behind a fully set candlelit table in a forest backyard' },
+                { src: ABOUT_IMG.candid1, alt: 'Laughing with a bride at an outdoor reception under string lights' },
+                { src: ABOUT_IMG.candid3, alt: 'Hugging a veiled bride at a reception' },
+              ],
+              [
+                { src: '/media/arabella-arranging-wildflowers-4ef48f96.jpg', alt: 'Arabella smiling on the floor surrounded by wildflower arrangements in progress' },
+                { src: ABOUT_IMG.candid2, alt: 'Arabella taking photos of three wedding guests in a garden', pos: '85% 40%' },
+                { src: '/media/cabin-shoot-laughing-14ed8beb.jpg', alt: 'A big laugh behind a candlelit forest tablescape', pos: '50% 30%' },
+              ],
+              [
+                { src: '/media/Screenshot-2026-01-26-6_54_32-PM-52c31217.png', alt: 'Arabella laughing behind a candle-lit tablescape of white florals and autumn foliage' },
+                { src: '/media/cabin-shoot-smiling-f3d0f913.jpg', alt: 'Smiling behind the candles and white roses of a forest tablescape', pos: '50% 30%' },
+                { src: '/media/arabella-arranging-wildflowers-team-45e3753a.jpg', alt: 'Malu and Arabella arranging wildflowers into rows of glass bud vases' },
+              ],
+              [
+                { src: '/media/cabin-shoot-placing-menus-8202a2db.jpg', alt: 'Tucking custom menus onto gold-rimmed place settings' },
+                { src: '/media/cabin-shoot-lighting-candle-ad98da3d.jpg', alt: 'Lighting a pillar candle among white roses and gold-rimmed coupes' },
+                { src: '/media/cabin-tablescape-place-settings-13796f7a.jpg', alt: 'Scalloped gold-rimmed plates with custom menus and gold flatware' },
+              ],
             ]}
           />
         </Reveal>
@@ -341,25 +343,6 @@ export default function AboutPage() {
           </Reveal>
         </div>
       </section>
-      {/* Candid strip. Never cropped: each photo's width share in its row is
-          its own aspect ratio, so every photo in a row lands at the same
-          height with nothing cut off (the guest photo needs Arabella, behind
-          the camera at its right edge, to stay in frame). */}
-      <section className="flex flex-col gap-2 px-2 py-2 md:gap-3 md:px-3 md:py-3">
-        {CANDID_ROWS.map((row, r) => (
-          <div key={r} className="flex gap-2 md:gap-3">
-            {row.map((i) => {
-              const c = CANDIDS[i];
-              return (
-                <div key={c.src} style={{ flex: `${c.w / c.h} 1 0` }} className="min-w-0">
-                  <Photo {...c} sizes="(min-width: 768px) 50vw, 60vw" />
-                </div>
-              );
-            })}
-          </div>
-        ))}
-      </section>
-
       {/* Close: candlelit banner */}
       <section className="relative isolate overflow-hidden bg-[#1d1915] px-6 py-24 text-center text-white md:py-32">
         <Image src="/media/film-candles-fireplace-b617fac6.jpg" alt="" fill sizes="100vw" className="-z-20 object-cover" />
