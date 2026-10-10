@@ -59,21 +59,6 @@ const TEAM = [
     fun: 'Swing dancing, line dancing, and taking care of her kiddos and her puppies!',
     email: 'hello@arabellasweddings.com',
   },
-  {
-    name: 'Malu Russell',
-    role: 'Arabella’s Partner & Logistical Direction',
-    photo: { src: '/media/malu-tlaquepaque-chapel-60cad573.jpg', alt: 'Malu Russell standing before the painted altar of the Tlaquepaque chapel' },
-    summary: 'Arabella is the creative mind; Malu is the logistical direction, always a step ahead with the alternatives ready.',
-    more: [
-      'Every strong woman needs someone in her corner, and Malu is the steady force behind AWE.',
-      'As Arabella’s partner, Malu is involved in every part of the business. From logistics and timelines to rentals, installations, setups, and breakdowns, he helps with everything, and he’s always a step ahead: anticipating what a day might need, foreseeing potential challenges, and having the alternatives ready before anyone else has noticed a thing.',
-      'While Arabella dreams up the vision and the finer details, he makes sure every plan has a backup and every moving piece lands exactly where it should, so the day unfolds calmly and beautifully.',
-      'There’s a good chance he’s helped plan, carry, build, or install something, or offered an alternative, that made your favorite moment possible.',
-      '<strong>His unofficial title?</strong> Arabella’s right-hand, professional heavy lifter, master of table drape, and the muscle behind the magic. <span style="color:#9a8158">♡</span>',
-    ],
-    fun: 'Runs his own roofing business, loves the gym and a healthy lifestyle, and is always ready to dance.',
-    email: 'malu@arabellasweddings.com',
-  },
 ];
 // "Dive deeper into my experience": the hospitality brands behind AWE, told as
 // a story rather than a résumé (no titles or dates on the page). Drawn from
@@ -138,16 +123,16 @@ export default function AboutPage() {
     <main className="overflow-x-hidden text-[#443221]">
       <PersonSchema />
 
-      {/* Meet the team (top of the page, Oct 2026). Three matching cards: the
+      {/* Meet the team (top of the page, Oct 2026). Matching cards: the
           same photo frame, name, role, gold rule, a short summary, and a
-          "Read more" that opens the full write-up (Malu's is Arabella's own
-          words), with the email pinned to the bottom so the cards line up. */}
+          "Read more" that opens the full write-up,
+          with the email pinned to the bottom so the cards line up. */}
       <section className="bg-[#f7f1ec] px-6 pb-20 pt-14 md:pb-28 md:pt-20">
         <Reveal className="text-center">
           <div className={SCRIPT}>meet the</div>
           <h1 className={`${H2} mt-2`}>Team</h1>
         </Reveal>
-        <div className="mx-auto mt-14 grid max-w-[1180px] items-stretch gap-8 md:grid-cols-3">
+        <div className="mx-auto mt-14 grid max-w-[820px] items-stretch gap-8 md:grid-cols-2">
           {TEAM.map((m, n) => (
             <Reveal key={m.name} delay={n * 150} className="flex flex-col items-center bg-white px-7 py-10 text-center md:px-9">
               <div
@@ -298,7 +283,7 @@ export default function AboutPage() {
               [
                 { src: '/media/Screenshot-2026-01-26-6_54_32-PM-52c31217.png', alt: 'Arabella laughing behind a candle-lit tablescape of white florals and autumn foliage' },
                 { src: '/media/cabin-shoot-smiling-f3d0f913.jpg', alt: 'Smiling behind the candles and white roses of a forest tablescape', pos: '50% 30%' },
-                { src: '/media/arabella-arranging-wildflowers-team-45e3753a.jpg', alt: 'Malu and Arabella arranging wildflowers into rows of glass bud vases' },
+                { src: '/media/arabella-arranging-wildflowers-team-45e3753a.jpg', alt: 'Arabella arranging wildflowers into rows of glass bud vases' },
               ],
               [
                 { src: '/media/cabin-shoot-placing-menus-8202a2db.jpg', alt: 'Tucking custom menus onto gold-rimmed place settings' },
