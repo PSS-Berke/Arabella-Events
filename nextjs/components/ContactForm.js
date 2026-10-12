@@ -33,13 +33,13 @@ function validate(values) {
   return errors;
 }
 
-// Where inquiries go when the form can't send them itself (see the 503 case).
-const FALLBACK_EMAIL = 'arabella@arabellasweddings.com';
+// Inbox that receives every inquiry (via FormSubmit).
+const INQUIRY_EMAIL = 'arabella@arabellasweddings.com';
 
 export default function ContactForm() {
   const [values, setValues] = useState(() => Object.fromEntries(CONTACT_FIELDS.map((f) => [f.name, ''])));
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState('idle'); // idle | sending | success | error | fallback
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
   const [serverError, setServerError] = useState('');
 
   function handleChange(name, value) {
@@ -66,11 +66,11 @@ export default function ContactForm() {
     setServerError('');
     try {
       // Delivery (Oct 2026): FormSubmit sends each inquiry straight to
-      // FALLBACK_EMAIL with no account, key, or hosting settings. The very
+      // INQUIRY_EMAIL with no account, key, or hosting settings. The very
       // first submission triggers a one-time "confirm your email" message to
       // that inbox; once confirmed, inquiries arrive normally. If FormSubmit
       // can't be reached, the visitor gets the send-from-your-own-email button.
-      const res = await fetch(`https://formsubmit.co/ajax/${FALLBACK_EMAIL}`, {
+      const res = await fetch(`https://formsubmit.co/ajax/${INQUIRY_EMAIL}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
@@ -82,40 +82,18 @@ export default function ContactForm() {
         }),
       });
       const data = await res.json().catch(() => ({}));
-      if (res.ok && String(data.success) !== 'false') {
+      // FormSubmit answers the very first submission with "needs activation"
+      // (it emails Arabella a confirm link); treat that like a normal send.
+      if ((res.ok && String(data.success) !== 'false') || /activat/i.test(data.message || '')) {
         setStatus('success');
         return;
       }
-      setStatus('fallback');
-      return;
+      setServerError(CONTACT_ERROR_MESSAGE);
+      setStatus('error');
     } catch {
-      setStatus('fallback');
+      setServerError(CONTACT_ERROR_MESSAGE);
+      setStatus('error');
     }
-  }
-
-  if (status === 'fallback') {
-    const body = CONTACT_FIELDS.map((f) => `${f.label}: ${values[f.name] || '-'}`).join('\n');
-    const href = `mailto:${FALLBACK_EMAIL}?subject=${encodeURIComponent(`Wedding inquiry from ${values.names}`)}&body=${encodeURIComponent(body)}`;
-    return (
-      <div role="status" aria-live="polite" className="flex min-h-[420px] flex-col items-center justify-center text-center">
-        <div className="font-script text-[44px] leading-none text-[#443221] md:text-[56px]">almost there</div>
-        <p className="m-0 mt-5 max-w-[440px] text-[15.5px] font-light leading-[1.9] text-[#4a3a2c]">
-          Tap below to send your inquiry from your own email. Everything you wrote is already filled in, so just press send.
-        </p>
-        <a
-          href={href}
-          className="mt-8 inline-block border border-[#443221] bg-[#443221] px-8 py-4 text-[12px] font-light uppercase tracking-[0.24em] text-white no-underline transition-colors hover:bg-transparent hover:text-[#443221]"
-        >
-          Send my inquiry
-        </a>
-        <p className="m-0 mt-5 text-[13px] font-light text-[#80695a]">
-          Or email us at{' '}
-          <a href={`mailto:${FALLBACK_EMAIL}`} className="text-inherit underline underline-offset-4">
-            {FALLBACK_EMAIL}
-          </a>
-        </p>
-      </div>
-    );
   }
 
   if (status === 'success') {
