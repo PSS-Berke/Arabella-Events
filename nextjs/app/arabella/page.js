@@ -60,6 +60,15 @@ const TEAM = [
     email: 'hello@arabellasweddings.com',
   },
   {
+    name: 'Audrey',
+    role: 'Wedding Coordinator',
+    photo: null,
+    summary: 'The execution queen: over 25 years of experience in Napa and at some of the largest wedding resorts in the West.',
+    more: [
+      'With over 25 years of experience in Napa and at some of the largest wedding resorts in the West, Audrey is our execution queen. When the day arrives, she makes sure every detail lands exactly as planned.',
+    ],
+  },
+  {
     name: 'Malu Russell',
     role: 'Arabella’s Partner & Logistical Direction',
     photo: { src: '/media/malu-tlaquepaque-chapel-60cad573.jpg', alt: 'Malu Russell standing before the painted altar of the Tlaquepaque chapel' },
@@ -138,21 +147,20 @@ export default function AboutPage() {
     <main className="overflow-x-hidden text-[#443221]">
       <PersonSchema />
 
-      {/* Meet the team (top of the page, Oct 2026). Three matching cards: the
+      {/* Meet the team (top of the page, Oct 2026). Matching cards: the
           same photo frame, name, role, gold rule, a short summary, and a
-          "Read more" that opens the full write-up (Malu's is Arabella's own
-          words), with the email pinned to the bottom so the cards line up. */}
+          "Read more" that opens the full write-up, with the email pinned to the bottom so the cards line up. */}
       <section className="bg-[#f7f1ec] px-6 pb-20 pt-14 md:pb-28 md:pt-20">
         <Reveal className="text-center">
           <div className={SCRIPT}>meet the</div>
           <h1 className={`${H2} mt-2`}>Team</h1>
         </Reveal>
-        <div className="mx-auto mt-14 grid max-w-[1180px] items-stretch gap-8 md:grid-cols-3">
+        <div className="mx-auto mt-14 grid max-w-[1180px] items-stretch gap-8 md:grid-cols-2">
           {TEAM.map((m, n) => (
             <Reveal key={m.name} delay={n * 150} className="flex flex-col items-center bg-white px-7 py-10 text-center md:px-9">
               <div
                 tabIndex={0}
-                aria-label={`${m.name}: ${m.fun}`}
+                aria-label={m.fun ? `${m.name}: ${m.fun}` : m.name}
                 className="group/photo relative aspect-[3/4] w-full max-w-[260px] cursor-default overflow-hidden bg-[#efe6db] outline-none"
               >
                 {m.photo ? (
@@ -162,13 +170,15 @@ export default function AboutPage() {
                     {m.name[0].toLowerCase()}
                   </span>
                 )}
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 flex flex-col items-center justify-center bg-[#1d1915]/80 px-6 text-center text-white opacity-0 transition-opacity duration-500 group-hover/photo:opacity-100 group-focus/photo:opacity-100"
-                >
-                  <span className="font-script text-[34px] leading-none text-[#e9dcc4]">just for fun</span>
-                  <span className="mt-4 font-display text-[16px] italic leading-[1.55] text-white/95">{m.fun}</span>
-                </div>
+                {m.fun ? (
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 flex flex-col items-center justify-center bg-[#1d1915]/80 px-6 text-center text-white opacity-0 transition-opacity duration-500 group-hover/photo:opacity-100 group-focus/photo:opacity-100"
+                  >
+                    <span className="font-script text-[34px] leading-none text-[#e9dcc4]">just for fun</span>
+                    <span className="mt-4 font-display text-[16px] italic leading-[1.55] text-white/95">{m.fun}</span>
+                  </div>
+                ) : null}
               </div>
               <p className="m-0 mt-8 whitespace-nowrap font-display text-[19px] uppercase tracking-[0.14em] lg:text-[22px] lg:tracking-[0.18em]">{m.name}</p>
               <p className="m-0 mt-2 min-h-[2.6em] text-[10.5px] font-light uppercase leading-[1.6] tracking-[0.24em] text-[#9a8158]">{m.role}</p>
@@ -185,7 +195,7 @@ export default function AboutPage() {
                   ))}
                 </div>
               </details>
-              <a href={`mailto:${m.email}`} className={`${MAIL} mt-auto pt-8`}>{m.email}</a>
+              {m.email ? <a href={`mailto:${m.email}`} className={`${MAIL} mt-auto pt-8`}>{m.email}</a> : null}
             </Reveal>
           ))}
         </div>
