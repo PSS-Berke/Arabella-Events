@@ -30,7 +30,7 @@ const QUOTE = 'm-0 whitespace-pre-line font-light leading-[1.4] text-[17px]';
 const ORIGINAL_EXTRAS = {
   'Hannah & Hunter': { photo: LN_PHOTOS.chapel, label: 'Tlaquepaque · July 10, 2026' },
   'Jordan & Austin': { photo: LN_PHOTOS.sedona, label: 'Tlaquepaque · October 4, 2025' },
-  'Jenna & Derek': { photo: LN_PHOTOS.jennaDerek },
+  'Jenna & Derek': { photo: LN_PHOTOS.jennaDerek, label: 'Amara Resort & Spa · October 18, 2025', post: 'red-rock-wedding-amara-resort-sedona' },
   'Alicia & Hawk': { photo: LN_PHOTOS.willow },
   'Jenna & Joseph': { photo: LN_PHOTOS.archway },
   'Britney & Markus': { label: 'Chicago' },

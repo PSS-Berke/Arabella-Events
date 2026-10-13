@@ -23,6 +23,78 @@
 
 export const POSTS = [
   {
+    slug: 'red-rock-wedding-amara-resort-sedona',
+    title: 'A Sedona Wedding Beneath the Red Rocks',
+    couple: 'Jenna & Derek',
+    photographer: { name: 'Bloomfield Photos', url: 'https://www.bloomfieldphotos.com/' },
+    date: '2025-10-18',
+    location: 'Amara Resort & Spa, Sedona',
+    excerpt:
+      'Two-month coordination at Amara Resort & Spa: a circular floral arch beneath the red rocks, candlelit tables under string lights, and a couple free to simply enjoy their day.',
+    cover: {
+      src: '/media/jd-ceremony-hands-da5ce4bc.jpg',
+      alt: 'Jenna and Derek holding hands before a circular floral arch with the Sedona red rocks behind them',
+      width: 1333,
+      height: 2000,
+    },
+    vendors: [
+      { role: 'Planning & Coordination', name: 'Arabella’s Weddings & Events, Two-Month Coordination' },
+      { role: 'Venue, Catering & Rentals', name: 'Amara Resort & Spa', url: 'https://www.amararesort.com/' },
+      { role: 'Photography', name: 'Bloomfield Photos', url: 'https://www.bloomfieldphotos.com/' },
+      { role: 'DJ', name: 'Custom Fit DJ', url: 'https://customfitdj.com/' },
+    ],
+    photos: [],
+    body: `There is something so special about a wedding that lets Sedona do what Sedona does best.
+
+Jenna and Derek celebrated their wedding at the beautiful Amara Resort & Spa, surrounded by towering red rocks, lush greenery, and the most incredible views. They brought us on for two-month coordination, allowing us to step in during the final stages of planning, bring all of their details together, and make sure everything they had envisioned came to life.
+
+![The Amara lawn set for the ceremony, white chairs facing a circular wooden arch beneath the red rocks, on film](/media/jd-amara-lawn-red-rocks-film-eb85a5b5.jpg 1410x2000)
+
+## A Quiet Moment Before the Ceremony
+
+One of my favorite moments was their first look along the creek. Tucked away beneath the trees, away from their guests and the excitement of the day, Jenna and Derek were able to share a quiet moment together before their ceremony. Jenna's floral veil was such a beautiful detail, especially with the sunlight peeking through the trees.
+
+![Jenna in her floral veil as her father reads a letter beneath the trees, on film](/media/jd-father-letter-film-75a4d543.jpg 1410x2000)
+
+## Beneath the Red Rocks
+
+Their ceremony took place on Amara's lawn, with a circular wooden arch dressed in vibrant florals. The arrangement was filled with oranges, soft pinks, yellows, and touches of greenery, bringing so much warmth and color to the natural surroundings. With Sedona's red rocks standing tall behind them, there really wasn't much else the space needed.
+
+![The aisle leading to the circular floral arch with the red rocks above](/media/jd-aisle-arch-red-rocks-17e95c18.jpg 1333x2000)
+![Jenna and Derek before the officiant beneath the arch](/media/jd-ceremony-officiant-4e575cfb.jpg 1333x2000)
+
+![Jenna and Derek walking back up the aisle, laughing, after the ceremony](/media/jd-recessional-arch-9b6c2a95.jpg 1333x2000)
+
+## A Candlelit Reception
+
+For their reception, we added candlelight throughout the tables to bring another layer of warmth and romance to the design. Gold taper holders, delicate votives, and their personalized Mr. & Mrs. signage complemented the colorful florals beautifully. As the sun went down, the entire space transitioned into the coziest outdoor dinner beneath the string lights.
+
+![The sweetheart table with gold Mr. and Mrs. signs, taper candles and a bank of colorful florals, on film](/media/jd-sweetheart-table-film-1b70343c.jpg 1410x2000)
+![The reception beneath string lights at dusk, the red rocks glowing beyond a fire pit](/media/jd-reception-fire-red-rocks-3df43d9f.jpg 1333x2000)
+
+One thing I love about Amara is how much the atmosphere changes throughout the day. You get those incredible red rock views during the ceremony, the soft golden light during cocktail hour, and then an intimate, candlelit reception once the sun sets.
+
+![The red rocks lit gold at sunset above the string lights](/media/jd-red-rock-golden-hour-ee8075ad.jpg 1333x2000)
+![Taper candles glowing on the bar at dusk](/media/jd-bar-candlelight-8759f559.jpg 1333x2000)
+
+![Jenna and Derek at the sweetheart table beneath glowing string lights](/media/jd-couple-string-lights-2f2c2f4a.jpg 2000x1333)
+
+And while Jenna and Derek had already put so much thought into their wedding before bringing us on, our job was to make sure they could actually enjoy it. We spent those final two months coordinating the moving pieces, finalizing the details, and ensuring the day flowed the way it was supposed to.
+
+![Derek giving a toast at the candlelit sweetheart table](/media/jd-toast-sweetheart-table-f2f8fa98.jpg 2000x1333)
+
+![A single-tier cake with a Just Married banner by candlelight](/media/jd-cake-just-married-6614c363.jpg 2000x1333)
+
+![Jenna dancing with guests at the end of the night, on film](/media/jd-dance-floor-film-3723cacd.jpg 1410x2000)
+![Jenna sipping a drink at the sweetheart table by candlelight](/media/jd-bride-sweetheart-table-night-04d7c970.jpg 1333x2000)
+
+From the emotional moments before the ceremony to the last candles being lit at dinner, this was such a beautiful reminder that thoughtful coordination can make all the difference.
+
+**With love,**
+Arabella
+*Arabella's Weddings & Events | Wedding Planning & Design in Sedona, Arizona*`,
+  },
+  {
     slug: 'intimate-wildflower-wedding-creekside-inn-sedona',
     title: 'An Intimate Wildflower Wedding Along Oak Creek',
     couple: 'Patricia & Drew',
@@ -402,7 +474,7 @@ Arabella
   },
   {
     slug: 'whimsical-wild-west-wedding-don-hoels-cabins-sedona',
-    title: "Whimsical Wild West: An Enchanted Forest Wedding at Don Hoel's",
+    title: 'Whimsical Wild West: An Enchanted Forest Wedding at Hoel Reserve',
     couple: 'Jennifer & Hunter',
     photographer: { name: 'Chataccad Photography', url: 'https://chataccadphotography.com/' },
     vendors: [
@@ -412,17 +484,17 @@ Arabella
       { role: 'DJ', name: 'Giovanny, Direct Sounds', url: 'https://www.directsoundsdj.com/giovanny' },
     ],
     date: '2026-09-26',
-    location: "Don Hoel's Cabins, Sedona",
+    location: 'Hoel Reserve (formerly Don Hoel’s Cabins), Sedona',
     excerpt:
-      "Rustic meets romantic in the forest at Don Hoel's: crystals, vintage candelabras, wildflowers, soft draping, a petal-strewn sweetheart table, and hand-pressed chamomile on the candlesticks.",
+      "Rustic meets romantic in the forest at Hoel Reserve: crystals, vintage candelabras, wildflowers, soft draping, a petal-strewn sweetheart table, and hand-pressed chamomile on the candlesticks.",
     cover: {
       src: '/media/jh-twirl-cabins-165892d8.jpg',
-      alt: 'The groom twirling the bride beneath tall pines beside the cabins at Don Hoel’s',
+      alt: 'The groom twirling the bride beneath tall pines beside the cabins at Hoel Reserve',
       width: 1000,
       height: 1500,
     },
     photos: [],
-    body: `There's something about weddings at Don Hoel's that makes me want to get a little more creative.
+    body: `There's something about weddings at Hoel Reserve that makes me want to get a little more creative.
 
 Maybe it's the towering trees, the cabins tucked into the forest, or the fact that the venue already has so much character on its own. Whatever it is, I absolutely love designing weddings here, especially when my couples are open to something a little unconventional.
 
@@ -437,7 +509,7 @@ I wanted the design to feel like wildflowers gathered from a western meadow: fre
 
 ## A Little Wild West, A Little Fairytale
 
-One of my favorite things about designing at Don Hoel's is finding ways to complement the natural surroundings without trying to compete with them.
+One of my favorite things about designing at Hoel Reserve is finding ways to complement the natural surroundings without trying to compete with them.
 
 For Jennifer's wedding, we leaned into the rustic charm of the property while incorporating more delicate, romantic details.
 
@@ -489,7 +561,7 @@ Sometimes luxury is simply having someone care enough to hand-press chamomile fl
 
 Jennifer's wedding was such a fun opportunity to embrace a completely different design style.
 
-From the whimsical sweetheart table to the unexpected combination of rustic and romantic details, everything came together in a way that felt so natural to Don Hoel's.
+From the whimsical sweetheart table to the unexpected combination of rustic and romantic details, everything came together in a way that felt so natural to Hoel Reserve.
 
 I love when my couples give me the creative freedom to add those extra little touches, especially the ones they don't know are coming.
 
@@ -736,14 +808,14 @@ Arabella
   },
   {
     slug: 'enchanted-forest-wedding-don-hoels-cabins-sedona',
-    title: "An Enchanted Forest: A Whimsical Wedding at Don Hoel's",
+    title: 'An Enchanted Forest: A Whimsical Wedding at Hoel Reserve',
     couple: 'Hannah & Michael',
     date: '2026-09-05',
-    location: "Don Hoel's Cabins, Sedona",
+    location: 'Hoel Reserve (formerly Don Hoel’s Cabins), Sedona',
     excerpt:
-      "Step inside Hannah and Michael's eclectic forest wedding at Don Hoel's Cabins in Sedona, Arizona. From towering candelabras and cascading amaranthus to vintage silver, delicate lace, and unexpected surprises—including a wandering hot dog man and beer bong—this whimsical celebration brought an enchanted woodland vision to life.",
+      "Step inside Hannah and Michael's eclectic forest wedding at Hoel Reserve in Sedona, Arizona. From towering candelabras and cascading amaranthus to vintage silver, delicate lace, and unexpected surprises—including a wandering hot dog man and beer bong—this whimsical celebration brought an enchanted woodland vision to life.",
     description:
-      "Explore Hannah and Michael's whimsical forest wedding at Don Hoel's Cabins in Sedona, featuring cascading amaranthus, vintage candelabras, and eclectic design.",
+      "Explore Hannah and Michael's whimsical forest wedding at Hoel Reserve in Sedona, featuring cascading amaranthus, vintage candelabras, and eclectic design.",
     cover: {
       src: '/media/hm-creekside-portrait-efa1940c.jpg',
       alt: 'Bride in a long veil and caped lace gown with the groom beside Oak Creek in the forest',
@@ -755,11 +827,11 @@ Arabella
 
 There are weddings that follow a particular aesthetic, and then there are weddings where you get to throw the rulebook out the window and create something entirely your own.
 
-Hannah and Michael's wedding at Don Hoel's Cabins was absolutely the latter.
+Hannah and Michael's wedding at Hoel Reserve was absolutely the latter.
 
-Nestled beneath the towering trees of Oak Creek Canyon, Don Hoel's already has a kind of magic to it. The forest, the cabins, the sound of the creek, and the feeling of being completely tucked away from the rest of the world made it the perfect setting for a wedding that was anything but traditional.
+Nestled beneath the towering trees of Oak Creek Canyon, Hoel Reserve already has a kind of magic to it. The forest, the cabins, the sound of the creek, and the feeling of being completely tucked away from the rest of the world made it the perfect setting for a wedding that was anything but traditional.
 
-![The bride's caped lace gown hanging from the porch of a forest cabin at Don Hoel's](/media/hm-gown-cabin-porch-21ef8821.jpg 1500x1000)
+![The bride's caped lace gown hanging from the porch of a forest cabin at Hoel Reserve](/media/hm-gown-cabin-porch-21ef8821.jpg 1500x1000)
 
 Hannah and Michael wanted something eclectic, whimsical, romantic, and a little unexpected. Nothing overly polished or perfectly matched. They wanted their celebration to feel collected, full of personality, and almost as though it had grown organically from the forest itself.
 
@@ -841,7 +913,7 @@ Looking back on September 5, what I remember most is how much personality we wer
 
 Every texture, every floral arrangement, every vintage detail, and every unexpected moment contributed to an atmosphere that felt whimsical, intimate, and completely unforgettable.
 
-Hannah and Michael gave us the creative freedom to build something wonderfully unconventional, and watching it all come together beneath the trees at Don Hoel's was incredibly rewarding.
+Hannah and Michael gave us the creative freedom to build something wonderfully unconventional, and watching it all come together beneath the trees at Hoel Reserve was incredibly rewarding.
 
 ![Hannah and Michael sharing a kiss on the rocks along Oak Creek](/media/hm-creekside-kiss-635bd27c.jpg 1500x1000)
 

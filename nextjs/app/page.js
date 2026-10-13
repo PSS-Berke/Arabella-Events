@@ -96,6 +96,29 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Meet Arabella: a candid film portrait with a short hello */}
+      <section className="border-t border-[#e6ddd2] px-6 py-12 md:py-16">
+        <div className="mx-auto grid max-w-[1000px] items-center gap-10 md:grid-cols-2 md:gap-16">
+          <Image
+            src="/media/arabella-film-portrait-laughing-fd18315b.png"
+            alt="Arabella laughing in a black top, on 35mm film"
+            width={306}
+            height={400}
+            sizes="(min-width: 768px) 420px, 90vw"
+            className="mx-auto h-auto w-full max-w-[420px]"
+          />
+          <div className="text-center md:text-left">
+            <div className={SCRIPT}>meet</div>
+            <h2 className={`${H2} mt-2`}>Arabella</h2>
+            <p className="m-0 mt-6 font-display text-[19px] italic leading-[1.6] text-[#5a4634] md:text-[21px]">
+              The creative mind behind AWE, and the one who will be beside you from the first idea to the last dance.
+            </p>
+            <div className="mt-8">
+              <Link href="/arabella" className={LINK}>Meet the team</Link>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Reviews */}
       <section className="border-y border-[#e6ddd2] bg-white px-6 pt-12 md:pt-16">
         <h2 className="m-0">

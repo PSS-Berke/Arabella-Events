@@ -6,7 +6,7 @@ import { VENDORS, VENUES } from '@/lib/vendors-content';
 export const metadata = pageMeta({
   title: 'Our Partners & Venues | Sedona Weddings',
   description:
-    'The photographers, caterers, and creative partners Arabella’s Weddings & Events loves working with, and our key Sedona venues: Tlaquepaque and Don Hoel’s Cabins.',
+    'The photographers, caterers, and creative partners Arabella’s Weddings & Events loves working with, and our key Sedona venues: Tlaquepaque and Hoel Reserve.',
   path: '/vendors',
 });
 

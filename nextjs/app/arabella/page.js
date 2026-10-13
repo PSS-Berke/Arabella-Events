@@ -286,8 +286,18 @@ export default function AboutPage() {
           <CollageCarousel
             slides={[
               [
+                { src: '/media/jd-bts-arabella-sweetheart-table-da9881c3.jpg', alt: 'Arabella lighting the sweetheart table candles beside the Mr. and Mrs. signs' },
+                { src: '/media/jd-bts-arabella-bride-arms-out-dfb1a0e2.jpg', alt: 'Arabella opening her arms to hug a bride at the reception' },
+                { src: '/media/jd-bts-arabella-bride-hug-66a24591.jpg', alt: 'A bride hugging Arabella at the reception' },
+              ],
+              [
+                { src: '/media/jd-bts-arabella-lighting-candles-film-86bfad4e.jpg', alt: 'Arabella relighting taper candles at dusk, on film' },
+                { src: '/media/jd-bts-arabella-groom-4b26e552.jpg', alt: 'Arabella talking through the timeline with a groom and guests' },
+                { src: '/media/jd-sweetheart-table-film-1b70343c.jpg', alt: 'A sweetheart table with gold Mr. and Mrs. signs and a bank of florals, on film' },
+              ],
+              [
                 { src: ABOUT_IMG.corePhoto, alt: 'Arabella smiling behind a fully set candlelit table in a forest backyard' },
-                { src: ABOUT_IMG.candid1, alt: 'Laughing with a bride at an outdoor reception under string lights' },
+                { src: '/media/arabella-with-dj-film-6f980ca7.webp', alt: 'Arabella with the DJ from Custom Fit DJ at a Sedona reception, on 35mm film' },
                 { src: ABOUT_IMG.candid3, alt: 'Hugging a veiled bride at a reception' },
               ],
               [
@@ -299,6 +309,11 @@ export default function AboutPage() {
                 { src: '/media/Screenshot-2026-01-26-6_54_32-PM-52c31217.png', alt: 'Arabella laughing behind a candle-lit tablescape of white florals and autumn foliage' },
                 { src: '/media/cabin-shoot-smiling-f3d0f913.jpg', alt: 'Smiling behind the candles and white roses of a forest tablescape', pos: '50% 30%' },
                 { src: '/media/arabella-arranging-wildflowers-team-45e3753a.jpg', alt: 'Malu and Arabella arranging wildflowers into rows of glass bud vases' },
+              ],
+              [
+                { src: '/media/arabella-film-portrait-laughing-fd18315b.png', alt: 'Arabella laughing in a black top, on 35mm film' },
+                { src: ABOUT_IMG.candid1, alt: 'Laughing with a bride at an outdoor reception under string lights' },
+                { src: '/media/cabin-tablescape-place-settings-13796f7a.jpg', alt: 'Scalloped gold-rimmed plates with custom menus and gold flatware' },
               ],
               [
                 { src: '/media/cabin-shoot-placing-menus-8202a2db.jpg', alt: 'Tucking custom menus onto gold-rimmed place settings' },
