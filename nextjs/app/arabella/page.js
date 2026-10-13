@@ -61,11 +61,13 @@ const TEAM = [
   },
   {
     name: 'Audrey',
-    role: 'Wedding Coordinator',
+    role: 'Day-of Coordinator · Medium-Scale Weddings',
     photo: null,
     summary: 'The execution queen: over 25 years of experience in Napa and at some of the largest wedding resorts in the West.',
     more: [
-      'With over 25 years of experience in Napa and at some of the largest wedding resorts in the West, Audrey is our execution queen. When the day arrives, she makes sure every detail lands exactly as planned.',
+      'With over 25 years of experience in Napa and at some of the largest wedding resorts in the West, Audrey is our execution queen.',
+      'She gained her experience serving as a banquet manager and captain throughout her career, working alongside some of the most reputable wedding planners in wine country.',
+      'Audrey leads day-of coordination for our medium-scale weddings, making sure every detail lands exactly as planned.',
     ],
   },
   {
