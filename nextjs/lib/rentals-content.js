@@ -20,8 +20,7 @@
 export const RENTAL_CATEGORIES = [
   {
     id: 'candles',
-    eyebrow: 'All Things Aglow',
-    name: 'The Art of Illumination',
+    name: 'All Things Aglow',
     intro: 'From the soft flicker of candlelight to the warmth of a golden glow, thoughtfully curated pieces that transform a space and make every moment feel a little more magical.',
   },
   { id: 'serving', name: 'Serving & Catering' },
