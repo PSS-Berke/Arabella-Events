@@ -15,9 +15,24 @@
 // contact page instead). `addOn` is an optional extra priced per piece, like
 // hurricanes for the taper holders; it can't exceed the item's quantity.
 
-export const RENTALS = [
+// Groups shown on /rentals, in this order. Each item's `category` is one of
+// these ids. eyebrow (optional) sits above the section name; intro (optional) below it.
+export const RENTAL_CATEGORIES = [
   {
+    id: 'candles',
+    eyebrow: 'All Things Aglow',
+    name: 'The Art of Illumination',
+    intro: 'From the soft flicker of candlelight to the warmth of a golden glow, thoughtfully curated pieces that transform a space and make every moment feel a little more magical.',
+  },
+  { id: 'serving', name: 'Serving & Catering' },
+  { id: 'place', name: 'Place Settings & Tabletop' },
+  { id: 'florals', name: 'Vases & Florals' },
+  { id: 'signage', name: 'Signage & Display' },
+];
+
+export const RENTALS = [  {
     name: 'Gold Candelabra',
+    category: 'candles',
     price: '$50 each',
     unitPrice: 50,
     available: 11,
@@ -28,6 +43,7 @@ export const RENTALS = [
     morePhotos: ['/media/gold-candelabra-hurricanes-b0a78a95.jpg'],  },
   {
     name: 'Glass Taper Holder',
+    category: 'candles',
     price: '$3 each',
     unitPrice: 3,
     addOn: { name: 'Glass hurricane', unitPrice: 5 },
@@ -40,6 +56,7 @@ export const RENTALS = [
   },
   {
     name: 'Cylinder Bud Vase',
+    category: 'florals',
     price: '$5 each',
     unitPrice: 5,
     available: 12,
@@ -50,6 +67,7 @@ export const RENTALS = [
   },
   {
     name: 'Cake Platter',
+    category: 'serving',
     price: '$20',
     unitPrice: 20,
     details: ['Cut glass with a pedestal base'],
@@ -59,6 +77,7 @@ export const RENTALS = [
   },
   {
     name: 'White Serving Risers',
+    category: 'serving',
     price: '$5 each',
     unitPrice: 5,
     details: ['Clean white display boxes in assorted heights', 'Stack or group them to add height to desserts and displays'],
@@ -68,6 +87,7 @@ export const RENTALS = [
   },
   {
     name: 'Gold Cake Stand',
+    category: 'serving',
     price: '$10',
     unitPrice: 10,
     details: ['Polished gold with a flared pedestal base'],
@@ -77,6 +97,7 @@ export const RENTALS = [
   },
   {
     name: 'Gold Cupcake Stand',
+    category: 'serving',
     price: '$25',
     unitPrice: 25,
     details: ['Two tiers with fluted gold rims', 'Ring handle on top'],
@@ -87,6 +108,7 @@ export const RENTALS = [
   },
   {
     name: 'Brass Hammered Cupcake Stand',
+    category: 'serving',
     price: '$25',
     unitPrice: 25,
     details: ['Two hammered brass tiers', 'Loop handle on top'],
@@ -97,6 +119,7 @@ export const RENTALS = [
   },
   {
     name: 'Brass Hammered Charger / Serving Platter',
+    category: 'place',
     price: '$10 each',
     unitPrice: 10,
     details: ['Hammered brass finish', 'Use as a charger under place settings or as a serving platter'],
@@ -107,6 +130,7 @@ export const RENTALS = [
   },
   {
     name: 'Gold Baroque Charger',
+    category: 'place',
     price: '$6 each',
     unitPrice: 6,
     details: ['Scalloped edge with ornate scrollwork', 'Gold-leaf finish'],
@@ -117,6 +141,7 @@ export const RENTALS = [
   },
   {
     name: 'Ivory Shell Serving Platter',
+    category: 'serving',
     // Price to confirm with Arabella; shows "Inquire for pricing" until set.
     price: null,
     details: ['Ivory porcelain with a scalloped, shell-ribbed design', 'Fine gold trim along the edge'],
@@ -126,7 +151,17 @@ export const RENTALS = [
     morePhotos: ['/media/ivory-shell-platter-cutout-f7baa7a3.png', '/media/ivory-shell-platter-cutout-stack-9e261704.png'],
   },
   {
+    name: 'Arched Mirror Welcome Sign',
+    category: 'signage',
+    price: '$175',
+    unitPrice: 175,
+    details: ['Arched mirror with a slim gold frame', 'Custom welcome decal included'],
+    image: '/media/arched-mirror-welcome-sign-f7cabd75.jpg',
+    alt: 'Arched gold-framed mirror welcome sign with a custom white decal',
+  },
+  {
     name: 'Gold Frames',
+    category: 'signage',
     price: '$8 each',
     unitPrice: 8,
     addOn: { name: 'Custom bar sign', unitPrice: 75 },
@@ -137,6 +172,7 @@ export const RENTALS = [
   },
   {
     name: 'Antique Silver Serving Platters',
+    category: 'serving',
     price: '$5–$10 each',
     available: 15,
     details: ['An assortment of vintage silver trays, platters, and bowls', 'Priced by piece; ask about the mix you need'],
@@ -147,6 +183,7 @@ export const RENTALS = [
   },
   {
     name: 'Gold-Rim Hammered Glass Plate',
+    category: 'serving',
     // Price to confirm with Arabella; shows "Inquire for pricing" until set.
     price: null,
     details: ['Clear hammered glass with a gold-trimmed, organic edge', 'For desserts and appetizers'],
@@ -157,6 +194,7 @@ export const RENTALS = [
   },
   {
     name: 'Ivory Round Linen',
+    category: 'place',
     price: '$10 each',
     unitPrice: 10,
     available: 25,
@@ -167,6 +205,7 @@ export const RENTALS = [
   },
   {
     name: 'Lace Overlay',
+    category: 'place',
     price: '$7 each',
     unitPrice: 7,
     details: ['108" round', 'Ivory lace, layered over a base tablecloth'],
@@ -176,6 +215,7 @@ export const RENTALS = [
   },
   {
     name: 'Gold Table Lamp',
+    category: 'candles',
     price: '$10 each',
     unitPrice: 10,
     details: ['Gold finish', 'Warm glow from beneath the shade'],
@@ -185,6 +225,7 @@ export const RENTALS = [
   },
   {
     name: 'The Terracotta Collection',
+    category: 'place',
     // Inquire for pricing (Oct 2026); replaced the single $5 saucer listing.
     price: null,
     details: ['20 small terracotta pots', '7 jarrito pots', '15 terracotta saucer plates (9" round)', 'Mix and match for tables, florals, and candles'],
@@ -195,6 +236,7 @@ export const RENTALS = [
   },
   {
     name: 'Gold Card Holder',
+    category: 'place',
     price: '$1 each',
     unitPrice: 1,
     details: ['Gold wire, spiral base', 'For table numbers, place cards or menus'],
@@ -204,6 +246,7 @@ export const RENTALS = [
   },
   {
     name: 'LED Candle',
+    category: 'candles',
     price: '$2 each',
     unitPrice: 2,
     available: 50,
@@ -214,6 +257,7 @@ export const RENTALS = [
   },
   {
     name: 'Amber Votive Holder',
+    category: 'candles',
     price: '$3 each',
     unitPrice: 3,
     available: 30,
@@ -224,6 +268,7 @@ export const RENTALS = [
   },
   {
     name: 'Galvanized Beverage Tub',
+    category: 'serving',
     price: '$5 each',
     unitPrice: 5,
     available: 4,
@@ -234,6 +279,7 @@ export const RENTALS = [
   },
   {
     name: 'Lapel Pin Vase',
+    category: 'florals',
     price: '$5 each',
     unitPrice: 5,
     details: ['Slim silver boutonnière vase', 'Holds a single fresh stem on a lapel'],
@@ -243,6 +289,7 @@ export const RENTALS = [
   },
   {
     name: 'Gold Easel – 58" Adjustable',
+    category: 'signage',
     price: '$25',
     unitPrice: 25,
     details: ['58" tall', 'Gold metal finish', 'Adjustable holders for signs and frames of different sizes'],
@@ -253,6 +300,7 @@ export const RENTALS = [
   },
   {
     name: 'Gold Easel – Standard',
+    category: 'signage',
     price: '$25',
     unitPrice: 25,
     details: ['Gold tripod easel', 'For welcome signs, seating charts and portraits'],

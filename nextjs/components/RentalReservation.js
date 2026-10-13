@@ -3,6 +3,7 @@ import { useCallback, useMemo, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import PhotoCarousel from '@/components/PhotoCarousel';
+import { RENTAL_CATEGORIES } from '@/lib/rentals-content';
 
 // Rentals grid plus the "reserve now, pay later" flow: each card gets a Reserve
 // button that turns into a quantity stepper; once anything is picked, a bar
@@ -57,6 +58,10 @@ function Stepper({ value, max, onChange, label }) {
 }
 
 export default function RentalReservation({ items }) {
+  // Items grouped by category, in RENTAL_CATEGORIES order (uncategorized last).
+  const groups = [...RENTAL_CATEGORIES, { id: 'more', name: 'More Pieces' }]
+    .map((c) => ({ ...c, items: items.filter((i) => (i.category || 'more') === c.id) }))
+    .filter((g) => g.items.length);
   // { [name]: { qty, addOn } }
   const [picked, setPicked] = useState({});
   const [open, setOpen] = useState(false);
@@ -127,8 +132,25 @@ export default function RentalReservation({ items }) {
   return (
     <>
       {viewing ? <PhotoCarousel photos={photosOf(viewing)} title={viewing.name} onClose={closeViewer} /> : null}
-      <section className="flex flex-wrap justify-center gap-10 border-t border-[#e6ddd2] pt-[62px]">
-        {items.map((item) => {
+      {/* Jump links to each group */}
+      <nav aria-label="Rental categories" className="flex flex-wrap justify-center gap-x-7 gap-y-3 border-t border-[#e6ddd2] pt-8">
+        {groups.map((g) => (
+          <a
+            key={g.id}
+            href={`#rentals-${g.id}`}
+            className="border-b border-transparent pb-1 text-[11px] font-light uppercase tracking-[0.22em] text-[#443221] no-underline transition-colors hover:border-tan hover:text-tan"
+          >
+            {g.name}
+          </a>
+        ))}
+      </nav>
+      {groups.map((g) => (
+      <section key={g.id} id={`rentals-${g.id}`} className="scroll-mt-24 pt-[62px]">
+        {g.eyebrow ? <p className="m-0 mb-3 text-center font-script text-[32px] leading-none text-[#9a8158] md:text-[40px]">{g.eyebrow.toLowerCase()}</p> : null}
+        <h2 className={`m-0 text-center font-display text-[20px] font-normal uppercase tracking-[0.2em] md:text-[24px] ${g.intro ? '' : 'mb-10'}`}>{g.name}</h2>
+        {g.intro ? <p className="m-0 mx-auto mb-10 mt-4 max-w-[600px] text-center font-display text-[17px] italic leading-[1.6] text-[#5a4634] md:text-[19px]">{g.intro}</p> : null}
+        <div className="flex flex-wrap justify-center gap-10">
+        {g.items.map((item) => {
           const qty = picked[item.name]?.qty ?? 0;
           const max = item.available ?? MAX_UNKNOWN;
           const reservable = typeof item.unitPrice === 'number';
@@ -156,7 +178,7 @@ export default function RentalReservation({ items }) {
                   ) : null}
                 </button>
               ) : null}
-              <h2 className={`${H} m-0 text-[15px] md:text-[17px]`}>{item.name.toUpperCase()}</h2>
+              <h3 className={`${H} m-0 text-[15px] md:text-[17px]`}>{item.name.toUpperCase()}</h3>
               <p className="m-0 mt-3 font-display text-[18px] tracking-[0.08em]">
                 {item.price ?? <span className={`${SMALL} text-[12px] text-brown`}>Inquire for pricing</span>}
               </p>
@@ -197,7 +219,9 @@ export default function RentalReservation({ items }) {
             </article>
           );
         })}
+        </div>
       </section>
+      ))}
 
       {status.state === 'done' ? (
         <div role="status" className="mx-auto mt-[62px] max-w-[620px] border border-[#e6ddd2] px-6 py-8 text-center">

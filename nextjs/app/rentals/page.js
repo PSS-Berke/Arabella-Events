@@ -22,6 +22,8 @@ const SIGNAGE = [
   { name: 'Menus', price: '$7 each' },
 ];
 const SIGNAGE_EXAMPLES = [
+  { src: '/media/signage-signature-bar-menu-pets-7762a008.jpg', w: 1333, h: 2000, alt: 'Framed signature bar menu with illustrated pet cocktails on a gold easel' },
+  { src: '/media/signage-bar-menus-candlelight-8759f559.jpg', w: 1333, h: 2000, alt: 'Framed bar menus glowing beside taper candles on the bar at dusk' },
   { src: '/media/signage-bar-sign-jennifer-hunter-8f5a6ff5.jpg', w: 1333, h: 2000, alt: 'Leather bar sign for Jennifer and Hunter on the Snake Oil Station mobile bar' },
   { src: '/media/signage-signature-drinks-florals-76fd591a.jpg', w: 1333, h: 2000, alt: 'Framed terracotta signature drinks sign beneath orchids and hanging amaranthus' },
   { src: '/media/signage-menu-place-setting-8529b77d.jpg', w: 1333, h: 2000, alt: 'Terracotta menu on a white place setting with gold flatware' },
@@ -46,6 +48,26 @@ export default function RentalsPage() {
           Pieces available to rent for your wedding or event. Tap Reserve on anything you&rsquo;d like, choose your
           date, and we&rsquo;ll confirm availability and send your invoice &mdash; nothing is charged online.
         </p>
+      </section>
+
+      {/* Pickup, shipping, delivery and setup (Arabella, Oct 2026) */}
+      <section className="mx-auto mb-[62px] max-w-[760px] border border-[#e6ddd2] px-6 py-8 text-center">
+        <p className="m-0 font-display text-[17px] uppercase tracking-[0.18em] md:text-[19px]">Pickup &amp; Delivery</p>
+        <p className={`mx-auto mb-0 mt-3 max-w-[560px] ${BODY}`}>
+          Rentals are pickup only, unless you add shipping, delivery, or setup.
+        </p>
+        <ul className="m-0 mt-6 grid list-none gap-4 p-0 sm:grid-cols-3">
+          {[
+            { name: 'Shipping', price: 'Paid by you' },
+            { name: 'Delivery', price: 'From $50' },
+            { name: 'Setup Package', price: 'From $300' },
+          ].map((o) => (
+            <li key={o.name}>
+              <p className="m-0 font-display text-[15px] uppercase tracking-[0.14em]">{o.name}</p>
+              <p className="m-0 mt-1 font-display text-[18px] italic text-[#9a8158]">{o.price}</p>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <RentalReservation items={RENTALS} />
