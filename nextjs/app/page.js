@@ -11,10 +11,10 @@ import { pageMeta } from '@/lib/seo';
 
 export const metadata = pageMeta({
   // Search-result title (Oct 2026, Arabella's wording).
-  title: 'AWE | Top Sedona Wedding Planner | Scottsdale & Las Vegas',
+  title: 'AWE | Weddings Designed to Leave You in Awe · Sedona & Scottsdale',
   brandSuffix: null,
   description:
-    'AWE is a top Sedona wedding planner, with luxury planning, design, and coordination for Sedona, Scottsdale, and Las Vegas celebrations. 300+ events planned.',
+    'AWE is a Sedona and Scottsdale wedding planner, with luxury planning, design, and coordination for Sedona, Scottsdale, and Las Vegas celebrations. 300+ events planned.',
   path: '/',
 });
 
