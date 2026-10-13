@@ -195,15 +195,6 @@ export const RENTALS = [  {
     morePhotos: ['/media/ivory-shell-platter-cutout-f7baa7a3.png', '/media/ivory-shell-platter-cutout-stack-9e261704.png'],
   },
   {
-    name: 'Arched Mirror Welcome Sign',
-    category: 'signage',
-    price: '$175',
-    unitPrice: 175,
-    details: ['Arched mirror with a slim gold frame', 'Custom welcome decal included'],
-    image: '/media/arched-mirror-welcome-sign-f7cabd75.jpg',
-    alt: 'Arched gold-framed mirror welcome sign with a custom white decal',
-  },
-  {
     name: 'Gold Frames',
     category: 'signage',
     price: '$8 each',
@@ -235,25 +226,6 @@ export const RENTALS = [  {
     alt: 'Clear hammered-glass dessert plates with wavy gold-trimmed edges',
     fit: 'contain',
     morePhotos: ['/media/gold-rim-glass-dessert-plate-top-10d133da.png'],
-  },
-  {
-    name: 'Table Drape Styling',
-    category: 'place',
-    price: 'From $150',
-    // A styling service, priced per design, so it's booked by inquiry.
-    details: ['Hand-styled linen draping for sweetheart and head tables', 'Rose formations, vintage pin-up gathers, and more'],
-    image: '/media/table-drape-styling-pin-up-04ac993f.jpg',
-    alt: 'Ivory satin linen gathered in vintage pin-up swags beneath a table of champagne flutes',
-  },  {
-    name: 'Ivory Round Linen',
-    category: 'place',
-    price: '$10 each',
-    unitPrice: 10,
-    available: 25,
-    details: ['108" round', 'Ivory, floor-length on a standard round table'],
-    image: '/media/ivory-round-linen-108-a16327d4.webp',
-    alt: 'Ivory 108-inch round tablecloth draped to the floor',
-    fit: 'contain',
   },
   {
     name: 'Lace Overlay',
