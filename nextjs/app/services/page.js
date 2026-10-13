@@ -76,6 +76,7 @@ const A_LA_CARTE = [
   { name: 'Venue Search', price: '$95/hour', about: 'Curated venue recommendations, availability checks, and tours alongside you.' },
   { name: 'Vendor Curation', price: '$750', about: 'A hand-picked list of trusted vendors for your style and budget, with introductions and booking support.' },
   { name: 'Design Consultation', price: '$650', about: 'A full design session and mood board to set the look and feel of your celebration.' },
+  { name: 'Table Drape Styling', price: 'from $150', about: 'Hand-styled linen draping for your sweetheart or head table, from rose formations to vintage pin-up gathers.' },
   { name: 'Timeline Creation', price: '$350', about: 'A detailed wedding-day timeline shared with every vendor, so the day runs without a hitch.' },
   { name: 'Rehearsal Coordination', price: '$450', about: 'We run your ceremony rehearsal so everyone knows exactly where to be.' },
   { name: 'Additional Coordination', price: '$125/hour', about: 'Extra hours of on-site coordination for longer celebrations or added events.' },
