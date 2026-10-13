@@ -21,7 +21,7 @@ export const metadata = {
     default: 'AWE | Wedding Planning and Design',
     template: '%s',
   },
-  openGraph: { siteName: BRAND, type: 'website', locale: 'en_US' },
+  openGraph: { siteName: 'AWE', type: 'website', locale: 'en_US' },
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },
   // Search Console / Bing ownership proof. Both are omitted entirely unless the

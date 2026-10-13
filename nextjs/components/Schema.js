@@ -45,6 +45,16 @@ const SERVICES = [
   },
 ];
 
+// Tells Google the site's name is "AWE" (shown above the link in results).
+const WEBSITE = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE_URL}/#website`,
+  name: 'AWE',
+  alternateName: [BRAND, "Arabella's Weddings and Events"],
+  url: `${SITE_URL}/`,
+};
+
 export function OrganizationSchema() {
   const data = {
     '@context': 'https://schema.org',
@@ -89,7 +99,12 @@ export function OrganizationSchema() {
       })),
     },
   };
-  return <JsonLd data={data} />;
+  return (
+    <>
+      <JsonLd data={WEBSITE} />
+      <JsonLd data={data} />
+    </>
+  );
 }
 
 /**

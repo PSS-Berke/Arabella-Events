@@ -73,7 +73,7 @@ export function pageMeta({ title, description, path, image = OG.default, brandSu
       title: full,
       description,
       url,
-      siteName: BRAND,
+      siteName: BRAND_SHORT,
       type: 'website',
       locale: 'en_US',
       images,

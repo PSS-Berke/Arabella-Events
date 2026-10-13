@@ -10,11 +10,11 @@ import { POSTS, formatDate } from '@/lib/blog-content';
 import { pageMeta } from '@/lib/seo';
 
 export const metadata = pageMeta({
-  // Brand-first by Arabella's request, so no " | AWE" suffix.
-  title: 'AWE | Wedding Planning and Design',
+  // Search-result title (Oct 2026, Arabella's wording).
+  title: 'AWE | Top Sedona Wedding Planner | Scottsdale & Las Vegas',
   brandSuffix: null,
   description:
-    'Arizona luxury wedding planning, design, and coordination for Scottsdale and Sedona celebrations. 300+ events planned. Published in Style Me Pretty.',
+    'AWE is a top Sedona wedding planner, with luxury planning, design, and coordination for Sedona, Scottsdale, and Las Vegas celebrations. 300+ events planned.',
   path: '/',
 });
 
