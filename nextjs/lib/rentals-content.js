@@ -131,10 +131,9 @@ export const RENTALS = [
     unitPrice: 8,
     addOn: { name: 'Custom bar sign', unitPrice: 75 },
     details: ['Gold embellished, vintage, and standard styles in varying sizes', 'Add a custom bar sign for $75 each'],
-    // Photo held back: the one Arabella sent shows Andrew & Rafael's names,
-    // which stay private until their story is posted (gold-frames-assortment-22ad1e5b.png).
-    image: null,
-    alt: '',
+    image: '/media/gold-frames-assortment-22ad1e5b.png',
+    alt: 'An assortment of gold frames in embellished, vintage, and standard styles',
+    fit: 'contain',
   },
   {
     name: 'Antique Silver Serving Platters',

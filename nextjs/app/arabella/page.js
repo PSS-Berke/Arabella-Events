@@ -39,7 +39,7 @@ const TEAM = [
     name: 'Arabella Mascari',
     role: 'Lead Planner & Owner',
     photo: { src: ABOUT_IMG.heartPhoto, alt: 'Arabella in a black dress standing at a candlelit forest tablescape' },
-    summary: 'The creative mind behind AWE, leading every design and plan from the first conversation to the last dance.',
+    summary: 'The creative mind behind AWE, shaping every design and guiding the team of planners who bring it to life.',
     more: [
       'Arabella draws on years inside some of hospitality’s most respected names, from MGM Resorts and Hilton to L’Auberge de Sedona and Legends Global.',
       'With more than 300 celebrations planned since 2017, across Sedona, Scottsdale, Chicago, and beyond, she brings a designer’s eye and a planner’s calm to every wedding, so each one feels completely its own. <a href="#trajectory" class="underline decoration-[#d9cfc3] underline-offset-4">Her experience ↓</a>',

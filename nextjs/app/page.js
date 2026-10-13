@@ -104,14 +104,15 @@ export default function Home() {
             alt="Arabella laughing in a black top, on 35mm film"
             width={306}
             height={400}
-            sizes="(min-width: 768px) 420px, 90vw"
+            unoptimized
+            priority
             className="mx-auto h-auto w-full max-w-[420px]"
           />
           <div className="text-center md:text-left">
             <div className={SCRIPT}>meet</div>
             <h2 className={`${H2} mt-2`}>Arabella</h2>
             <p className="m-0 mt-6 font-display text-[19px] italic leading-[1.6] text-[#5a4634] md:text-[21px]">
-              The creative mind behind AWE, and the one who will be beside you from the first idea to the last dance.
+              The creative mind behind AWE, leading a team of planners who bring every celebration to life.
             </p>
             <div className="mt-8">
               <Link href="/arabella" className={LINK}>Meet the team</Link>

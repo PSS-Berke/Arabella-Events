@@ -45,7 +45,7 @@ const EXPERIENCES = [
 const PROCESS = [
   {
     title: 'Personal from the First Hello',
-    about: 'From the first call to the last dance, our team knows your wedding inside and out, so nothing is left to chance.',
+    about: 'Our team of planners knows your wedding inside and out, so nothing is left to chance.',
   },
   {
     title: 'Design That Is Only Yours',
