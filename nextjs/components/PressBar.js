@@ -18,6 +18,7 @@ const PRESS = [
     href: 'https://togetherjournal.com/lindsey-hunter-by-dana-maruna/',
     type: 'font-body text-[15px] font-medium uppercase tracking-[0.42em] md:text-[17px]',
   },
+  { name: 'Arizona Bride', type: 'font-display text-[26px] uppercase tracking-[0.18em] md:text-[30px]' },
   { name: 'Carats & Cake', type: 'font-body text-[16px] font-light uppercase tracking-[0.5em] md:text-[18px]' },
   {
     name: 'Lover.ly',
