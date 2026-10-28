@@ -18,26 +18,28 @@ export const metadata = pageMeta({
  * (components/Reveal.js).
  */
 
-// Design tiers: starting overall wedding investment per guest (peak pricing).
-// `example` shows what that means for a 100-guest wedding.
+// Recommended wedding production budgets per guest (peak pricing). These are
+// levels of design and production, NOT planning packages: every level gets
+// full-service planning + design, billed separately at 15% of production
+// spend ($7,000 minimum). `example` shows a 100-guest wedding.
 const EXPERIENCES = [
   {
     name: 'AWE Essential',
     from: '$750',
-    example: '100 guests from $75,000',
-    about: 'Beautiful, intentional, simpler design: selective floral accents, strong photography, a beautiful cake, and standard rentals.',
+    example: '100 guests | Wedding production from $75,000',
+    about: 'Thoughtfully curated celebrations with intentional details, beautiful floral accents, timeless rentals, romantic candlelight, and a refined guest experience.',
   },
   {
     name: 'AWE Full Design',
     from: '$1,000',
-    example: '100 guests from $100,000',
-    about: 'A cohesive custom aesthetic: upgraded rentals and linens, substantial florals, stationery and signage, candlelight, and layered details.',
+    example: '100 guests | Wedding production from $100,000',
+    about: 'A fully realized design vision with elevated floral installations, specialty rentals, luxurious linens, custom stationery, layered details, and a cohesive aesthetic throughout the celebration.',
   },
   {
     name: 'AWE Editorial',
-    from: '$1,500',
-    example: '100 guests from $150,000',
-    about: 'Transformative floral and design, specialty rentals, installations, custom production, and an elevated guest experience.',
+    from: '$1,500+',
+    example: '100 guests | Wedding production from $150,000+',
+    about: 'An immersive, highly personalized celebration featuring transformative floral installations, bespoke design elements, statement rentals, custom fabrication, and extraordinary guest experiences.',
   },
 ];
 
@@ -89,6 +91,7 @@ const JUMP = [
   { href: '#investment', label: 'Investment' },
   { href: '#dana-and-arabella', label: 'Dana + Arabella' },
   { href: '#micro-weddings', label: 'Micro Weddings' },
+  { href: '#hoel-reserve', label: 'Hoel Reserve' },
   { href: '#partial-planning', label: 'Partial Planning' },
   { href: '#a-la-carte', label: 'À la carte' },
 ];
@@ -189,10 +192,10 @@ export default function Packages() {
             experience.
           </p>
           <p className="m-0 mt-8 border-l border-[#c9b48a] pl-5 font-display text-[19px] italic leading-[1.6] md:text-[21px]">
-            Planning + design fee: 15% of your overall wedding spend, with an $8,500 minimum.
+            Planning + design fee: 15% of your overall wedding spend, starting at $7,000.
           </p>
           <p className={`m-0 mt-5 text-[11px] font-normal uppercase tracking-[0.22em] ${GOLD}`}>
-            Peak month &amp; weekend pricing &middot; Off-peak from $7,000
+            High-season pricing may vary
           </p>
         </Reveal>
         <Reveal delay={150}>
@@ -212,8 +215,13 @@ export default function Packages() {
           <div className="mt-4 font-script text-[48px] leading-none text-[#e9dcc4] md:text-[66px]">your</div>
           <h2 className="m-0 mt-2 font-display text-[26px] font-normal uppercase tracking-[0.2em] md:text-[40px]">Investment</h2>
           <p className="m-0 mx-auto mt-7 max-w-[600px] text-[15px] font-light leading-[1.95] tracking-[0.03em] text-white/80">
-            Choose the level of design that feels like you. Each experience shows the starting overall investment for your
-            wedding, per guest. Our planning + design fee is separate: 15% of your total, with an $8,500 minimum.
+            Every celebration is unique, and so is the investment behind it. Our recommended budgets offer a glimpse into
+            what&rsquo;s possible at different levels of design, from beautifully intentional gatherings to extraordinary, fully
+            immersive celebrations.
+          </p>
+          <p className="m-0 mx-auto mt-4 max-w-[600px] text-[15px] font-light leading-[1.95] tracking-[0.03em] text-white/80">
+            Our Full-Service Planning &amp; Design fee is 15% of your total wedding production investment, beginning at $7,000.
+            Every celebration is thoughtfully tailored to your priorities, vision, and budget.
           </p>
         </Reveal>
         <div className="mx-auto mt-14 grid max-w-[1120px] gap-6 md:grid-cols-3">
@@ -226,7 +234,7 @@ export default function Packages() {
               <p className="m-0 font-display text-[14px] italic tracking-[0.2em] text-[#c9b48a]">{['I', 'II', 'III'][n]}</p>
               <h3 className="m-0 mt-3 font-display text-[19px] font-normal uppercase tracking-[0.2em] md:text-[21px]">{x.name}</h3>
               <span aria-hidden="true" className="mt-6 h-px w-10 bg-[#c9b48a]" />
-              <p className="m-0 mt-6 text-[10px] font-light uppercase tracking-[0.3em] text-white/60">Starting at</p>
+              <p className="m-0 mt-6 text-[10px] font-light uppercase tracking-[0.3em] text-white/60">Recommended budget</p>
               <p className="m-0 mt-2 font-display text-[48px] font-normal leading-none md:text-[56px]">{x.from}</p>
               <p className="m-0 mt-2 text-[11px] font-light uppercase tracking-[0.26em] text-white/70">per guest</p>
               <p className="m-0 mt-3 font-display text-[16px] italic text-[#e9dcc4]">{x.example}</p>
@@ -234,8 +242,25 @@ export default function Packages() {
             </Reveal>
           ))}
         </div>
-        <p className="m-0 mx-auto mt-12 max-w-[640px] text-center text-[11px] font-light uppercase leading-[2] tracking-[0.22em] text-white/60">
-          Pricing reflects peak months &amp; weekends &middot; Off-peak dates offer full planning + design from $7,000
+        {/* The planning fee, kept apart from the production budgets above */}
+        <p className="m-0 mx-auto mt-10 max-w-[680px] text-center font-display text-[16px] italic leading-[1.7] text-[#e9dcc4]/90 md:text-[18px]">
+          All investment levels include our comprehensive Full-Service Planning &amp; Design experience. Our professional fee is
+          15% of total wedding production expenditures, subject to a $7,000 minimum, and is calculated separately.
+        </p>
+        {/* The floor below the tiers (Arabella, Oct 2026) */}
+        <Reveal className="mx-auto mt-12 max-w-[640px] border border-[#c9b48a]/40 px-7 py-8 text-center">
+          <p className="m-0 text-[10px] font-light uppercase tracking-[0.3em] text-[#c9b48a]">A More Intimate Approach</p>
+          <p className="m-0 mt-3 font-display text-[22px] leading-[1.5] md:text-[26px]">$55,000 for 100 guests</p>
+          <p className="m-0 mt-2 font-display text-[16px] italic leading-[1.6] text-[#e9dcc4] md:text-[18px]">
+            Beautifully intentional celebrations with a more understated approach to design. We believe meaningful moments
+            deserve exceptional planning at every scale.
+          </p>
+          <p className="m-0 mt-4 text-[12px] font-light leading-[1.8] tracking-[0.04em] text-white/60">
+            Every wedding is thoughtfully considered. We welcome you to inquire and explore what&rsquo;s possible.
+          </p>
+        </Reveal>
+        <p className="m-0 mx-auto mt-8 max-w-[640px] text-center text-[11px] font-light uppercase leading-[2] tracking-[0.22em] text-white/60">
+          Per-guest budgets reflect peak months &amp; weekends &middot; High-season pricing may vary
         </p>
         <div className="mt-10 text-center">
           <Link
@@ -333,6 +358,56 @@ export default function Packages() {
             <Bullets items={['Venue fee', 'Catering', 'Rentals', 'On-site coordinator']} />
             <div className="mt-10 text-center md:text-left">
               <Link href="/contact" className={CTA}>Ask about dates</Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Hoel Reserve (formerly Don Hoel's Cabins): AWE's venue-specific
+          package as preferred & exclusive planner (Oct 2026). Softer and
+          sweeter than the chapters: an arched photo with a gold outline, a
+          round inset photo, and the price in a round seal. */}
+      <section id="hoel-reserve" className="scroll-mt-24 overflow-hidden bg-[radial-gradient(ellipse_at_70%_30%,#fbf5f0_0%,#f3e7df_75%)]">
+        <div className="mx-auto grid max-w-[1120px] items-center gap-14 px-6 py-20 md:grid-cols-2 md:gap-16 md:px-10 md:py-28">
+          <Reveal className="relative mx-auto w-full max-w-[400px] pb-10 pr-10">
+            <span aria-hidden="true" className="absolute bottom-0 right-0 h-[calc(100%-2.5rem)] w-[calc(100%-2.5rem)] rounded-t-full border border-[#c9b48a]" />
+            <Image
+              src="/media/jh-twirl-cabins-165892d8.jpg"
+              alt="A bride twirling among the cabins at Hoel Reserve"
+              width={1000}
+              height={1500}
+              sizes="(min-width: 768px) 360px, 80vw"
+              className="relative aspect-[2/3] h-auto w-full rounded-t-full object-cover"
+            />
+            <Image
+              src="/media/hm-gown-cabin-porch-21ef8821.jpg"
+              alt="A caped lace wedding gown hanging from a cabin porch at Hoel Reserve"
+              width={1500}
+              height={1000}
+              sizes="170px"
+              className="absolute bottom-2 right-0 aspect-square h-auto w-[42%] rounded-full border-[6px] border-[#fbf5f0] object-cover shadow-[0_12px_32px_rgba(68,50,33,0.18)]"
+            />
+          </Reveal>
+          <Reveal delay={150} className="text-center">
+            <div className="font-script text-[48px] leading-none text-[#9a8158] md:text-[64px]">exclusively at</div>
+            <h2 className="m-0 mt-3 font-display text-[28px] font-normal uppercase tracking-[0.2em] md:text-[40px]">Hoel Reserve</h2>
+            <p className="m-0 mt-2 font-display text-[17px] italic text-[#7a6443] md:text-[19px]">
+              formerly Don Hoel&rsquo;s Cabins &middot; Oak Creek Canyon
+            </p>
+            <p className="m-0 mx-auto mt-6 inline-block rounded-full border border-[#c9b48a] px-5 py-2 text-[10.5px] font-normal uppercase tracking-[0.24em] text-[#7a6443]">
+              &#9825; Preferred &amp; Exclusive Planner &#9825;
+            </p>
+            <p className={`m-0 mx-auto mt-7 max-w-[440px] ${BODY}`}>
+              A planning package made just for Hoel Reserve couples: rustic cabins tucked into the pines, candlelight, and an
+              intimate night in the forest.
+            </p>
+            <div className="mx-auto mt-9 flex h-[190px] w-[190px] flex-col items-center justify-center rounded-full border-[3px] border-double border-[#c9b48a] bg-[#fbf5f0]">
+              <span className="font-script text-[32px] leading-none text-[#9a8158]">the package</span>
+              <span className="mt-2 font-display text-[30px] leading-none">$3,500</span>
+              <span className="mt-1 font-display text-[17px] italic">to $4,000</span>
+            </div>
+            <div className="mt-10">
+              <Link href="/contact" className={CTA}>Ask about Hoel Reserve</Link>
             </div>
           </Reveal>
         </div>

@@ -78,7 +78,7 @@ export const SCOTTSDALE = {
   faqs: [
     {
       q: 'How much does a wedding planner cost in Scottsdale?',
-      a: 'Full-service planning fees in the Scottsdale market typically run $6,500 and up. Our full planning + design fee is 15% of your overall wedding spend, with an $8,500 minimum. Full-service weddings with AWE typically begin at $60,000 in total wedding investment, with design-forward celebrations generally beginning around $750 per guest. Partial planning is available for couples who have already done more of the work themselves.',
+      a: 'Full-service planning fees in the Scottsdale market typically run $6,500 and up. Our full planning + design fee is 15% of your overall wedding spend, starting at $7,000 (high-season pricing may vary). Full-service weddings with AWE typically begin at $60,000 in total wedding investment, with design-forward celebrations generally beginning around $750 per guest. Partial planning is available for couples who have already done more of the work themselves.',
     },
     {
       q: 'When should we book a Scottsdale wedding planner?',

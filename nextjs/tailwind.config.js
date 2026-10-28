@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./app/**/*.{js,jsx}', './components/**/*.{js,jsx}'],
+  // relative: paths resolve from this file, so styles build whichever folder
+  // the dev server is started from.
+  content: { relative: true, files: ['./app/**/*.{js,jsx}', './components/**/*.{js,jsx}'] },
   theme: {
     extend: {
       colors: {
