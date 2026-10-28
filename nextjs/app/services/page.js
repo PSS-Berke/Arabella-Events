@@ -367,7 +367,7 @@ export default function Packages() {
           package as preferred & exclusive planner (Oct 2026). Softer and
           sweeter than the chapters: an arched photo with a gold outline, a
           round inset photo, and the price in a round seal. */}
-      <section id="hoel-reserve" className="scroll-mt-24 overflow-hidden bg-[radial-gradient(ellipse_at_70%_30%,#fbf5f0_0%,#f3e7df_75%)]">
+      <section id="hoel-reserve" className="scroll-mt-24 overflow-hidden bg-white">
         <div className="mx-auto grid max-w-[1120px] items-center gap-14 px-6 py-20 md:grid-cols-2 md:gap-16 md:px-10 md:py-28">
           <Reveal className="relative mx-auto w-full max-w-[400px] pb-10 pr-10">
             <span aria-hidden="true" className="absolute bottom-0 right-0 h-[calc(100%-2.5rem)] w-[calc(100%-2.5rem)] rounded-t-full border border-[#c9b48a]" />
@@ -385,7 +385,7 @@ export default function Packages() {
               width={1500}
               height={1000}
               sizes="170px"
-              className="absolute bottom-2 right-0 aspect-square h-auto w-[42%] rounded-full border-[6px] border-[#fbf5f0] object-cover shadow-[0_12px_32px_rgba(68,50,33,0.18)]"
+              className="absolute bottom-2 right-0 aspect-square h-auto w-[42%] rounded-full border-[6px] border-white object-cover shadow-[0_12px_32px_rgba(68,50,33,0.18)]"
             />
           </Reveal>
           <Reveal delay={150} className="text-center">
@@ -401,7 +401,7 @@ export default function Packages() {
               A planning package made just for Hoel Reserve couples: rustic cabins tucked into the pines, candlelight, and an
               intimate night in the forest.
             </p>
-            <div className="mx-auto mt-9 flex h-[190px] w-[190px] flex-col items-center justify-center rounded-full border-[3px] border-double border-[#c9b48a] bg-[#fbf5f0]">
+            <div className="mx-auto mt-9 flex h-[190px] w-[190px] flex-col items-center justify-center rounded-full border-[3px] border-double border-[#c9b48a] bg-[#f8f5f0]">
               <span className="font-script text-[32px] leading-none text-[#9a8158]">the package</span>
               <span className="mt-2 font-display text-[30px] leading-none">$3,500</span>
               <span className="mt-1 font-display text-[17px] italic">to $4,000</span>
