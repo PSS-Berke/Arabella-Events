@@ -1,5 +1,5 @@
 import { SITE_URL } from '@/lib/seo';
-import { POSTS } from '@/lib/blog-content';
+import { getPublishedPosts } from '@/lib/posts';
 
 /*
  * `lastModified` is an explicit per-route date, not `new Date()`.
@@ -26,13 +26,23 @@ const ROUTES = [
   { path: '/love-notes', priority: 0.7, changeFrequency: 'monthly', lastModified: '2026-08-12' },
   { path: '/vendors', priority: 0.5, changeFrequency: 'monthly', lastModified: '2026-10-08' },
   { path: '/blog', priority: 0.6, changeFrequency: 'weekly', lastModified: '2026-10-08' },
-  ...POSTS.map((p) => ({ path: `/blog/${p.slug}`, priority: 0.5, changeFrequency: 'yearly', lastModified: '2026-10-08' })),
   { path: '/rentals', priority: 0.6, changeFrequency: 'monthly', lastModified: '2026-10-08' },
   { path: '/contact', priority: 0.8, changeFrequency: 'yearly', lastModified: '2026-08-12' },
 ];
 
-export default function sitemap() {
-  return ROUTES.map((r) => ({
+// Blog posts come from the database; each is dated by its last edit.
+export const revalidate = 3600;
+
+export default async function sitemap() {
+  const posts = (await getPublishedPosts()).map((p) => ({
+    path: `/blog/${p.slug}`,
+    priority: 0.5,
+    changeFrequency: 'yearly',
+    lastModified: (p.updatedAt || '2026-10-08').slice(0, 10),
+  }));
+  const blogAt = ROUTES.findIndex((r) => r.path === '/blog') + 1;
+  const routes = [...ROUTES.slice(0, blogAt), ...posts, ...ROUTES.slice(blogAt)];
+  return routes.map((r) => ({
     url: `${SITE_URL}${r.path}`,
     lastModified: new Date(`${r.lastModified}T12:00:00Z`),
     changeFrequency: r.changeFrequency,

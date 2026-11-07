@@ -3,7 +3,8 @@ import Link from 'next/link';
 import PostCover from '@/components/PostCover';
 import { notFound } from 'next/navigation';
 import { pageMeta, SITE_URL, BRAND } from '@/lib/seo';
-import { POSTS, getPost, formatDate } from '@/lib/blog-content';
+import { formatDate } from '@/lib/blog-content';
+import { getPublishedPosts, getPublishedPost } from '@/lib/posts';
 import PostBody from '@/components/PostBody';
 import { LOVE_NOTES, MORE_LOVE_NOTES } from '@/lib/love-notes-content';
 
@@ -15,18 +16,21 @@ function coupleReview(couple) {
   return [...MORE_LOVE_NOTES, ...LOVE_NOTES].find((r) => r.name === name && r.text) || null;
 }
 
-export function generateStaticParams() {
-  return POSTS.map((p) => ({ slug: p.slug }));
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  const posts = await getPublishedPosts();
+  return posts.map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const post = getPost(params.slug);
+export async function generateMetadata({ params }) {
+  const post = await getPublishedPost(params.slug);
   if (!post) return {};
   return pageMeta({ title: `${post.title} | ${post.couple}`, description: post.description ?? post.excerpt, path: `/blog/${post.slug}` });
 }
 
-export default function BlogPost({ params }) {
-  const post = getPost(params.slug);
+export default async function BlogPost({ params }) {
+  const post = await getPublishedPost(params.slug);
   if (!post) notFound();
 
   // BlogPosting structured data so search engines read it as an article.
@@ -35,7 +39,7 @@ export default function BlogPost({ params }) {
     '@type': 'BlogPosting',
     headline: post.title,
     datePublished: post.date,
-    ...(post.cover && { image: `${SITE_URL}${post.cover.src}` }),
+    ...(post.cover && { image: post.cover.src.startsWith('http') ? post.cover.src : `${SITE_URL}${post.cover.src}` }),
     author: { '@type': 'Person', name: 'Arabella', url: `${SITE_URL}/arabella` },
     publisher: { '@id': `${SITE_URL}/#business`, name: BRAND },
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
