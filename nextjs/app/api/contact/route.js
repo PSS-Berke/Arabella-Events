@@ -6,6 +6,7 @@
 // shows on the /admin page.
 
 import { leadsConfigured, saveLead } from '@/lib/leads';
+import { autoReplyEmail, inquiryEmail } from '@/lib/email-templates';
 
 const EMAIL_RE = /^.+@.+\.[a-zA-Z]{2,63}$/;
 
@@ -100,10 +101,12 @@ export async function POST(request) {
   // the visitor is told it didn't go through.
   let emailed = false;
   try {
+    const inquiry = inquiryEmail(values);
     const res = await send({
       to: [CONTACT_TO_EMAIL],
       reply_to: values.email,
-      subject: `New inquiry from ${values.names} — arabellasweddings.com contact form`,
+      subject: inquiry.subject,
+      html: inquiry.html,
       text,
     });
     emailed = res.ok;
@@ -118,10 +121,12 @@ export async function POST(request) {
   // 3. The auto-reply to the couple. Best effort: the inquiry is already with
   // Arabella, so a failure here is logged but doesn't fail the form.
   try {
+    const confirmation = autoReplyEmail(values);
     const reply = await send({
       to: [values.email],
       reply_to: CONTACT_TO_EMAIL,
-      subject: 'We received your inquiry — Arabella’s Weddings & Events',
+      subject: confirmation.subject,
+      html: confirmation.html,
       text: autoReplyText(values),
     });
     if (!reply.ok) console.error('Contact form: auto-reply failed', reply.status, await reply.text().catch(() => ''));
@@ -132,19 +137,25 @@ export async function POST(request) {
   return Response.json({ ok: true });
 }
 
+// Plain-text version of the couple's confirmation, for inboxes that don't
+// show HTML. Same words as lib/email-templates.js.
 function autoReplyText(values) {
   return [
-    `Hi ${values.names},`,
+    `Thank you, ${values.names}`,
     '',
-    'Thank you so much for reaching out! Your inquiry came through, and I can’t wait to hear more about your celebration.',
+    'I’m so glad you reached out. Your inquiry is on its way to me, and I can’t wait to hear more about your celebration.',
     '',
-    'I personally read every message and will be in touch within 48 hours. In the meantime, feel free to reply to this email with any photos, inspiration, or questions.',
+    'Here’s what happens next:',
+    '1. I read your story. The details you shared, big and small, become the foundation for everything we create together.',
+    '2. You’ll hear from me within 24 hours. I’ll reply personally to find a time to talk, because your excitement should never have to wait.',
+    '3. We talk through your vision. Your date, your venue, the people you love and how you want the day to feel. From there, I’ll share how we can bring it to life.',
     '',
-    'Here’s what you sent us:',
-    '',
+    'What you shared:',
     summaryText(values),
     '',
-    'Warmly,',
+    'In the meantime, feel free to reply to this email with inspiration photos, a Pinterest board, or any questions at all.',
+    '',
+    'With love,',
     'Arabella',
     'Arabella’s Weddings & Events',
     'arabellasweddings.com',
