@@ -2,6 +2,10 @@
 // emails it to Arabella through the Resend REST API, then sends the couple an
 // auto-reply. Plain fetch, no npm dependency. Configure in Vercel or .env.local:
 //   RESEND_API_KEY, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL
+// Each lead is also saved to the Neon Postgres database (DATABASE_URL) so it
+// shows on the /admin page.
+
+import { leadsConfigured, saveLead } from '@/lib/leads';
 
 const EMAIL_RE = /^.+@.+\.[a-zA-Z]{2,63}$/;
 
@@ -56,8 +60,21 @@ export async function POST(request) {
     return Response.json({ error: 'Please enter a valid email address.' }, { status: 400 });
   }
 
+  // 1. Save the lead for the /admin page. Done first, so an inquiry is kept
+  // even if email delivery fails.
+  let saved = false;
+  if (leadsConfigured()) {
+    try {
+      await saveLead(values);
+      saved = true;
+    } catch (err) {
+      console.error('Contact form: could not save lead', err);
+    }
+  }
+
   const { RESEND_API_KEY, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL } = process.env;
   if (!RESEND_API_KEY || !CONTACT_TO_EMAIL || !CONTACT_FROM_EMAIL) {
+    if (saved) return Response.json({ ok: true });
     return Response.json(
       {
         error:
@@ -79,25 +96,26 @@ export async function POST(request) {
       body: JSON.stringify({ from: CONTACT_FROM_EMAIL, ...email }),
     });
 
-  // 1. The inquiry to Arabella. This one must succeed.
-  let res;
+  // 2. The inquiry to Arabella. If it fails and the lead wasn't saved either,
+  // the visitor is told it didn't go through.
+  let emailed = false;
   try {
-    res = await send({
+    const res = await send({
       to: [CONTACT_TO_EMAIL],
       reply_to: values.email,
       subject: `New inquiry from ${values.names} — arabellasweddings.com contact form`,
       text,
     });
-  } catch {
-    return Response.json({ error: SEND_FAILURE }, { status: 502 });
+    emailed = res.ok;
+    if (!res.ok) console.error('Contact form: Resend rejected the inquiry email', res.status, await res.text().catch(() => ''));
+  } catch (err) {
+    console.error('Contact form: inquiry email failed', err);
   }
-  if (!res.ok) {
-    const detail = await res.text().catch(() => '');
-    console.error('Contact form: Resend rejected the inquiry email', res.status, detail);
+  if (!emailed && !saved) {
     return Response.json({ error: SEND_FAILURE }, { status: 502 });
   }
 
-  // 2. The auto-reply to the couple. Best effort: the inquiry already reached
+  // 3. The auto-reply to the couple. Best effort: the inquiry is already with
   // Arabella, so a failure here is logged but doesn't fail the form.
   try {
     const reply = await send({
