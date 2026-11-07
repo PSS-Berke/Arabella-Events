@@ -12,8 +12,8 @@ export const metadata = {
 
 function Shell({ children }) {
   return (
-    <main className="mx-auto min-h-[70vh] w-full max-w-[1100px] px-4 pb-24 pt-10 sm:px-6 md:pt-16">
-      <h1 className="m-0 mb-8 font-display text-[34px] font-normal text-[#443221] md:text-[42px]">Inquiries</h1>
+    <main className="mx-auto w-full max-w-[1100px] px-4 pb-24 pt-10 sm:px-6 md:pt-12">
+      <h1 className="m-0 mb-8 font-display text-[30px] font-normal uppercase tracking-[0.16em] text-[#443221] md:text-[34px]">Inquiries</h1>
       {children}
     </main>
   );

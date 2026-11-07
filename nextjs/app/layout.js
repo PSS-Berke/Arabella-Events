@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { OrganizationSchema } from '@/components/Schema';
 import Analytics from '@/components/Analytics';
+import SiteChrome from '@/components/SiteChrome';
 import { SITE_URL, BRAND } from '@/lib/seo';
 
 // Headings: Cormorant Garamond (softer, more classic than the Playfair Display
@@ -38,10 +39,14 @@ export default function RootLayout({ children }) {
     <html lang="en" className={fontVars}>
       <body className="bg-white text-charcoal font-body antialiased overflow-x-hidden">
         <OrganizationSchema />
-        <Analytics />
-        <Header />
+        <SiteChrome>
+          <Analytics />
+          <Header />
+        </SiteChrome>
         {children}
-        <Footer />
+        <SiteChrome>
+          <Footer />
+        </SiteChrome>
       </body>
     </html>
   );

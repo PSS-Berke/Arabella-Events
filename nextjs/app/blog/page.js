@@ -2,7 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import PostCover from '@/components/PostCover';
 import { pageMeta } from '@/lib/seo';
-import { POSTS, formatDate } from '@/lib/blog-content';
+import { formatDate } from '@/lib/blog-content';
+import { getPublishedPosts } from '@/lib/posts';
 
 export const metadata = pageMeta({
   title: 'Wedding Blog | Real Weddings in Sedona & Scottsdale',
@@ -11,8 +12,12 @@ export const metadata = pageMeta({
   path: '/blog',
 });
 
-// Blog index: newest first. Posts live in lib/blog-content.js.
-export default function BlogIndex() {
+// Blog index: newest first. Posts live in the database (edited at
+// /admin/blog); see lib/posts.js.
+export const revalidate = 3600;
+
+export default async function BlogIndex() {
+  const POSTS = await getPublishedPosts();
   return (
     <main className="mx-auto max-w-[1000px] px-6 pb-16 pt-12 text-[#443221] md:px-10 md:pt-[70px]">
       <section className="pb-[62px] text-center">

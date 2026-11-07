@@ -114,11 +114,6 @@ export default function LeadsTable({ initialLeads }) {
     setBusyId(null);
   }
 
-  async function logout() {
-    await fetch('/api/admin/login', { method: 'DELETE' }).catch(() => {});
-    window.location.reload();
-  }
-
   return (
     <div>
       <div className="mb-6 flex flex-wrap items-center gap-3">
@@ -147,9 +142,6 @@ export default function LeadsTable({ initialLeads }) {
         <div className="ml-auto flex gap-2">
           <button type="button" onClick={() => downloadCsv(shown)} disabled={!shown.length} className={SMALL_BTN}>
             Download CSV
-          </button>
-          <button type="button" onClick={logout} className={SMALL_BTN}>
-            Log out
           </button>
         </div>
       </div>

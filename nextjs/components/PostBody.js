@@ -6,7 +6,8 @@
 // no HTML passthrough, so post text can never inject markup.
 import Image from 'next/image';
 
-const IMG = /^!\[([^\]]*)\]\((\/media\/\S+) (\d+)x(\d+)\)$/;
+// Photos are /media files or uploads from /admin/blog (Vercel Blob).
+const IMG = /^!\[([^\]]*)\]\((\/media\/\S+|https:\/\/[a-z0-9]+\.public\.blob\.vercel-storage\.com\/\S+) (\d+)x(\d+)\)$/;
 const VIDEO = /^!video\[([^\]]*)\]\((\/media\/[\w.-]+\.mp4) (\/media\/[\w.-]+\.jpg) (\d+)x(\d+)\)$/;
 const BODY = 'text-[15.5px] font-light leading-[2] tracking-[0.03em] text-pretty';
 

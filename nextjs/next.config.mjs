@@ -4,7 +4,11 @@ const nextConfig = {
   // concurrent `next build`/`next start` can't corrupt its output.
   distDir: process.env.NEXT_DIST_DIR || '.next',
   images: {
-    remotePatterns: [{ protocol: 'https', hostname: 'static.wixstatic.com' }],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'static.wixstatic.com' },
+      // Blog photos uploaded at /admin/blog
+      { protocol: 'https', hostname: '*.public.blob.vercel-storage.com' },
+    ],
   },
   async redirects() {
     return [

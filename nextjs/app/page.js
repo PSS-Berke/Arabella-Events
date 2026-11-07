@@ -6,7 +6,8 @@ import PressBar from '@/components/PressBar';
 import PostCover from '@/components/PostCover';
 import { VENDORS } from '@/lib/vendors-content';
 import { IMG } from '@/lib/content';
-import { POSTS, formatDate } from '@/lib/blog-content';
+import { formatDate } from '@/lib/blog-content';
+import { getPublishedPosts } from '@/lib/posts';
 import { pageMeta } from '@/lib/seo';
 
 export const metadata = pageMeta({
@@ -55,8 +56,10 @@ const SERVICES = [
   },
 ];
 
-export default function Home() {
-  const recent = POSTS.slice(0, 3);
+export const revalidate = 3600;
+
+export default async function Home() {
+  const recent = (await getPublishedPosts()).slice(0, 3);
   return (
     <main className="text-[#443221]">
       <HomeHero />
