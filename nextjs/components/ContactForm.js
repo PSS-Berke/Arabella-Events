@@ -33,10 +33,9 @@ function validate(values) {
   return errors;
 }
 
-// Inbox that receives every inquiry (via FormSubmit).
-const INQUIRY_EMAIL = 'arabella@arabellasweddings.com';
-
 export default function ContactForm() {
+  // Hidden spam trap: people never see or fill it, bots usually do.
+  const [honeypot, setHoneypot] = useState('');
   const [values, setValues] = useState(() => Object.fromEntries(CONTACT_FIELDS.map((f) => [f.name, ''])));
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
@@ -65,30 +64,20 @@ export default function ContactForm() {
     setStatus('sending');
     setServerError('');
     try {
-      // Delivery (Oct 2026): FormSubmit sends each inquiry straight to
-      // INQUIRY_EMAIL with no account, key, or hosting settings. The very
-      // first submission triggers a one-time "confirm your email" message to
-      // that inbox; once confirmed, inquiries arrive normally. If FormSubmit
-      // can't be reached, the visitor gets the send-from-your-own-email button.
-      const res = await fetch(`https://formsubmit.co/ajax/${INQUIRY_EMAIL}`, {
+      // Delivery (Nov 2026): our own /api/contact route emails the inquiry to
+      // Arabella through Resend and sends the couple an auto-reply. "Thank
+      // you" only shows once the route confirms the inquiry email was sent.
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          _subject: `New wedding inquiry from ${values.names}`,
-          _replyto: values.email,
-          _template: 'table',
-          _captcha: 'false',
-          ...Object.fromEntries(CONTACT_FIELDS.map((f) => [f.label, values[f.name] || '-'])),
-        }),
+        body: JSON.stringify({ ...values, website: honeypot }),
       });
       const data = await res.json().catch(() => ({}));
-      // FormSubmit answers the very first submission with "needs activation"
-      // (it emails Arabella a confirm link); treat that like a normal send.
-      if ((res.ok && String(data.success) !== 'false') || /activat/i.test(data.message || '')) {
+      if (res.ok && data.ok) {
         setStatus('success');
         return;
       }
-      setServerError(CONTACT_ERROR_MESSAGE);
+      setServerError(data.error || CONTACT_ERROR_MESSAGE);
       setStatus('error');
     } catch {
       setServerError(CONTACT_ERROR_MESSAGE);
@@ -107,6 +96,10 @@ export default function ContactForm() {
 
   return (
     <form noValidate onSubmit={handleSubmit} className="grid gap-x-5 gap-y-6 sm:grid-cols-2">
+      <div aria-hidden="true" className="absolute left-[-9999px] h-px w-px overflow-hidden">
+        <label htmlFor="contact-website">Website</label>
+        <input id="contact-website" name="website" type="text" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} />
+      </div>
       {CONTACT_FIELDS.map((field) => {
         const id = `contact-${field.name}`;
         const hasError = Boolean(errors[field.name]);
