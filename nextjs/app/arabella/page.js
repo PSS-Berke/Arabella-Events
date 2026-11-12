@@ -47,44 +47,6 @@ const TEAM = [
     fun: 'A thoughtful, romantic soul who thrives on meaningful connections and spontaneous experiences. Proof you can chase dreams in heels or barefoot! A home full of butterflies, 42 plants, stained glass and eclectic portraits, and a vase that’s always full. Swing dancing, line dancing, roller skating, laughter, and music.',
     email: 'arabella@arabellasweddings.com',
   },
-  {
-    name: 'Andie Murray',
-    role: 'Micro Weddings Specialist & Day-of Coordinator',
-    photo: null,
-    summary: 'Endlessly organized and full of ambition, Andie keeps every detail in its place, so you can simply be present.',
-    more: [
-      'The newest member of the AWE family, and already indispensable. Andie keeps Arabella on track and every detail in its place behind the scenes.',
-      'As our micro weddings specialist and day-of coordinator, Andie oversees our <a href="/services#micro-weddings" class="underline decoration-[#d9cfc3] underline-offset-4">micro wedding packages</a> and month-of coordination.',
-    ],
-    fun: 'Swing dancing, line dancing, and taking care of her kiddos and her puppies!',
-    email: 'hello@arabellasweddings.com',
-  },
-  {
-    name: 'Audrey',
-    role: 'Day-of Coordinator · Medium-Scale Weddings',
-    photo: null,
-    summary: 'The execution queen: over 25 years of experience in Napa and at some of the largest wedding resorts in the West.',
-    more: [
-      'With over 25 years of experience in Napa and at some of the largest wedding resorts in the West, Audrey is our execution queen.',
-      'She gained her experience serving as a banquet manager and captain throughout her career, working alongside some of the most reputable wedding planners in wine country.',
-      'Audrey leads day-of coordination for our medium-scale weddings, making sure every detail lands exactly as planned.',
-    ],
-  },
-  {
-    name: 'Malu Russell',
-    role: 'Arabella’s Partner & Logistical Direction',
-    photo: { src: '/media/malu-tlaquepaque-chapel-60cad573.jpg', alt: 'Malu Russell standing before the painted altar of the Tlaquepaque chapel' },
-    summary: 'Arabella is the creative mind; Malu is the logistical direction, always a step ahead with the alternatives ready.',
-    more: [
-      'Every strong woman needs someone in her corner, and Malu is the steady force behind AWE.',
-      'As Arabella’s partner, Malu is involved in every part of the business. From logistics and timelines to rentals, installations, setups, and breakdowns, he helps with everything, and he’s always a step ahead: anticipating what a day might need, foreseeing potential challenges, and having the alternatives ready before anyone else has noticed a thing.',
-      'While Arabella dreams up the vision and the finer details, he makes sure every plan has a backup and every moving piece lands exactly where it should, so the day unfolds calmly and beautifully.',
-      'There’s a good chance he’s helped plan, carry, build, or install something, or offered an alternative, that made your favorite moment possible.',
-      '<strong>His unofficial title?</strong> Arabella’s right-hand, professional heavy lifter, master of table drape, and the muscle behind the magic. <span style="color:#9a8158">♡</span>',
-    ],
-    fun: 'Runs his own roofing business, loves the gym and a healthy lifestyle, and is always ready to dance.',
-    email: 'malu@arabellasweddings.com',
-  },
 ];
 // "Dive deeper into my experience": the hospitality brands behind AWE, told as
 // a story rather than a résumé (no titles or dates on the page). Drawn from
@@ -157,7 +119,7 @@ export default function AboutPage() {
           <div className={SCRIPT}>meet the</div>
           <h1 className={`${H2} mt-2`}>Team</h1>
         </Reveal>
-        <div className="mx-auto mt-14 grid max-w-[1180px] items-stretch gap-8 md:grid-cols-2">
+        <div className="mx-auto mt-14 grid max-w-[560px] items-stretch gap-8">
           {TEAM.map((m, n) => (
             <Reveal key={m.name} delay={n * 150} className="flex flex-col items-center bg-white px-7 py-10 text-center md:px-9">
               <div
@@ -320,7 +282,7 @@ export default function AboutPage() {
               [
                 { src: '/media/Screenshot-2026-01-26-6_54_32-PM-52c31217.png', alt: 'Arabella laughing behind a candle-lit tablescape of white florals and autumn foliage' },
                 { src: '/media/cabin-shoot-smiling-f3d0f913.jpg', alt: 'Smiling behind the candles and white roses of a forest tablescape', pos: '50% 30%' },
-                { src: '/media/arabella-arranging-wildflowers-team-45e3753a.jpg', alt: 'Malu and Arabella arranging wildflowers into rows of glass bud vases' },
+                { src: '/media/arabella-arranging-wildflowers-team-45e3753a.jpg', alt: 'Arabella arranging wildflowers into rows of glass bud vases' },
               ],
               [
                 { src: '/media/arabella-film-portrait-laughing-fd18315b.png', alt: 'Arabella laughing in a black top, on 35mm film' },
