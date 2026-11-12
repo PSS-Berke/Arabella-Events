@@ -48,29 +48,6 @@ const TEAM = [
     email: 'arabella@arabellasweddings.com',
   },
   {
-    name: 'Andie Murray',
-    role: 'Micro Weddings Specialist & Day-of Coordinator',
-    photo: null,
-    summary: 'Endlessly organized and full of ambition, Andie keeps every detail in its place, so you can simply be present.',
-    more: [
-      'The newest member of the AWE family, and already indispensable. Andie keeps Arabella on track and every detail in its place behind the scenes.',
-      'As our micro weddings specialist and day-of coordinator, Andie oversees our <a href="/services#micro-weddings" class="underline decoration-[#d9cfc3] underline-offset-4">micro wedding packages</a> and month-of coordination.',
-    ],
-    fun: 'Swing dancing, line dancing, and taking care of her kiddos and her puppies!',
-    email: 'hello@arabellasweddings.com',
-  },
-  {
-    name: 'Audrey',
-    role: 'Day-of Coordinator · Medium-Scale Weddings',
-    photo: null,
-    summary: 'The execution queen: over 25 years of experience in Napa and at some of the largest wedding resorts in the West.',
-    more: [
-      'With over 25 years of experience in Napa and at some of the largest wedding resorts in the West, Audrey is our execution queen.',
-      'She gained her experience serving as a banquet manager and captain throughout her career, working alongside some of the most reputable wedding planners in wine country.',
-      'Audrey leads day-of coordination for our medium-scale weddings, making sure every detail lands exactly as planned.',
-    ],
-  },
-  {
     name: 'Malu Russell',
     role: 'Arabella’s Partner & Logistical Direction',
     photo: { src: '/media/malu-tlaquepaque-chapel-60cad573.jpg', alt: 'Malu Russell standing before the painted altar of the Tlaquepaque chapel' },
